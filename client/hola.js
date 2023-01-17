@@ -1,0 +1,1 @@
+const hola = "a todos"
