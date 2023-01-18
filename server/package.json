@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "\"A web page for hire professional services and pay for that.\"",
+  "description": "A web page for hire professional services and pay for that.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
