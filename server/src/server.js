@@ -3,7 +3,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import { sequelize} from './db/db.js';
-
+import routes from "./routes/firstRoute"
 
 const server = express();
 
@@ -13,7 +13,7 @@ server.use(express.json());
 server.use(cookieParser());
 
 
-// server.use('/', routes);
+ server.use('/', routes);
 
 (async function seqSync(){
   try {
