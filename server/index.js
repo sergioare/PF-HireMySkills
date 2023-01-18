@@ -1,3 +1,4 @@
+
 import server from './src/server.js';
 import * as dotenv from 'dotenv';
 dotenv.config();
@@ -12,3 +13,13 @@ const PORT = process.env.PORT || 5000;
     console.log('Unable to initiate', error)
   }
 })();
+
+function laCajaDePandora(numero) {
+  // proximamente escribiremos codigo aqui
+}
+
+obj = {
+  name,
+  age,
+};
+
