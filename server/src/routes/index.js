@@ -1,10 +1,11 @@
-const { Router } = require("express") ;
-const clientRouter = require('./client') 
-const profession = require('./profession');
+const  Router  = require( "express");
+const profession = require("./profession.js");
 
 const router = Router();
-router.use("/client", clientRouter);
-router.use("/profession", profession);
-router.use("/");
+
+router.use("/profession", profession); // traer toda la data
+
+// router.use("/");
+// router.use("/");
 
 module.exports = router;

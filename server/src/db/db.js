@@ -1,16 +1,15 @@
-// import * as dotenv from 'dotenv';
-// dotenv.config();
-const  { Sequelize } = require('sequelize');
+//import * as dotenv from "dotenv";
+const { Sequelize } = require("sequelize");
 
-const {
-  DB_USER, DB_PASSWORD, DB_NAME
-} = process.env
-
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@localhost:5432/${DB_NAME}`, {
-  dialect: 'postgres', 
-  native: false, 
-})
-
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+const sequelize = new Sequelize(
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
+  {
+    dialect: "postgres",
+    native: false,
+    logging: false,
+  }
+);
 
 const seqConn = async ()=>{
   try {
@@ -21,11 +20,10 @@ const seqConn = async ()=>{
     console.log("Authenticate has not been succesfull", error);
   }
 };
-// const { Professionals, Profession, Generalcategories } = sequelize.models;
-// console.log(sequelize.models, "acaa");
-
-// Professionals.belongsToMany(Profession, { through: "professional_profession" });
-// Profession.belongsToMany(Professionals, { through: "professional_profession" });
+const { Professional, Profession, Generalcategories } = sequelize.models;
+console.log(sequelize.models, "acaa");
+// Professional.belongsToMany(Profession, { through: "professional_profession" });
+// Profession.belongsToMany(Professional, { through: "professional_profession" });
 
 module.exports = sequelize;
 
