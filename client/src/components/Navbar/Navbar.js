@@ -1,7 +1,7 @@
 import React from "react";
 import "./NavBar.css";
 import Menu from "../Menu/Menu";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -28,6 +28,9 @@ const NavBar = () => {
         <div className="Menu_NavBar">
           <Menu />
         </div>
+        <section>
+          <Outlet />
+        </section>
       </div>
     </div>
   );
