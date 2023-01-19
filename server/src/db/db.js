@@ -1,6 +1,7 @@
-//import * as dotenv from "dotenv";
 const { Sequelize } = require("sequelize");
+const { config } = require("dotenv");
 
+config();
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 const sequelize = new Sequelize(
@@ -8,20 +9,12 @@ const sequelize = new Sequelize(
   {
     dialect: "postgres",
     native: false,
-    // logging: false,
+    logging: false,
   }
 );
 
-const seqConn = async () => {
-  try {
-    sequelize
-      .authenticate()
-      .then(() => console.log("Authenticate has been successfull"));
-  } catch (error) {
-    console.log("Authenticate has not been succesfull", error);
-  }
-};
-// const { Professional, Profession } = sequelize.models;
+const { Professional, Profession } = sequelize.models;
+console.log(Professional, "modelos");
 // Professional.belongsToMany(Profession, { through: "professional_profession" });
 // Profession.belongsToMany(Professional, { through: "professional_profession" });
 
