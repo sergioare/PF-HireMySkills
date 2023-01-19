@@ -8,4 +8,4 @@ router.use("/profession", profession); // traer toda la data
 // router.use("/");
 // router.use("/");
 
-module.exports = {router};
+module.exports = router;

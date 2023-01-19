@@ -1,21 +1,16 @@
-const  {professional,profession,categoriprofe} = requires ("../db/db.js")
- 
-const getDBInfo = async () => {
-    try{
-   const getdb = await professional.findAll({
-      include: {
-        model: profession,
-        model : categoriprofe,
-        attributes: ["name"],
-        through: {
-          attributes: [],
-        },
-      },
-    });
-    res.send(getdb)
-}catch(error){
-    res.send(error)
-}
-  };
+const { Professional, Profession } = require("../db/db.js");
 
-  module.exports = {getDBInfo}
+const getDBInfo = async () => {
+  try {
+    const getdb = await Professional.findAll();
+    res.send(getdb);
+  } catch (error) {
+    res.send(error);
+  }
+};
+
+const CreateDbprofesiona = (data) => {};
+
+module.exports = {
+  getDBInfo,
+};
