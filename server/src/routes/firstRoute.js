@@ -1,8 +1,11 @@
-const { Router } = require("express");
+import Router from "express";
+import profession from "./profession.js";
 
 const router = Router();
-router.use("/");
-router.use("/");
-router.use("/");
 
-module.exports = router;
+router.use("/profession", profession); // traer toda la data
+
+// router.use("/");
+// router.use("/");
+
+export default router;

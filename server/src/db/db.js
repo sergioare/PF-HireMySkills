@@ -22,3 +22,6 @@ export const seqConn = async ()=>{
     console.log("Authenticate has not been succesfull", error)
   }
 }
+
+
+export default sequelize
