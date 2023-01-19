@@ -1,4 +1,4 @@
-// import  {professional,profession,categoriprofe}  from "../db/db.js"
+const  {professional,profession,categoriprofe} = requires ("../db/db.js")
  
 const getDBInfo = async () => {
     try{
@@ -18,4 +18,4 @@ const getDBInfo = async () => {
 }
   };
 
-  export default getDBInfo
+  module.exports = {getDBInfo}

@@ -1,7 +1,7 @@
-import { Router } from "express";
-import getDBInfo from "../controllers/controllerOne.js";
+const  { Router } = require( "express");
+const  getDBInfo = require( "../controllers/controllerOne.js");
 const router = Router();
 router.get("/profession ",getDBInfo)
 
 
-export default router 
+module.exports =  {router}; 

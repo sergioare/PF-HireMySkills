@@ -1,6 +1,5 @@
-import server from "./src/server.js";
-import * as dotenv from "dotenv";
-dotenv.config();
+const  server = require("./src/server.js");
+
 
 const PORT = process.env.PORT || 5000;
 

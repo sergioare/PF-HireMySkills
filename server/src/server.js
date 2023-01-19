@@ -1,9 +1,9 @@
-import express from "express";
-import cors from "cors";
-import morgan from "morgan";
-import cookieParser from "cookie-parser";
-import { sequelize } from "./db/db.js";
-import routes from "./routes/firstRoute.js";
+const express = require("express");
+const cors = require("cors");
+const morgan = require("morgan");
+const cookieParser = require("cookie-parser");
+const { sequelize } = require("./db/db.js");
+const routes = require("./routes/firstRoute.js");
 
 const server = express();
 
@@ -24,4 +24,4 @@ server.use(routes);
   }
 })();
 
-export default server;
+module.exports = server;
