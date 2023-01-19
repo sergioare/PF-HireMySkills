@@ -16,13 +16,13 @@ const NavBar = () => {
         <Link to="/about">
           <div className="AboutUs_NavBar">About us</div>
         </Link>
-        <Link to="FAQs">
+        <Link to="/FAQs">
           <div className="FAQs_NavBar">FAQs</div>
         </Link>
-        <Link to="SignIn">
+        <Link to="/SignIn">
           <div className="SignIn_NavBar">Sign in</div>
         </Link>
-        <Link to="Join">
+        <Link to="/Join">
           <div className="Join_NavBar">Join</div>
         </Link>
         <div className="Menu_NavBar">

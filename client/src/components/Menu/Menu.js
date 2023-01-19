@@ -15,6 +15,7 @@ const Menu = () => {
       <Dropdown.Item>TIPs to Home</Dropdown.Item>
       <Dropdown.Item>Contact Us</Dropdown.Item>
       <Dropdown.Divider />
+      <Dropdown.Item>Account</Dropdown.Item>
       <Dropdown.Item>Sign Off</Dropdown.Item>
     </DropdownButton>
   );

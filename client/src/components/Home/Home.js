@@ -26,8 +26,8 @@ const Home = () => {
             className="Photo_Home"
           />
         </div>
-        <div className="ProfesionalName_Home">Nombre del profesional</div>
-        <div className="Stars_Home">Div for stars</div>
+        <div className="ProfesionalName_Home">Professional Name</div>
+        <div className="Stars_Home">⭐⭐⭐⭐⭐</div>
       </div>
     </div>
   );

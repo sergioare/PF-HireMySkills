@@ -6,7 +6,7 @@
   top: 0px;
 
   background: #f4a261;
-  opacity: 0.6;
+  /* opacity: 0.6; */
 }
 
 .Container_NavBar {
@@ -34,11 +34,11 @@
 
   font-family: "Work Sans";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 18px;
   line-height: 21px;
 
-  color: #2a9d8f;
+  color: #009949;
 
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -52,11 +52,11 @@
 
   font-family: "Work Sans";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 18px;
   line-height: 21px;
 
-  color: #2a9d8f;
+  color: #009949;
 
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -70,11 +70,11 @@
 
   font-family: "Work Sans";
   font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
+  font-weight: 800;
+  font-size: 30px;
   line-height: 28px;
 
-  color: #2a9d8f;
+  color: #009949;
 
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -88,11 +88,11 @@
 
   font-family: "Work Sans";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 18px;
   line-height: 21px;
 
-  color: #2a9d8f;
+  color: #009949;
 }
 
 .AboutUs_NavBar {
@@ -104,11 +104,11 @@
 
   font-family: "Work Sans";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 18px;
   line-height: 21px;
 
-  color: #2a9d8f;
+  color: #009949;
 }
 
 .FAQs_NavBar {
@@ -120,9 +120,9 @@
 
   font-family: "Work Sans";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 18px;
   line-height: 21px;
 
-  color: #2a9d8f;
+  color: #009949;
 }

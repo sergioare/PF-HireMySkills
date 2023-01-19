@@ -14,12 +14,13 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Landing />} />
         <Route path="/" element={<NavBar />}>
-          <Route path="/" element={<Landing />} />
           <Route path="home" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="categories" element={<GeneralCategory />} />
           <Route path="FAQs" element={<FAQs />} />
+          <Route path="SignIn" element={<SignIn />} />
 
           <Route path="*" element={<Navigate replace to="/" />} />
         </Route>
