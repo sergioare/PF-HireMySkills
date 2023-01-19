@@ -10,4 +10,4 @@ const getUdClient = async (req, res, next) => {
     }
 }
 
-export default getUdClient;
+module.exports = { getUdClient };

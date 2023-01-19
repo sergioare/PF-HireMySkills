@@ -1,18 +1,17 @@
-import * as dotenv from 'dotenv';
-dotenv.config();
-import  { Sequelize } from 'sequelize';
+// import * as dotenv from 'dotenv';
+// dotenv.config();
+const { Sequelize } = require('sequelize');
 
 const {
   DB_USER, DB_PASSWORD, DB_HOST, DB_NAME
 } = process.env
 
-export const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
   dialect: 'postgres', 
   native: false, 
 })
 
-
-export const seqConn = async ()=>{
+const seqConn = async ()=>{
   try {
     sequelize
     .authenticate()
@@ -21,4 +20,9 @@ export const seqConn = async ()=>{
   } catch (error) {
     console.log("Authenticate has not been succesfull", error)
   }
+}
+
+module.exports = {
+  ...sequelize.module,
+  conn: sequelize
 }
