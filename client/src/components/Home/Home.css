@@ -1,0 +1,103 @@
+.BigContainer_Home {
+  position: absolute;
+  width: 659px;
+  height: 368px;
+  left: 210px;
+  top: 326px;
+
+  background: #f4a261;
+  opacity: 1;
+  border-radius: 30px;
+  border: solid black 3px;
+}
+
+.TextPro_Home {
+  position: absolute;
+  width: 500px;
+  height: 112px;
+  left: 75px;
+  top: 50px;
+
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  text-transform: uppercase;
+
+  color: #009949;
+}
+
+.Popular_Home {
+  position: absolute;
+  width: 479px;
+  height: 24px;
+  left: 75px;
+  top: 250px;
+}
+
+.SearchBar_Home {
+  position: absolute;
+  width: 500px;
+  height: 42px;
+  left: 75px;
+  top: 200px;
+}
+
+.SearchInput_Home {
+  width: 400px;
+  height: 36px;
+  color: black;
+  background-color: white;
+  border: solid black 2px;
+}
+
+.SearchButton_Home {
+  position: absolute;
+  width: 95px;
+  height: 36px;
+  left: 400px;
+  top: 0.4px;
+
+  background: #009949;
+  text-transform: uppercase;
+  color: black;
+  border: solid black 2px;
+}
+
+.Photo_Home {
+  position: absolute;
+  width: 480px;
+  height: 600px;
+  top: -120px;
+  left: 1000px;
+  border: solid black;
+
+  border-radius: 49px;
+}
+
+.ProfesionalName_Home {
+  position: absolute;
+  width: 220px;
+  height: 22px;
+  left: 1020px;
+  top: 482px;
+
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  color: #009949;
+}
+
+.Stars_Home {
+  position: absolute;
+  width: 110px;
+  height: 22px;
+  left: 1350px;
+  top: 480px;
+}
