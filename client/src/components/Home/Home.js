@@ -31,6 +31,7 @@ const Home = () => {
         <div className="ProfesionalName_Home">Professional Name</div>
         <div className="Stars_Home">⭐⭐⭐⭐⭐</div>
       </div>
+
     </div>
   );
 };
