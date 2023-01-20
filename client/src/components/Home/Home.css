@@ -101,3 +101,19 @@
   left: 1350px;
   top: 480px;
 }
+.divGeneral {
+  position: absolute;
+  top: 55rem;
+  left: 10rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+}
+.divFooter {
+  width: 100%;
+  position: relative;
+  top: 105rem;
+  margin: 0;
+  padding: 1rem;
+  width: 100%;
+}

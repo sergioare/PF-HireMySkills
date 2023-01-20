@@ -1,12 +1,14 @@
-import React from "react";
 import "./Home.css";
 import NavBar from "../Navbar/Navbar";
 // import GeneralCategory from '../Categories/General/GeneralCategory.js'
+import GeneralCategory from "../Categories/General/GeneralCategory";
+import Footer from "../Footer/Footer";
+
 
 const Home = () => {
   return (
     <div>
-      <NavBar/>
+      <NavBar />
       <div className="BigContainer_Home">
         <div className="TextPro_Home">
           FIND THE PERFECT PROFESSIONAL SERVICES FOR YOU
@@ -31,8 +33,17 @@ const Home = () => {
         </div>
         <div className="ProfesionalName_Home">Professional Name</div>
         <div className="Stars_Home">⭐⭐⭐⭐⭐</div>
+        {/* /////////////////////////////////////////// */}
       </div>
+      <div className="divGeneral">
+        <GeneralCategory />
+      </div>
+
       {/* <GeneralCategory/> */}
+      <div className="divFooter">
+        <Footer />
+      </div>
+
     </div>
   );
 };
