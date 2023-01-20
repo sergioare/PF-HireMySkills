@@ -1,10 +1,8 @@
 const { DataTypes, } = require('sequelize');
 
-
-
-module.exports = (sequelize) => {
+  const Professionals = (sequelize) => {
     // defino el modelo
-    sequelize.define('Professionals', {
+    sequelize.define('professionals', {
       id : {
         type: DataTypes.UUID,    // este tipo de dato es para que no se repita con el de la API (234T324R23T)
         defaultValue: DataTypes.UUIDV4,   // y se genera de independencia  
@@ -52,3 +50,5 @@ module.exports = (sequelize) => {
   
     });
   };
+
+  module.exports = Professionals;

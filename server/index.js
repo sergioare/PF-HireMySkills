@@ -1,5 +1,6 @@
 
 const server = require('./src/server.js') ;
+const sequelize = require('./src/db/db')
 // const * as dotenv = require('dotenv');
 // dotenv.config();
 
