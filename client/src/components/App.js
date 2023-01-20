@@ -1,4 +1,6 @@
+
 import "./App.css";
+import { Fragment } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Landing from "./Landing/Landing";
 import Home from "./Home/Home";
@@ -13,18 +15,19 @@ import SignIn from "./SignIn/Acc/SignIn";
 function App() {
   return (
     <BrowserRouter>
+    <Fragment>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/" element={<NavBar />}>
-          <Route path="home" element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="categories" element={<GeneralCategory />} />
-          <Route path="FAQs" element={<FAQs />} />
-          <Route path="account" element={<SignIn />} />
-
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/categories" element={<GeneralCategory />} />
+          <Route path="/FAQs" element={<FAQs />} />
+          <Route path="/account" element={<SignIn />} />
+          <Route path='/creators' element={<Team/>}/>
           <Route path="*" element={<Navigate replace to="/" />} />
-        </Route>
+       
       </Routes>
+      </Fragment>
     </BrowserRouter>
   );
 }
