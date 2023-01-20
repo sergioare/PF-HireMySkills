@@ -38,6 +38,7 @@ const GeneralCategory = () => {
   ]);
   return (
     <div className={s.cards}>
+      <h1>CATEGORIES</h1>
       {professional.map((prof) => {
         return (
           <div className={s.cardsGeneral}>

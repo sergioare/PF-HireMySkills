@@ -12,7 +12,9 @@ const Footer = () => {
         <i class="fa-brands fa-github"></i>
         <i class="fa-brands fa-linkedin"></i>
       </div>
-      <div className={s.fooDerch}>Derechos Reservados © Grupo 11 Henry</div>
+      <div className={s.fooDerch}>
+        All rights reserved © 2023, Working Group XI .
+      </div>
     </div>
   );
 };

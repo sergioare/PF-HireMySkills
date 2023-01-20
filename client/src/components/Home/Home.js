@@ -2,7 +2,6 @@ import "./Home.css";
 import NavBar from "../Navbar/Navbar";
 import GeneralCategory from "../Categories/General/GeneralCategory";
 import Footer from "../Footer/Footer";
-import s from "../Home/Home.module.css";
 
 const Home = () => {
   return (
@@ -32,14 +31,13 @@ const Home = () => {
         </div>
         <div className="ProfesionalName_Home">Professional Name</div>
         <div className="Stars_Home">⭐⭐⭐⭐⭐</div>
+        {/* /////////////////////////////////////////// */}
       </div>
-      <div className={s.divGeneral}>
+      <div className="divGeneral">
         <GeneralCategory />
       </div>
-      {/* <div className={s.divSpecific}>
-        <SpecificCategory />
-      </div> */}
-      <div className={s.divFooter}>
+
+      <div className="divFooter">
         <Footer />
       </div>
     </div>
