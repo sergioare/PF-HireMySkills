@@ -11,6 +11,7 @@ import FormStaff from "./Form/FormStaff";
 import JoinForm from "./Join/JoinForm";
 import SignIn from "./SignIn/Acc/SignIn";
 import Team from "./Team/Team";
+import NavBar from "./Navbar/Navbar";
 
 function App() {
   return (
@@ -18,14 +19,16 @@ function App() {
       <Fragment>
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="home" element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="/categories" element={<GeneralCategory />} />
-          <Route path="/categories/:id" element={<SpecificCategory />} />
-          <Route path="FAQs" element={<FAQs />} />
-          <Route path="/account" element={<SignIn />} />
           <Route path="/creators" element={<Team />} />
-          {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
+          <Route path="/" element={<NavBar />}>
+            <Route path="home" element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="/categories" element={<GeneralCategory />} />
+            <Route path="/categories/:id" element={<SpecificCategory />} />
+            <Route path="FAQs" element={<FAQs />} />
+            <Route path="/account" element={<SignIn />} />
+            {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
+          </Route>
         </Routes>
       </Fragment>
     </BrowserRouter>
