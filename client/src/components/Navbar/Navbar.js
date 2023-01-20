@@ -1,31 +1,31 @@
 import React from "react";
-import "./NavBar.css";
+import styles from "./NavBar.module.css";
 import Menu from "../Menu/Menu";
 import { Link, Outlet } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <div className="BigContainer_NavBar">
-      <div className="Container_NavBar">
+    <div className={styles.BigContainer_NavBar}>
+      <div className={styles.Container_NavBar}>
         <Link to="/home">
-          <div className="HMS_NavBar">HireMySkills</div>
+          <div className={styles.HMS_NavBar}>HireMySkills</div>
         </Link>
         <Link to="/categories">
-          <div className="Categories_NavBar">Categories</div>
+          <div className={styles.Categories_NavBar}>Categories</div>
         </Link>
         <Link to="/about">
-          <div className="AboutUs_NavBar">About us</div>
+          <div className={styles.AboutUs_NavBar}>About us</div>
         </Link>
         <Link to="/FAQs">
-          <div className="FAQs_NavBar">FAQs</div>
+          <div className={styles.FAQs_NavBar}>FAQs</div>
         </Link>
         <Link to="/account">
-          <div className="SignIn_NavBar">Account</div>
+          <div className={styles.SignIn_NavBar}>Account</div>
         </Link>
         {/*         <Link to="/Join">
           <div className="Join_NavBar">Join</div>
         </Link> */}
-        <div className="Menu_NavBar">
+        <div className={styles.Menu_NavBar}>
           <Menu />
         </div>
         <section>
