@@ -1,0 +1,16 @@
+.home {
+  display: inline-block;
+  width: 100%;
+}
+.divGeneral {
+  width: 60%;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+  background-color: bisque;
+}
+.divFooter {
+  margin: 0;
+  padding: 1rem;
+  width: 100%;
+  background-color: bisque;
+}
