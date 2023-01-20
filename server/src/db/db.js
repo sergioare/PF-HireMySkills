@@ -13,8 +13,6 @@ const sequelize = new Sequelize(
   }
 );
 
-const { Professional, Profession } = sequelize.models;
-console.log(Professional, "modelos");
 // Professional.belongsToMany(Profession, { through: "professional_profession" });
 // Profession.belongsToMany(Professional, { through: "professional_profession" });
 
