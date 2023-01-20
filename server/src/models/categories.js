@@ -1,7 +1,9 @@
 const { DataTypes } = require("sequelize");
+const sequelize = require("../db/db.js");
 
-module.exports = (sequelize) => {
-  sequelize.define("Generalcategories", {
+const categories = sequelize.define(
+  "categories",
+  {
     id: {
       type: DataTypes.UUID, // este tipo de dato es para que no se repita con el de la API (234T324R23T)
       defaultValue: DataTypes.UUIDV4, // y se genera de independencia
@@ -12,5 +14,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-  });
-};
+  },
+  {
+    timestamps: false,
+  }
+);
+
+module.exports = categories;

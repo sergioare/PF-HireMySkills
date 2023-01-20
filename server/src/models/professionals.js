@@ -61,4 +61,4 @@ const professionals =
       }
   });
 
-  module.exports = Professionals;
+  module.exports = professionals;

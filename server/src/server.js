@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const sequelize = require("./db/db.js");
 const routes = require("./routes/index.js");
-let professionals, users, categories, profession;
+// let professionals, users, categories, profession;
 
 const server = express();
 
@@ -30,7 +30,7 @@ server.use(routes);
   }
 })();
 
-({ professionals, users, categories, profession } = sequelize.models);
+const { professionals, users, categories, profession } = sequelize.models;
 
 professionals.belongsToMany(users, { through: "professionals_users" });
 users.belongsToMany(professionals, { through: "professionals_users" });
