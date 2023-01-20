@@ -1,0 +1,10 @@
+.home {
+    display: inline-block;
+    width: 50%;
+  }
+  .divGeneral {
+    width: 60%;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+    background-color: bisque;
+  }
