@@ -1,11 +1,10 @@
+const server = require("./src/server.js");
+const sequelize = require("./src/db/db.js");
+const { config } = require("dotenv");
 
-const server = require('./src/server.js') ;
-const sequelize = require('./src/db/db')
-// const * as dotenv = require('dotenv');
-// dotenv.config();
+config();
 
-
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 (async function startServer() {
   try {
@@ -17,4 +16,12 @@ const PORT = process.env.PORT || 5000;
   }
 })();
 
-
+(async () => {
+  try {
+    sequelize
+      .authenticate()
+      .then(() => console.log("Authenticate has been successfull"));
+  } catch (error) {
+    console.log("Authenticate has not been succesfull", error);
+  }
+})();

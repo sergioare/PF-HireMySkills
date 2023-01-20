@@ -2,10 +2,10 @@ const { DataTypes } = require("sequelize");
 
 const sequelize = require("../db/db.js");
 
-const professionals =
+const users =
   // defino el modelo
   sequelize.define(
-    "professionals",
+    "users",
     {
       id: {
         type: DataTypes.UUID, // este tipo de dato es para que no se repita con el de la API (234T324R23T)
@@ -16,16 +16,6 @@ const professionals =
       name: {
         // nombre del usuario
         type: DataTypes.STRING,
-        allowNull: false,
-      },
-      description: {
-        // skill
-        type: DataTypes.TEXT,
-        allowNull: true,
-      },
-      profession: {
-        // array, could be more than one
-        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
       },
       photo: {
@@ -47,18 +37,15 @@ const professionals =
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      rating: {
-        type: DataTypes.FLOAT,
-        default: 5,
-      },
-      portfolio: {
-        type: DataTypes.TEXT,
-      },
       deleted: {
         //borrado logico
         type: DataTypes.BOOLEAN,
-        default: false,
-      }
-  });
+        defaultValue: "false",
+      },
+    },
+    {
+      timestamps: false,
+    }
+  );
 
-  module.exports = Professionals;
+module.exports = users;

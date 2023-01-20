@@ -1,13 +1,13 @@
-const  Router  = require( "express");
-const profession = require("./profession.js");
-const client = require('./client');
-
+const Router = require("express");
 const router = Router();
+const category = require("./category.js");
+const profession = require("./profession.js");
+const professionals = require("./professionals.js");
+const users = require("./users.js");
 
-router.use("/profession", profession); // traer toda la data
-router.use('/client', client);
-
-// router.use("/");
-// router.use("/");
+router.use("/category", category);
+router.use("/profession", profession);
+router.use("/professionals", professionals);
+router.use("/users", users);
 
 module.exports = router;

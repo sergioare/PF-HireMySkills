@@ -2,7 +2,7 @@ require('dotenv').config();
 const { Sequelize } = require("sequelize");
 const Generalcategories = require('../models/Generalcategories');
 const Professionals = require('../models/Professionals');
-const Profession = require('../models/Profession');
+const Profession = require('../models/Profession ');
 
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
