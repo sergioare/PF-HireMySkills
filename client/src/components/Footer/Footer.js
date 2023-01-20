@@ -5,7 +5,13 @@ const Footer = () => {
   return (
     <div className={s.Footer}>
       <h1 className={s.fooLogo}>HireMySkills</h1>
-      <div className={s.fooIcon}>face whatsapp instagram linkedin github</div>
+      <div className={s.fooIcon}>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-whatsapp"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-github"></i>
+        <i class="fa-brands fa-linkedin"></i>
+      </div>
       <div className={s.fooDerch}>Derechos Reservados © Grupo 11 Henry</div>
     </div>
   );
