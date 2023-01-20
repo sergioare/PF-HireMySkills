@@ -8,7 +8,7 @@ const GeneralCategory = () => {
   const [professional] = useState([
     {
       id: 1,
-      name: "SALUD",
+      name: "Health",
       categoriesSpecific: ["MEDICINA GENERAL", "ODONTOLOGIA", "TERAPIA FISICA"],
     },
     {

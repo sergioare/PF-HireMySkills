@@ -10,11 +10,11 @@ const SpecificCategory = () => {
   const professional = [
     {
       id: 1,
-      name: "SALUD",
+      name: "Health",
       categoriesSpecific: [
         {
           id: 1234,
-          specific: "MEDICINA GENERAL",
+          specific: "general medicine",
         },
         {
           id: 12,
