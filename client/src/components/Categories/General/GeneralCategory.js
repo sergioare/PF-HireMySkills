@@ -1,14 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import s from "../General/GeneralCategory.module.css";
-// import SpecificCategory from "../Specific/SpecificCategory";
 import { useState } from "react";
 
 const GeneralCategory = () => {
   const [professional] = useState([
     {
       id: 1,
-      name: "Health",
+      name: "SALUD",
       categoriesSpecific: ["MEDICINA GENERAL", "ODONTOLOGIA", "TERAPIA FISICA"],
     },
     {
@@ -45,10 +44,10 @@ const GeneralCategory = () => {
             <Link to={`/home/${prof.id}`}>
               <h3>{prof.name} </h3>
             </Link>
+            <Link to={`/categories/${prof.id}`}></Link>
           </div>
         );
       })}
-      {/* <SpecificCategory /> */}
     </div>
   );
 };

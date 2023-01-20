@@ -1,7 +1,7 @@
 import React from "react";
 import "./NavBar.css";
 import Menu from "../Menu/Menu";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -16,18 +16,21 @@ const NavBar = () => {
         <Link to="/about">
           <div className="AboutUs_NavBar">About us</div>
         </Link>
-        <Link to="FAQs">
+        <Link to="/FAQs">
           <div className="FAQs_NavBar">FAQs</div>
         </Link>
-        <Link to="SignIn">
-          <div className="SignIn_NavBar">Sign in</div>
+        <Link to="/account">
+          <div className="SignIn_NavBar">Account</div>
         </Link>
-        <Link to="Join">
+        {/*         <Link to="/Join">
           <div className="Join_NavBar">Join</div>
-        </Link>
+        </Link> */}
         <div className="Menu_NavBar">
           <Menu />
         </div>
+        <section>
+          <Outlet />
+        </section>
       </div>
     </div>
   );

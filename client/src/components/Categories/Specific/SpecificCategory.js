@@ -1,7 +1,6 @@
 import React from "react";
 import s from "../Specific/SpecificCategory.module.css";
-// import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const SpecificCategory = () => {
   const { id } = useParams();
@@ -10,18 +9,18 @@ const SpecificCategory = () => {
   const professional = [
     {
       id: 1,
-      name: "Health",
+      name: "SALUD",
       categoriesSpecific: [
         {
-          id: 1234,
-          specific: "general medicine",
+          id: 0,
+          specific: "MEDICINA GENERAL",
         },
         {
-          id: 12,
+          id: 1,
           specific: "ODONTOLOGIA",
         },
         {
-          id: 123,
+          id: 2,
           specific: "VETERINARIA",
         },
       ],
@@ -39,7 +38,7 @@ const SpecificCategory = () => {
           specific: "ACCOUNTING",
         },
         {
-          id: 123,
+          id: 5,
           specific: "MANAGEMENT",
         },
       ],
@@ -49,15 +48,15 @@ const SpecificCategory = () => {
       name: "INGENIERIA",
       categoriesSpecific: [
         {
-          id: 1234,
+          id: 6,
           specific: "ELECTRIC",
         },
         {
-          id: 12,
+          id: 7,
           specific: "MECHANICS",
         },
         {
-          id: 123,
+          id: 8,
           specific: "ENVIRRONMENTAL",
         },
       ],
@@ -67,15 +66,15 @@ const SpecificCategory = () => {
       name: "HOGAR",
       categoriesSpecific: [
         {
-          id: 1234,
+          id: 9,
           specific: "CLEANING",
         },
         {
-          id: 12,
-          specific: "CARGIN FOR ADULTS",
+          id: 10,
+          specific: "CARE ADULTS",
         },
         {
-          id: 123,
+          id: 11,
           specific: "PLUMBING",
         },
       ],
@@ -85,15 +84,15 @@ const SpecificCategory = () => {
       name: "TECNOLOGIA",
       categoriesSpecific: [
         {
-          id: 1234,
+          id: 12,
           specific: "TELEFONIA",
         },
         {
-          id: 12,
+          id: 13,
           specific: "INTERNET",
         },
         {
-          id: 123,
+          id: 14,
           specific: "TELEVISION",
         },
       ],
@@ -103,15 +102,15 @@ const SpecificCategory = () => {
       name: "PROGRAMACION",
       categoriesSpecific: [
         {
-          id: 1234,
+          id: 15,
           specific: "DISEÑO WEB",
         },
         {
-          id: 12,
+          id: 16,
           specific: "APLICACIONES",
         },
         {
-          id: 123,
+          id: 17,
           specific: "SITIOS WEB",
         },
       ],
@@ -128,7 +127,9 @@ const SpecificCategory = () => {
       {aux[0].categoriesSpecific.map((prof) => {
         return (
           <div className={s.divSpecific}>
-            <h3>{prof.specific} </h3>
+            <Link to={`/categories/${prof.id}`}>
+              <h3>{prof.specific} </h3>
+            </Link>
           </div>
         );
       })}
