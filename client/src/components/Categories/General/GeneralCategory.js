@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import s from "../General/GeneralCategory.module.css";
-// import SpecificCategory from "../Specific/SpecificCategory";
 import { useState } from "react";
 
 const GeneralCategory = () => {
@@ -39,16 +38,17 @@ const GeneralCategory = () => {
   ]);
   return (
     <div className={s.cards}>
+      <h1>CATEGORIES</h1>
       {professional.map((prof) => {
         return (
           <div className={s.cardsGeneral}>
-            <Link to={`/categories/${prof.id}`}>
+            <Link to={`/home/${prof.id}`}>
               <h3>{prof.name} </h3>
             </Link>
+            <Link to={`/categories/${prof.id}`}></Link>
           </div>
         );
       })}
-      {/* <SpecificCategory /> */}
     </div>
   );
 };
