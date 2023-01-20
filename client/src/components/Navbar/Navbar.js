@@ -19,12 +19,12 @@ const NavBar = () => {
         <Link to="/FAQs">
           <div className="FAQs_NavBar">FAQs</div>
         </Link>
-        <Link to="/SignIn">
-          <div className="SignIn_NavBar">Sign in</div>
+        <Link to="/account">
+          <div className="SignIn_NavBar">Account</div>
         </Link>
-        <Link to="/Join">
+        {/*         <Link to="/Join">
           <div className="Join_NavBar">Join</div>
-        </Link>
+        </Link> */}
         <div className="Menu_NavBar">
           <Menu />
         </div>

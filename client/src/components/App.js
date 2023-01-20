@@ -8,7 +8,7 @@ import GeneralCategory from "./Categories/General/GeneralCategory";
 import FAQs from "./FAQs/FAQs";
 import FormStaff from "./Form/FormStaff";
 import JoinForm from "./Join/JoinForm";
-import SignIn from "./SignIn/SignIn";
+import SignIn from "./SignIn/Acc/SignIn";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="categories" element={<GeneralCategory />} />
           <Route path="FAQs" element={<FAQs />} />
-          <Route path="SignIn" element={<SignIn />} />
+          <Route path="account" element={<SignIn />} />
 
           <Route path="*" element={<Navigate replace to="/" />} />
         </Route>
