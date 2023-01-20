@@ -1,9 +1,11 @@
 import React from "react";
 import "./Home.css";
+import NavBar from "../Navbar/Navbar";
 
 const Home = () => {
   return (
     <div>
+      <NavBar/>
       <div className="BigContainer_Home">
         <div className="TextPro_Home">
           FIND THE PERFECT PROFESSIONAL SERVICES FOR YOU

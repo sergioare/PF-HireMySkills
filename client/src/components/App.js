@@ -11,6 +11,7 @@ import FAQs from "./FAQs/FAQs";
 import FormStaff from "./Form/FormStaff";
 import JoinForm from "./Join/JoinForm";
 import SignIn from "./SignIn/Acc/SignIn";
+import Team from './Team/Team'
 
 function App() {
   return (
