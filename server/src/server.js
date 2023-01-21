@@ -15,14 +15,12 @@ server.use(cookieParser());
 
 server.use(routes);
 
- server.use('/', routes);
-
-(async function seqSync(){
+(async function seqSync() {
   try {
     sequelize
       .sync({ force: false })
       .then(() => {
-        console.log("Postgres sync has been established successfully.");
+        // console.log("Postgres sync has been established successfully.");
       })
       .then(console.log(sequelize.models, "Modelos"));
   } catch (error) {
@@ -30,18 +28,16 @@ server.use(routes);
   }
 })();
 
+// ({ professionals, users, categories, profession } = sequelize.models);
 const { professionals, users, categories, profession } = sequelize.models;
 
-professionals.belongsToMany(users, { through: "professionals_users" });
-users.belongsToMany(professionals, { through: "professionals_users" });
-professionals.belongsToMany(profession, {
-  through: "professionals_profession",
-});
-profession.belongsToMany(professionals, {
-  through: "professionals_profession",
-});
+// professionals.belongsToMany(users, { through: "professionals_users" });
+// users.belongsToMany(professionals, { through: "professionals_users" });
 
-categories.hasMany(profession);
-profession.belongsTo(categories);
+// professionals.belongsToMany(profession, { through: "professionals_profession" });
+// profession.belongsToMany(professionals, { through: "professionals_profession" });
+
+// categories.hasMany(profession);
+// profession.belongsTo(categories);
 
 module.exports = server;

@@ -7,7 +7,7 @@ const users = require("./users.js");
 
 router.use("/category", category);
 router.use("/profession", profession);
-router.use("/professionals", professionals);
 router.use("/users", users);
+router.use("/professionals", professionals);
 
 module.exports = router;

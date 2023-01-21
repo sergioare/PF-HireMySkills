@@ -1,11 +1,21 @@
-const Professionals = require("../controllers/Professionals.js");
+// const Professionals = require("../controllers/Professionals.js");
+// const Router = require("express");
+// const router = Router();
+
+// try {
+//   router.post("/", Professionals);
+// } catch (error) {
+//   alert(error.message);
+// }
+
+// module.exports = router;
+
 const Router = require("express");
-const router = Router();
+const { postcreate } = require("../controllers/controllerOne");
 
-try {
-  router.post("/", Professionals);
-} catch (error) {
-  alert(error.message);
-}
+const ProfessionalRouter = Router();
 
-module.exports = router;
+ProfessionalRouter.get('/', postcreate);
+ProfessionalRouter.post('/', postcreate);
+
+module.exports = ProfessionalRouter;
