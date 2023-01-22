@@ -40,7 +40,7 @@ const users =
       deleted: {
         //borrado logico
         type: DataTypes.BOOLEAN,
-        defaultValue: "false",
+        defaultValue: false,
       },
     },
     {
