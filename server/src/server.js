@@ -1,30 +1,53 @@
-import express from 'express';
-import cors from 'cors';
-import morgan from 'morgan';
-import cookieParser from 'cookie-parser';
-import { sequelize} from './db/db.js';
-import routes from "./routes/firstRoute"
+const express = require("express");
+const cors = require("cors");
+const morgan = require("morgan");
+const cookieParser = require("cookie-parser");
+const sequelize = require("./db/db.js");
+const routes = require("./routes/index.js");
 
 const server = express();
 
 server.use(cors());
-server.use(morgan('dev'));
+server.use(morgan("dev"));
 server.use(express.json());
 server.use(cookieParser());
 
+server.use(routes);
 
- server.use('/', routes);
-
-(async function seqSync(){
+(async function seqSync() {
   try {
-    sequelize
-      .sync({force:false})
-      .then(() => {
-        console.log('Postgres sync has been established successfully.')
-      })
+    sequelize.sync({ force: false }).then(() => {
+      console.log("Postgres sync has been established successfully.");
+    });
   } catch (error) {
-    console.error('Unable to sync to the database:', error)
+    console.error("Unable to sync to the database:", error);
   }
 })();
-  
-export default server;
+
+const { professionals, users, categories, profession, products } =
+  sequelize.models;
+
+professionals.belongsToMany(users, { through: "professionals_users" });
+users.belongsToMany(professionals, { through: "professionals_users" });
+
+professionals.belongsToMany(profession, {
+  through: "professionals_profession",
+});
+profession.belongsToMany(professionals, {
+  through: "professionals_profession",
+});
+
+categories.hasMany(profession);
+profession.belongsTo(categories);
+
+professionals.hasMany(products);
+products.belongsTo(professionals);
+
+products.belongsToMany(users, {
+  through: "products_users",
+});
+users.belongsToMany(products, {
+  through: "products_users",
+});
+
+module.exports = server;

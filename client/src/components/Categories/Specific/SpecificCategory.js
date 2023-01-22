@@ -1,6 +1,5 @@
 import React from "react";
 import s from "../Specific/SpecificCategory.module.css";
-// import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 const SpecificCategory = () => {
@@ -31,11 +30,11 @@ const SpecificCategory = () => {
       name: "ADMINISTRACION",
       categoriesSpecific: [
         {
-          id: 3,
+          id: 1234,
           specific: "SECRETARY",
         },
         {
-          id: 4,
+          id: 12,
           specific: "ACCOUNTING",
         },
         {
@@ -125,17 +124,18 @@ const SpecificCategory = () => {
   console.log(aux);
   return (
     <div className={s.specific}>
+      <div>
+        <h1>Profession</h1>
+      </div>
       {aux[0].categoriesSpecific.map((prof) => {
         return (
           <div className={s.divSpecific}>
-          <Link to={`/categories/${prof.id}`}>
-            <h3>{prof.specific} </h3>
-          </Link>
+            <Link to={`/categories/${prof.id}`}>
+              <h3>{prof.specific} </h3>
+            </Link>
           </div>
         );
       })}
-
-      {/* <h1>Hola</h1> */}
     </div>
   );
 };

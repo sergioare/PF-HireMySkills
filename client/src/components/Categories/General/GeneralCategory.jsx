@@ -36,8 +36,6 @@ const GeneralCategory = () => {
       categoriesSpecific: ["DISEÑO WEB", "APLICACIONES", "SITIOS WEB"],
     },
   ]);
-
-  
   return (
     <div className={s.cards}>
       <h1>CATEGORIES</h1>

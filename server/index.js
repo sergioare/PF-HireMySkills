@@ -1,25 +1,27 @@
+const server = require("./src/server.js");
+const sequelize = require("./src/db/db.js");
+const { config } = require("dotenv");
 
-import server from './src/server.js';
-import * as dotenv from 'dotenv';
-dotenv.config();
+config();
 
+const PORT = process.env.PORT;
 
-const PORT = process.env.PORT || 5000;
-
-(async function startServer(){
-  try{
-    server.listen(PORT, ()=> console.log(`Server running on port http://localhost:${PORT}`))
-  }catch(error){
-    console.log('Unable to initiate', error)
+(async function startServer() {
+  try {
+    server.listen(PORT, () =>
+      console.log(`Server running on port http://localhost:${PORT}`)
+    );
+  } catch (error) {
+    console.log("Unable to initiate", error);
   }
 })();
 
-function laCajaDePandora(numero) {
-  // proximamente escribiremos codigo aqui
-}
-
-obj = {
-  name,
-  age,
-};
-
+(async () => {
+  try {
+    sequelize
+      .authenticate()
+      .then(() => console.log("Authenticate has been successfull"));
+  } catch (error) {
+    console.log("Authenticate has not been succesfull", error);
+  }
+})();
