@@ -14,6 +14,7 @@ h4 {
   margin-left: 10rem;
   font-size: 20px;
 }
+
 .faqMain {
   display: flex;
   margin: 0 auto;
@@ -27,7 +28,6 @@ h4 {
   padding-top: 2.5rem;
   margin-left: 3.5rem;
   font-size: 18px;
-  font-weight: 700;
   background-color: #435d92;
   color: white;
   border-radius: 10px;

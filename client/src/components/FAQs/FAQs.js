@@ -1,16 +1,16 @@
 import React from "react";
-import s from "../FAQs/FAQs.module.css";
+import styles from "../FAQs/FAQs.module.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
 const FAQs = () => {
   return (
-    <div className={s.faqs}>
+    <div className={styles.faqs}>
       <Navbar />
       <h2>What do you need help with? </h2>
       <h4>Popular topics</h4>
 
-      <div className={s.faqMain}>
+      <div className={styles.faqMain}>
         <p>
           Contract management <br />
           of a professional
@@ -19,7 +19,7 @@ const FAQs = () => {
         <p>Invoice</p>
         <p>Client</p>
       </div>
-      <div className={s.faqSeccion}>
+      <div className={styles.faqSeccion}>
         <p>
           <b>How it works HireMySkills?</b>
           <hr />
