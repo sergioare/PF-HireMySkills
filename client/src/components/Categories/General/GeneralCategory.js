@@ -37,6 +37,8 @@ const GeneralCategory = () => {
       categoriesSpecific: ["DISEÑO WEB", "APLICACIONES", "SITIOS WEB"],
     },
   ]);
+
+  
   return (
     <div className={s.cards}>
       {professional.map((prof) => {
