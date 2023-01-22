@@ -3,13 +3,11 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./components/App";
 import { Auth0Provider } from "@auth0/auth0-react";
-<<<<<<< Updated upstream
 import bootstrap from "bootstrap/dist/css/bootstrap.min.css";
-=======
 import {Provider} from 'react-redux'
 import store from './redux/store/store'
 // import bootstrap from "bootstrap/dist/css/bootstrap.min.css";
->>>>>>> Stashed changes
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
