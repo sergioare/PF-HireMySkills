@@ -1,0 +1,24 @@
+.BigContainer_About {
+  margin-top: 85px;
+  margin-left: 420px;
+  /* border: 2px solid black; */
+  padding: 10px;
+}
+
+.About_About {
+  font-size: xx-large;
+  margin-left: 450px;
+  text-decoration: underline;
+}
+
+.img_About {
+  width: 500px;
+  height: 300px;
+  margin-top: 50px;
+  margin-left: 270px;
+  margin-bottom: 50px;
+}
+
+.Footer_About {
+  padding-top: 100px;
+}
