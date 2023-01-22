@@ -124,6 +124,9 @@ const SpecificCategory = () => {
   console.log(aux);
   return (
     <div className={s.specific}>
+      <div>
+        <h1>Profession</h1>
+      </div>
       {aux[0].categoriesSpecific.map((prof) => {
         return (
           <div className={s.divSpecific}>
@@ -133,8 +136,6 @@ const SpecificCategory = () => {
           </div>
         );
       })}
-
-      {/* <h1>Hola</h1> */}
     </div>
   );
 };

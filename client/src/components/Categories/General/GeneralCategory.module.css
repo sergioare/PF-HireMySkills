@@ -1,11 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap");
+
 .cards {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   gap: 4rem;
   flex-wrap: wrap;
+  /* provisional changes */
+  margin-top: 170px;
+  margin-left: 400px;
 }
 h1 {
   width: 100%;

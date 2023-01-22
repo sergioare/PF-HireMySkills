@@ -5,12 +5,15 @@
   height: 720px;
   top: 157px;
   left: 320px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .Container_ProfileLogout_SignIn {
   position: absolute;
   width: 940px;
-  height: 320px;
+  height: 420px; /* era 320px  */
   top: 180px;
   left: 169px;
   border: solid black 2px;

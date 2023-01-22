@@ -2,9 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   gap: 4rem;
   flex-wrap: wrap;
+  /* provisional changes */
+  margin-top: 170px;
+  margin-left: 400px;
 }
 .divSpecific {
   display: inline;
