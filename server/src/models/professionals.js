@@ -23,11 +23,6 @@ const professionals =
         type: DataTypes.TEXT,
         allowNull: true,
       },
-      profession: {
-        // array, could be more than one
-        type: DataTypes.ARRAY(DataTypes.STRING),
-        allowNull: false,
-      },
       photo: {
         // la foto del rostro del profesional
         type: DataTypes.TEXT,
@@ -44,7 +39,7 @@ const professionals =
       },
       contact: {
         // numero del profesional
-        type: DataTypes.INTEGER,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       rating: {
@@ -53,6 +48,9 @@ const professionals =
       },
       portfolio: {
         type: DataTypes.TEXT,
+      },
+      professions: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
       },
       deleted: {
         //borrado logico

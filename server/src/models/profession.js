@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../db/db.js");
 
-const Professions = sequelize.define(
+const professions = sequelize.define(
   "profession",
   {
     id: {
@@ -20,4 +20,4 @@ const Professions = sequelize.define(
   }
 );
 
-module.exports = Professions;
+module.exports = professions;

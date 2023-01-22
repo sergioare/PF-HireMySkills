@@ -13,9 +13,6 @@ const postCategory = async (req, res) => {
       })
     )
     .catch((err) => res.status(400).json({ message: err.message }));
-  // } catch (error) {
-  //   res.status(400).json({ message: error.message });
-  // }
 };
 
 module.exports = postCategory;
