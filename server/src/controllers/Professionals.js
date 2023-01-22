@@ -2,16 +2,8 @@ const Professionals = require("../models/professionals.js");
 const Profession = require("../models/profession.js");
 
 const postProfessional = async (req, res) => {
-  let {
-    name,
-    description,
-    photo,
-    email,
-    town,
-    contact,
-    portfolio,
-    professions,
-  } = req.body;
+  let { name, description, photo, email, town, contact, portfolio, skills } =
+    req.body;
 
   let CreateProfessional = await Professionals.create({
     name,
@@ -21,6 +13,7 @@ const postProfessional = async (req, res) => {
     town,
     contact,
     portfolio,
+    skills,
   })
     // .then(() =>
     //   res.json({
@@ -35,7 +28,7 @@ const postProfessional = async (req, res) => {
     // )
     .catch((err) => res.status(400).json({ message: err.message }));
 
-  let auxprof = await Profession.findAll({ where: { id: professions } });
+  let auxprof = await Profession.findAll({ where: { id: skills } });
   console.log(auxprof);
 
   CreateProfessional.addProfessions(auxprof);

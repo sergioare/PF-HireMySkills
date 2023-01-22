@@ -49,13 +49,13 @@ const professionals =
       portfolio: {
         type: DataTypes.TEXT,
       },
-      professions: {
+      skills: {
         type: DataTypes.ARRAY(DataTypes.STRING),
       },
       deleted: {
         //borrado logico
         type: DataTypes.BOOLEAN,
-        default: false,
+        defaultValue: false,
       },
     },
     {

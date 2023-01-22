@@ -16,12 +16,9 @@ server.use(routes);
 
 (async function seqSync() {
   try {
-    sequelize
-      .sync({ force: true })
-      .then(() => {
-        console.log("Postgres sync has been established successfully.");
-      })
-      .then(console.log(sequelize.models, "Modelos"));
+    sequelize.sync({ force: false }).then(() => {
+      console.log("Postgres sync has been established successfully.");
+    });
   } catch (error) {
     console.error("Unable to sync to the database:", error);
   }
@@ -32,6 +29,7 @@ const { professionals, users, categories, profession, products } =
 
 professionals.belongsToMany(users, { through: "professionals_users" });
 users.belongsToMany(professionals, { through: "professionals_users" });
+
 professionals.belongsToMany(profession, {
   through: "professionals_profession",
 });
