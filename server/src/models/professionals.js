@@ -43,8 +43,8 @@ const professionals =
         allowNull: false,
       },
       rating: {
-        type: DataTypes.FLOAT,
-        default: 5,
+        type: DataTypes.DECIMAL(3, 2),
+        defaultValue: 5.0,
       },
       portfolio: {
         type: DataTypes.TEXT,
