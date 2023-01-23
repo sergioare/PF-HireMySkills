@@ -21,7 +21,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/creators" element={<Team />} />
           <Route path="/" element={<NavBar />}>
-            <Route path="home" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="/categories" element={<GeneralCategory />} />
             <Route path="/categories/:id" element={<SpecificCategory />} />
@@ -29,7 +29,12 @@ function App() {
             <Route path="/account" element={<SignIn />} />
             {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
           </Route>
+
           <Route path="/form" element={<Form />} />
+
+          <Route path="/form" element={<Form />} />
+
+          {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
         </Routes>
       </Fragment>
     </BrowserRouter>

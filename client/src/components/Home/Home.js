@@ -5,7 +5,7 @@ import styles from "./Home.module.css";
 import NavBar from "../Navbar/Navbar";
 import GeneralCategory from "../Categories/General/GeneralCategory";
 import Ordering from "../Ordering/Ordering";
-import { orderCategories } from "../../redux/actions/actions";
+//import { orderCategories } from "../../redux/actions/actions";
 
 import Footer from "../Footer/Footer";
 

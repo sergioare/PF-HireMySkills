@@ -37,20 +37,20 @@ export default function Ordering({ handlerByNameCategories, namechange }) {
   ];
 
   // eslint-disable-next-line no-lone-blocks
-  // {
-  //   professional.map((el) => {
-  //     return el.professional.sort((a, b) => {
-  //       let categoriesA = a.name.toLowerCase();
-  //       let categoriesB = b.name.toLowerCase();
+  {
+    professional.map((el) => {
+      return el.professional.sort((a, b) => {
+        let categoriesA = a.name.toLowerCase();
+        let categoriesB = b.name.toLowerCase();
 
-  //       if (categoriesA > categoriesB) return 1;
+        if (categoriesA > categoriesB) return 1;
 
-  //       if (categoriesB > categoriesA) return -1;
+        if (categoriesB < categoriesA) return -1;
 
-  //       return 0;
-  //     });
-  //   });
-  // }
+        return 0;
+      });
+    });
+  }
   return (
     <div className={styles.order}>
       <div className={styles.divName}>
