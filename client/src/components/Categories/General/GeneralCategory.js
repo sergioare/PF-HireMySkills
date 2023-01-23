@@ -43,7 +43,7 @@ const GeneralCategory = () => {
       <h1>CATEGORIES</h1>
       {professional.map((prof) => {
         return (
-          <div className={s.cardsGeneral}>
+          <div key={prof.id} className={s.cardsGeneral}>
             
             <Link to={`/categories/${prof.id}`}>
 
