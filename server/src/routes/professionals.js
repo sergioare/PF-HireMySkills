@@ -5,8 +5,8 @@ const Router = require("express");
 const router = Router();
 
 
-router.get("/", getDBInfo);
-router.post("/", postcreateprofessional);
-router.delete('/:id', borradologico);
+router.get("/", getDBInfo);// trae toda la info de la db 
+router.post("/", postcreateprofessional);// ruta put (crea prestador de servicos )
+router.delete('/:id', borradologico); // borrado logico (administrador )
 
 module.exports = router;
