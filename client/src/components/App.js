@@ -8,12 +8,9 @@ import GeneralCategory from "./Categories/General/GeneralCategory";
 import SpecificCategory from "./Categories/Specific/SpecificCategory";
 import Professionals from "./Categories/Proffesionals/Professionals";
 import FAQs from "./FAQs/FAQs";
-<<<<<<< HEAD
-// import FormStaff from "./Form/FormStaff";
-// import JoinForm from "./Join/JoinForm";
-=======
+
 import JoinForm from "./Join/JoinForm";
->>>>>>> 335b7064793ef5a0a10a03dce11577f5f3ad77a0
+
 import SignIn from "./SignIn/Acc/SignIn";
 import Team from "./Team/Team";
 import NavBar from "./Navbar/Navbar";
