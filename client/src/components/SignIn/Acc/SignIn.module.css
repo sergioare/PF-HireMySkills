@@ -5,6 +5,9 @@
   height: 720px;
   top: 157px;
   left: 320px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .Container_ProfileLogout_SignIn {
