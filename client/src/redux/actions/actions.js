@@ -1,6 +1,6 @@
-export function orderCategories(payload) {
-  return {
-    type: "ORDER_CATEGORIES",
-    payload,
-  };
-}
+// export function orderCategories(payload) {
+//   return {
+//     type: "ORDER_CATEGORIES",
+//     payload,
+//   };
+// }

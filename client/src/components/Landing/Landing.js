@@ -6,11 +6,12 @@ import code from "../../assets/code.jpg";
 import admin from "../../assets/admin.jpg";
 import Footer from "../Footer/Footer";
 
+
 const Landing = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.containerOne}>
-        <div classname={styles.landingNav}>
+        <div className={styles.landingNav}>
           <Link to="/home" className={styles.logo}>
             HireMySkills
           </Link>
@@ -46,7 +47,7 @@ const Landing = () => {
           </div>
 
           <div className={styles.border}>
-            <Link to="/profesional-form" className={styles.button}>
+            <Link to='/form' className={styles.button}>
               Offer Services
             </Link>
           </div>
@@ -68,8 +69,8 @@ const Landing = () => {
           <div className={styles.container}>
             <div className={styles.title}>Safety And Security</div>
 
-            <i class="fa-solid fa-money-check-dollar"></i>
-            <i class="fa-solid fa-vault"></i>
+            <i className="fa-solid fa-money-check-dollar"></i>
+            <i className="fa-solid fa-vault"></i>
 
             <p>
               All transactions are conducted on the HireMySkills platform.
@@ -81,9 +82,9 @@ const Landing = () => {
           <div className={styles.container}>
             <div className={styles.title}>Professional Staff</div>
 
-            <i class="fa-solid fa-rectangle-pro"></i>
+            <i className="fa-solid fa-rectangle-pro"></i>
 
-            <i class="fa-duotone fa-user-tie"></i>
+            <i className="fa-duotone fa-user-tie"></i>
 
             <p>
               We keep raising our standards of quality, innovation and customer
@@ -95,8 +96,8 @@ const Landing = () => {
           <div className={styles.container}>
             <div className={styles.title}>Make at Home / TIPS</div>
 
-            <i class="fa-duotone fa-hammer"></i>
-            <i class="fa-solid fa-house"></i>
+            <i className="fa-duotone fa-hammer"></i>
+            <i className="fa-solid fa-house"></i>
 
             <p>
               We want to add value to our website so our clients can find some
@@ -108,7 +109,7 @@ const Landing = () => {
           <div className={styles.container}>
             <div className={styles.title}>Customized Projects</div>
 
-            <i class="fa-solid fa-hand-holding-hand"></i>
+            <i className="fa-solid fa-hand-holding-hand"></i>
 
             <p>
               Each person is different and has different needs. For this reason,
@@ -120,7 +121,7 @@ const Landing = () => {
           <div className={styles.container}>
             <div className={styles.title}>Closer To You</div>
 
-            <i class="fa-solid fa-users"></i>
+            <i className="fa-solid fa-users"></i>
 
             <p>
               Our customers mean everything to us. We want to grow together and

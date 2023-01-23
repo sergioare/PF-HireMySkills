@@ -1,17 +1,17 @@
 import "./App.css";
 import { Fragment } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./Landing/Landing";
 import Home from "./Home/Home";
 import About from "./About/About";
 import GeneralCategory from "./Categories/General/GeneralCategory";
 import SpecificCategory from "./Categories/Specific/SpecificCategory";
 import FAQs from "./FAQs/FAQs";
-import FormStaff from "./Form/FormStaff";
 import JoinForm from "./Join/JoinForm";
 import SignIn from "./SignIn/Acc/SignIn";
 import Team from "./Team/Team";
 import NavBar from "./Navbar/Navbar";
+import Form from "./Form/FormStaff";
 
 function App() {
   return (
@@ -29,6 +29,7 @@ function App() {
             <Route path="/account" element={<SignIn />} />
             {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
           </Route>
+          <Route path="/form" element={<Form />} />
         </Routes>
       </Fragment>
     </BrowserRouter>

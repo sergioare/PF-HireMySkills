@@ -10,23 +10,23 @@ import { orderCategories } from "../../redux/actions/actions";
 import Footer from "../Footer/Footer";
 
 const Home = () => {
-  let dispatch = useDispatch();
+  // let dispatch = useDispatch();
 
-  const [namechange, setNamechange] = useState("");
-  const [, setOrder] = useState();
+  // const [namechange, setNamechange] = useState("");
+  // const [, setOrder] = useState();
 
-  function handlerByNameCategories(e) {
-    dispatch(orderCategories(e.target.value));
-    setNamechange(e.target.value);
-    setOrder("Order" + e.target.value);
-  }
+  // function handlerByNameCategories(e) {
+  //   dispatch(orderCategories(e.target.value));
+  //   setNamechange(e.target.value);
+  //   setOrder("Order" + e.target.value);
+  // }
 
   return (
     <div>
       <NavBar />
       <Ordering
-        handlerByName={handlerByNameCategories}
-        namechange={namechange}
+      // handlerByName={handlerByNameCategories}
+      // namechange={namechange}
       />
       <div className={styles.BigContainer_Home}>
         <div className={styles.TextPro_Home}>
