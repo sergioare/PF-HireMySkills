@@ -11,7 +11,7 @@
   margin-top: 170px;
   margin-left: 400px;
 }
-h1 {
+.cards h1 {
   width: 100%;
   margin-bottom: 0.5rem;
   color: #009949;
@@ -26,7 +26,7 @@ h1 {
   padding-top: 3.5rem;
   text-decoration: none;
 }
-h3 {
+.cardsGeneral h3 {
   font-size: 1rem;
   font-weight: 700;
   color: black;

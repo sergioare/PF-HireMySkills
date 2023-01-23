@@ -9,6 +9,7 @@ const GeneralCategory = () => {
       id: 1,
       name: "SALUD",
       categoriesSpecific: ["MEDICINA GENERAL", "ODONTOLOGIA", "TERAPIA FISICA"],
+      image: "http://www.ific.es/blog/wp-content/uploads/2017/06/4764234.jpg",
     },
     {
       id: 2,
@@ -42,10 +43,8 @@ const GeneralCategory = () => {
       {professional.map((prof) => {
         return (
           <div className={s.cardsGeneral}>
-            
             <Link to={`/categories/${prof.id}`}>
-
-            <h3>{prof.name} </h3>
+              <h3>{prof.name} </h3>
             </Link>
           </div>
         );
