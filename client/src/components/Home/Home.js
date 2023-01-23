@@ -3,6 +3,7 @@ import NavBar from "../Navbar/Navbar";
 // import GeneralCategory from '../Categories/General/GeneralCategory.js'
 import GeneralCategory from "../Categories/General/GeneralCategory";
 import Footer from "../Footer/Footer";
+import Searchbar from "../searchbar/searchbar";
 
 const Home = () => {
   return (
@@ -13,14 +14,16 @@ const Home = () => {
           FIND THE PERFECT PROFESSIONAL SERVICES FOR YOU
         </div>
         <div className={styles.SearchBar_Home}>
-          <input
+          <Searchbar/>
+
+          {/* <input
             type="text"
             placeholder={`TRY "CARPENTER, DESIGNER, ELECTRICIAN"`}
             className={styles.SearchInput_Home}
           />{" "}
           <button type="submit" className={styles.SearchButton_Home}>
             Search
-          </button>
+          </button> */}
         </div>
         <div className={styles.Popular_Home}>POPULAR SECTION</div>
         <div>
