@@ -1,14 +1,17 @@
 .BigContainer_About {
   margin-top: 85px;
-  margin-left: 420px;
+  margin-left: 470px;
   /* border: 2px solid black; */
   padding: 10px;
 }
 
 .About_About {
   font-size: xx-large;
-  margin-left: 450px;
+  margin-left: 370px;
   text-decoration: underline;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  color: #009949;
 }
 
 .img_About {
@@ -21,4 +24,8 @@
 
 .Footer_About {
   padding-top: 100px;
+}
+
+.Text_About {
+  margin-top: 30px;
 }

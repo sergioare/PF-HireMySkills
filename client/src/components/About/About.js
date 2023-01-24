@@ -2,13 +2,15 @@ import React from "react";
 import hms from "../../assets/hms.png";
 import styles from "./About.module.css";
 import Footer from "../Footer/Footer";
+import CarouselAbout from "./CarouselAbout/CarouselAbout";
 
 const About = () => {
   return (
     <div className={styles.BigContainer_About}>
       <div className={styles.About_About}>About us</div>
       <div className={styles.Div_Img_About}>
-        <img src={hms} alt="hms" className={styles.img_About} />
+        <CarouselAbout />
+        {/* <img src={hms} alt="hms" className={styles.img_About} /> */}
       </div>
       <div className={styles.Text_About}>
         <p>
