@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../Specific/SpecificCategory.module.css";
 import { Link, useParams } from "react-router-dom";
+import Footer from "../../Footer/Footer";
 
 const SpecificCategory = () => {
   const { id } = useParams();
@@ -133,6 +134,7 @@ const SpecificCategory = () => {
           </div>
         );
       })}
+      <Footer />
     </div>
   );
 };

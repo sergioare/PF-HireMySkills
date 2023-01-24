@@ -29,9 +29,6 @@ function App() {
             <Route path="/account" element={<SignIn />} />
             {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
           </Route>
-
-          <Route path="/form" element={<Form />} />
-
           <Route path="/form" element={<Form />} />
 
           {/* <Route path="*" element={<Navigate replace to="/" />} /> */}

@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap");
 .faqs {
   font-family: "Work Sans", sans-serif;
+  width: 100%;
 }
 h2 {
   padding-top: 6rem;

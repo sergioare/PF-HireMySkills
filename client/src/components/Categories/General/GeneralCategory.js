@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../General/GeneralCategory.module.css";
 import { useState } from "react";
+import Footer from "../../Footer/Footer";
 
 const GeneralCategory = () => {
   const [professional] = useState([
@@ -48,6 +49,7 @@ const GeneralCategory = () => {
           </div>
         );
       })}
+      <Footer />
     </div>
   );
 };
