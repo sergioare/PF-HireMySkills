@@ -1,4 +1,5 @@
 const { DataTypes } = require("sequelize");
+
 const sequelize = require("../db/db.js");
 
 const professionals =
@@ -48,12 +49,8 @@ const professionals =
       portfolio: {
         type: DataTypes.TEXT,
       },
-      UsuarioId: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: Professions,
-          key: "id",
-        },
+      skills: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
       },
       deleted: {
         //borrado logico
