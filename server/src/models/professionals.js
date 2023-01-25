@@ -1,5 +1,4 @@
 const { DataTypes } = require("sequelize");
-const Professions = require("../models/profession.js");
 const sequelize = require("../db/db.js");
 
 const professionals =
@@ -50,12 +49,12 @@ const professionals =
         type: DataTypes.TEXT,
       },
       UsuarioId: {
-          type: DataTypes.INTEGER,
-          references: {
-              model: Professions,
-              key: 'id'
-          }
+        type: DataTypes.INTEGER,
+        references: {
+          model: Professions,
+          key: "id",
         },
+      },
       deleted: {
         //borrado logico
         type: DataTypes.BOOLEAN,
