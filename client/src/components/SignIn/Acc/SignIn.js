@@ -10,12 +10,14 @@ const SignIn = () => {
   return (
     <div className={styles.BigContainer_SignIn}>
       {isAuthenticated ? (
-        <div className={styles.Container_ProfileLogout_SignIn}>
+        <div /* className={styles.Container_ProfileLogout_SignIn} */>
           <Profile />
           <Logout />
         </div>
       ) : (
-        <Login />
+        <div /* className={styles.Container_Login_SignIn} */>
+          <Login />
+        </div>
       )}
     </div>
   );
