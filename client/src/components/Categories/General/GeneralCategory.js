@@ -36,22 +36,75 @@ const GeneralCategory = () => {
       name: "PROGRAMACION",
       categoriesSpecific: ["DISEÑO WEB", "APLICACIONES", "SITIOS WEB"],
     },
+    {
+      id: 7,
+      name: "ECONOMIA",
+      categoriesSpecific: [""],
+    },
+    {
+      id: 8,
+      name: "TELECOMUNICACIONES",
+      categoriesSpecific: [""],
+    },
+    {
+      id: 9,
+      name: "DEPORTE",
+      categoriesSpecific: [""],
+    },
+    {
+      id: 10,
+      name: "EDUCACIÓN",
+      categoriesSpecific: [""],
+    },
+    {
+      id: 11,
+      name: "ARTE",
+      categoriesSpecific: [""],
+    },
+    {
+      id: 12,
+      name: "INDUSTRIAL",
+      categoriesSpecific: [""],
+    },
   ]);
 
   return (
-    <div className={styles.cards}>
-      <h1>CATEGORIES</h1>
-      {professional.map((prof) => {
-        return (
-          <div key={prof.id} className={styles.cardsGeneral}>
-            <Link to={`/categories/${prof.id}`}>
-              <h3>{prof.name} </h3>
-            </Link>
+    <div className={styles.general}>
+      <div className="container bg-secondary">
+        <div className="row">
+          <div className="col-4">
+            <div className="card ">
+              {professional.map((prof) => {
+                return (
+                  <div key={prof.id} className="card-body">
+                    <Link
+                      to={`/categories/${prof.id}`}
+                      className="text-decoration-none"
+                    >
+                      <h5 className="card-title text-center">{prof.name} </h5>
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        );
-      })}
-      {/* <Footer /> */}
+        </div>
+      </div>
+      <Footer />
     </div>
+    //   <div className={styles.cards}>
+    //     <h1>CATEGORIES</h1>
+    // {professional.map((prof) => {
+    //   return (
+    //     <div key={prof.id} className={styles.cardsGeneral}>
+    //       <Link to={`/categories/${prof.id}`}>
+    //         <h3>{prof.name} </h3>
+    //       </Link>
+    //     </div>
+    //   );
+    // })}
+    //     {/* <Footer /> */}
+    //   </div>
   );
 };
 
