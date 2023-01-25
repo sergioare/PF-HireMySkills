@@ -11,6 +11,7 @@ import bootstrap from "bootstrap/dist/css/bootstrap.min.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <Provider store={store}>
+
   <Auth0Provider
     domain="dev-gd12mqwy0uzq6wf4.us.auth0.com"
     clientId="TFwG6UEymSjhCit3nHQMip2sg8Oa9dPj"

@@ -1,9 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import React from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import styles from "./Home.module.css";
 import NavBar from "../Navbar/Navbar";
 import GeneralCategory from "../Categories/General/GeneralCategory";
+// import Ordering from "../Ordering/Ordering";
+//import { orderCategories } from "../../redux/actions/actions";
+
 // import Ordering from "../Ordering/Ordering";
 //import { orderCategories } from "../../redux/actions/actions";
 
@@ -29,6 +35,10 @@ const Home = () => {
       namechange={namechange}
       /> */}
       <NavBar />
+      {/* <Ordering
+      handlerByName={handlerByNameCategories}
+      namechange={namechange}
+      /> */}
       <div className={styles.BigContainer_Home}>
         <div className={styles.TextPro_Home}>
           FIND THE PERFECT PROFESSIONAL SERVICES FOR YOU

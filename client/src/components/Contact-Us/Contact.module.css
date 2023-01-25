@@ -1,0 +1,27 @@
+.error{
+    color:red;
+}
+.contact{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background:linear-gradient(to left, #FF7069 0%,  #283C63 100%) ;
+
+    font-family: "Work Sans";
+    font-weight: 400;
+    font-size: 34px;
+    color: #fbe8d3;
+    border: 5px solid red;
+}
+
+
+h1{
+    color: #c8e7ff;
+    font-family: "Cinzel";
+    font-weight: 700;
+    font-size: 50px;
+
+}
