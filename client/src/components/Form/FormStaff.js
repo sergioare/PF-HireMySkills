@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
 import axios from 'axios'
@@ -6,17 +6,23 @@ import PreviewImage from './PreviewImage';
 import styles from './FormStaff.module.css'
 
 const FormStaff = () => {
-    const [error, setError]= useState(null)
-    const onSubmit = async (values) =>{
-            setError(null)
-            const response = await axios
-            .post('http://localhost:4000/professionals', values)
-            .catch (error=>{
-                if(error && error.response) setError(error.response.data.message)
-            })
+    // const [error, setError]= useState(null)
+    // const onSubmit = async (values) =>{
+    //         setError(null)
+    //         const response = await axios
+    //         .post('http://localhost:4000/professionals', values)
+    //         .catch (error=>{
+    //             if(error && error.response) setError(error.response.data.message)
+    //         })
       
+    // }
+    const onSubmit = async (values) => {
+        await axios
+        .post("http://localhost:4000/professionals", values)
+        .then((response) => {
+            console.log("Data added successfully.");
+        });
     }
-   
      const formik = useFormik({
         initialValues:{
             name: '',
@@ -30,19 +36,41 @@ const FormStaff = () => {
             
         },
         validationSchema: Yup.object({
-            name: Yup.string().required('Name is required'),
-            image: Yup.mixed().required('Profile image is required')
-            .test('FILE_SIZE', 'It´s too big!', (value)=> value && value.size < 1024 * 1024)
-            .test('FILE_TYPE', 'Invalid image', (value)=> value && ['image/png', 'image/jpeg'].includes(value.type)),
-            email: Yup.string().email('Please enter a valid email address').required('E-mail is required'),
-            town: Yup.string().required(),
-            contact: Yup.number('Only numbers 0-9').max(11).required('Contact number is required'),
-            portfolio: Yup.mixed(),
-            skills: Yup.string(),
-            description: Yup.string(),
+            name: Yup
+                .string()
+                .required('Name is required'),
+
+            image: Yup
+                .mixed()
+                .required('Profile image is required')
+                .test('FILE_SIZE', 'It´s too big!', (value)=> value && value.size < 1024 * 1024)
+                .test('FILE_TYPE', 'Invalid image', (value)=> value && ['image/png', 'image/jpeg'].includes(value.type)),
+            
+            email: Yup
+                .string()
+                .email('Please enter a valid email address')
+                .required('E-mail is required'),
+
+            town: Yup
+                .string()
+                .required(),
+
+            contact: Yup
+                .number('Only numbers 0-9')
+                .max(11)
+                .required('Contact number is required'),
+
+            portfolio: Yup
+                .mixed(),
+
+            skills: Yup
+                .string(),
+
+            description: Yup
+                .string(),
 
         }),
-        onSubmit,
+        onSubmit:{onSubmit},
         // onSubmit:async()=>{
            
         //     const {image} = formik.values
@@ -62,7 +90,7 @@ const FormStaff = () => {
      return(
         <div className={styles.container}>
             <h1>Professional Profile Form</h1>
-
+               
             <form onSubmit={formik.handleSubmit} id='professional-profile'>
 
                 <input 
@@ -167,8 +195,9 @@ const FormStaff = () => {
                 
 
                 <button 
-                    type='submit'> 
-                        Upload
+                    type='submit'
+                    >
+                        Submit
                 </button>
 
                 <button 
@@ -180,6 +209,7 @@ const FormStaff = () => {
 
             </form>
             {formik.values.image && <PreviewImage file={formik.values.image} />}
+           
         </div>
      )
     

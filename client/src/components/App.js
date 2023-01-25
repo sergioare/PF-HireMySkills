@@ -13,6 +13,7 @@ import Team from "./Team/Team";
 import NavBar from "./Navbar/Navbar";
 
 import Form from './Form/FormStaff'
+import Contact from "./Contact-Us/Contact";
 
 
 function App() {
@@ -23,15 +24,15 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/creators" element={<Team />} />
 
-          <Route path="/" element={<NavBar />}>
+          <Route path="/" element={<NavBar />}/>
             <Route path="home" element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="/categories" element={<GeneralCategory />} />
             <Route path="/categories/:id" element={<SpecificCategory />} />
             <Route path="FAQs" element={<FAQs />} />
             <Route path="/account" element={<SignIn />} />
+            <Route path="/contact-us" element={<Contact />} />
             {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
-          </Route>
 
           <Route path="/form" element={<Form />} />
           
