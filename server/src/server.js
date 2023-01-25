@@ -24,8 +24,16 @@ server.use(routes);
   }
 })();
 
-const { professionals, users, categories, profession, products, reviews } =
-  sequelize.models;
+const {
+  professionals,
+  users,
+  categories,
+  profession,
+  products,
+  reviews,
+  shoppingcart,
+  pay,
+} = sequelize.models;
 
 professionals.belongsToMany(users, { through: "professionals_users" });
 users.belongsToMany(professionals, { through: "professionals_users" });
@@ -54,5 +62,11 @@ products.belongsToMany(users, {
 users.belongsToMany(products, {
   through: "products_users",
 });
+
+users.hasMany(shoppingcart);
+shoppingcart.belongsTo(users);
+
+shoppingcart.hasOne(pay);
+pay.belongsTo(shoppingcart);
 
 module.exports = server;
