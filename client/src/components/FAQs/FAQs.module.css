@@ -1,18 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap");
 .faqs {
   font-family: "Work Sans", sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 120px;
 }
-h2 {
+
+/* h2 {
   padding-top: 6rem;
   text-align: center;
   color: #009949;
   font-size: 40px;
+  font-weight: 700;
 }
 
 h4 {
   margin-left: 10rem;
   font-size: 20px;
 }
+
 .faqMain {
   display: flex;
   margin: 0 auto;
@@ -21,12 +29,11 @@ h4 {
 }
 .faqMain p {
   width: 9rem;
-  height: 7.5rem;
+  height: 11rem;
   text-align: center;
   padding-top: 2.5rem;
   margin-left: 3.5rem;
   font-size: 18px;
-  font-weight: 700;
   background-color: #435d92;
   color: white;
   border-radius: 10px;
@@ -35,4 +42,4 @@ h4 {
   margin-left: 20px;
   padding-bottom: 30px;
   font-size: 18px;
-}
+} */

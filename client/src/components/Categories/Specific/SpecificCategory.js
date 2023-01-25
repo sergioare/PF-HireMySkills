@@ -1,10 +1,11 @@
 import React from "react";
-import s from "../Specific/SpecificCategory.module.css";
+import styles from "../Specific/SpecificCategory.module.css";
 import { Link, useParams } from "react-router-dom";
+import Footer from "../../Footer/Footer";
 
 const SpecificCategory = () => {
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
 
   const professional = [
     {
@@ -117,25 +118,24 @@ const SpecificCategory = () => {
     },
   ];
 
-  // const aux = professional[id].id;
-  // console.log(aux);
-  // let aux = professional.categoriesSpecific.map((el) => el.specific);
   let aux = professional.filter((pf) => pf.id === parseInt(id));
   console.log(aux);
+
   return (
-    <div className={s.specific}>
+    <div className={styles.specific}>
       <div>
         <h1>Profession</h1>
       </div>
       {aux[0].categoriesSpecific.map((prof) => {
         return (
-          <div className={s.divSpecific}>
-            <Link to={`/categories/${prof.id}`}>
+          <div key={prof.id} className={styles.divSpecific}>
+            <Link to={`/professional/${prof.id}`}>
               <h3>{prof.specific} </h3>
             </Link>
           </div>
         );
       })}
+      <Footer />
     </div>
   );
 };
