@@ -111,11 +111,16 @@
   margin: 0 auto;
   padding: 1.5rem 0;
 }
-.divFooter_Home {
+/* .divFooter_Home {
   width: 100%;
   position: relative;
   top: 105rem;
   margin: 0;
   padding: 1rem;
   width: 100%;
+} */
+
+.divFooter_Home {
+  margin-top: 40vw;
+  position: relative;
 }

@@ -1,25 +1,21 @@
 .BigContainer_About {
-  margin-top: 85px;
-  margin-left: 470px;
-  /* border: 2px solid black; */
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
 }
 
 .About_About {
   font-size: 50px;
-  margin-left: 260px;
-  margin-top: 10px;
-  margin-bottom: 30px;
   color: #009949;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding-bottom: 30px;
 }
 
 .img_About {
   width: 500px;
   height: 300px;
-  margin-top: 50px;
-  margin-left: 270px;
-  margin-bottom: 50px;
 }
 
 .Footer_About {
