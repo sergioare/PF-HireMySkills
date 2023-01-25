@@ -119,7 +119,8 @@ const SpecificCategory = () => {
   ];
 
   let aux = professional.filter((pf) => pf.id === parseInt(id));
-  // console.log(aux);
+  console.log(aux);
+
   return (
     <div className={styles.specific}>
       <div>
@@ -127,8 +128,8 @@ const SpecificCategory = () => {
       </div>
       {aux[0].categoriesSpecific.map((prof) => {
         return (
-          <div className={styles.divSpecific}>
-            <Link to={`/categories/${prof.id}`}>
+          <div key={prof.id} className={styles.divSpecific}>
+            <Link to={`/professional/${prof.id}`}>
               <h3>{prof.specific} </h3>
             </Link>
           </div>

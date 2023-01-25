@@ -37,19 +37,20 @@ const GeneralCategory = () => {
       categoriesSpecific: ["DISEÑO WEB", "APLICACIONES", "SITIOS WEB"],
     },
   ]);
+
   return (
     <div className={styles.cards}>
       <h1>CATEGORIES</h1>
       {professional.map((prof) => {
         return (
-          <div className={styles.cardsGeneral}>
+          <div key={prof.id} className={styles.cardsGeneral}>
             <Link to={`/categories/${prof.id}`}>
               <h3>{prof.name} </h3>
             </Link>
           </div>
         );
       })}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

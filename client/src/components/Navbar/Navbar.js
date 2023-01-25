@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <div className={styles.BigContainer_NavBar}>
       <div className={styles.Container_NavBar}>
-        <Link to="/home">
+        <Link to="/">
           <div className={styles.HMS_NavBar}>HireMySkills</div>
         </Link>
         <Link to="/categories">

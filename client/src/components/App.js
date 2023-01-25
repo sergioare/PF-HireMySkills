@@ -6,8 +6,11 @@ import Home from "./Home/Home";
 import About from "./About/About";
 import GeneralCategory from "./Categories/General/GeneralCategory";
 import SpecificCategory from "./Categories/Specific/SpecificCategory";
+import Professionals from "./Categories/Proffesionals/Professionals";
 import FAQs from "./FAQs/FAQs";
+
 import JoinForm from "./Join/JoinForm";
+
 import SignIn from "./SignIn/Acc/SignIn";
 import Team from "./Team/Team";
 import NavBar from "./Navbar/Navbar";
@@ -25,9 +28,9 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="/categories" element={<GeneralCategory />} />
             <Route path="/categories/:id" element={<SpecificCategory />} />
+            <Route path="/professional/:id" element={<Professionals />} />
             <Route path="FAQs" element={<FAQs />} />
             <Route path="/account" element={<SignIn />} />
-            {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
           </Route>
           <Route path="/form" element={<Form />} />
 
