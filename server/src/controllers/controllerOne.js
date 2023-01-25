@@ -12,11 +12,10 @@ const getDBInfo = async (req, res) => {
 
 
 const postcreateprofessional = async (req, res) => {
-  const { name, description, profession, photo, email, town, contact, rating, portfolio } = req.body;
+  const { name, description, skills, photo, email, town, contact, rating, portfolio } = req.body;
   console.log(req.body, "::: es aqui");
   try {
-    await professionals.create({ name, description, profession, photo, email, town, contact, rating, portfolio, });
-
+    await professionals.create({ name, description, skills, photo, email, town, contact, rating, portfolio });
     res.send("created successfully");
   } catch (error) {
     res.send(error);

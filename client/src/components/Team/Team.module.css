@@ -19,7 +19,7 @@
     margin: 50px 180px 20px 180px; */
     display: flex;
     position: relative;
-    background: linear-gradient(to left, #c8e7ff 0%, #ffcbf2 100%);
+    background: linear-gradient(to left, #0985e4 0%, #ffcbf2 100%);
     margin-bottom: 10px 30px 55px 30px;
     border-radius: 8px;
     width:500px;
@@ -30,11 +30,19 @@
 
 .card img{
     border-radius: 50%;
-    
+    width: 50%;
 }
 
 .card h1{
     display: flex;
-    text-align: center;
+    flex-wrap: wrap;
+    /* text-align: center; */
     border: 2px solid purple;
+    position: relative;
+    height: 30%;
+}
+
+.card p {
+    display: flex;
+    flex-wrap: wrap;
 }

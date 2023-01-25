@@ -25,7 +25,7 @@ server.use(routes);
 })();
 
 const { professionals, users, categories, profession, products } = sequelize.models;
-console.log(sequelize.models, 'MODELOS');
+console.log(sequelize.models, 'MODELOSSSSSSS');
 
 professionals.belongsToMany(users, { through: "professionals_users" });
 users.belongsToMany(professionals, { through: "professionals_users" });

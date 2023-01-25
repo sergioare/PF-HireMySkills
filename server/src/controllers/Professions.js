@@ -1,9 +1,21 @@
-const Professions = require("../models/profession.js");
+const Professions = require("../models/Profession.js");
 
 const postProfessions = async (req, res) => {
   let { profession, categoryId } = req.body;
-  await Professions.create({ profession, categoryId })
-    .then(res.json({ profession, categoryId }))
-    .catch((err) => res.status(400).json(err.message));
+
+  try{
+    await Professions.create({ profession, categoryId });
+    res.json({ emssage: 'Pofession created' });
+  } catch (error) {
+    res.json(error);
+  };
 };
 module.exports = postProfessions;
+
+
+// let recipedb = await Diets.findAll({
+//   where: { name: dietType },
+// });
+
+// await newrecipe.addDiets(recipedb);
+// return newrecipe;

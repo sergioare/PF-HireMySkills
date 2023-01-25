@@ -9,7 +9,7 @@ import SpecificCategory from "./Categories/Specific/SpecificCategory";
 import Professionals from "./Categories/Proffesionals/Professionals";
 import FAQs from "./FAQs/FAQs";
 
-import JoinForm from "./Join/JoinForm";
+// import JoinForm from "./Join/JoinForm";
 
 import SignIn from "./SignIn/Acc/SignIn";
 import Team from "./Team/Team";
@@ -27,8 +27,8 @@ function App() {
           <Route path="/creators" element={<Team />} />
 
           <Route path="/" element={<NavBar />}>
-            <Route path="home" element={<Home />} />
-            <Route path="about" element={<About />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/categories" element={<GeneralCategory />} />
             <Route path="/categories/:id" element={<SpecificCategory />} />
             <Route path="/professional/:id" element={<Professionals/>}/>

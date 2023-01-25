@@ -12,7 +12,7 @@ const Landing = () => {
     <div className={styles.wrapper}>
       <div className={styles.containerOne}>
         <div className={styles.landingNav}>
-          <Link to="/home" className={styles.logo}>
+          <Link to="/" className={styles.logo}>
             HireMySkills
           </Link>
 

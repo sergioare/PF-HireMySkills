@@ -1,17 +1,13 @@
 const Router = require("express");
-const getDBInfo = require("../controllers/controllerOne");
+// const getDBInfo = require("../controllers/controllerOne");
+const { professionalsGetName } = require("../controllers/professionGetName");
 const router = Router();
-const Professions = require("../controllers/Professions.js");
+const postProfessions = require("../controllers/Professions.js");
 
-// router.get("/", async (req, res) => {
-//   try {
-//     const getapi = await getDBInfo();
-//     res.json(getapi);
-//   } catch (error) {
-//     res.status(404).json(error.message);
-//   }
-// });
+// GET
+router.get('/', professionalsGetName);
 
-router.post("/", Professions);
+// POST
+router.post("/", postProfessions);
 
 module.exports = router;
