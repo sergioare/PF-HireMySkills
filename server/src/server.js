@@ -27,8 +27,10 @@ server.use(routes);
 const { professionals, users, categories, profession, products } =
   sequelize.models;
 
-professionals.belongsToMany(users, { through: "professionals_users" });
-users.belongsToMany(professionals, { through: "professionals_users" });
+professionals.belongsToMany(users, {
+   through: "professionals_users" });
+users.belongsToMany(professionals, {
+   through: "professionals_users" });
 
 professionals.belongsToMany(profession, {
   through: "professionals_profession",
