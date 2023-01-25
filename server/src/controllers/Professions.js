@@ -1,4 +1,4 @@
-const Professions = require("../models/profession.js");
+const Professions = require("../models/Profession.js");
 
 const postProfessions = async (req, res) => {
   let { profession, categoryId } = req.body;
@@ -8,5 +8,5 @@ const postProfessions = async (req, res) => {
   } catch (error) {
     res.send(error);
   }
-};
+}
 module.exports = postProfessions;
