@@ -24,7 +24,7 @@ server.use(routes);
   }
 })();
 
-const { professionals, users, categories, profession, products } =
+const { professionals, users, categories, profession, products, reviews } =
   sequelize.models;
 
 professionals.belongsToMany(users, { through: "professionals_users" });
@@ -42,6 +42,11 @@ profession.belongsTo(categories);
 
 professionals.hasMany(products);
 products.belongsTo(professionals);
+
+professionals.hasMany(reviews);
+users.hasMany(reviews);
+reviews.belongsTo(users);
+reviews.belongsTo(professionals);
 
 products.belongsToMany(users, {
   through: "products_users",
