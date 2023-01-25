@@ -11,9 +11,10 @@
   border: solid #f4a261 5px;
   border-radius: 7%;
 }
-.BigContainer_SignIn button {
-  margin-left: 940px;
-}
+/* .BigContainer_SignIn button {
+  margin-left: 1px;
+  margin-top: 20px;
+} */
 /* .Container_ProfileLogout_SignIn {
   position: absolute;
   width: 940px;
