@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import s from "../General/GeneralCategory.module.css";
+import styles from "../General/GeneralCategory.module.css";
 import { useState } from "react";
+import Footer from "../../Footer/Footer";
 
 const GeneralCategory = () => {
   const [professional] = useState([
@@ -37,21 +38,19 @@ const GeneralCategory = () => {
     },
   ]);
 
-  
   return (
-    <div className={s.cards}>
+    <div className={styles.cards}>
       <h1>CATEGORIES</h1>
       {professional.map((prof) => {
         return (
-          <div key={prof.id} className={s.cardsGeneral}>
-            
+          <div key={prof.id} className={styles.cardsGeneral}>
             <Link to={`/categories/${prof.id}`}>
-
-            <h3>{prof.name} </h3>
+              <h3>{prof.name} </h3>
             </Link>
           </div>
         );
       })}
+      {/* <Footer /> */}
     </div>
   );
 };

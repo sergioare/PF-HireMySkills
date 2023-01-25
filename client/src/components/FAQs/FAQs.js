@@ -1,94 +1,150 @@
 import React from "react";
-import s from "../FAQs/FAQs.module.css";
+import styles from "../FAQs/FAQs.module.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
 const FAQs = () => {
   return (
-    <div className={s.faqs}>
+    <div className={styles.faqs}>
       <Navbar />
-      <h2>What do you need help with? </h2>
-      <h4>Popular topics</h4>
-
-      <div className={s.faqMain}>
-        <p>
-          Contract management <br />
-          of a professional
-        </p>
-        <p>Payments</p>
-        <p>Invoice</p>
-        <p>Client</p>
-      </div>
-      <div className={s.faqSeccion}>
-        <p>
-          <b>How it works HireMySkills?</b>
+      <div className="container ">
+        <h2 className="text-center">
+          <b>What do you need help with? </b>
+        </h2>
+        <div className="col-12">
+          <h4 className="col-12 pb-3">
+            <b>Popular topics</b>
+          </h4>
+          <div className="row gap-3 justify-content-center pb-4">
+            <div className="col-12 col-md-2 p-3 border border-secondary rounded border-2">
+              <a href="#contract" className="text-decoration-none">
+                <h5 className="text-black text-center">
+                  Contract management of a professional
+                </h5>
+              </a>
+            </div>
+            <div className="col-12 col-md-2 p-3 border border-secondary rounded border-2">
+              <a href="#payment" className="text-decoration-none">
+                <h5 className="text-black text-center pt-3">Payments</h5>
+              </a>
+            </div>
+            <div className="col-12 col-md-2 p-3 border border-secondary rounded border-2">
+              <a href="#professional" className="text-decoration-none">
+                <h5 className="text-black text-center pt-3">Professionals</h5>
+              </a>
+            </div>
+            <div className="col-12 col-md-2 p-3 border border-secondary rounded border-2">
+              <a href="#client" className="text-decoration-none">
+                <h5 className="text-black text-center pt-3">Clients</h5>
+              </a>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div className="col-12">
+          <p>
+            <b>How it works HireMySkills?</b>
+            <br />
+            HireMySkills provides a well thought out, readable and dynamic
+            environment for you to:
+            <br />
+            <ul>
+              <li>
+                The professional can search for jobs in their area of expertise;
+              </li>
+              <li>
+                The client can look for the solution to his problem and find the
+                professional who can best do it.
+              </li>
+            </ul>
+            <br />
+            Creating a profile, creating a skill, and submitting proposals to
+            projects are free.
+            <br />
+            <br />
+            So you as a professional can create your profile for free and start
+            offering your services, if your profile is approved in HireMySkills
+            <br />
+            <br />
+            And you as a customer can also create your profile for free. After
+            publishing your profile, in a few minutes you can start reviewing
+            the proposals of the professional you need!
+            <br />
+            <br />
+          </p>
           <hr />
-          HireMySkills provides a well thought out, readable and dynamic
-          environment for you to:
-          <br />
-          <ul>
-            <li>
-              The professional can search for jobs in their area of ​expertise;
-            </li>
-            <li>
-              The client can look for the solution to his problem and find the
-              professional who can best do it.
-            </li>
-          </ul>
-          <br />
-          Creating a profile, creating a skill, and submitting proposals to
-          projects are free.
-          <br />
-          <br />
-          So you as a professional can create your profile for free and start
-          offering your services, if your profile is approved in HireMySkills
-          <br />
-          <br />
-          And you as a customer can also create your profile for free. After
-          publishing your profile, in a few minutes you can start reviewing the
-          proposals of the professional you need!
-          <br />
-          <br />
-          <br />
-        </p>
-        <p>
-          <b>What is HireMySkills?</b>
+          <p>
+            <b>What is HireMySkills?</b>
+            <br />
+            On HireMySkills, we help our customers find the best remote talent
+            for their projects, just like we help professionals find jobs that
+            fulfill their expectations, abilities and payment desired. We do
+            this in the safest way possible for both parties.🙂 <br />
+            <br />
+            <br />
+          </p>
           <hr />
-          On HireMySkills, we help our customers find the best remote talent for
-          their projects, just like we help professionals find jobs that fulfill
-          their expectations, abilities and payment desired. We do this in the
-          safest way possible for both parties.🙂 <br />
-          <br />
-          <br />
-        </p>
-        <p>
-          <b>First steps as a customer</b>
+          <p id="client">
+            <b>First steps as a customer</b>
+            <br />
+            You can search for offers of professionals on our platform of your
+            interest, that adapts to your needs and with the best offers in the
+            labor market.
+            <br />
+            Here you can also find offers, promotions and discounts of your
+            interest!
+            <br />
+            <br />
+            <br />
+          </p>
           <hr />
-          You can search for offers of professionals on our platform of your
-          interest, that adapts to your needs and with the best offers in the
-          labor market.
+          <p id="contract">
+            <b>Hiring professionals</b>
+            <br />
+            I have accepted a proposal. What is the next step?
+            <br />
+            After having accepted a proposal, you must make the payment of the
+            guarantee deposit in case it is a fixed price job, or if it were a
+            project for hours, you must validate your payment method. From this
+            you can start working.
+            <br />
+            To end the work, all that remains is for both to qualify. This
+            qualification is confidential, you will only be able to see how the
+            chosen professional has qualified you after you have already issued
+            your qualification.
+          </p>
           <br />
-          Here you can also find offers, promotions and discounts of your
-          interest!
           <br />
-          <br />
-          <br />
-        </p>
-        <p>
-          <b>Hiring professionals</b>
           <hr />
-          I have accepted a proposal. What is the next step?
+          <p id="payment">
+            <b>Payment methods</b>
+            <br />
+            <img
+              className="rounded mx-auto d-block pb-4"
+              src="https://woocommerce.com/wp-content/uploads/2021/05/fb-mercado-pago-v2@2x.png"
+              alt="Img not found"
+              width="450px"
+            />
+            HireMy Skills has a payment method available, payment market and
+            everything depends on the type of device used, your country of
+            residence and regulatory permits.
+          </p>
           <br />
-          After having accepted a proposal, you must make the payment of the
-          guarantee deposit in case it is a fixed price job, or if it were a
-          project for hours, you must validate your payment method. From this
-          you can start working.
           <br />
-          To end the work, all that remains is for both to qualify. This
-          qualification is confidential, you will only be able to see how the
-          chosen professional has qualified you after you have already issued
-          your qualification.
-        </p>
+          <hr />
+          <p id="professional">
+            <b>How to start selling on HireMySkills</b>
+            <br />
+            At HireMySkills is the expanding digital services platform. Share
+            your skills with our customer community and earn money while doing
+            it! If you have a skill that you can offer and benefit someone else
+            with your knowledge, don't wait any longer! and register on our
+            platform,
+            <br />
+            HireMySkills is the place for you.
+          </p>
+          <br />
+        </div>
       </div>
       <Footer />
     </div>
