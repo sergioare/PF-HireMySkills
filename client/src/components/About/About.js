@@ -7,7 +7,7 @@ import CarouselAbout from "./CarouselAbout/CarouselAbout";
 const About = () => {
   return (
     <div className={styles.BigContainer_About}>
-      <div className={styles.About_About}>About us</div>
+      <div className={styles.About_About}>Hey! This is our story</div>
       <div className={styles.Div_Img_About}>
         <CarouselAbout />
         {/* <img src={hms} alt="hms" className={styles.img_About} /> */}
@@ -67,9 +67,8 @@ const About = () => {
           parturient montes, nascetur ridiculus mus.
         </p>
       </div>
-      <div className={styles.Footer_About}>
-        <Footer />
-      </div>
+      <div className={styles.Footer_About}></div>
+      <Footer />
     </div>
   );
 };

@@ -6,12 +6,12 @@
 }
 
 .About_About {
-  font-size: xx-large;
-  margin-left: 370px;
-  text-decoration: underline;
+  font-size: 50px;
+  margin-left: 260px;
   margin-top: 10px;
   margin-bottom: 30px;
   color: #009949;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .img_About {
