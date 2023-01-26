@@ -11,6 +11,9 @@ const Profession = sequelize.define("profession", {
     type: DataTypes.STRING,
     allowNull: true,
   },
+},
+{
+  timestamps: false
 });
 
 module.exports = Profession;
