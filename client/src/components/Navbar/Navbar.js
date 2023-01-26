@@ -32,11 +32,11 @@ const NavBar = () => {
             <Menu />
           </div>
         </div>
-        {
+        {/* {
           <section>
             <Outlet />
           </section>
-        }
+        } */}
       </div>
     </div>
   );

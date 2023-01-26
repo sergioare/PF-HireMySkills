@@ -1,9 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import React from "react";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
 import styles from "./Home.module.css";
 import NavBar from "../Navbar/Navbar";
 import GeneralCategory from "../Categories/General/GeneralCategory";

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import stylestyles from "../General/GeneralCategory.module.css";
+import styles from "../General/GeneralCategory.module.css";
 import { useState } from "react";
 import NavBar from "../../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
@@ -41,18 +41,7 @@ const GeneralCategory = () => {
   ]);
 
   return (
-    <div className={styles.cards}>
-      <h1>CATEGORIES</h1>
-      {professional.map((prof) => {
-        return (
-          <div key={prof.id} className={styles.cardsGeneral}>
-            <Link to={`/categories/${prof.id}`}>
-              <h3>{prof.name} </h3>
-            </Link>
-          </div>
-        );
-      })}
-      {/* <Footer /> */}
+    <div>
       <div>
         <NavBar />
         <div className={styles.cards}>
