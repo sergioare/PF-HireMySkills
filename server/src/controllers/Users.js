@@ -1,4 +1,5 @@
 const users = require("../models/users.js");
+const sendMail = require("../controllers/sendMail.js");
 
 const postUsers = async (req, res) => {
   let { name, email, town, contact, photo } = req.body;
@@ -11,6 +12,7 @@ const postUsers = async (req, res) => {
       town,
       contact,
     })
+
     .then(() =>
       res.json({
         name,

@@ -70,41 +70,20 @@ const GeneralCategory = () => {
 
   return (
     <div className={styles.general}>
-      <div className="container bg-secondary">
-        <div className="row">
-          <div className="col-4">
-            <div className="card ">
-              {professional.map((prof) => {
-                return (
-                  <div key={prof.id} className="card-body">
-                    <Link
-                      to={`/categories/${prof.id}`}
-                      className="text-decoration-none"
-                    >
-                      <h5 className="card-title text-center">{prof.name} </h5>
-                    </Link>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
+      <h1 className={styles.cardTitle}>Categories</h1>
+      <div className={styles.card}>
+        {professional.map((prof) => {
+          return (
+            <Link to={`/categories/${prof.id}`}>
+              <div key={prof.id} className={styles.cardBody}>
+                <h3 className={styles.cardName}>{prof.name} </h3>
+              </div>
+            </Link>
+          );
+        })}
       </div>
       <Footer />
     </div>
-    //   <div className={styles.cards}>
-    //     <h1>CATEGORIES</h1>
-    // {professional.map((prof) => {
-    //   return (
-    //     <div key={prof.id} className={styles.cardsGeneral}>
-    //       <Link to={`/categories/${prof.id}`}>
-    //         <h3>{prof.name} </h3>
-    //       </Link>
-    //     </div>
-    //   );
-    // })}
-    //     {/* <Footer /> */}
-    //   </div>
   );
 };
 

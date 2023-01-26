@@ -1,22 +1,14 @@
 const professionals = require("../models/professionals.js");
 
 const postProfessional = async (req, res) => {
-  let {
-    name,
-    description,
-    profession,
-    photo,
-    email,
-    town,
-    contact,
-    portfolio,
-  } = req.body;
+  let { name, description, skills, photo, email, town, contact, portfolio } =
+    req.body;
 
   await professionals
     .create({
       name,
       description,
-      profession,
+      skills,
       photo,
       email,
       town,
@@ -27,7 +19,7 @@ const postProfessional = async (req, res) => {
       res.json({
         name,
         description,
-        profession,
+        skills,
         photo,
         email,
         town,
