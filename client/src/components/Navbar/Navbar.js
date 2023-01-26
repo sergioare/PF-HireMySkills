@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./NavBar.module.css";
 import Menu from "../Menu/Menu";
+
 import { Link, Outlet } from "react-router-dom";
 
 const NavBar = () => {
@@ -12,6 +13,9 @@ const NavBar = () => {
         </Link>
         <Link to="/categories">
           <div className={styles.Categories_NavBar}>Categories</div>
+        </Link>
+        <Link to="/shopping">
+          <div className={styles.shopping}>  Carrito   </div>
         </Link>
         <Link to="/about">
           <div className={styles.AboutUs_NavBar}>About us</div>
