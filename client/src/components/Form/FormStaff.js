@@ -1,5 +1,5 @@
 // import React, { useState } from 'react';
-import { useFormik } from 'formik';
+import { Formik,useFormik, Form } from 'formik';
 import * as Yup from 'yup'
 import axios from 'axios'
 import PreviewImage from './PreviewImage';
@@ -16,7 +16,7 @@ const FormStaff = () => {
     //         })
       
     // }
-    const onSubmit = async (values) => {
+    const handleOnSubmit = async (values) => {
         await axios
         .post("http://localhost:4000/professionals", values)
         .then((response) => {
@@ -70,8 +70,16 @@ const FormStaff = () => {
                 .string(),
 
         }),
-        onSubmit:{onSubmit},
-        // onSubmit:async()=>{
+        onSubmit: (values) => {
+            alert(values.contact)
+        },
+        // onSubmit: (values) => {
+        //    handleOnSubmit(values)
+        // },
+        // onSubmit: (values) => {
+        //    handleOnSubmit
+        // },
+        // onSubmit:async(values)=>{
            
         //     const {image} = formik.values
         //     const formData = new FormData()
@@ -90,7 +98,31 @@ const FormStaff = () => {
      return(
         <div className={styles.container}>
             <h1>Professional Profile Form</h1>
-               
+
+            {/* <Formik
+                initialValues={{
+                    name: '',
+                    image: '',
+                    email: '',
+                    town: '',
+                    contact: '',
+                    portfolio: '',
+                    skills: '',
+                    description: '',
+                    
+                }}
+
+                onSubmit ={
+                    async (values) => {
+                       await axios
+                       .post("http://localhost:4000/professionals", values)
+                       .then((response) => {
+                           console.log("Data added successfully.");
+                       })}
+                }
+                >
+            
+            </Formik>   */}
             <form onSubmit={formik.handleSubmit} id='professional-profile'>
 
                 <input 
@@ -102,6 +134,9 @@ const FormStaff = () => {
                     error={formik.errors.name}
                     value={formik.values.name}
                     />
+                    {formik.errors.name &&(
+                    <p style={{color:'red'}}>{formik.errors.name}</p>
+                )}
 
                 <input 
                     type='text'

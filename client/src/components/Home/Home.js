@@ -1,14 +1,10 @@
 import React from "react";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+// import { useState } from "react";
+// import { useDispatch } from "react-redux";
 import styles from "./Home.module.css";
 import NavBar from "../Navbar/Navbar";
-import GeneralCategory from "../Categories/General/GeneralCategory";
-// import Ordering from "../Ordering/Ordering";
-//import { orderCategories } from "../../redux/actions/actions";
-
+// import GeneralCategory from "../Categories/General/GeneralCategory";
 import Footer from "../Footer/Footer";
-// import Searchbar from "../searchbar/searchbar";
 
 const Home = () => {
   // let dispatch = useDispatch();
@@ -25,16 +21,11 @@ const Home = () => {
   return (
     <div>
       <NavBar />
-      {/* <Ordering
-      handlerByName={handlerByNameCategories}
-      namechange={namechange}
-      /> */}
       <div className={styles.BigContainer_Home}>
         <div className={styles.TextPro_Home}>
           FIND THE PERFECT PROFESSIONAL SERVICES FOR YOU
         </div>
         <div className={styles.SearchBar_Home}>
-          {/* <Searchbar/> */}
           <input
             type="text"
             placeholder={`TRY "CARPENTER, DESIGNER, ELECTRICIAN"`}
@@ -56,9 +47,7 @@ const Home = () => {
         <div className={styles.Stars_Home}>⭐⭐⭐⭐⭐</div>
       </div>
 
-      <div className={styles.divGeneral_Home}>
-        <GeneralCategory />
-      </div>
+      <div className={styles.divGeneral_Home}>{/* <GeneralCategory /> */}</div>
 
       <div className={styles.divFooter_Home}>
         <Footer />

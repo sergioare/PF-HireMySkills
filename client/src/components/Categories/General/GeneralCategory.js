@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../General/GeneralCategory.module.css";
 import { useState } from "react";
+// import NavBar from "../../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 
 const GeneralCategory = () => {
@@ -70,6 +71,7 @@ const GeneralCategory = () => {
 
   return (
     <div className={styles.general}>
+      {/* <NavBar /> */}
       <h1 className={styles.cardTitle}>Categories</h1>
       <div className={styles.card}>
         {professional.map((prof) => {

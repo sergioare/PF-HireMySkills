@@ -1,0 +1,30 @@
+.container{
+    border: 2px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    width: 100vw;
+}
+.container h1{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    color: rebeccapurple;
+    border: 2px solid red;
+    height: 12%;
+    font-weight: bolder;
+
+}
+.labels{
+    display: table-column;
+    width: 100vw;
+    border: 2px solid blue;
+    align-content: space-around;
+      
+}
+label{
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid 
+}
+
