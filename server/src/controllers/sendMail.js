@@ -1,8 +1,8 @@
 const nodemailer = require("nodemailer");
 
-const createTrans = () => {
+const createUser = () => {
   const transport = nodemailer.createTransport({
-    host: "smtp.mailtrap.oi",
+    host: "smtp.mailtrap.io",
     port: 2525,
     auth: {
       user: "c864dbd70b9f16",
@@ -13,12 +13,12 @@ const createTrans = () => {
 };
 
 const sendMail = async () => {
-  const transporter = createTrans();
+  const transporter = createUser();
   const info = await transporter.sendMail({
     from: '"Fred Foo " <foo@example.com>',
     to: ["info@info.com", "test@test.com"],
     subject: "Bienvenido al correo multiple",
-    html: <b>Hola mundo!!</b>,
+    html: "Hola mundo!!",
   });
 
   console.log("Message sent: %s", info.messageId);
