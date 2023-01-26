@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "build": "echo \"Nothing to do"
+    "build": "npm install"
   },
   "repository": {
     "type": "git",
