@@ -8,14 +8,14 @@ const users = require("./users.js");
 const reviews = require("./reviews.js");
 const shoppingcart = require("./shoppingcart.js");
 const pay = require("./pay.js");
-
-router.use("/category", category); //
-router.use("/profession", profession);
-router.use("/professionals", professionals);// ruta de (crear , borrado logico,traer toda la info)
+const email = require("./email");
+router.use("/category", category); //crear categorias y hacer put
+router.use("/profession", profession); // crear profession
+router.use("/professionals", professionals); // ruta de (crear , borrado logico,traer toda la info)
 router.use("/users", users);
 router.use("/products", products);
 router.use("/reviews", reviews);
 router.use("/shoppingcart", shoppingcart);
 router.use("/pay", pay);
-
+router.use("/email", email); // plantilla para envio de notificaciones por mail
 module.exports = router;

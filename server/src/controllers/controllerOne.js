@@ -1,10 +1,11 @@
 const { Error } = require("sequelize");
 const professionals = require("../models/professionals.js");
+const Profession = require("../models/profession")
 // ruta traer toda la data
 const getDBInfo = async (req, res) => {
   try {
     // btraemos toda la informacion de base de datos
-    const get = await professionals.findAll(id);
+    const get = await professionals.findAll();
     res.send(get);
   } catch (error) {
     res.send({ message: error });
@@ -22,43 +23,44 @@ const postcreateprofessional = async (req, res) => {
     contact,
     rating,
     portfolio,
-  } = req.body; //requerimos la informacion del cliente
-
+  } = req.body;
+  console.log(req.body, "::: es aqui");
   try {
-    // aqui buscamos si el cliente esta repetido por email
     const repetido = await professionals.findOne({ where: { email: email } });
-    if (repetido) {
-      res.send("client reppit");
-      // verificamos que se llene el formulario
-    } else if (
+    if (repetido) return res.send("client reppit"); // verificamos que se llene el formulario
+    console.log(repetido, "REPETIDO");
+    if (
       !name ||
       !description ||
       !photo ||
+      !skills ||
       !email ||
       !town ||
       !contact ||
       !rating ||
       !portfolio
-    ) {
-      res.send("insert information");
-      // se crea nuevo presta servicios
-    } else {
-      await professionals.create({
-        name,
-        description,
-        photo,
-        email,
-        town,
-        contact,
-        rating,
-        portfolio,
-      });
-
-      res.send("created successfully");
-    }
+    )
+      return res.send("insert information");
+    // se crea nuevo presta servicios
+    const newProfes = await professionals.create({
+      name,
+      description,
+      photo,
+      email,
+      town,
+      contact,
+      rating,
+      portfolio,
+      skills,
+    });
+    console.log(newProfes, "PROFESIONAL NEW");
+    const newProfesion = await Profession.findAll({
+      where: { profession: skills },
+    });
+    newProfes.addProfession(newProfesion);
+    res.send("created successfully");
   } catch (error) {
-    console.log(error);
-    res.send({ massage: error });
+    res.send(error);
   }
 };
 // ruta de borrado logico
