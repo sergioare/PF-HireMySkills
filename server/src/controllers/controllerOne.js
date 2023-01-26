@@ -1,8 +1,19 @@
+const { Model } = require("sequelize");
+const Profession = require("../models/Profession.js");
 const professionals = require("../models/professionals.js");
 
 const getDBInfo = async (req, res) => {
   try {
-    const get = await professionals.findAll();
+    const get = await professionals.findAll({
+      include: [
+        {
+          model: Profession,
+          attributes: {
+            attributes: ["profession"],
+          },
+        },
+      ],
+    });
     res.send(get);
   } catch (error) {
     res.send({ message: error });
@@ -13,7 +24,7 @@ const postcreateprofessional = async (req, res) => {
   const {
     name,
     description,
-    skills,
+    profession,
     photo,
     email,
     town,
@@ -26,7 +37,7 @@ const postcreateprofessional = async (req, res) => {
     await professionals.create({
       name,
       description,
-      skills,
+      profession,
       photo,
       email,
       town,

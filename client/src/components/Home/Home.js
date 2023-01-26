@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import styles from "./Home.module.css";
 import NavBar from "../Navbar/Navbar";
-// import GeneralCategory from "../Categories/General/GeneralCategory";
+import GeneralCategory from "../Categories/General/GeneralCategory";
 // import Ordering from "../Ordering/Ordering";
 //import { orderCategories } from "../../redux/actions/actions";
 
@@ -56,7 +56,9 @@ const Home = () => {
         <div className={styles.Stars_Home}>⭐⭐⭐⭐⭐</div>
       </div>
 
-      <div className={styles.divGeneral_Home}>{/* <GeneralCategory /> */}</div>
+      <div className={styles.divGeneral_Home}>
+        <GeneralCategory />
+      </div>
 
       <div className={styles.divFooter_Home}>
         <Footer />

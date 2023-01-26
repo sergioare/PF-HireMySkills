@@ -1,4 +1,4 @@
-const { DataTypes, } = require('sequelize');
+const { DataTypes } = require("sequelize");
 
 const Profession  =  (sequelize )=>{
 sequelize.define('profession', {
