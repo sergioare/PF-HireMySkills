@@ -3,6 +3,7 @@ import NavBar from "../Navbar/Navbar";
 // import GeneralCategory from '../Categories/General/GeneralCategory.js'
 import GeneralCategory from "../Categories/General/GeneralCategory";
 import Footer from "../Footer/Footer";
+import Searchbar from "../searchbar/searchbar";
 
 const Home = () => {
   return (
@@ -13,6 +14,8 @@ const Home = () => {
           FIND THE PERFECT PROFESSIONAL SERVICES FOR YOU
         </div>
         <div className={styles.SearchBar_Home}>
+          {/* <Searchbar/> */}
+
           <input
             type="text"
             placeholder={`TRY "CARPENTER, DESIGNER, ELECTRICIAN"`}
