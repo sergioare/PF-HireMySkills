@@ -11,3 +11,11 @@ const postProfessions = async (req, res) => {
     .catch((err) => res.status(400).json(err.message));
 };
 module.exports = postProfessions;
+
+
+// let recipedb = await Diets.findAll({
+//   where: { name: dietType },
+// });
+
+// await newrecipe.addDiets(recipedb);
+// return newrecipe;
