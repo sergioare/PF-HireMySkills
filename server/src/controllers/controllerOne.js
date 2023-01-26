@@ -28,7 +28,7 @@ const postcreateprofessional = async (req, res) => {
     const repetido = await professionals.findOne({ where: { email: email } });
     if (repetido) return res.send("client reppit"); // verificamos que se llene el formulario
     console.log(repetido, 'REPETIDO');
-    if (!name || !description || !photo || !skills || !email || !town || !contact || !rating || !portfolio) return res.send("insert information");
+    if (!name || !description || !photo || !skills || !email || !town || !contact || !portfolio) return res.send("insert information");
       // se crea nuevo presta servicios
     const newProfes = await professionals.create({ name, description, photo, email, town, contact, rating, portfolio, skills });
     console.log(newProfes, 'PROFESIONAL NEW');
