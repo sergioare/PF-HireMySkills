@@ -34,6 +34,7 @@ const {
   shoppingcart,
   pay,
 } = sequelize.models;
+console.log(sequelize.models);
 
 console.log(sequelize.models, 'MODELOSS');
 
