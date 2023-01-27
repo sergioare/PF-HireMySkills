@@ -6,7 +6,7 @@ import { Auth0Provider } from "@auth0/auth0-react";
 
 import bootstrap from "bootstrap/dist/css/bootstrap.min.css";
 // import {Provider} from 'react-redux'
-
+// import store from "./redux/store/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
