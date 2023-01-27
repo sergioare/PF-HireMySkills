@@ -5,7 +5,7 @@ const categories = sequelize.define(
   "categories",
   {
     id: {
-      type: DataTypes.INTEGER, // este tipo de dato es para que no se repita con el de la API (234T324R23T)
+      type: DataTypes.INTEGER,
       autoIncrement: true,
       allowNull: false,
       primaryKey: true,

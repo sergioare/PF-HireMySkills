@@ -18,12 +18,13 @@ const users =
         allowNull: false,
       },
       photo: {
-        // la foto del rostro del profesional
+        // la foto del rostro del usuario
         type: DataTypes.TEXT,
-        allowNull: true,
+        defaultValue:
+          "https://www.supercoloring.com/sites/default/files/styles/coloring_medium/public/cif/2022/02/521-bust-in-silhouette-coloring-page.png",
       },
       email: {
-        type: DataTypes.STRING, //  contacto del professional
+        type: DataTypes.STRING, //  contacto del usuario
         allowNull: false,
       },
       town: {
@@ -33,7 +34,7 @@ const users =
       },
       contact: {
         // numero del profesional
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       deleted: {

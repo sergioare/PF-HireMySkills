@@ -33,32 +33,22 @@ const getDBInfo = async (req, res) => {
 };
 // ruta crear professional
 const postcreateprofessional = async (req, res) => {
-  const {
-    name,
-    description,
-    skills,
-    photo,
-    email,
-    town,
-    contact,
-    rating,
-    portfolio,
-  } = req.body;
+  const { name, description, skills, photo, email, town, contact, portfolio } =
+    req.body;
   // console.log(req.body, "::: es aqui");
   try {
     const repetido = await professionals.findOne({ where: { email: email } });
-    if (repetido) return res.send("client reppit"); // verificamos que se llene el formulario
+    if (repetido) return res.send("Professional already exists");
 
+    // verificamos que se llene el formulario
 
     if (
       !name ||
       !description ||
-      !photo ||
       !skills ||
       !email ||
       !town ||
       !contact ||
-
       !portfolio
     )
       return res.send("insert information");
@@ -74,7 +64,7 @@ const postcreateprofessional = async (req, res) => {
       skills,
     });
     const newProfesion = await Profession.findAll({
-      where: { Profession: skills },
+      where: { id: skills },
     });
     newProfes.addProfession(newProfesion);
 
