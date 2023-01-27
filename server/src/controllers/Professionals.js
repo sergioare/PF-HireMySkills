@@ -1,33 +1,26 @@
 const professionals = require("../models/professionals.js");
 
-const postProfessional = async (req, res) => {
-  let { name, description, skills, photo, email, town, contact, portfolio } =
-    req.body;
-
-  await professionals
-    .create({
-      name,
-      description,
-      skills,
-      photo,
-      email,
-      town,
-      contact,
-      portfolio,
-    })
-    .then(() =>
-      res.json({
-        name,
-        description,
-        skills,
-        photo,
-        email,
-        town,
-        contact,
-        portfolio,
-      })
-    )
-    .catch((err) => res.status(400).json({ message: err.message }));
+const getprofesinalsid = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const getid = await professionals.findByPk(id);
+    res.send(getid);
+  } catch (error) {
+    res.send(error);
+  }
 };
 
-module.exports = postProfessional;
+// const bynameprofessionals = async (req, res) => {
+//   const { name } = req.query;
+//   try {
+//     const getname = await professionals.findAll({
+//       where: {
+//         name: name,
+//       },
+//     });
+//     res.send(getname);
+//   } catch (error) {
+//     res.send(error);
+//   }
+// };
+module.exports = { getprofesinalsid };

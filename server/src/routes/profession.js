@@ -1,11 +1,11 @@
 const Router = require("express");
 // const getDBInfo = require("../controllers/controllerOne");
-// const { professionalsGetName } = require("../controllers/professionGetName");
+// const { professionsGetName } = require("../controllers/professionGetName");
 const router = Router();
-const postProfessions = require("../controllers/Professions.js");
+const { postProfessions, searchProfession } = require("../controllers/Professions.js");
 
 // GET
-// router.get('/', professionalsGetName);
+router.get('/', searchProfession);
 
 // POST
 router.post("/", postProfessions);
