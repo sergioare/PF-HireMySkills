@@ -16,7 +16,7 @@ const searchProfession = async (req, res) => {
   const { profession } = req.query;
   try {
     const findProfessionals = await professionals.findAll();
-    console.log(findProfessionals, 'PROFESIONAL');
+    // console.log(findProfessionals, 'PROFESIONAL');
     const  result = findProfessionals.filter(pf => pf.skills.some(sk => sk.toLowerCase() === profession.toLowerCase()));
     if(result.length) return res.send(result);
     else return res.send({ message: 'Profession not found' })
