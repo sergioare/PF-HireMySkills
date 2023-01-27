@@ -14,6 +14,7 @@ import Team from "./Team/Team";
 import NavBar from "./Navbar/Navbar";
 import Form from './Form/FormStaff'
 import Contact from "./Contact-Us/Contact";
+import ShoppingCart from "./Shopping/ShoppingCart";
 
 function App() {
   return (
@@ -34,12 +35,13 @@ function App() {
             <Route path="/account" element={<SignIn />} />
             <Route path="/contact-us" element={<Contact />} />
             <Route path="/form" element={<Form />} />
-       
+            <Route path="/shopping" element={<ShoppingCart />} />
+
             {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
 
         </Routes>
       </Fragment>
-      <Footer/>
+      {/* <Footer/> */}
     </BrowserRouter>
   );
 }
