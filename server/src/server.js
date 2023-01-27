@@ -16,7 +16,7 @@ server.use(routes);
 
 (async function seqSync() {
   try {
-    sequelize.sync({ force: true }).then(() => {
+    sequelize.sync({ force: false }).then(() => {
       console.log("Postgres sync has been established successfully.");
     });
   } catch (error) {
