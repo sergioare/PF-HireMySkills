@@ -22,7 +22,7 @@ const SpecificCategory = () => {
         {aux[0].subCategory.map((prof) => {
           return (
             <div key={prof.id} className={styles.divSpecific}>
-              <Link to={`/professional/${prof.id}`}>
+              <Link to={`/categories/profession/professionals/${prof.id}`}>
                 <h3>{prof.name} </h3>
               </Link>
             </div>

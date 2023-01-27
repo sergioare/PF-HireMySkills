@@ -24,7 +24,10 @@ const GeneralCategory = () => {
         {api.map((cat) => {
           return (
             <div className={styles.cardBody}>
-              <Link to={`/categories/${cat.id}`} className={styles.cardLink}>
+              <Link
+                to={`/categories/profession/${cat.id}`}
+                className={styles.cardLink}
+              >
                 <h3 className={styles.cardName}>{cat.category}</h3>
               </Link>
             </div>

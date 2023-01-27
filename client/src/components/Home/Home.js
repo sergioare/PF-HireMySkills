@@ -34,6 +34,10 @@ const Home = () => {
       namechange={namechange}
       /> */}
       <div className={styles.BigContainer_Home}>
+        <h1>
+          aplicar css a este compomente y en la seccion popular poner una slice
+          de profesionales con el mayor rating
+        </h1>
         <div className={styles.TextPro_Home}>
           FIND THE PERFECT PROFESSIONAL SERVICES FOR YOU
         </div>
@@ -66,7 +70,10 @@ const Home = () => {
           {api.map((cat) => {
             return (
               <div className={styles.cardBody}>
-                <Link to={`/categories/${cat.id}`} className={styles.cardLink}>
+                <Link
+                  to={`/categories/profession/${cat.id}`}
+                  className={styles.cardLink}
+                >
                   <h3 className={styles.cardName}>{cat.category}</h3>
                 </Link>
               </div>

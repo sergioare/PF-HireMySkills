@@ -16,7 +16,7 @@ server.use(routes);
 
 (async function seqSync() {
   try {
-    sequelize.sync({ force: true }).then(() => {
+    sequelize.sync({ force: false }).then(() => {
       console.log("Postgres sync has been established successfully.");
     });
   } catch (error) {
@@ -30,9 +30,9 @@ const {
   categories,
   profession,
   products,
-  reviews,
-  shoppingcart,
-  pay,
+  // reviews,
+  // shoppingcart,
+  // pay,
 } = sequelize.models;
 console.log(sequelize.models);
 
@@ -52,10 +52,10 @@ profession.belongsTo(categories);
 professionals.hasMany(products);
 products.belongsTo(professionals);
 
-professionals.hasMany(reviews);
-users.hasMany(reviews);
-reviews.belongsTo(users);
-reviews.belongsTo(professionals);
+// professionals.hasMany(reviews);
+// users.hasMany(reviews);
+// reviews.belongsTo(users);
+// reviews.belongsTo(professionals);
 
 products.belongsToMany(users, {
   through: "products_users",
@@ -64,10 +64,10 @@ users.belongsToMany(products, {
   through: "products_users",
 });
 
-users.hasMany(shoppingcart);
-shoppingcart.belongsTo(users);
+// users.hasMany(shoppingcart);
+// shoppingcart.belongsTo(users);
 
-shoppingcart.hasOne(pay);
-pay.belongsTo(shoppingcart);
+// shoppingcart.hasOne(pay);
+// pay.belongsTo(shoppingcart);
 
 module.exports = server;

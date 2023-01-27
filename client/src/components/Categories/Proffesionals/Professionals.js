@@ -344,13 +344,18 @@ function Professionals() {
       {aux[0].profesional.map((wr) => {
         return (
           <div key={wr.id} className={s.cardsGeneral}>
-            <h1 className={s.profName}>{wr.worker}</h1>
-            <div className={s.img}>
-              <img
-                src="https://thumbs.dreamstime.com/b/user-icon-trendy-flat-style-isolated-grey-background-user-symbol-user-icon-trendy-flat-style-isolated-grey-background-123663211.jpg"
-                alt="algunman"
-              />
-            </div>
+            <Link
+              to={`/categories/profession/professionals/professional/${wr.id}`}
+            >
+              <h1 className={s.profName}>{wr.worker}</h1>
+              <div className={s.img}>
+                <img
+                  src="https://thumbs.dreamstime.com/b/user-icon-trendy-flat-style-isolated-grey-background-user-symbol-user-icon-trendy-flat-style-isolated-grey-background-123663211.jpg"
+                  alt="algunman"
+                />
+              </div>
+            </Link>
+
             <h3>⭐⭐⭐⭐⭐</h3>
             <h2 className={s.description}>Descrption</h2>
             <h3>
