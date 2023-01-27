@@ -1,5 +1,7 @@
 const { Model } = require("sequelize");
-const Profession = require("../models/Profession");
+
+const Profession = require("../models/profession.js");
+
 const professionals = require("../models/professionals.js");
 // ruta traer toda la data
 const getDBInfo = async (req, res) => {
@@ -47,6 +49,7 @@ const postcreateprofessional = async (req, res) => {
     const repetido = await professionals.findOne({ where: { email: email } });
     if (repetido) return res.send("client reppit"); // verificamos que se llene el formulario
 
+
     if (
       !name ||
       !description ||
@@ -55,7 +58,7 @@ const postcreateprofessional = async (req, res) => {
       !email ||
       !town ||
       !contact ||
-      !rating ||
+
       !portfolio
     )
       return res.send("insert information");
@@ -67,7 +70,6 @@ const postcreateprofessional = async (req, res) => {
       email,
       town,
       contact,
-      rating,
       portfolio,
       skills,
     });
@@ -75,6 +77,7 @@ const postcreateprofessional = async (req, res) => {
       where: { Profession: skills },
     });
     newProfes.addProfession(newProfesion);
+
     res.send("created successfully");
   } catch (error) {
     res.send(error);
