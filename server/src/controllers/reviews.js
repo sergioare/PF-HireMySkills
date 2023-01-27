@@ -2,7 +2,7 @@ const reviews = require("../models/reviews.js");
 
 const postReview = async (req, res) => {
   let { review_comment, review_rating, userId, professionalId } = req.body;
-
+  try{
   await users
     .create({
       review_comment,
@@ -10,8 +10,10 @@ const postReview = async (req, res) => {
       userId,
       professionalId,
     })
-
-    .catch((err) => res.status(400).json({ message: err.message }));
+   res.send("create")
+  }catch(error){
+    res.send(error)
+  };
 };
 
 module.exports = postReview;

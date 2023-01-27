@@ -3,18 +3,28 @@ const Profession = require("../models/Profession");
 const professionals = require("../models/professionals.js");
 // ruta traer toda la data
 const getDBInfo = async (req, res) => {
+  const { name } = req.query;
   try {
-    const get = await professionals.findAll({
-      include: [
-        {
-          model: Profession,
-          attributes: {
-            attributes: ["Profession"],
+    if (!name) {
+      const get = await professionals.findAll({
+        include: [
+          {
+            model: Profession,
+            attributes: {
+              attributes: ["Profession"],
+            },
           },
-        },
-      ],
-    });
-    res.send(get);
+        ],
+      });
+
+      res.send(get);
+    } else {
+      const getname = await professionals.findAll();
+      const filter = getname.filter(
+        (e) => e.name.toLowerCase() === name.toLowerCase()
+      );
+      res.send(filter);
+    }
   } catch (error) {
     res.send({ message: error });
   }
@@ -36,7 +46,7 @@ const postcreateprofessional = async (req, res) => {
   try {
     const repetido = await professionals.findOne({ where: { email: email } });
     if (repetido) return res.send("client reppit"); // verificamos que se llene el formulario
-   
+
     if (
       !name ||
       !description ||

@@ -21,7 +21,7 @@ async function pago(name, email) {
     from: `"HIREMYSKILLS 👾⚒️" <${GMAIL_ADMIN}>`, // sender address
     to: email, // list of receivers
     subject: "SUCCESSFUL PAYMENT ", // Subject line
-    html: `Hello ${name} 🛒. Thank you very much for hiring a professional. We will be in contact with you shortly👌. <a href=''>Ingresa aqui para regresar al sitio</a>`, // html body
+    html: `Hello ${name} 🛒. Thank you very much for hiring a professional. We will be in contact with you shortly👌. <a href=''>Enter here to return to the site</a>`, // html body
   });
   return informacion;
 }
