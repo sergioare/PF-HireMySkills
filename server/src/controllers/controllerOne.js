@@ -1,5 +1,5 @@
 const { Model } = require("sequelize");
-const Profession = require("../models/profession.js");
+const Profession = require("../models/Profession.js");
 const professionals = require("../models/professionals.js");
 
 const getDBInfo = async (req, res) => {

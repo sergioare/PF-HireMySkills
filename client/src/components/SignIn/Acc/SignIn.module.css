@@ -8,16 +8,24 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  border: solid #f4a261 5px;
+  border-radius: 7%;
 }
-
-.Container_ProfileLogout_SignIn {
+/* .BigContainer_SignIn button {
+  margin-left: 1px;
+  margin-top: 20px;
+} */
+/* .Container_ProfileLogout_SignIn {
   position: absolute;
   width: 940px;
-  height: 420px; /* era 320px  */
+  height: 420px;
   top: 180px;
   left: 169px;
   border: solid black 2px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+} */
+
+.Container_Login_SignIn {
 }

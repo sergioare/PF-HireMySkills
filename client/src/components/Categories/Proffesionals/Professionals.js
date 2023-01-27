@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
-import s from './Professionals.module.css'
+import Navbar from "../../Navbar/Navbar";
+import s from "./Professionals.module.css";
 
 function Professionals() {
   const { id } = useParams();
@@ -316,7 +317,7 @@ function Professionals() {
       id: 16,
       name: "SITIOS WEB",
       profesional: [
-        { 
+        {
           id: 52,
           worker: "Godofredo",
         },
@@ -335,31 +336,37 @@ function Professionals() {
   let aux = Workers.filter((wr) => wr.id === parseInt(id));
   console.log(aux);
   return (
-      <div className={s.cards}>
-      <Link to="/home">Back to Home</Link>
-     {
-        aux[0].profesional.map((wr)=>{
-          return (
-            <div key={wr.id} className={s.cardsGeneral}>
-            
-            <h1>{wr.worker}</h1> 
+    <div className={s.cards}>
+      <Navbar />
+      <Link to="/home">
+        <button className={s.profBtn}>Back to Home</button>
+      </Link>
+      {aux[0].profesional.map((wr) => {
+        return (
+          <div key={wr.id} className={s.cardsGeneral}>
+            <h1 className={s.profName}>{wr.worker}</h1>
             <div className={s.img}>
-            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="algunman"/>
-            </div>  
+              <img
+                src="https://thumbs.dreamstime.com/b/user-icon-trendy-flat-style-isolated-grey-background-user-symbol-user-icon-trendy-flat-style-isolated-grey-background-123663211.jpg"
+                alt="algunman"
+              />
+            </div>
             <h3>⭐⭐⭐⭐⭐</h3>
             <h2 className={s.description}>Descrption</h2>
-            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus voluptatum, unde sint itaque est, maxime odit numquam illo tempore minima fuga repellat laudantium ullam. Laborum voluptate aliquid nam quia officia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus voluptatum, unde sint itaque est, maxime odit numquam illo tempore minima fuga repellat laudantium ullam. Laborum voluptate aliquid nam quia officia. </h3>
-            </div>
-            
-          )
-        })
-
-      }
-      
-
-      </div>
-      
-      );
+            <h3>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
+              voluptatum, unde sint itaque est, maxime odit numquam illo tempore
+              minima fuga repellat laudantium ullam. Laborum voluptate aliquid
+              nam quia officia. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Natus voluptatum, unde sint itaque est, maxime
+              odit numquam illo tempore minima fuga repellat laudantium ullam.
+              Laborum voluptate aliquid nam quia officia.{" "}
+            </h3>
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 export default Professionals;

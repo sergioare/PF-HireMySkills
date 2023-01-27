@@ -11,6 +11,9 @@ import FAQs from "./FAQs/FAQs";
 // import JoinForm from "./Join/JoinForm";
 import SignIn from "./SignIn/Acc/SignIn";
 import Team from "./Team/Team";
+
+import NavBar from "./Navbar/Navbar";
+
 import Form from "./Form/FormStaff";
 import Contact from "./Contact-Us/Contact";
 

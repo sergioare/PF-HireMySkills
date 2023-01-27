@@ -1,78 +1,48 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import { useState, useEffect } from "react";
+// import { useDispatch, useSelector } from "react-redux";
 import styles from "../General/GeneralCategory.module.css";
-import { useState } from "react";
-// import NavBar from "../../Navbar/Navbar";
+import NavBar from "../../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
+// import { getCategories } from "../../../redux/actions/actions";
+import api from "../../../api.json";
 
 const GeneralCategory = () => {
-  const [professional] = useState([
-    {
-      id: 1,
-      name: "SALUD",
-      categoriesSpecific: ["MEDICINA GENERAL", "ODONTOLOGIA", "TERAPIA FISICA"],
-    },
-    {
-      id: 2,
-      name: "ADMINISTRACION",
-      categoriesSpecific: ["SECRETARIA", "CONTABILIDAD", "GERENCIA"],
-    },
-    {
-      id: 3,
-      name: "INGENIERIA",
-      categoriesSpecific: ["ELECTRICA", "AUTOMOTRIZ", "AMBIENTAL"],
-    },
-    {
-      id: 4,
-      name: "HOGAR",
-      categoriesSpecific: ["LIMPIEZA", "CUIDAR ADULTOS", "PLOMERIA"],
-    },
-    {
-      id: 5,
-      name: "TECNOLOGIA",
-      categoriesSpecific: ["TELEFONIA", "INTERNET", "TELEVISION"],
-    },
-    {
-      id: 6,
-      name: "PROGRAMACION",
-      categoriesSpecific: ["DISEÑO WEB", "APLICACIONES", "SITIOS WEB"],
-    },
-    {
-      id: 7,
-      name: "ECONOMIA",
-      categoriesSpecific: [""],
-    },
-    {
-      id: 8,
-      name: "TELECOMUNICACIONES",
-      categoriesSpecific: [""],
-    },
-    {
-      id: 9,
-      name: "DEPORTE",
-      categoriesSpecific: [""],
-    },
-    {
-      id: 10,
-      name: "EDUCACIÓN",
-      categoriesSpecific: [""],
-    },
-    {
-      id: 11,
-      name: "ARTE",
-      categoriesSpecific: [""],
-    },
-    {
-      id: 12,
-      name: "INDUSTRIAL",
-      categoriesSpecific: [""],
-    },
-  ]);
+  // const dispatch = useDispatch();
+  // const allCategories = useSelector((state) => state.categories);
+
+  // useEffect(() => {
+  //   dispatch(getCategories());
+  // }, [dispatch]);
 
   return (
     <div className={styles.general}>
+      <NavBar />
+      <h1 className={styles.cardHeader}>Categories</h1>
+      <div className={styles.card}>
+        {api.map((cat) => {
+          return (
+            <div className={styles.cardBody}>
+              <Link to={`/categories/${cat.id}`} className={styles.cardLink}>
+                <h3 className={styles.cardName}>{cat.category}</h3>
+              </Link>
+            </div>
+          );
+        })}
+      </div>
+      {/* <div className={styles.card}>
+        {allCategories.map((cat) => {
+          return (
+            <Link to={"/"}>
+              <h3>{cat.category}</h3>
+            </Link>
+          );
+        })}
+      </div> */}
+
       {/* <NavBar /> */}
-      <h1 className={styles.cardTitle}>Categories</h1>
+      {/* <h1 className={styles.cardTitle}>Categories</h1>
       <div className={styles.card}>
         {professional.map((prof) => {
           return (
@@ -83,7 +53,7 @@ const GeneralCategory = () => {
             </Link>
           );
         })}
-      </div>
+      </div> */}
       <Footer />
     </div>
   );

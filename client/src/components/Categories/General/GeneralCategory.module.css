@@ -2,11 +2,10 @@
 .general {
   width: 100%;
   min-height: 100vh;
-  margin-top: 100px;
 }
 .card {
   width: 80%;
-
+  padding-top: 50px;
   margin: 0 auto;
   padding-bottom: 20px;
   display: grid;
@@ -22,12 +21,28 @@
 }
 .cardBody {
   width: 75%;
-  background-color: rgb(101, 147, 245);
+  background-color: rgb(177, 178, 180);
   height: 150px;
+  border-radius: 10px;
+}
+.cardHeader {
+  margin: auto;
+  width: 100%;
+  padding-top: 30px;
+  padding-left: 60px;
+  color: black;
+}
+
+.cardLink {
+  text-decoration: none;
 }
 .cardName {
   font-size: 18px;
   margin: 0 auto;
+  padding-top: 50px;
+  padding-left: 50px;
+  font-weight: 700;
 }
 .cardName h3 {
+  text-align: center;
 }

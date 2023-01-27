@@ -1,0 +1,27 @@
+.BigContainer_About {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.About_About {
+  font-size: 50px;
+  color: #009949;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding-bottom: 30px;
+}
+
+.img_About {
+  width: 100%;
+  height: 100vh;
+}
+
+/* .Footer_About {
+  padding-top: 100px;
+} */
+
+.Text_About {
+  margin-top: 30px;
+}
