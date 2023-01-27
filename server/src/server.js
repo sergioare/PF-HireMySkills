@@ -36,8 +36,6 @@ const {
 } = sequelize.models;
 console.log(sequelize.models);
 
-console.log(sequelize.models);
-
 professionals.belongsToMany(users, { through: "professionals_users" });
 users.belongsToMany(professionals, { through: "professionals_users" });
 
