@@ -2,14 +2,16 @@ const shoppingcart = require("../models/shoppingcart.js");
 
 const postShoppingCart = async (req, res) => {
   let { products_bought, quantity_bought } = req.body;
-
+  try{
   await shoppingcart
     .create({
       products_bought,
       quantity_bought,
     })
-
-    .catch((err) => res.status(400).json({ message: err.message }));
+  res.send("create")
+  }catch(error){
+  res.send(error)
+  }
 };
 
 module.exports = postShoppingCart;
