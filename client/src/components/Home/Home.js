@@ -7,6 +7,9 @@ import GeneralCategory from "../Categories/General/GeneralCategory";
 // import Ordering from "../Ordering/Ordering";
 //import { orderCategories } from "../../redux/actions/actions";
 
+// import Ordering from "../Ordering/Ordering";
+//import { orderCategories } from "../../redux/actions/actions";
+
 import Footer from "../Footer/Footer";
 // import Searchbar from "../searchbar/searchbar";
 
@@ -24,6 +27,10 @@ const Home = () => {
 
   return (
     <div>
+      {/* <Ordering
+      handlerByName={handlerByNameCategories}
+      namechange={namechange}
+      /> */}
       <NavBar />
       {/* <Ordering
       handlerByName={handlerByNameCategories}
@@ -56,9 +63,9 @@ const Home = () => {
         <div className={styles.Stars_Home}>⭐⭐⭐⭐⭐</div>
       </div>
 
-      <div className={styles.divGeneral_Home}>
+      {/*       <div className={styles.divGeneral_Home}>
         <GeneralCategory />
-      </div>
+      </div> */}
 
       <div className={styles.divFooter_Home}>
         <Footer />
