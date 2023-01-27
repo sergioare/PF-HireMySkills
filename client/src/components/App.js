@@ -9,7 +9,6 @@ import SpecificCategory from "./Categories/Specific/SpecificCategory";
 import Professionals from "./Categories/Proffesionals/Professionals";
 import FAQs from "./FAQs/FAQs";
 import Footer from "./Footer/Footer";
-import JoinForm from "./Join/JoinForm";
 import SignIn from "./SignIn/Acc/SignIn";
 import Team from "./Team/Team";
 import NavBar from "./Navbar/Navbar";
@@ -23,6 +22,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/creators" element={<Team />} />
+
+
+          <Route path="/" element={<NavBar />}/>
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/categories" element={<GeneralCategory />} />
