@@ -1,5 +1,5 @@
 // import React, { useState } from 'react';
-import { useFormik } from "formik";
+import { Formik, useFormik, Form } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import PreviewImage from "./PreviewImage";
@@ -16,7 +16,7 @@ const FormStaff = () => {
   //         })
 
   // }
-  const onSubmit = async (values) => {
+  const handleOnSubmit = async (values) => {
     await axios
       .post("http://localhost:4000/professionals", values)
       .then((response) => {
@@ -66,8 +66,16 @@ const FormStaff = () => {
 
       description: Yup.string(),
     }),
-    onSubmit: { onSubmit },
-    // onSubmit:async()=>{
+    onSubmit: (values) => {
+      alert(values.contact);
+    },
+    // onSubmit: (values) => {
+    //    handleOnSubmit(values)
+    // },
+    // onSubmit : (values) => {
+    //    handleOnSubmit
+    // },
+    // onSubmit:async(values)=>{
 
     //     const {image} = formik.values
     //     const formData = new FormData()
