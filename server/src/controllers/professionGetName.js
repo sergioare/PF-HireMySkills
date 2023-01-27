@@ -1,4 +1,4 @@
-const Profession = require('../models/profession.js');
+const Profession = require('../models/Profession.js');
 
 const professionsGetName = async (req, res) => {
     // const { name } = req.query;
