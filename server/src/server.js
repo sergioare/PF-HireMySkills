@@ -35,6 +35,8 @@ const {
   pay,
 } = sequelize.models;
 
+console.log(sequelize.models, 'MODELOSS');
+
 professionals.belongsToMany(users, { through: "professionals_users" });
 users.belongsToMany(professionals, { through: "professionals_users" });
 
