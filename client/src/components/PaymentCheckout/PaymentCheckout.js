@@ -44,7 +44,7 @@ const CheckoutForm = ()=>{ //this a componente and is the payment formulary
             className="img-fluid"
             />
 
-            <h3 className="text-center my-2">Price: 100$</h3>
+            <h3 className="text-center my-2">Price: $100</h3>
             <div className="form-group">
 
             <CardElement/>
