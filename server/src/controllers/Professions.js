@@ -1,4 +1,4 @@
-const Professions = require("../models/Profession.js");
+const Professions = require("../models/profession.js");
 
 const postProfessions = async (req, res) => {
   let { profession, categoryId } = req.body;
@@ -10,3 +10,11 @@ const postProfessions = async (req, res) => {
   }
 }
 module.exports = postProfessions;
+
+
+// let recipedb = await Diets.findAll({
+//   where: { name: dietType },
+// });
+
+// await newrecipe.addDiets(recipedb);
+// return newrecipe;

@@ -14,16 +14,16 @@ const Home = () => {
           FIND THE PERFECT PROFESSIONAL SERVICES FOR YOU
         </div>
         <div className={styles.SearchBar_Home}>
-          <Searchbar/>
+          {/* <Searchbar/> */}
 
-          {/* <input
+          <input
             type="text"
             placeholder={`TRY "CARPENTER, DESIGNER, ELECTRICIAN"`}
             className={styles.SearchInput_Home}
           />{" "}
           <button type="submit" className={styles.SearchButton_Home}>
             Search
-          </button> */}
+          </button>
         </div>
         <div className={styles.Popular_Home}>POPULAR SECTION</div>
         <div>
