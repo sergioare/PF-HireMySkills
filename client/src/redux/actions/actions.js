@@ -1,4 +1,3 @@
-import api from "../../api.json";
 import axios from "axios";
 //ACTIONS TYPES
 export const GET_CATEGORIES = "GET_CATEGORIES";
@@ -23,9 +22,11 @@ export const urlProfessionals = "http://localhost:4000/professionals";
 export const urlUsers = "http://localhost:4000/users";
 export const urlProducts = "http://localhost:4000/products";
 
+let url = "https://hiremyskillsbackend.onrender.com";
+
 export function getCategories() {
   return function (dispatch) {
-    axios.get(api).then((response) => {
+    axios.get(`${url}/category`).then((response) => {
       return dispatch({
         type: "GET_CATEGORIES",
         payload: response.data,

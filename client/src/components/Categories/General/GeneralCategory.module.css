@@ -37,12 +37,9 @@
   text-decoration: none;
 }
 .cardName {
-  font-size: 18px;
-  margin: 0 auto;
-  padding-top: 50px;
-  padding-left: 50px;
+  margin: auto;
+  font-size: 20px;
   font-weight: 700;
-}
-.cardName h3 {
   text-align: center;
+  padding-top: 25%;
 }
