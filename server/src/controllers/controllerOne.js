@@ -51,7 +51,7 @@ const postcreateprofessional = async (req, res) => {
       !contact ||
       !portfolio
     )
-      return res.send("insert information");
+      return res.status(400).send("insert information");
     // se crea nuevo presta servicios
     const newProfes = await professionals.create({
       name,
@@ -64,13 +64,13 @@ const postcreateprofessional = async (req, res) => {
       skills,
     });
     const newProfesion = await Profession.findAll({
-      where: { id: skills },
+      where: { name: skills },
     });
     newProfes.addProfession(newProfesion);
 
     res.send("created successfully");
   } catch (error) {
-    res.send(error);
+    res.send(error.message);
   }
 };
 
