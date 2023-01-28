@@ -15,6 +15,7 @@ export const DELETE_SERVICE = "DELETE_SERVICE";
 
 const initialState = {
   categories: [],
+  subCategory: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -23,6 +24,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         categories: action.payload,
+      };
+
+    case "GET_SUB_CATEGORY":
+      return {
+        ...state,
+        subCategory: action.payload,
       };
     default:
       return state;

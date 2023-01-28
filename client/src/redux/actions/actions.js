@@ -34,3 +34,14 @@ export function getCategories() {
     });
   };
 }
+
+export function getSubCategory() {
+  return function (dispatch) {
+    axios.get(`${url}/profession`).then((response) => {
+      return dispatch({
+        type: "GET_SUB_CATEGORY",
+        payload: response.data,
+      });
+    });
+  };
+}

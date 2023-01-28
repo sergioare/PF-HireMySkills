@@ -1,15 +1,22 @@
 import React from "react";
 import styles from "../Specific/SpecificCategory.module.css";
 import { Link, useParams } from "react-router-dom";
-import Footer from "../../Footer/Footer";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../../Navbar/Navbar";
-import api from "../../../api.json";
+import Footer from "../../Footer/Footer";
+import { getSubCategory } from "../../../redux/actions/actions";
 
 const SpecificCategory = () => {
   const { id } = useParams();
-  // console.log(id);
+  const dispatch = useDispatch();
+  const subCategory = useSelector((state) => state.subCategory);
 
-  let aux = api.filter((pf) => pf.id === parseInt(id));
+  useEffect(() => {
+    dispatch(getSubCategory());
+  }, [dispatch, id]);
+
+  let aux = subCategory.filter((pf) => pf.categoryId === parseInt(id));
   console.log(aux);
 
   return (
@@ -19,11 +26,11 @@ const SpecificCategory = () => {
         <h1>Profession</h1>
       </div>
       <div className={styles.cardSubCat}>
-        {aux[0].subCategory.map((prof) => {
+        {aux.map((prof) => {
           return (
             <div key={prof.id} className={styles.divSpecific}>
               <Link to={`/categories/profession/professionals/${prof.id}`}>
-                <h3>{prof.name} </h3>
+                <h3>{prof.profession} </h3>
               </Link>
             </div>
           );
