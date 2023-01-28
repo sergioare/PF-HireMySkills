@@ -10,17 +10,5 @@ const getprofesinalsid = async (req, res) => {
   }
 };
 
-// const bynameprofessionals = async (req, res) => {
-//   const { name } = req.query;
-//   try {
-//     const getname = await professionals.findAll({
-//       where: {
-//         name: name,
-//       },
-//     });
-//     res.send(getname);
-//   } catch (error) {
-//     res.send(error);
-//   }
-// };
+
 module.exports = { getprofesinalsid };
