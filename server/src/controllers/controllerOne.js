@@ -64,7 +64,7 @@ const postcreateprofessional = async (req, res) => {
       skills,
     });
     const newProfesion = await Profession.findAll({
-      where: { name: skills },
+      where: { profession: skills },
     });
     newProfes.addProfession(newProfesion);
 
