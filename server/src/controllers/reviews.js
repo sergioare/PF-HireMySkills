@@ -34,4 +34,13 @@ const postReview = async (req, res) => {
   }
 };
 
-module.exports = postReview;
+const getReviews = async (req, res) => {
+  try {
+    const reviews_list = await reviews.findAll();
+    res.json(reviews_list);
+  } catch (error) {
+    res.send(error.message);
+  }
+};
+
+module.exports = { postReview, getReviews };
