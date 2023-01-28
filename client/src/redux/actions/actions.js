@@ -45,3 +45,14 @@ export function getSubCategory() {
     });
   };
 }
+
+export function getProfessionals(id) {
+  return function (dispatch) {
+    axios.get(`${url}/professionals`).then((response) => {
+      return dispatch({
+        type: "GET_PROFESSIONALS",
+        payload: response.data,
+      });
+    });
+  };
+}
