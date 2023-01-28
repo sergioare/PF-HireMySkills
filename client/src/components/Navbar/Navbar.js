@@ -10,21 +10,21 @@ const NavBar = () => {
 
       <div className={styles.min_container}>
         <div className={styles.left_NavBar}>
-          <Link to="/">
+          <Link to="/" className={styles.navLink}>
             <span className={styles.HMS_NavBar}>HireMySkills</span>
           </Link>
-          <Link to="/categories">
+          <Link to="/categories" className={styles.navLink}>
             <span className={styles.Categories_NavBar}>Categories</span>
           </Link>
-          <Link to="/about">
+          <Link to="/about" className={styles.navLink}>
             <span className={styles.AboutUs_NavBar}>About us</span>
           </Link>
-          <Link to="/FAQs">
+          <Link to="/FAQs" className={styles.navLink}>
             <span className={styles.FAQs_NavBar}>FAQs</span>
           </Link>
         </div>
         <div className={styles.right_NavBar}>
-          <Link to="/account">
+          <Link to="/account" className={styles.navLink}>
             <div className={styles.SignIn_NavBar}>Account</div>
           </Link>
           {/*         <Link to="/Join">

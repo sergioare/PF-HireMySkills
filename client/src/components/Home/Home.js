@@ -1,17 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 import NavBar from "../Navbar/Navbar";
-import GeneralCategory from "../Categories/General/GeneralCategory";
+// import GeneralCategory from "../Categories/General/GeneralCategory";
 // import Ordering from "../Ordering/Ordering";
 //import { orderCategories } from "../../redux/actions/actions";
-
-// import Ordering from "../Ordering/Ordering";
-//import { orderCategories } from "../../redux/actions/actions";
-
 import Footer from "../Footer/Footer";
-// import Searchbar from "../searchbar/searchbar";
+import api from "../../api.json";
 
 const Home = () => {
   // let dispatch = useDispatch();
@@ -37,6 +34,10 @@ const Home = () => {
       namechange={namechange}
       /> */}
       <div className={styles.BigContainer_Home}>
+        <h1>
+          aplicar css a este compomente y en la seccion popular poner una slice
+          de profesionales con el mayor rating
+        </h1>
         <div className={styles.TextPro_Home}>
           FIND THE PERFECT PROFESSIONAL SERVICES FOR YOU
         </div>
@@ -63,13 +64,29 @@ const Home = () => {
         <div className={styles.Stars_Home}>⭐⭐⭐⭐⭐</div>
       </div>
 
+      <div className={styles.catGeneral}>
+        <h1 className={styles.cardHeader}>Categories</h1>
+        <div className={styles.card}>
+          {api.map((cat) => {
+            return (
+              <div className={styles.cardBody}>
+                <Link
+                  to={`/categories/profession/${cat.id}`}
+                  className={styles.cardLink}
+                >
+                  <h3 className={styles.cardName}>{cat.category}</h3>
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
       {/*       <div className={styles.divGeneral_Home}>
         <GeneralCategory />
       </div> */}
 
-      <div className={styles.divFooter_Home}>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };

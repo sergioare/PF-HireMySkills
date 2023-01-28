@@ -1,63 +1,39 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "../General/GeneralCategory.module.css";
-import { useState } from "react";
 import NavBar from "../../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
+import { getCategories } from "../../../redux/actions/actions";
 
 const GeneralCategory = () => {
-  const [professional] = useState([
-    {
-      id: 1,
-      name: "SALUD",
-      categoriesSpecific: ["MEDICINA GENERAL", "ODONTOLOGIA", "TERAPIA FISICA"],
-      image: "http://www.ific.es/blog/wp-content/uploads/2017/06/4764234.jpg",
-    },
-    {
-      id: 2,
-      name: "ADMINISTRACION",
-      categoriesSpecific: ["SECRETARIA", "CONTABILIDAD", "GERENCIA"],
-    },
-    {
-      id: 3,
-      name: "INGENIERIA",
-      categoriesSpecific: ["ELECTRICA", "AUTOMOTRIZ", "AMBIENTAL"],
-    },
-    {
-      id: 4,
-      name: "HOGAR",
-      categoriesSpecific: ["LIMPIEZA", "CUIDAR ADULTOS", "PLOMERIA"],
-    },
-    {
-      id: 5,
-      name: "TECNOLOGIA",
-      categoriesSpecific: ["TELEFONIA", "INTERNET", "TELEVISION"],
-    },
-    {
-      id: 6,
-      name: "PROGRAMACION",
-      categoriesSpecific: ["DISEÑO WEB", "APLICACIONES", "SITIOS WEB"],
-    },
-  ]);
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.categories);
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
 
   return (
-    <div>
-      <div>
-        <NavBar />
-        <div className={styles.cards}>
-          <h1>CATEGORIES</h1>
-          {professional.map((prof) => {
-            return (
-              <div key={prof.id} className={styles.cardsGeneral}>
-                <Link to={`/categories/${prof.id}`}>
-                  <h3>{prof.name} </h3>
-                </Link>
-              </div>
-            );
-          })}
-          <Footer />
-        </div>
+    <div className={styles.general}>
+      <NavBar />
+      <h1 className={styles.cardHeader}>Categories</h1>
+      <div className={styles.card}>
+        {categories.map((cat) => {
+          return (
+            <div className={styles.cardBody}>
+              <Link
+                to={`/categories/profession/${cat.id}`}
+                className={styles.cardLink}
+              >
+                <h3 className={styles.cardName}>{cat.typecategory}</h3>
+              </Link>
+            </div>
+          );
+        })}
       </div>
+      <Footer />
     </div>
   );
 };

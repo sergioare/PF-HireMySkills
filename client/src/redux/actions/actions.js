@@ -1,3 +1,4 @@
+import axios from "axios";
 //ACTIONS TYPES
 export const GET_CATEGORIES = "GET_CATEGORIES";
 export const GET_SUB_CATEGORY = "GET_SUB_CATEGORY";
@@ -20,3 +21,38 @@ export const urlProfession = "http://localhost:4000/profession";
 export const urlProfessionals = "http://localhost:4000/professionals";
 export const urlUsers = "http://localhost:4000/users";
 export const urlProducts = "http://localhost:4000/products";
+
+let url = "https://hiremyskillsbackend.onrender.com";
+
+export function getCategories() {
+  return function (dispatch) {
+    axios.get(`${url}/category`).then((response) => {
+      return dispatch({
+        type: "GET_CATEGORIES",
+        payload: response.data,
+      });
+    });
+  };
+}
+
+export function getSubCategory() {
+  return function (dispatch) {
+    axios.get(`${url}/profession`).then((response) => {
+      return dispatch({
+        type: "GET_SUB_CATEGORY",
+        payload: response.data,
+      });
+    });
+  };
+}
+
+export function getProfessionals(id) {
+  return function (dispatch) {
+    axios.get(`${url}/professionals`).then((response) => {
+      return dispatch({
+        type: "GET_PROFESSIONALS",
+        payload: response.data,
+      });
+    });
+  };
+}
