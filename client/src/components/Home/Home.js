@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getCategories, getProfessionals } from "../../redux/actions/actions";
+import GeneralCategory from "../Categories/General/GeneralCategory";
 import styles from "./Home.module.css";
+import Searchbar from "../searchbar/Searchbar";
 import NavBar from "../Navbar/Navbar";
 // import GeneralCategory from "../Categories/General/GeneralCategory";
 // import Ordering from "../Ordering/Ordering";
@@ -11,16 +14,17 @@ import Footer from "../Footer/Footer";
 import api from "../../api.json";
 
 const Home = () => {
-  // let dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const categories = useSelector((state)=>state?.categories)
+  const worker = useSelector((state)=>state?.worker)
 
-  // const [namechange, setNamechange] = useState("");
-  // const [, setOrder] = useState();
+  useEffect(()=>{
+    dispatch(getCategories())
+    dispatch(getProfessionals())
+  },[dispatch])
 
-  // function handlerByNameCategories(e) {
-  //   dispatch(orderCategories(e.target.value));
-  //   setNamechange(e.target.value);
-  //   setOrder("Order" + e.target.value);
-  // }
+  console.log(worker)
+
 
   return (
     <div>
@@ -34,23 +38,23 @@ const Home = () => {
       namechange={namechange}
       /> */}
       <div className={styles.BigContainer_Home}>
-        <h1>
+        {/* <h1>
           aplicar css a este compomente y en la seccion popular poner una slice
           de profesionales con el mayor rating
-        </h1>
+        </h1> */}
         <div className={styles.TextPro_Home}>
           FIND THE PERFECT PROFESSIONAL SERVICES FOR YOU
         </div>
         <div className={styles.SearchBar_Home}>
-          {/* <Searchbar/> */}
-          <input
+          <Searchbar/>
+          {/* <input
             type="text"
             placeholder={`TRY "CARPENTER, DESIGNER, ELECTRICIAN"`}
             className={styles.SearchInput_Home}
           />{" "}
           <button type="submit" className={styles.SearchButton_Home}>
             Search
-          </button>
+          </button> */}
         </div>
         <div className={styles.Popular_Home}>POPULAR SECTION</div>
         <div>
@@ -65,28 +69,34 @@ const Home = () => {
       </div>
 
       <div className={styles.catGeneral}>
-        <h1 className={styles.cardHeader}>Categories</h1>
-        <div className={styles.card}>
-          {api.map((cat) => {
-            return (
-              <div className={styles.cardBody}>
-                <Link
-                  to={`/categories/profession/${cat.id}`}
-                  className={styles.cardLink}
-                >
-                  <h3 className={styles.cardName}>{cat.category}</h3>
-                </Link>
-              </div>
-            );
-          })}
-        </div>
+        {worker.length>0 ? worker.map((prof)=>{
+          return(
+            <div key={prof.id} className={styles.profCard}>
+              <h1 className={styles.profName}>{prof.name}</h1>
+            </div>
+          )
+        }):
+            
+            <div>
+            <h1 className={styles.cardHeader}>Categories</h1>
+            <div className={styles.card}>
+              
+
+            <GeneralCategory />
+
+            </div>
+            </div>}
+        
+        
+        
+        
+        
       </div>
 
-      {/*       <div className={styles.divGeneral_Home}>
-        <GeneralCategory />
-      </div> */}
+      <div className={styles.divGeneral_Home}>
+      </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

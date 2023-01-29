@@ -22,7 +22,7 @@ const GeneralCategory = () => {
       <div className={styles.card}>
         {categories.map((cat) => {
           return (
-            <div className={styles.cardBody}>
+            <div key={cat.id} className={styles.cardBody}>
               <Link
                 to={`/categories/profession/${cat.id}`}
                 className={styles.cardLink}

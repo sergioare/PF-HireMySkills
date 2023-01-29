@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import {useDispatch} from 'react-redux';
-import { GetCategoryByName } from '../../redux/actions/actions';
+import { getProfesionalsByProfession} from '../../redux/actions/actions';
 import styles from './searchbar.module.css'
 
 
@@ -19,7 +19,7 @@ function Searchbar() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    dispatch(GetCategoryByName(name))
+    dispatch(getProfesionalsByProfession(name))
     setName('')  
    
   }
@@ -36,6 +36,7 @@ function Searchbar() {
         id="search"
         onChange={(e) => handleInputChange(e)}
       />
+      
         <button
             className={styles.but}
             type='submit' 

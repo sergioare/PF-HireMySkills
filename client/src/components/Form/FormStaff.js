@@ -94,7 +94,7 @@ const FormStaff = () => {
   return (
     <div className={styles.container}>
       <h1>Professional Profile Form</h1>
-
+      
       <form onSubmit={formik.handleSubmit} id="professional-profile">
         <input
           type="text"

@@ -3,6 +3,7 @@ import axios from "axios";
 export const GET_CATEGORIES = "GET_CATEGORIES";
 export const GET_SUB_CATEGORY = "GET_SUB_CATEGORY";
 export const GET_PROFESSIONALS = "GET_PROFESSIONALS";
+export const GET_PROFESSIONALS_BY_PROFESSION = "GET_PROFESSIONALS_BY_PROFESSION";
 export const GET_SERVICES = "GET_SERVICES";
 export const SEARCH = "SEARCH";
 export const POST_SERVICES = "POST_SERVICES";
@@ -46,7 +47,7 @@ export function getSubCategory() {
   };
 }
 
-export function getProfessionals(id) {
+export function getProfessionals() {
   return function (dispatch) {
     axios.get(`${url}/professionals`).then((response) => {
       return dispatch({
@@ -56,3 +57,24 @@ export function getProfessionals(id) {
     });
   };
 }
+
+export function getProfesionalsByProfession(profession){
+  return async function (dispatch){
+      try {
+          const aux = await axios.get(`${url}/profession?profession=${profession}`)
+          console.log(aux.data)
+
+          return dispatch({
+              type: GET_PROFESSIONALS_BY_PROFESSION,
+              payload: aux.data
+          })
+      } catch (error) {
+          // return dispatch({
+          //     type: GET_COUNTRY_BY_NAME,
+          //     payload: error
+          // })
+          console.log("ERROR ", error)
+      }
+  }
+}
+    
