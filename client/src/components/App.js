@@ -14,7 +14,9 @@ import Team from "./Team/Team";
 import AllProfessionals from "./AllProfessionals/AllProfessionals";
 
 import Form from "./Form/FormStaff";
+
 import Contact from "./Contact-Us/Contact";
+
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/creators" element={<Team />} />
+
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/categories" element={<GeneralCategory />} />
@@ -39,6 +42,7 @@ function App() {
           <Route path="/FAQs" element={<FAQs />} />
           <Route path="/account" element={<SignIn />} />
           <Route path="/contact-us" element={<Contact />} />
+
           <Route path="/form" element={<Form />} />
           {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
         </Routes>

@@ -10,6 +10,7 @@ import { getCategories } from "../../../redux/actions/actions";
 const GeneralCategory = () => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories);
+  
 
   useEffect(() => {
     dispatch(getCategories());

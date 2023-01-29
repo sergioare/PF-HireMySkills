@@ -14,6 +14,7 @@ import {
   POST_REVIEWS,
   ORDER_BY_RATING,
   ORDER_BY_NAME,
+  GET_PROFESSIONALS_BY_PROFESSION,
   ORDER_BY_REVIEWS,
   FILTER_BY_PROVINCE,
   DELETE_SERVICE,
@@ -33,6 +34,7 @@ const initialState = {
   professionals: [],
   services: [],
   reviews: [],
+  worker:[],
   shoppingCart: [],
 };
 
@@ -59,6 +61,16 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         detail: action.payload,
+      };
+      case GET_PROFESSIONALS_BY_PROFESSION:
+       
+      return {
+        ...state,
+        worker: action.payload,
+        // professionals: action.payload,
+        // allProfessionals: action.payload,
+
+
       };
 
     default:

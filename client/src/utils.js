@@ -19,6 +19,7 @@ export const ORDER_BY_REVIEWS = "ORDER_BY_REVIEWS";
 export const FILTER_BY_PROVINCE = "FILTER_BY_PROVINCE";
 export const DELETE_SERVICE = "DELETE_SERVICE";
 export const DELETE_PROFILE = "DELETE_PROFILE";
+export const GET_PROFESSIONALS_BY_PROFESSION = "GET_PROFESSIONALS_BY_PROFESSION";
 export const REMOVE_ONE_FROM_CART = "REMOVE_ONE_FROM_CART";
 export const REMOVE_ALL_FROM_CART = "REMOVE_ALL_FROM_CART";
 export const CLEAR_CART = "CLEAR_CART";
@@ -28,10 +29,10 @@ export const DELETE_TO_CART = "DELETE_TO_CART";
 
 //URLS API
 
-export const urlCategory = "http://localhost:4000/category";
-export const urlProfession = "http://localhost:4000/profession";
-export const urlProfessionals = "http://localhost:4000/professionals";
-export const urlUsers = "http://localhost:4000/users";
-export const urlProducts = "http://localhost:4000/products";
-export const urlReviews = "http://localhost:4000/reviews";
-export const urlShoppingcart = "http://localhost:4000/shoppingcart";
+export const urlCategory = "https://hiremyskillsbackend.onrender.com/category";
+export const urlProfession = "https://hiremyskillsbackend.onrender.com/profession";
+export const urlProfessionals = "https://hiremyskillsbackend.onrender.com/professionals";
+export const urlUsers = "https://hiremyskillsbackend.onrender.com/users";
+export const urlProducts = "https://hiremyskillsbackend.onrender.com/products";
+export const urlReviews = "https://hiremyskillsbackend.onrender.com/reviews";
+export const urlShoppingcart = "https://hiremyskillsbackend.onrender.com/shoppingcart";
