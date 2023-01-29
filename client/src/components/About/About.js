@@ -69,10 +69,10 @@ const About = () => {
             penatibus et magnis dis parturient montes, nascetur ridiculus mus.
           </p>
         </div>
-        <div className={styles.Footer_About}>
-          <Footer />
-        </div>
+        {/* <div className={styles.Footer_About}> */}
+        {/* </div> */}
       </div>
+      <Footer />
     </div>
   );
 };
