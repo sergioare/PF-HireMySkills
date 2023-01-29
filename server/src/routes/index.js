@@ -8,16 +8,18 @@ const users = require("./users.js");
 const reviews = require("./reviews.js");
 const shoppingcart = require("./shoppingcart.js");
 const pay = require("./pay.js");
-const email =require("./email")
+const email = require("./email.js");
+const contactus = require("./contactus.js");
 
-router.use("/category", category); //crear categorias y hacer put 
-router.use("/profession", profession);// crear profession 
-router.use("/professionals", professionals);// ruta de (crear , borrado logico,traer toda la info)
+router.use("/category", category); //crear categorias y hacer put
+router.use("/profession", profession); // crear profession
+router.use("/professionals", professionals); // ruta de (crear , borrado logico,traer toda la info)
 router.use("/users", users);
 router.use("/products", products);
 router.use("/reviews", reviews);
 router.use("/shoppingcart", shoppingcart);
 router.use("/pay", pay);
-router.use("/email", email) // plantilla para envio de notificaciones por mail
+router.use("/email", email); // plantilla para envio de notificaciones por mail
+router.use("/contactus", contactus); // para el formulario Contact Us
 
 module.exports = router;
