@@ -2,6 +2,7 @@
 export const GET_CATEGORIES = "GET_CATEGORIES";
 export const GET_SUB_CATEGORY = "GET_SUB_CATEGORY";
 export const GET_PROFESSIONALS = "GET_PROFESSIONALS";
+export const GET_ID_PROFESSIONALS = "GET_ID_PROFESSIONALS";
 export const GET_SERVICES = "GET_SERVICES";
 export const SEARCH = "SEARCH";
 export const POST_SERVICES = "POST_SERVICES";
@@ -18,6 +19,7 @@ const initialState = {
   subCategory: [],
   professionals: [],
   allProfessionals: [],
+  detail: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -38,6 +40,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         professionals: action.payload,
         allProfessionals: action.payload,
+      };
+    case "GET_ID_PROFESSIONALS":
+      return {
+        ...state,
+        detail: action.payload,
       };
     default:
       return state;

@@ -37,10 +37,7 @@ function Professionals() {
           aux.map((wr) => {
             return (
               <div key={wr.id} className={styles.profCard}>
-                <Link
-                  className={styles.link}
-                  to={`/professionals/professional/${wr.name}`}
-                >
+                <Link className={styles.link} to={`/professionals/${wr.id}`}>
                   <h1 className={styles.profName}>{wr.name}</h1>
                   <div className={styles.profImg}>
                     <img
@@ -63,7 +60,7 @@ function Professionals() {
                 >
                   Rating: {wr.rating}
                 </span>
-                <h3 className={styles.description}>Profession:</h3>
+                <h3 className={styles.description}>Profile:</h3>
                 <p className={styles.profDescrip}>{wr.description}</p>
                 <div className={styles.divBtn}>
                   <button className={styles.btn}>Contract!</button>

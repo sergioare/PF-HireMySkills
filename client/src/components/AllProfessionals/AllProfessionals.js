@@ -6,6 +6,7 @@ import NavBar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import { getProfessionals } from "../../redux/actions/actions";
 import styles from "../AllProfessionals/AllProfessionals.module.css";
+import imgDefault from "../../assets/imgDefault.jpg";
 
 const AllProfessionals = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const AllProfessionals = () => {
         </Link>
       </div>
       <div className={styles.divCardsBody}>
-        <h1 className="col-12 text-center text-dark fs-2 ">Professionals</h1>
+        <h1 className="col-12 text-center text-dark fs-1 ">Professionals</h1>
         <div className={styles.containerCard}>
           {allProfessionals.length > 0 ? (
             <div className={styles.profContainer}>
@@ -35,13 +36,13 @@ const AllProfessionals = () => {
                   <div key={prof.id} className={styles.profCard}>
                     <Link
                       className={styles.link}
-                      to={`/professionals/professional/${prof.name}`}
+                      to={`/professionals/${prof.id}`}
                     >
                       <h1 className={styles.profName}>{prof.name}</h1>
                       <div className={styles.profImg}>
                         <img
                           className={styles.img}
-                          src={prof.photo ? prof.photo : "imgDefault"}
+                          src={prof.photo ? prof.photo : imgDefault}
                           alt="Img not found"
                         />
                       </div>
