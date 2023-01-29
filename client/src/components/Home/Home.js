@@ -24,6 +24,7 @@ const Home = () => {
           FIND THE PERFECT PROFESSIONAL SERVICES FOR YOU
         </div>
         <div className={styles.SearchBar_Home}>
+          {/* <Searchbar/> */}
           <input
             type="text"
             placeholder={`TRY "CARPENTER, DESIGNER, ELECTRICIAN"`}

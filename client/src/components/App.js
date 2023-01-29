@@ -9,7 +9,6 @@ import SpecificCategory from "./Categories/Specific/SpecificCategory";
 import Professionals from "./Categories/Proffesionals/Professionals";
 import Professional from "./Categories/Professional/Professional";
 import FAQs from "./FAQs/FAQs";
-// import JoinForm from "./Join/JoinForm";
 import SignIn from "./SignIn/Acc/SignIn";
 import Team from "./Team/Team";
 import AllProfessionals from "./AllProfessionals/AllProfessionals";
