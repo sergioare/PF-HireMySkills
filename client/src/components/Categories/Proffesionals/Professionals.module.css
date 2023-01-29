@@ -94,59 +94,28 @@
 .profDescrip {
   padding-left: 20px;
 }
+.divBtn button {
+  border: 0;
+  padding: 10px;
+  background-color: tomato;
+  border-radius: 10px;
+}
+.btn {
+  width: 70%;
+  margin-left: 35px;
+  margin-bottom: 20px;
+}
+.btn:hover {
+  font-size: 27px;
+  color: rgb(240, 235, 245);
+  background-color: #4444d1e7;
+  border-color: rgb(240, 235, 245);
+}
+
 .notProf {
-  color: black;
-}
-
-/* .cardsGeneral {
-  display: block;
-  width: 20%;
-  height: 50rem;
-  color: #050505;
-
-  text-align: center;
-
-  padding: 0 1.4rem 0;
-  text-decoration: none;
-  border-radius: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  z-index: 1;
-  box-shadow: 0 5px 90px rgba(0, 0, 0, 0.1);
-  text-decoration: none;
-  overflow: hidden;
-  transition: top 0.3s, z-index 0s, transform 0.3s;
-  transition-delay: 0.3s, 0.3s, 0s;
-} */
-
-/* .cardsGeneral:hover {
-  transition-delay: 0s, 0.5s, 0.5s;
-  top: 50px;
-  transform: translateY(-50px);
-  z-index: 11;
-}
-.cardsGeneral::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50px;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.5);
-  transform: skewX(45deg) translateX(900px);
-  transition: 2s;
-}
-.cardsGeneral:hover:before {
-  transform: skewX(45deg) translateX(-400px);
-} */
-
-/* h3 {
-  font-size: 1rem;
-  font-weight: 700;
-  color: black;
+  color: rgba(128, 126, 126, 0.671);
   font-family: "Work Sans", sans-serif;
-  text-align: justify;
-} */
+  font-size: 30px;
+  text-align: center;
+  min-height: 50vh;
+}

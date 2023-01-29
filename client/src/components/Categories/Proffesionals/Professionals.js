@@ -16,7 +16,7 @@ function Professionals() {
     dispatch(getProfessionals(id));
   }, [dispatch, id]);
 
-  console.log(allProfessionals);
+  // console.log(allProfessionals);
   //console.log(id);
   let aux = allProfessionals.filter((wr) =>
     wr.professions.some((sk) => sk.id === parseInt(id))
@@ -63,6 +63,9 @@ function Professionals() {
                 </span>
                 <h3 className={styles.description}>Profession:</h3>
                 <p className={styles.profDescrip}>{wr.description}</p>
+                <div className={styles.divBtn}>
+                  <button className={styles.btn}>Contract!</button>
+                </div>
               </div>
             );
           })

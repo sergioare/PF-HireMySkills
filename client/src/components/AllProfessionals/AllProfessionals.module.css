@@ -1,6 +1,49 @@
 .divAllProfessionals {
   width: 100%;
+  min-height: 100vh;
 }
-.divAllProfessionals h1 {
-  color: black;
+.profBtn {
+  background-color: tomato;
+}
+
+.divCardsBody {
+  background-color: cadetblue;
+}
+.containerCard {
+  background-color: red;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.profContainer {
+  background-color: blue;
+  width: 90%;
+}
+.profCard {
+  background-color: rgb(252, 255, 80);
+  width: 40%;
+}
+.link {
+}
+.profName {
+}
+.profImg {
+}
+.img {
+  width: 60%;
+}
+.profRating {
+}
+.description {
+}
+.profDescrip {
+}
+.divBtn {
+}
+.btn {
+}
+.divLoading {
+}
+.loading {
 }
