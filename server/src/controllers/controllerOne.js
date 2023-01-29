@@ -44,12 +44,10 @@ const postcreateprofessional = async (req, res) => {
 
     if (
       !name ||
-      !description ||
       !skills ||
       !email ||
       !town ||
       !contact ||
-      !portfolio
     )
       return res.status(400).send("insert information");
     // se crea nuevo presta servicios
