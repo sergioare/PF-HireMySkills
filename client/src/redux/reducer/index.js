@@ -1,47 +1,68 @@
-//ACTIONS TYPES
-export const GET_CATEGORIES = "GET_CATEGORIES";
-export const GET_SUB_CATEGORY = "GET_SUB_CATEGORY";
-export const GET_PROFESSIONALS = "GET_PROFESSIONALS";
-export const GET_PROFESSIONALS_BY_PROFESSION = "GET_PROFESSIONALS_BY_PROFESSION";
-export const GET_SERVICES = "GET_SERVICES";
-export const SEARCH = "SEARCH";
-export const POST_SERVICES = "POST_SERVICES";
-export const POST_CATEGORIES = "POST_CATEGORY";
-export const POST_SUB_CATEGORY = "POST_SUB_CATEGORY";
-export const ORDER_BY_RATING = "ORDER_BY_RATING";
-export const ORDER_BY_NAME = "ORDER_BY_NAME";
-export const ORDER_BY_REVIEWS = "ORDER_BY_REVIEWS";
-export const FILTER_BY_PROVINCE = "FILTER_BY_PROVINCE";
-export const DELETE_SERVICE = "DELETE_SERVICE";
+import {
+  GET_CATEGORIES,
+  GET_SUB_CATEGORY,
+  GET_PROFESSIONALS,
+  GET_ID_PROFESSIONALS,
+  GET_USER,
+  GET_USER_BY_ID,
+  SEARCH,
+  POST_SERVICES,
+  POST_CATEGORIES,
+  POST_SUB_CATEGORY,
+  POST_PROFESSIONALS,
+  POST_USER,
+  POST_REVIEWS,
+  ORDER_BY_RATING,
+  ORDER_BY_NAME,
+  GET_PROFESSIONALS_BY_PROFESSION,
+  ORDER_BY_REVIEWS,
+  FILTER_BY_PROVINCE,
+  DELETE_SERVICE,
+  DELETE_PROFILE,
+  DELETE_USER,
+  ADD_TO_CART,
+  DELETE_TO_CART,
+} from "../../utils";
 
 const initialState = {
   categories: [],
-  subCategory: [],
-  professionals: [],
-  worker:[],
+  profession: [],
   allProfessionals: [],
+  detail: [],
+  subCategory: [],
+  user: [],
+  professionals: [],
+  services: [],
+  reviews: [],
+  worker:[],
+  shoppingCart: [],
 };
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
-    case "GET_CATEGORIES":
+    case GET_CATEGORIES:
       return {
         ...state,
         categories: action.payload,
       };
 
-    case "GET_SUB_CATEGORY":
+    case GET_SUB_CATEGORY:
       return {
         ...state,
         subCategory: action.payload,
       };
-    case "GET_PROFESSIONALS":
+    case GET_PROFESSIONALS:
       return {
         ...state,
         professionals: action.payload,
         allProfessionals: action.payload,
       };
-      case "GET_PROFESSIONALS_BY_PROFESSION":
+    case GET_ID_PROFESSIONALS:
+      return {
+        ...state,
+        detail: action.payload,
+      };
+      case GET_PROFESSIONALS_BY_PROFESSION:
        
       return {
         ...state,
@@ -51,6 +72,7 @@ function rootReducer(state = initialState, action) {
 
 
       };
+
     default:
       return state;
   }

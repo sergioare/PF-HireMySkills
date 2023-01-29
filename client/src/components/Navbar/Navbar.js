@@ -16,30 +16,27 @@ const NavBar = () => {
           <Link to="/categories" className={styles.navLink}>
             <span className={styles.Categories_NavBar}>Categories</span>
           </Link>
+          <Link to="/professionals" className={styles.navLink}>
+            <span className={styles.Professionals_NavBar}>Professionals</span>
+          </Link>
           <Link to="/about" className={styles.navLink}>
             <span className={styles.AboutUs_NavBar}>About us</span>
-          </Link>
-          <Link to="/FAQs" className={styles.navLink}>
-            <span className={styles.FAQs_NavBar}>FAQs</span>
           </Link>
         </div>
         <div className={styles.right_NavBar}>
           <Link to="/account" className={styles.navLink}>
             <div className={styles.SignIn_NavBar}>Account</div>
           </Link>
-          {/*         <Link to="/Join">
->>>>>>> bfdffbb25d19d39797b578473ac881c7ed251608
-          <div className="Join_NavBar">Join</div>
-        </Link> */}
+
+          <Link to="/shopping">
+            <div className={styles.Shopping_NavBar}>Shopping</div>
+          </Link>
+
+
           <div className={styles.Menu_NavBar}>
             <Menu />
           </div>
         </div>
-        {/* {
-          <section>
-            <Outlet />
-          </section>
-        } */}
       </div>
     </div>
   );

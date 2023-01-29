@@ -37,9 +37,19 @@
   text-decoration: none;
 }
 .cardName {
+  color: black;
   margin: auto;
   font-size: 20px;
   font-weight: 700;
   text-align: center;
   padding-top: 25%;
+}
+.divLoading {
+  width: 100%;
+}
+.loading {
+  justify-content: center;
+  text-align: center;
+  padding-left: 470px;
+  padding-top: 100px;
 }

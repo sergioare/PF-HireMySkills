@@ -9,7 +9,6 @@ import SpecificCategory from "./Categories/Specific/SpecificCategory";
 import Professionals from "./Categories/Proffesionals/Professionals";
 import Professional from "./Categories/Professional/Professional";
 import FAQs from "./FAQs/FAQs";
-// import JoinForm from "./Join/JoinForm";
 import SignIn from "./SignIn/Acc/SignIn";
 import Team from "./Team/Team";
 import AllProfessionals from "./AllProfessionals/AllProfessionals";
@@ -38,10 +37,7 @@ function App() {
             path="/categories/profession/professionals/:id"
             element={<Professionals />}
           />
-          <Route
-            path="/categories/profession/professionals/professional/:id"
-            element={<Professional />}
-          />
+          <Route path="/professionals/:id" element={<Professional />} />
           <Route path="/professionals" element={<AllProfessionals />} />
           <Route path="/FAQs" element={<FAQs />} />
           <Route path="/account" element={<SignIn />} />
