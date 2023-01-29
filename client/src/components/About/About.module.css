@@ -14,13 +14,13 @@
 }
 
 .img_About {
-  width: 500px;
-  height: 300px;
+  width: 100%;
+  height: 100vh;
 }
 
-.Footer_About {
+/* .Footer_About {
   padding-top: 100px;
-}
+} */
 
 .Text_About {
   margin-top: 30px;

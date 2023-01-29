@@ -111,16 +111,58 @@
   margin: 0 auto;
   padding: 1.5rem 0;
 }
-/* .divFooter_Home {
+.catGeneral {
   width: 100%;
-  position: relative;
-  top: 105rem;
-  margin: 0;
-  padding: 1rem;
+  margin-top: 800px;
+}
+.card {
+  width: 80%;
+  padding-top: 50px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  display: grid;
+  gap: 3rem;
+  grid-auto-rows: 12rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+.cardTitle {
+  color: black;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+.cardBody {
+  width: 75%;
+  background-color: rgb(177, 178, 180);
+  height: 150px;
+  border-radius: 10px;
+}
+.cardHeader {
+  margin: auto;
   width: 100%;
-} */
+  padding-top: 30px;
+  padding-left: 60px;
+  color: black;
+}
+
+.cardLink {
+  text-decoration: none;
+}
+.cardName {
+  font-size: 18px;
+  margin: 0 auto;
+  padding-top: 50px;
+  padding-left: 50px;
+  font-weight: 700;
+}
+.cardName h3 {
+  text-align: center;
+}
 
 .divFooter_Home {
   margin-top: 40vw;
   position: relative;
+}
+.cardName {
+  color: black;
 }

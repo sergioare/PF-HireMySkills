@@ -1,41 +1,24 @@
 import React from "react";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 import NavBar from "../Navbar/Navbar";
-import GeneralCategory from "../Categories/General/GeneralCategory";
-// import Ordering from "../Ordering/Ordering";
-//import { orderCategories } from "../../redux/actions/actions";
-
-// import Ordering from "../Ordering/Ordering";
-//import { orderCategories } from "../../redux/actions/actions";
-
+import { getCategories } from "../../redux/actions/actions";
 import Footer from "../Footer/Footer";
-// import Searchbar from "../searchbar/searchbar";
 
 const Home = () => {
-  // let dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.categories);
 
-  // const [namechange, setNamechange] = useState("");
-  // const [, setOrder] = useState();
-
-  // function handlerByNameCategories(e) {
-  //   dispatch(orderCategories(e.target.value));
-  //   setNamechange(e.target.value);
-  //   setOrder("Order" + e.target.value);
-  // }
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
 
   return (
     <div>
-      {/* <Ordering
-      handlerByName={handlerByNameCategories}
-      namechange={namechange}
-      /> */}
       <NavBar />
-      {/* <Ordering
-      handlerByName={handlerByNameCategories}
-      namechange={namechange}
-      /> */}
+
       <div className={styles.BigContainer_Home}>
         <div className={styles.TextPro_Home}>
           FIND THE PERFECT PROFESSIONAL SERVICES FOR YOU
@@ -63,13 +46,25 @@ const Home = () => {
         <div className={styles.Stars_Home}>⭐⭐⭐⭐⭐</div>
       </div>
 
-      {/*       <div className={styles.divGeneral_Home}>
-        <GeneralCategory />
-      </div> */}
-
-      <div className={styles.divFooter_Home}>
-        <Footer />
+      <div className={styles.catGeneral}>
+        <h1 className={styles.cardHeader}>Categories</h1>
+        <div className={styles.card}>
+          {categories.map((cat) => {
+            return (
+              <div className={styles.cardBody}>
+                <Link
+                  to={`/categories/profession/${cat.id}`}
+                  className={styles.cardLink}
+                >
+                  <h3 className={styles.cardName}>{cat.typecategory}</h3>
+                </Link>
+              </div>
+            );
+          })}
+        </div>
       </div>
+
+      <Footer />
     </div>
   );
 };

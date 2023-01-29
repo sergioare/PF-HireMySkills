@@ -15,27 +15,33 @@ const FAQs = () => {
           <h4 className="col-12 pb-3">
             <b>Popular topics</b>
           </h4>
-          <div className="row gap-3 justify-content-center pb-4">
-            <div className="col-12 col-md-2 p-3 border border-secondary rounded border-2">
+          <div className="row gap-3 justify-content-center pb-2">
+            <div className="col-12 col-md-2 p-3 border border-secondary rounded border-2 shadow p-3 mb-5 rounded">
               <a href="#contract" className="text-decoration-none">
-                <h5 className="text-black text-center">
-                  Contract management of a professional
+                <h5 className="text-black text-center link-info">
+                  <b>Contract management of a professional</b>
                 </h5>
               </a>
             </div>
-            <div className="col-12 col-md-2 p-3 border border-secondary rounded border-2">
+            <div className="col-12 col-md-2 p-3 border border-secondary rounded border-2 shadow p-3 mb-5 rounded">
               <a href="#payment" className="text-decoration-none">
-                <h5 className="text-black text-center pt-3">Payments</h5>
+                <h5 className="text-black text-center pt-4 link-info">
+                  <b>Payments</b>
+                </h5>
               </a>
             </div>
-            <div className="col-12 col-md-2 p-3 border border-secondary rounded border-2">
+            <div className="col-12 col-md-2 p-3 border border-secondary rounded border-2 shadow p-3 mb-5 rounded">
               <a href="#professional" className="text-decoration-none">
-                <h5 className="text-black text-center pt-3">Professionals</h5>
+                <h5 className="text-black text-center pt-4 link-info">
+                  <b>Professionals</b>
+                </h5>
               </a>
             </div>
-            <div className="col-12 col-md-2 p-3 border border-secondary rounded border-2">
+            <div className="col-12 col-md-2 p-3 border border-secondary rounded border-2 shadow p-3 mb-5 rounded">
               <a href="#client" className="text-decoration-none">
-                <h5 className="text-black text-center pt-3">Clients</h5>
+                <h5 className="text-black text-center pt-4 link-info">
+                  <b>Clients</b>
+                </h5>
               </a>
             </div>
           </div>
