@@ -42,13 +42,7 @@ const postcreateprofessional = async (req, res) => {
 
     // verificamos que se llene el formulario
 
-    if (
-      !name ||
-      !skills ||
-      !email ||
-      !town ||
-      !contact ||
-    )
+    if (!name || !skills || !email || !town || !contact)
       return res.status(400).send("insert information");
     // se crea nuevo presta servicios
     const newProfes = await professionals.create({
