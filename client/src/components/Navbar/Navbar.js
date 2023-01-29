@@ -25,12 +25,13 @@ const NavBar = () => {
           <Link to="/account">
             <div className={styles.SignIn_NavBar}>Account</div>
           </Link>
-          {/*         <Link to="/Join">
-          <div className="Join_NavBar">Join</div>
-        </Link> */}
+          <Link to="/shopping">
+          <div className={styles.Shopping_NavBar}>Shopping</div>
+        </Link>     
           <div className={styles.Menu_NavBar}>
             <Menu />
           </div>
+
         </div>
         {/* {
           <section>

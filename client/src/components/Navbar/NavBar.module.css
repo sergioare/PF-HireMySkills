@@ -62,6 +62,23 @@
 
   /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
 }
+.Shopping_NavBar {
+  position: absolute;
+  width: 60px;
+  height: 21px;
+  top: 33px;
+  left: 1500px;
+
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #009949;
+
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
 
 .HMS_NavBar {
   /* position: absolute;

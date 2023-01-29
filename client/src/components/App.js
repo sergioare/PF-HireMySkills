@@ -9,7 +9,6 @@ import SpecificCategory from "./Categories/Specific/SpecificCategory";
 import Professionals from "./Categories/Proffesionals/Professionals";
 import FAQs from "./FAQs/FAQs";
 import Footer from "./Footer/Footer";
-import JoinForm from "./Join/JoinForm";
 import SignIn from "./SignIn/Acc/SignIn";
 import Team from "./Team/Team";
 import NavBar from "./Navbar/Navbar";
@@ -33,6 +32,7 @@ function App() {
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/form" element={<Form />} />
           {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
+
         </Routes>
       </Fragment>
     </BrowserRouter>
