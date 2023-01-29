@@ -28,9 +28,11 @@ const NavBar = () => {
         <div className={styles.Menu_NavBar}>
           <Menu />
         </div>
-        <section>
-          <Outlet />
-        </section>
+        {/* {
+          <section>
+            <Outlet />
+          </section>
+        } */}
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
 import React from "react";
+import hms from "../../assets/hms.png";
 import styles from "./About.module.css";
 import Footer from "../Footer/Footer";
-import CarouselAbout from "./CarouselAbout";
+import CarouselAbout from "./CarouselAbout/CarouselAbout";
 import NavBar from "../Navbar/Navbar";
 
 const About = () => {

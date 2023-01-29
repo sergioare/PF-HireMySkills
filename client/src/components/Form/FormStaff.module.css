@@ -1,11 +1,11 @@
-.container{
-    text-align: center;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh;
-    background:linear-gradient(to left, #FF7069 0%,  #283C63 100%) ;
+.container {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(to left, #ff7069 0%, #283c63 100%);
 
     font-family: "Work Sans";
     font-weight: 400;
@@ -22,11 +22,12 @@ h1{
 
 Form {
     width: 50%;
+    height: 80%;
 }
 
 .field{
     width:100%;
-    padding-bottom: 2vh;
+    /* padding-bottom: 2vh; */
     margin-bottom: 1.5vh;
      
 }
@@ -41,5 +42,5 @@ Form {
 
 textarea{
     width: 100%;
-    height: 250px;
+    height: 20vh;
 }
