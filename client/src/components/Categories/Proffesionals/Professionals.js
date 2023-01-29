@@ -25,9 +25,11 @@ function Professionals() {
   return (
     <div className={styles.divProf}>
       <Navbar />
-      <div className={styles.linkBtn}>
+      <div className={styles.profBtn}>
         <Link to="/home">
-          <button className={styles.profBtn}>Back to Home</button>
+          <button>
+            <i className="fa-solid fa-circle-chevron-left"></i>
+          </button>
         </Link>
       </div>
       <div className={styles.divCards}>
@@ -37,7 +39,7 @@ function Professionals() {
               <div key={wr.id} className={styles.profCard}>
                 <Link
                   className={styles.link}
-                  to={`/categories/profession/professionals/professional/${wr.name}`}
+                  to={`/professionals/professional/${wr.name}`}
                 >
                   <h1 className={styles.profName}>{wr.name}</h1>
                   <div className={styles.profImg}>

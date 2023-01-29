@@ -36,7 +36,7 @@ function App() {
             element={<Professionals />}
           />
           <Route
-            path="/categories/profession/professionals/professional/:id"
+            path="/professionals/professional/:id"
             element={<Professional />}
           />
           <Route path="/professionals" element={<AllProfessionals />} />

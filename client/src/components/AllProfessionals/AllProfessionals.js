@@ -18,9 +18,15 @@ const AllProfessionals = () => {
   return (
     <div className={styles.divAllProfessionals}>
       <NavBar />
-      <div className={styles.profBtn}>boton</div>
+      <div className={styles.profBtn}>
+        <Link to="/home">
+          <button>
+            <i className="fa-solid fa-circle-chevron-left"></i>
+          </button>
+        </Link>
+      </div>
       <div className={styles.divCardsBody}>
-        <h1 className="col-12 text-center">Professionals</h1>
+        <h1 className="col-12 text-center text-dark fs-2 ">Professionals</h1>
         <div className={styles.containerCard}>
           {allProfessionals.length > 0 ? (
             <div className={styles.profContainer}>
