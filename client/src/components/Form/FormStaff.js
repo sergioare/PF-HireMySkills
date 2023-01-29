@@ -1,8 +1,11 @@
-// import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Formik,useFormik, Form } from 'formik';
 import * as Yup from 'yup'
 import axios from 'axios'
 import PreviewImage from './PreviewImage';
+import { validationSchema } from './validation';
+import {useNavigate} from 'react-router-dom'
+
 import styles from './FormStaff.module.css'
 
 const FormStaff = () => {
@@ -16,13 +19,35 @@ const FormStaff = () => {
     //         })
       
     // }
-    const handleOnSubmit = async (values) => {
-        await axios
-        .post("http://localhost:4000/professionals", values)
-        .then((response) => {
-            console.log("Data added successfully.");
-        });
-    }
+    // const handleOnSubmit =  (values) => {
+    //     axios
+    //     .post("http://localhost:4000/professionals", values)
+    //     .then((response) => {
+    //         console.log("Data added successfully.");
+    //     });
+    // }
+    const[responseServer, setResponseServer] = useState(null);
+    const navigate = useNavigate();
+
+        const handleOnSubmit = values=>{
+                          axios
+                        //   ({
+                        //     method:'POST',
+                        //     url: 'http://localhost:4000/professionals',
+                        //     data: values
+                        // })
+                        .post("http://localhost:4000/professionals", values)
+                        .then((response) => {
+                            setResponseServer(response.data);
+                            // setSubmitting(false);
+                            navigate('/home')
+                        })
+                        .catch(error=>{
+                            setResponseServer(error.message);
+                            // setSubmitting(false);
+                        })
+                     }
+
      const formik = useFormik({
         initialValues:{
             name: '',
@@ -35,47 +60,48 @@ const FormStaff = () => {
             description: '',
             
         },
-        validationSchema: Yup.object({
-            name: Yup
-                .string()
-                .required('Name is required'),
-
-            image: Yup
-                .mixed()
-                .required('Profile image is required')
-                .test('FILE_SIZE', 'It´s too big!', (value)=> value && value.size < 1024 * 1024)
-                .test('FILE_TYPE', 'Invalid image', (value)=> value && ['image/png', 'image/jpeg'].includes(value.type)),
-            
-            email: Yup
-                .string()
-                .email('Please enter a valid email address')
-                .required('E-mail is required'),
-
-            town: Yup
-                .string()
-                .required(),
-
-            contact: Yup
-                .number('Only numbers 0-9')
-                .max(11)
-                .required('Contact number is required'),
-
-            portfolio: Yup
-                .mixed(),
-
-            skills: Yup
-                .string(),
-
-            description: Yup
-                .string(),
-
-        }),
-        onSubmit: (values) => {
-            alert(values.contact)
-        },
+                validationSchema:Yup.object().shape({
+                    name: Yup
+                        .string()
+                        .required('Name is required')
+                        .min(3, 'Name must be at least 3 characters'),
+        
+                    image: Yup
+                        .mixed()
+                        .required('Profile image is required')
+                        .test('FILE_SIZE', 'It´s too big!', (value)=> value && value.size < 1024 * 1024)
+                        .test('FILE_TYPE', 'Invalid image', (value)=> value && ['image/png', 'image/jpeg'].includes(value.type)),
+                    
+                    email: Yup
+                        .string()
+                        .email('Please enter a valid email address')
+                        .required('E-mail is required'),
+        
+                    town: Yup
+                        .string()
+                        .required(),
+        
+                    contact: Yup
+                        .number('Only numbers 0-9')
+                        .required('Contact number is required'),
+        
+                    portfolio: Yup
+                        .mixed(),
+        
+                    skills: Yup
+                        .string(),
+        
+                    description: Yup
+                        .string()
+                    }),
         // onSubmit: (values) => {
-        //    handleOnSubmit(values)
+        //     alert(values.values)
         // },
+        onSubmit: (values) => {
+            console.log(values, 'values')
+           handleOnSubmit(values)
+           alert('Your profile was created successfuly')
+        },
         // onSubmit: (values) => {
         //    handleOnSubmit
         // },
@@ -123,11 +149,12 @@ const FormStaff = () => {
                 >
             
             </Formik>   */}
-            <form onSubmit={formik.handleSubmit} id='professional-profile'>
+   
+            <form onSubmit={formik.handleSubmit}>
 
                 <input 
                     type='text'
-                    placeholder='Name && Surname'
+                    placeholder='Full name'
                     name='name'
                     id='name'
                     onChange={formik.handleChange}
@@ -147,6 +174,9 @@ const FormStaff = () => {
                     error={formik.errors.email}
                     value={formik.values.email}
                     />
+                    {formik.errors.email &&(
+                    <p style={{color:'red'}}>{formik.errors.email}</p>
+                )}
 
                 <label htmlFor='town'>Choose a town</label>
                     <select name='town' id='town' form='professional-profile'>
@@ -156,8 +186,9 @@ const FormStaff = () => {
                         <option value='caracas'>Caracas</option>
                         <option value='other'>Other...</option>
                         </select>
+                  
                     <input
-                        type='text'
+                        type='text' 
                         placeholder='¿Are you in another City?'
                         name='town'
                         id='town'
@@ -176,10 +207,13 @@ const FormStaff = () => {
                     error={formik.errors.contact}
                     value={formik.values.contact}
                     />
+                    {formik.errors.contact &&(
+                    <p style={{color:'red'}}>{formik.errors.contact}</p>
+                )}
 
 
                 <label htmlFor='portfolio'>Please, upload your portfolio</label>
-                <input
+                {/* <input
                     type='file'
                     name='portfolio'
                     id='portfolio'
@@ -188,7 +222,7 @@ const FormStaff = () => {
                     onChange={formik.handleChange}
                     multiple
                     />
-                                            
+                                             */}
                 <input
                         type='text'
                         placeholder='URL portfolio'
@@ -201,13 +235,17 @@ const FormStaff = () => {
 
                 <input
                     type='text'
-                    placeholder='Put your Skills here!'
+                    placeholder='Put your Profession here!'
                     name='skills'
                     id='skills'
                     onChange={formik.handleChange}
                     value={formik.values.skills}
 
                     />
+                          {formik.errors.skills &&(
+                    <p style={{color:'red'}}>{formik.errors.skills}</p>
+                )}
+
 
                 <label htmlFor='image'>Please, upload your Profile Image</label>
                 <input
@@ -225,6 +263,8 @@ const FormStaff = () => {
                     id='description'
                     form='professional-profile'
                     placeholder='Write a brief description about your work...'
+                    onChange={formik.handleChange}
+                    value={formik.values.description}
                     />
                         
                 
@@ -242,7 +282,8 @@ const FormStaff = () => {
                         Reset Form
                 </button>
 
-            </form>
+                </form>
+         
             {formik.values.image && <PreviewImage file={formik.values.image} />}
            
         </div>

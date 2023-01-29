@@ -56,9 +56,9 @@ const Home = () => {
         <div className={styles.Stars_Home}>⭐⭐⭐⭐⭐</div>
       </div>
 
-      <div className={styles.divGeneral_Home}>
+      {/* <div className={styles.divGeneral_Home}>
         <GeneralCategory />
-      </div>
+      </div> */}
 
       <div className={styles.divFooter_Home}>
         <Footer />
