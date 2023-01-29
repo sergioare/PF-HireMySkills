@@ -13,37 +13,63 @@ function Professionals() {
   const allProfessionals = useSelector((state) => state.allProfessionals);
 
   useEffect(() => {
-    dispatch(getProfessionals());
+    dispatch(getProfessionals(id));
   }, [dispatch, id]);
 
-  // console.log(allProfessionals[0]);
-
-  let aux = allProfessionals.filter(
-    (wr) => wr.id === wr.professions.profession
+  console.log(allProfessionals);
+  //console.log(id);
+  let aux = allProfessionals.filter((wr) =>
+    wr.professions.some((sk) => sk.id === parseInt(id))
   );
-  console.log(aux);
+  // console.log(aux);
   return (
-    <div className={styles.cards}>
+    <div className={styles.divProf}>
       <Navbar />
-      <Link to="/home">
-        <button className={styles.profBtn}>Back to Home</button>
-      </Link>
-      {aux.map((wr) => {
-        return (
-          <div key={wr.id} className={styles.cardsGeneral}>
-            <Link
-              to={`/categories/profession/professionals/professional/${wr.id}`}
-            >
-              <h1 className={styles.profName}>{wr.name}</h1>
-              <div className={styles.img}>{wr.photo}</div>
-            </Link>
+      <div className={styles.linkBtn}>
+        <Link to="/home">
+          <button className={styles.profBtn}>Back to Home</button>
+        </Link>
+      </div>
+      <div className={styles.divCards}>
+        {aux.length ? (
+          aux.map((wr) => {
+            return (
+              <div key={wr.id} className={styles.profCard}>
+                <Link
+                  className={styles.link}
+                  to={`/categories/profession/professionals/professional/${wr.name}`}
+                >
+                  <h1 className={styles.profName}>{wr.name}</h1>
+                  <div className={styles.profImg}>
+                    <img
+                      className={styles.img}
+                      src={wr.photo ? wr.photo : "imgDefault"}
+                      alt="Img not found"
+                    />
+                  </div>
+                </Link>
 
-            <h3>{wr.rating}</h3>
-            <h2 className={styles.description}>Descrption</h2>
-            <p>{wr.description}</p>
-          </div>
-        );
-      })}
+                <span
+                  className={styles.profRating}
+                  style={
+                    wr.rating < 1
+                      ? { backgroundColor: "rgb(255, 77, 91)" }
+                      : wr.rating < 4
+                      ? { backgroundColor: "rgb(253, 158, 81)" }
+                      : { backgroundColor: "rgb(4, 201, 4)" }
+                  }
+                >
+                  Rating: {wr.rating}
+                </span>
+                <h3 className={styles.description}>Profession:</h3>
+                <p className={styles.profDescrip}>{wr.description}</p>
+              </div>
+            );
+          })
+        ) : (
+          <h1 className={styles.notProf}>Not found professionals</h1>
+        )}
+      </div>
       <Footer />
     </div>
   );
