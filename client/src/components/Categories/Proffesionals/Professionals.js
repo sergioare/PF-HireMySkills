@@ -26,7 +26,7 @@ function Professionals() {
     <div className={styles.divProf}>
       <Navbar />
       <div className={styles.profBtn}>
-        <Link to="/home">
+        <Link to="/categories">
           <button>
             <i className="fa-solid fa-circle-chevron-left"></i>
           </button>
