@@ -2,12 +2,6 @@
   width: 100%;
   height: 90px;
   display: flex;
-  /* position: absolute;
-  height: 84px;
-  left: 0px;
-  right: 0px;
-  top: 0px; */
-
   background: #f4a261;
   word-spacing: 2px;
   text-decoration: none;
@@ -16,6 +10,9 @@
 .min_container {
   display: flex;
   flex-direction: row;
+}
+.navLink {
+  text-decoration: none;
 }
 
 .left_NavBar {
@@ -135,7 +132,7 @@
   margin-left: 20px;
 }
 
-.FAQs_NavBar {
+.Professionals_NavBar {
   /* position: absolute;
   width: 45px;
   height: 21px;

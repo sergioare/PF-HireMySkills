@@ -7,7 +7,6 @@ import{
     GET_SERVICES,
     GET_USER,
     GET_USER_BY_ID,
-    GET_ID_PROFESSIONALS,
     SEARCH,
     POST_SERVICES,
     POST_CATEGORIES,
@@ -18,6 +17,7 @@ import{
     ORDER_BY_RATING,
     ORDER_BY_NAME,
     ORDER_BY_REVIEWS,
+    GET_ID_PROFESSIONALS,
     FILTER_BY_PROVINCE,
     DELETE_SERVICE,
     DELETE_PROFILE,
@@ -26,6 +26,8 @@ import{
     REMOVE_ONE_FROM_CART,
     REMOVE_ALL_FROM_CART,
     CLEAR_CART,
+    DELETE_TO_CART,
+    GET_PROFESSIONALS_BY_PROFESSION,
     urlCategory,
     urlProfession,
     urlProfessionals,
@@ -95,6 +97,8 @@ export function postProfessional(data){
             dispatch({type:POST_PROFESSIONALS, payload:res.data}))
     }
 }
+
+
 
 export function deleteProfessional(id){
     return async function(dispatch){
@@ -183,3 +187,24 @@ export function deleteUser(id){
             dispatch({type:DELETE_USER, payload: res.data}))
     }
 }
+
+export function getProfesionalsByProfession(profession){
+  return async function (dispatch){
+      try {
+          const aux = await axios.get(`${url}/profession?profession=${profession}`)
+          console.log(aux.data)
+
+          return dispatch({
+              type: GET_PROFESSIONALS_BY_PROFESSION,
+              payload: aux.data
+          })
+      } catch (error) {
+          // return dispatch({
+          //     type: GET_COUNTRY_BY_NAME,
+          //     payload: error
+          // })
+          console.log("ERROR ", error)
+      }
+  }}
+
+

@@ -1,7 +1,9 @@
+const {Checkout} = require ('../controllers/Payment');
 const Router = require("express");
-const router = Router();
-const reviews = require("../controllers/reviews.js");
 
-router.post("/", reviews);
+const router = Router();
+
+router.post("/", Checkout)
 
 module.exports = router;
+

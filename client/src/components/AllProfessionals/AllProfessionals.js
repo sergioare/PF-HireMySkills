@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import { getProfessionals } from "../../redux/actions/actions";
-import styles from "./AllProfessionals.module.css";
+import styles from "../AllProfessionals/AllProfessionals.module.css";
 import imgDefault from "../../assets/imgDefault.jpg";
 
 const AllProfessionals = () => {
@@ -51,7 +51,7 @@ const AllProfessionals = () => {
                     <span
                       className={styles.profRating}
                       style={
-                        prof.rating < 2
+                        prof.rating < 1
                           ? { backgroundColor: "rgb(255, 77, 91)" }
                           : prof.rating < 4
                           ? { backgroundColor: "rgb(253, 158, 81)" }
@@ -60,7 +60,7 @@ const AllProfessionals = () => {
                     >
                       Rating: {prof.rating}
                     </span>
-                    <h3 className={styles.description}>Profile:</h3>
+                    <h3 className={styles.description}>Profession:</h3>
                     <p className={styles.profDescrip}>{prof.description}</p>
                     <div className={styles.divBtn}>
                       <button className={styles.btn}>Contract!</button>

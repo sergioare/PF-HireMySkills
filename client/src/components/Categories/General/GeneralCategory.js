@@ -10,6 +10,7 @@ import { getCategories } from "../../../redux/actions/actions";
 const GeneralCategory = () => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories);
+  
 
   useEffect(() => {
     dispatch(getCategories());
@@ -26,7 +27,8 @@ const GeneralCategory = () => {
               <div className={styles.cardBody}>
                 <Link
                   to={`/categories/profession/${cat.id}`}
-                  className={styles.cardLink}>
+                  className={styles.cardLink}
+                >
                   <h3 className={styles.cardName}>{cat.typecategory}</h3>
                 </Link>
               </div>
