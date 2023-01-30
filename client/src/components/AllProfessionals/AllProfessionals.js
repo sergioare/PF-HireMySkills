@@ -51,7 +51,7 @@ const AllProfessionals = () => {
                     <span
                       className={styles.profRating}
                       style={
-                        prof.rating < 1
+                        prof.rating < 2
                           ? { backgroundColor: "rgb(255, 77, 91)" }
                           : prof.rating < 4
                           ? { backgroundColor: "rgb(253, 158, 81)" }
@@ -60,7 +60,7 @@ const AllProfessionals = () => {
                     >
                       Rating: {prof.rating}
                     </span>
-                    <h3 className={styles.description}>Profession:</h3>
+                    <h3 className={styles.description}>Profile:</h3>
                     <p className={styles.profDescrip}>{prof.description}</p>
                     <div className={styles.divBtn}>
                       <button className={styles.btn}>Contract!</button>
