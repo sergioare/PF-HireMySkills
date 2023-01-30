@@ -7,6 +7,7 @@ import{
     GET_SERVICES,
     GET_USER,
     GET_USER_BY_ID,
+    GET_ID_PROFESSIONALS,
     SEARCH,
     POST_SERVICES,
     POST_CATEGORIES,
@@ -34,14 +35,58 @@ import{
     urlShoppingcart
 } from '../../utils'
 import api from '../../api.json'
+let url = "https://hiremyskillsbackend.onrender.com";
 
-export function getProfessionals(){
-    return async function(dispatch){
-        axios.get(urlProfessionals)
-        .then(res=>
-            dispatch({type:GET_PROFESSIONALS, payload:res.data}))
-    }
-}
+export function getCategories() {
+    return function (dispatch) {
+      axios.get(`${url}/category`).then((response) => {
+        return dispatch({
+          type: GET_CATEGORIES,
+          payload: response.data,
+        });
+      });
+    };
+  }
+  
+  export function getSubCategory() {
+    return function (dispatch) {
+      axios.get(`${url}/profession`).then((response) => {
+        return dispatch({
+          type: GET_SUB_CATEGORY,
+          payload: response.data,
+        });
+      });
+    };
+  }
+  
+  export function getProfessionals() {
+    return function (dispatch) {
+      axios.get(`${url}/professionals`).then((response) => {
+        return dispatch({
+          type: GET_PROFESSIONALS,
+          payload: response.data,
+        });
+      });
+    };
+  }
+  export function getProfessionalById(id) {
+    return function (dispatch) {
+      axios.get(`${url}/professionals/${id}`).then((response) => {
+        return dispatch({
+          type: GET_ID_PROFESSIONALS,
+          payload: response.data,
+        });
+      });
+    };
+  }
+  export function clearProfessional() {
+    return function (dispatch) {
+      return dispatch({
+        type: GET_ID_PROFESSIONALS,
+        payload: [],
+      });
+    };
+  }
 
 export function postProfessional(data){
     return async function(dispatch){

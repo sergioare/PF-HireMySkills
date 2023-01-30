@@ -2,6 +2,7 @@ import{
     GET_CATEGORIES,
     GET_SUB_CATEGORY,
     GET_PROFESSIONALS,
+    GET_ID_PROFESSIONALS,
     GET_USER,
     GET_USER_BY_ID,
     SEARCH,
@@ -26,7 +27,10 @@ import{
 
   export const initialState = {
   categories: [],
-  profession:[],
+  profession: [],
+  allProfessionals: [],
+  detail: [],
+  subCategory: [],
   user:[],
   professionals:[],
   services:[
@@ -47,6 +51,22 @@ export function rootReducer(state = initialState, action) {
       return {
         ...state,
         categories: action.payload,
+      };
+      case GET_SUB_CATEGORY:
+      return {
+        ...state,
+        subCategory: action.payload,
+      };
+    case GET_PROFESSIONALS:
+      return {
+        ...state,
+        professionals: action.payload,
+        allProfessionals: action.payload,
+      };
+    case GET_ID_PROFESSIONALS:
+      return {
+        ...state,
+        detail: action.payload,
       };
     
     case ADD_TO_CART:
