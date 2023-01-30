@@ -8,6 +8,7 @@
   align-items: center;
   /* background:linear-gradient(to left, #FF7069 0%,  #283C63 100%);     */
   background: #686868;
+  height: 100vh;
 }
 
 .card {

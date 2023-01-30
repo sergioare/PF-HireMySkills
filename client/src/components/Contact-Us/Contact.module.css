@@ -14,14 +14,19 @@
     font-weight: 400;
     font-size: 34px;
     color: #fbe8d3;
-    border: 5px solid red;
 }
 
 
-h1{
+.contact h1{
     color: #c8e7ff;
     font-family: "Cinzel";
     font-weight: 700;
     font-size: 50px;
+}
 
+.field{
+    width:100%;
+    /* padding-bottom: 2vh; */
+    margin-bottom: 1.5vh;
+     
 }
