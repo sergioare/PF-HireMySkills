@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { getCategories, getProfessionals } from "../../redux/actions/actions";
 import GeneralCategory from "../Categories/General/GeneralCategory";
 import styles from "./Home.module.css";
-import Searchbar from "../searchbar/Searchbar";
+import Searchbar from "../searchbar/searchbar";
 import NavBar from "../Navbar/Navbar";
 // import GeneralCategory from "../Categories/General/GeneralCategory";
 // import Ordering from "../Ordering/Ordering";
@@ -15,16 +15,15 @@ import api from "../../api.json";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const categories = useSelector((state)=>state?.categories)
-  const worker = useSelector((state)=>state?.worker)
+  const categories = useSelector((state) => state?.categories);
+  const worker = useSelector((state) => state?.worker);
 
-  useEffect(()=>{
-    dispatch(getCategories())
-    dispatch(getProfessionals())
-  },[dispatch])
+  useEffect(() => {
+    dispatch(getCategories());
+    dispatch(getProfessionals());
+  }, [dispatch]);
 
-  console.log(worker)
-
+  console.log(worker);
 
   return (
     <div>
@@ -46,7 +45,7 @@ const Home = () => {
           FIND THE PERFECT PROFESSIONAL SERVICES FOR YOU
         </div>
         <div className={styles.SearchBar_Home}>
-          <Searchbar/>
+          <Searchbar />
           {/* <input
             type="text"
             placeholder={`TRY "CARPENTER, DESIGNER, ELECTRICIAN"`}
@@ -69,32 +68,25 @@ const Home = () => {
       </div>
 
       <div className={styles.catGeneral}>
-        {worker.length>0 ? worker.map((prof)=>{
-          return(
-            <div key={prof.id} className={styles.profCard}>
-              <h1 className={styles.profName}>{prof.name}</h1>
-            </div>
-          )
-        }):
-            
-            <div>
+        {worker.length > 0 ? (
+          worker.map((prof) => {
+            return (
+              <div key={prof.id} className={styles.profCard}>
+                <h1 className={styles.profName}>{prof.name}</h1>
+              </div>
+            );
+          })
+        ) : (
+          <div>
             <h1 className={styles.cardHeader}>Categories</h1>
             <div className={styles.card}>
-              
-
-            <GeneralCategory />
-
+              <GeneralCategory />
             </div>
-            </div>}
-        
-        
-        
-        
-        
+          </div>
+        )}
       </div>
 
-      <div className={styles.divGeneral_Home}>
-      </div>
+      <div className={styles.divGeneral_Home}></div>
 
       {/* <Footer /> */}
     </div>
