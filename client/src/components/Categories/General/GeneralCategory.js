@@ -26,8 +26,7 @@ const GeneralCategory = () => {
               <div className={styles.cardBody}>
                 <Link
                   to={`/categories/profession/${cat.id}`}
-                  className={styles.cardLink}
-                >
+                  className={styles.cardLink}>
                   <h3 className={styles.cardName}>{cat.typecategory}</h3>
                 </Link>
               </div>
