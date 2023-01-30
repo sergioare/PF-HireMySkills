@@ -45,6 +45,7 @@ export const initialState = {
   ],
   reviews:[],
   shoppingCart:[],
+  worker:[],
 
 };
 
@@ -129,9 +130,7 @@ export function rootReducer(state = initialState, action) {
       return {
         ...state,
         worker: action.payload,
-        // professionals: action.payload,
-        // allProfessionals: action.payload,
-
+       
 
       };
 
