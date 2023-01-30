@@ -29,8 +29,8 @@ const AllProfessionals = () => {
       <div className={styles.divCardsBody}>
         <h1 className="col-12 text-center text-dark fs-1 ">Professionals</h1>
         <div className={styles.containerCard}>
-          {allProfessionals.length > 0 ? (
-            <div className={styles.profContainer}>
+          {allProfessionals.length > 0 
+          ? (<div className={styles.profContainer}>
               {allProfessionals.map((prof) => {
                 return (
                   <div key={prof.id} className={styles.profCard}>

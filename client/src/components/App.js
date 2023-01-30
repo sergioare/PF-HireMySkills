@@ -13,8 +13,11 @@ import SignIn from "./SignIn/Acc/SignIn";
 import Team from "./Team/Team";
 import AllProfessionals from "./AllProfessionals/AllProfessionals";
 
-import Form from "./Form/FormStaff";
+import Form from "./Form/FormStaffOption";
+
 import Contact from "./Contact-Us/Contact";
+import ShoppingCart from "./Shopping/ShoppingCart";
+
 
 function App() {
   return (
@@ -23,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/creators" element={<Team />} />
+
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/categories" element={<GeneralCategory />} />
@@ -39,10 +43,13 @@ function App() {
           <Route path="/FAQs" element={<FAQs />} />
           <Route path="/account" element={<SignIn />} />
           <Route path="/contact-us" element={<Contact />} />
+
           <Route path="/form" element={<Form />} />
+          <Route path="/shopping" element={<ShoppingCart />} />
           {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
         </Routes>
       </Fragment>
+      {/* <Footer/> */}
     </BrowserRouter>
   );
 }

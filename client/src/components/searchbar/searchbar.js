@@ -1,11 +1,11 @@
 import React,{useState} from 'react'
 import {useDispatch} from 'react-redux';
-import { GetCategoryByName } from '../../redux/actions/actions';
+import { getProfesionalsByProfession} from '../../redux/actions/actions';
 import styles from './searchbar.module.css'
 
 
 function Searchbar() {
-    
+
     const dispatch = useDispatch()
   const [name, setName] = useState('')
 
@@ -19,33 +19,35 @@ function Searchbar() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    dispatch(GetCategoryByName(name))
-    setName('')  
-   
+    dispatch(getProfesionalsByProfession(name))
+    setName('')
+
   }
-  
+
 
   return (
-    
+    <>
     <div className={styles.container}>
       <input 
         className={styles.input}
         autoComplete="off"
         type="text" 
-        placeholder={`TRY "CARPENTER, DESIGNER, ELECTRICIAN"`}
+        placeholder={"TRY CARPENTER, DESIGNER, ELECTRICIAN"}
         id="search"
         onChange={(e) => handleInputChange(e)}
       />
+
         <button
             className={styles.but}
             type='submit' 
-            onClick={(e) => handleSubmit(e)} >Search
+            onClick={(e) => handleSubmit(e)} >SEARCH
         </button>
-    
-       
-      
+
+
+
     </div>
-    
+    </>
+
   )
 }
 

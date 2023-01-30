@@ -5,12 +5,14 @@ import { Link } from "react-router-dom";
 import {
   getProfessionalById,
   clearProfessional,
-} from "../../../redux/actions/actions";
+} from '../../../redux/actions/actions'
 import { useParams } from "react-router-dom";
 import styles from "../Professional/Professional.module.css";
 import NavBar from "../../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import imgDefault from "../../../assets/imgDefault.jpg";
+
+
 
 const Professional = () => {
   const { id } = useParams();
