@@ -26,7 +26,7 @@ function Searchbar() {
 
 
   return (
-
+    <>
     <div className={styles.container}>
       <input 
         className={styles.input}
@@ -40,12 +40,13 @@ function Searchbar() {
         <button
             className={styles.but}
             type='submit' 
-            onClick={(e) => handleSubmit(e)} >Search
+            onClick={(e) => handleSubmit(e)} >SEARCH
         </button>
 
 
 
     </div>
+    </>
 
   )
 }

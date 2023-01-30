@@ -89,6 +89,7 @@ const Contact = () => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.name} 
+                            className={styles.field}
                             />
                             {touched.name && errors.name &&(
                                 <span className={styles.error}>{errors.name}</span>
@@ -106,6 +107,7 @@ const Contact = () => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.email} 
+                            className={styles.field}
                             />
                             {touched.email && errors.email &&(
                                 <span className={styles.error}>{errors.email}</span>
@@ -123,6 +125,7 @@ const Contact = () => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.question} 
+                            className={styles.field}
                             >
                             {questions.map((question, index) => (
                             <option value={question} key={index}>{question}</option>
@@ -140,6 +143,7 @@ const Contact = () => {
                         name='message'
                         id='message'
                         placeholder='Write a message about your question...'
+                        className={styles.field}
                         />
                         {touched.message && errors.message &&(
                                 <span className={styles.error}>{errors.message}</span>
