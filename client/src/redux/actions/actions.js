@@ -23,6 +23,9 @@ import{
     DELETE_PROFILE,
     DELETE_USER,
     ADD_TO_CART,
+    REMOVE_ONE_FROM_CART,
+    REMOVE_ALL_FROM_CART,
+    CLEAR_CART,
     DELETE_TO_CART,
     GET_PROFESSIONALS_BY_PROFESSION,
     urlCategory,
@@ -34,26 +37,8 @@ import{
     urlShoppingcart
 } from '../../utils'
 import api from '../../api.json'
-
 let url = "https://hiremyskillsbackend.onrender.com";
 
-
-
-export function getProfessionals(){
-    return async function(dispatch){
-        axios.get(urlProfessionals)
-        .then(res=>
-            dispatch({type:GET_PROFESSIONALS, payload:res.data}))
-    }
-}
-
-export function postProfessional(data){
-    return async function(dispatch){
-        axios.post(urlProfessionals, data)
-        .then(res=>
-            dispatch({type:POST_PROFESSIONALS, payload:res.data}))
-    }
-}
 export function getCategories() {
     return function (dispatch) {
       axios.get(`${url}/category`).then((response) => {
@@ -64,7 +49,7 @@ export function getCategories() {
       });
     };
   }
-
+  
   export function getSubCategory() {
     return function (dispatch) {
       axios.get(`${url}/profession`).then((response) => {
@@ -75,6 +60,45 @@ export function getCategories() {
       });
     };
   }
+  
+  export function getProfessionals() {
+    return function (dispatch) {
+      axios.get(`${url}/professionals`).then((response) => {
+        return dispatch({
+          type: GET_PROFESSIONALS,
+          payload: response.data,
+        });
+      });
+    };
+  }
+  export function getProfessionalById(id) {
+    return function (dispatch) {
+      axios.get(`${url}/professionals/${id}`).then((response) => {
+        return dispatch({
+          type: GET_ID_PROFESSIONALS,
+          payload: response.data,
+        });
+      });
+    };
+  }
+  export function clearProfessional() {
+    return function (dispatch) {
+      return dispatch({
+        type: GET_ID_PROFESSIONALS,
+        payload: [],
+      });
+    };
+  }
+
+export function postProfessional(data){
+    return async function(dispatch){
+        axios.post(urlProfessionals, data)
+        .then(res=>
+            dispatch({type:POST_PROFESSIONALS, payload:res.data}))
+    }
+}
+
+
 
 export function deleteProfessional(id){
     return async function(dispatch){
@@ -183,21 +207,4 @@ export function getProfesionalsByProfession(profession){
       }
   }}
 
-  export function getProfessionalById(id) {
-    return function (dispatch) {
-      axios.get(`${url}/professionals/${id}`).then((response) => {
-        return dispatch({
-          type: GET_ID_PROFESSIONALS,
-          payload: response.data,
-        });
-      });
-    };
-  }
-  export function clearProfessional() {
-    return function (dispatch) {
-      return dispatch({
-        type: GET_ID_PROFESSIONALS,
-        payload: [],
-      });
-    };
-  }
+
