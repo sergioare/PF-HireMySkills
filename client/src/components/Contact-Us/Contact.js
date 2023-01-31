@@ -1,11 +1,15 @@
 import React from 'react';
-import { useFormik } from 'formik';
+import { Field, Formik,Form } from 'formik';
 import * as Yup from 'yup'
 import axios from 'axios'
 import styles from './Contact.module.css'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const Contact = () => {
-
+    const navigate = useNavigate();
+    const[responseServer, setResponseServer] = useState(null);
     const questions=['Select your choice',
         'Help with my account',
         'Help raising a support ticket',
@@ -15,14 +19,20 @@ const Contact = () => {
         'Security & Compliance',
         'Other'
     ]
-          const formik = useFormik({
-            initialValues: {
+    
+    return (
+        <div className={styles.contact}>
+        <h1>General Inquiries</h1>
+        <br/>
+        <h2>¿Have a question for us?</h2>
+        <Formik        
+            initialValues={{
               name: "",
               email: "",
               question:"",
               message: ""
-            },
-            validationSchema: Yup.object({
+            }}
+               validationSchema= {Yup.object({
                 name: Yup
                     .string()
                     .label('Full name')
@@ -45,91 +55,108 @@ const Contact = () => {
                     .min(2)
                     .required()
                 
-            }),
-            onSubmit: async (values) => {
-              const registerData = {
-                name: formik.values.name,
-                email: formik.values.email.toLowerCase(),
-                question: formik.values.question,
-                message: formik.values.message
-              };
-              console.log(registerData);
-            }
-          });
-          return (
-            <div className={styles.contact}>
-                <form onSubmit={formik.handleSubmit}>
-                    <h1>General Inquiries</h1>
-                        <h2>¿Have a question for us?</h2>
+            })}
+            onSubmit={ async (values) => {
+                axios({
+                method:'POST',
+                url: 'https://hiremyskillsbackend.onrender.com/contactus',
+                data: values
+                })
+                .then((response) => {
+                    console.log(response.data, "hola")
+                    setResponseServer(response.data);
+                    // setSubmitting(false);
+                    navigate('/home')
+                    alert('Your inquire was sent successfuly')
+              })
+                .catch(error=>{
+                    setResponseServer(error.message);
+                })
 
-                    <div className={styles.input}>
+            }
+          }
+          >
+{({ errors, touched, handleBlur, handleChange, values, isSubmitting}) => (
+                <Form>
+                      
+   
                         <label htmlFor='name'>Full Name</label>
                         
-                        <input
+                        <Field
                             type='text'
                             name='name'
                             id='name'
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.name} 
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.name} 
+                            className={styles.field}
                             />
-                            {formik.touched.name && formik.errors.name &&(
-                                <span className={styles.error}>{formik.errors.name}</span>
+                            {touched.name && errors.name &&(
+                                <span className={styles.error}>{errors.name}</span>
                             )}
 
-                    </div>
+                
 
-                    <div className={styles.input}>
+   
                         <label htmlFor='email'>Your email address</label>
                         
-                        <input
+                        <Field
                             type='email'
                             name='email'
                             id='email'
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.email} 
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.email} 
+                            className={styles.field}
                             />
-                            {formik.touched.email && formik.errors.email &&(
-                                <span className={styles.error}>{formik.errors.email}</span>
+                            {touched.email && errors.email &&(
+                                <span className={styles.error}>{errors.email}</span>
                             )}
                                 
-                    </div>
+                
 
-                    <div className={styles.input}>
+   
                         <label htmlFor='question'>¿How can we help you?</label>
                         
-                        <select
+                        <Field
+                            as='select'
                             name='question'
                             id='question'
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.question} 
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.question} 
+                            className={styles.field}
                             >
                             {questions.map((question, index) => (
                             <option value={question} key={index}>{question}</option>
                             ))}    
-                            </select>
-                            {formik.touched.question && formik.errors.question &&(
-                                <span className={styles.error}>{formik.errors.question}</span>
+                            </Field>
+                            {touched.question && errors.question &&(
+                                <span className={styles.error}>{errors.question}</span>
                             )}
                                 
-                    </div>
+           
 
                     <div>
-                    <textarea 
+                    <Field
+                        as='textarea' 
                         name='message'
                         id='message'
                         placeholder='Write a message about your question...'
+                        className={styles.field}
                         />
-                        {formik.touched.message && formik.errors.message &&(
-                                <span className={styles.error}>{formik.errors.message}</span>
+                        {touched.message && errors.message &&(
+                                <span className={styles.error}>{errors.message}</span>
                                 )}
                     </div>
                     <button type="submit">Submit</button>
-                </form>
-            
+            {responseServer && <div>{responseServer}</div>}
+
+                </Form>
+        )}
+          </Formik>
             </div>
+          
           );
     ;
 };

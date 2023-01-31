@@ -128,7 +128,7 @@ const Landing = () => {
             <div className={styles.subtitle}>Closer To You</div>
 
             <div className={styles.icons}> 
-            <i class="fa-sharp fa-solid fa-comments"></i>
+            <i className="fa-sharp fa-solid fa-comments"></i>
            
             </div>
 

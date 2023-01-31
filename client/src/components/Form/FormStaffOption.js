@@ -27,6 +27,8 @@ const FormStaff = () => {
             console.log(error)
         }
     }
+
+  
     return(
         <div className={styles.container}>
             <h1>Professional Profile Form</h1>
@@ -41,15 +43,15 @@ const FormStaff = () => {
                 contact: "",
                 rating:5.0,
                 portfolio: "",
-                skills:["New profession"]
+                skills:[""]
                 }}
-            
+
             onSubmit={(values)=>{
                 values.photo = imageCloud;
                 console.log(values)
                 axios({
                     method:'POST',
-                    url: 'http://localhost:4000/professionals',
+                    url: 'https://hiremyskillsbackend.onrender.com/professionals',
                     data: values
                 })
                 // .post("http://localhost:4000/professionals", values)
@@ -114,7 +116,7 @@ const FormStaff = () => {
                 <option value='Quito'>Quito</option>
                 <option value='Caracas'>Caracas</option>
                 <option value='Other'>Other...</option>
-                
+
            </Field>
 
            <Field
@@ -164,22 +166,54 @@ const FormStaff = () => {
                 className={styles.field}
 
             />
-
-            <Field
-                type='text'
-                placeholder='Put your Profession here!'
+               
+            {/* <Field
+                as='select'
+                // type='text'
+                // placeholder='Put your Profession here!'
                 name='skills'
                 id='skills'
                 onChange={handleChange}
                 // error={errors.skills}
                 value={values.skills}
                 className={styles.field}
+            >
+            {async ()=>{
+            await axios.get("https://hiremyskillsbackend.onrender.com/profession")
+            .then(res=>{
+              res.JSON.stringify()
+              console.log(res)
+              })
+            .then(res=>{
+                return res.map(profession=>(
+                    <option key={profession.id} value={profession.profession}>
+                    {profession.profession}
+                  </option>
+                ))
+            })
+          
+            }}
+            <option value=''>Select your profession</option>
+                <option value='General Doctor'>General Doctor</option>
+                <option value='Dentist'>Quito</option>
+                <option value='Psychology'>Psychology</option>
+                <option value='Nurse'>Nurse</option>
+                <option value='Secretary'>Secretary</option>
+                <option value='Accounting'>Accounting</option>
+                <option value='Bussiness Administrator'>Bussiness Administrator</option>
+                <option value='Electric Engieneer'>Electric Engieneer</option>
+                <option value='Mechanic Engieneer'>Mechanic Engieneer</option>
+                <option value='Civil Engieneer'>Mechanic Engieneer</option>
+                <option value='Other'>Other...</option>
 
-            />
+                 
+            </Field>
+
+                
             {errors.skills && touched.skills(
                     <p style={{color:'red'}}>{errors.skills}</p>
-                )}
-            
+                )} */}
+
             <Field
                 as='textarea'
                 name="description"
@@ -216,3 +250,4 @@ const FormStaff = () => {
     )
 }
 export default FormStaff;
+

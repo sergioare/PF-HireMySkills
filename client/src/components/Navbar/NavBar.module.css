@@ -1,150 +1,49 @@
 .BigContainer_NavBar {
-  width: 100%;
-  height: 90px;
+  width: 100vw;
+  height: 10vh;
   display: flex;
   background: #f4a261;
-  word-spacing: 2px;
+  word-spacing: .6vw;
   text-decoration: none;
 }
 
-.min_container {
+.nabvar {
   display: flex;
-  flex-direction: row;
+ 
+  width: 100vw;
+  align-items: center;
+
+}
+
+.logo {
+  display: flex;
+  font-family: "Cinzel";
+  font-weight: 700;
+  justify-content: space-around;
+  font-size: 1.7vw;
+  color: #009949;
+  flex-grow: 4;
+  text-decoration: none;
+  
 }
 .navLink {
   text-decoration: none;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size:  1.2vw;
+  color: #009949;
+  flex-grow: 5;
 }
-
-.left_NavBar {
-  /* position: absolute;
-  width: 100%;
-  height: 84px;
-  left: 0px;
-  top: 0px; */
-  width: 50vw;
+.navLink:nth-child(5) {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  flex-grow: 8;
+  justify-content: end;
+  margin-right: 2%;
+
+
+}
+.menu{
+  margin-right: 2%;
 }
 
-.right_NavBar {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 50vw;
-}
-
-.Menu_NavBar {
-  /* position: absolute;
-  width: 35px;
-  height: 34px;
-  left: 1800px;
-  top: 25px; */
-}
-
-.SignIn_NavBar {
-  /* position: absolute;
-  width: 60px;
-  height: 21px;
-  top: 33px;
-  left: 1620px; */
-
-  font-family: "Work Sans";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 21px;
-
-  color: #009949;
-
-  /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-}
-.Shopping_NavBar {
-  position: absolute;
-  width: 60px;
-  height: 21px;
-  top: 33px;
-  left: 1500px;
-
-  font-family: "Work Sans";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 21px;
-
-  color: #009949;
-
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.HMS_NavBar {
-  /* position: absolute;
-  width: 151px;
-  height: 28px;
-  top: 29px;
-  left: 105px; */
-  font-family: "Cinzel";
-  font-weight: 900;
-
-  /*   font-family: "Work Sans"; */
-  font-style: normal;
-  font-size: 30px;
-  line-height: 40px;
-  font-size: 40px;
-
-  color: #009949;
-
-  margin-left: 20px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.Categories_NavBar {
-  /* position: absolute;
-  left: 320px;
-  top: 33px;
-  width: 93px;
-  height: 21px; */
-
-  font-family: "Work Sans";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 21px;
-
-  color: #009949;
-  margin-left: 20px;
-}
-
-.AboutUs_NavBar {
-  /* position: absolute;
-  width: 80px;
-  height: 21px;
-  top: 33px;
-  left: 457px; */
-
-  font-family: "Work Sans";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 21px;
-
-  color: #009949;
-  margin-left: 20px;
-}
-
-.Professionals_NavBar {
-  /* position: absolute;
-  width: 45px;
-  height: 21px;
-  top: 33px;
-  left: 581px; */
-
-  font-family: "Work Sans";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 21px;
-
-  color: #009949;
-  margin-left: 20px;
-}

@@ -1,6 +1,6 @@
 // import React from 'react';
-// import styles from './ShoppingCart.module.css'
-// import axios from 'axios'
+import styles from './ShoppingCart.module.css'
+import axios from 'axios'
 
 // const ShoppingCart = () => {
 //     document.addEventListener('DOMContentLoaded', () => {
@@ -37,23 +37,60 @@
 
 // export default ShoppingCart;
 
-import React, { useState } from 'react';
+import React, { useReducer, useState } from 'react';
+import {rootReducer, initialState} from '../../redux/reducer/index';
+import Services from '../Services/Services';
+import CartService from './CartService/CartService';
+import { ADD_TO_CART, CLEAR_CART, REMOVE_ALL_FROM_CART,REMOVE_ONE_FROM_CART } from '../../utils';
 
 function ShoppingCart() {
-  const [items, setItems] = useState([]);
+//   const [items, setItems] = useState([]);
 
-  function addItem(item) {
-    setItems([...items, item]);
+//   function addItem(item) {
+//     setItems([...items, item]);
+//   }
+
+//   function removeItem(item) {
+//     setItems(items.filter(i => i !== item));
+//   }
+  const[state, dispatch]=useReducer(rootReducer, initialState);
+  const {services, shoppingCart}= state;
+  
+  const addToCart=(id)=>{
+    dispatch({type:ADD_TO_CART, payload:id})
+  }
+  const deleteFromCart=(id,all=false)=>{
+    if(all){
+        dispatch({type:REMOVE_ALL_FROM_CART, payload:id})
+    }else{
+        dispatch({type:REMOVE_ONE_FROM_CART, payload:id})
+        
+    }
   }
 
-  function removeItem(item) {
-    setItems(items.filter(i => i !== item));
+  const clearCart=()=>{
+    dispatch({type:CLEAR_CART})
   }
-
   return (
     <div>
       <h2>Shopping Cart</h2>
-      <ul>
+        <h3>Services</h3>
+            <article className={styles.box}>
+                {services.map(service=>
+                <Services key={service.id} data={service} addToCart={addToCart}/>)}
+            </article>
+        
+        <h3>Cart</h3>
+        <article className={styles.box}>
+            <button onClick={clearCart}>Clear Cart</button>
+            {
+                shoppingCart.map((item, index)=> 
+                <CartService key={index} data={item} deleteFromCart={deleteFromCart}/>)
+            }
+        </article>
+
+
+      {/* <ul>
         {items.map((item, index) => (
           <li key={index}>
             {item}
@@ -61,7 +98,7 @@ function ShoppingCart() {
           </li>
         ))}
       </ul>
-      <button onClick={() => addItem('New Item')}>Add Item</button>
+      <button onClick={() => addItem('New Item')}>Add Item</button> */}
     </div>
   );
 }
