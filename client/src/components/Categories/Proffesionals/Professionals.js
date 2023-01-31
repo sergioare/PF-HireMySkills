@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../../Navbar/Navbar";
@@ -10,6 +10,7 @@ import imgDefault from "../../../assets/imgDefault.jpg";
 
 function Professionals() {
   const { id } = useParams();
+  const navegate = useNavigate();
   const dispatch = useDispatch();
   const allProfessionals = useSelector((state) => state.allProfessionals);
 
@@ -27,7 +28,7 @@ function Professionals() {
     <div className={styles.divProf}>
       <Navbar />
       <div className={styles.profBtn}>
-        <Link to="/categories">
+        <Link onClick={() => navegate(-1)}>
           <button>
             <i className="fa-solid fa-circle-chevron-left"></i>
           </button>
