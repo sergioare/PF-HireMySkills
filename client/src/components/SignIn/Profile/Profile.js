@@ -4,12 +4,7 @@ import styles from "./Profile.module.css";
 import { Link } from "react-router-dom";
 
 const Profile = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-  /* console.log(JSON.stringify(user)); */
+  const { user, isAuthenticated } = useAuth0();
 
   return (
     isAuthenticated && (
