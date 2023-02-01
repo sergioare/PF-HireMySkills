@@ -4,10 +4,10 @@ const getProducto = async (req, res) => {
   try {
     const product = await products.findAll();
     console.log(product);
-    res.send(product);
+    res.json(product);
   } catch (error) {
-    res.send({ message: error });
-  };
+    res.send({ message: error.message });
+  }
 };
 
 const postProducts = async (req, res) => {
@@ -19,16 +19,15 @@ const postProducts = async (req, res) => {
       description,
       img,
       price,
-      professionalId
+      professionalId,
     });
-    res.json("create correct");
+    res.json("product created successfully");
   } catch (error) {
-    req.dend(error);
+    res.send({ message: error.message });
   }
 };
 
-
 module.exports = {
   postProducts,
-  getProducto  
+  getProducto,
 };

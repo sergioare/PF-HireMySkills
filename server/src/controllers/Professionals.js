@@ -1,9 +1,12 @@
 const professionals = require("../models/professionals.js");
+const products = require("../models/products.js");
 
 const getprofesinalsid = async (req, res) => {
   const { id } = req.params;
   try {
-    const getid = await professionals.findByPk(id);
+    const getid = await professionals.findByPk(id, {
+      include: products,
+    });
     res.send(getid);
   } catch (error) {
     res.send(error);
