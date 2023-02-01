@@ -24,8 +24,9 @@ import {
   DELETE_TO_CART,
   REMOVE_ONE_FROM_CART,
   REMOVE_ALL_FROM_CART,
-  CLEAR_CART
-
+  CLEAR_CART,
+  POST_USER_AUTH0,
+  UNMOUNT,
 } from "../../utils";
 
 export const initialState = {
@@ -34,19 +35,18 @@ export const initialState = {
   allProfessionals: [],
   detail: [],
   subCategory: [],
-  user:[],
-  professionals:[],
-  services:[
-    {id: 1, name: 'service 1', price: 100},
-    {id: 2, name: 'service 2', price: 200},
-    {id: 3, name: 'service 3', price: 300},
-    {id: 4, name: 'service 4', price: 400},
-    {id: 5, name: 'service 5', price: 500},
+  user: [],
+  professionals: [],
+  services: [
+    { id: 1, name: "service 1", price: 100 },
+    { id: 2, name: "service 2", price: 200 },
+    { id: 3, name: "service 3", price: 300 },
+    { id: 4, name: "service 4", price: 400 },
+    { id: 5, name: "service 5", price: 500 },
   ],
-  reviews:[],
-  shoppingCart:[],
-  worker:[],
-
+  reviews: [],
+  shoppingCart: [],
+  worker: [],
 };
 
 export function rootReducer(state = initialState, action) {
@@ -74,66 +74,79 @@ export function rootReducer(state = initialState, action) {
         detail: action.payload,
       };
 
-    
-    case ADD_TO_CART:
-        {
-          let newService= state.services.find(service=> service.id === action.payload);
-          let serviceInCart = state.shoppingCart.find(service=>service.id === newService.id)
-          
-          return serviceInCart
-          
-          ? {
-            ...state,
-            shoppingCart: state.shoppingCart.map(service=> 
-              service.id === newService.id
-                ?{...service, quantity: service.quantity +1}
-                :service)
-                
-          } 
-          
-          :{
-            ...state,
-            shoppingCart:[...state.shoppingCart, {...newService,quantity: 1}]
-          }
-       
-      }
+    case ADD_TO_CART: {
+      let newService = state.services.find(
+        (service) => service.id === action.payload
+      );
+      let serviceInCart = state.shoppingCart.find(
+        (service) => service.id === newService.id
+      );
 
-    case REMOVE_ONE_FROM_CART:
-      {
-        let serviceToDelete = state.shoppingCart.find(service=> service.id === action.payload)
-        
-        return serviceToDelete > 1
-          ?{...state,
-            shoppingCart: state.shoppingCart.map(service=>
-              service.id === action.payload
-                ?{...service, quantity: service.quantity -1}
-                : service)
-          }
-          :{
+      return serviceInCart
+        ? {
             ...state,
-            shoppingCart:state.shoppingCart.filter(service=>
-              service.id !== action.payload)
+            shoppingCart: state.shoppingCart.map((service) =>
+              service.id === newService.id
+                ? { ...service, quantity: service.quantity + 1 }
+                : service
+            ),
           }
-      }
+        : {
+            ...state,
+            shoppingCart: [
+              ...state.shoppingCart,
+              { ...newService, quantity: 1 },
+            ],
+          };
+    }
+
+    case REMOVE_ONE_FROM_CART: {
+      let serviceToDelete = state.shoppingCart.find(
+        (service) => service.id === action.payload
+      );
+
+      return serviceToDelete > 1
+        ? {
+            ...state,
+            shoppingCart: state.shoppingCart.map((service) =>
+              service.id === action.payload
+                ? { ...service, quantity: service.quantity - 1 }
+                : service
+            ),
+          }
+        : {
+            ...state,
+            shoppingCart: state.shoppingCart.filter(
+              (service) => service.id !== action.payload
+            ),
+          };
+    }
 
     case REMOVE_ALL_FROM_CART:
-      return{}
+      return {};
 
     case CLEAR_CART:
-      return{
+      return {
         ...state,
-        shoppingCart:[],
-      }
+        shoppingCart: [],
+      };
 
-      case GET_PROFESSIONALS_BY_PROFESSION:
-       
+    case GET_PROFESSIONALS_BY_PROFESSION:
       return {
         ...state,
         worker: action.payload,
-       
-
       };
 
+    case POST_USER_AUTH0:
+      return {
+        ...state,
+      };
+
+    /*     case UNMOUNT:
+      return {
+        ...state,
+        detail: action.payload,
+      }; */
 
     default:
       return state;
