@@ -16,7 +16,7 @@ const getNameUser = async (req, res, next) => {
             // const newUser = await users.findAll({ where: { name: name } });
         } else {
             const newUser = await users.findAll();
-            const filter = newUser.filter(us => us.deleted === false)
+            const filter = newUser.filter(us => us.deleted === false);
             console.log(filter.deleted, 'Filter');
             res.send(filter);
         };
