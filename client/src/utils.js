@@ -6,6 +6,7 @@ export const GET_ID_PROFESSIONALS = "GET_ID_PROFESSIONALS";
 export const GET_SERVICES = "GET_SERVICES";
 export const GET_USER = "GET_USER";
 export const GET_USER_BY_ID = "GET_USER_BY_ID";
+export const FILTER_BY_PROFESSION = "FILTER_BY_PROFESSION";
 export const SEARCH = "SEARCH";
 export const POST_SERVICES = "POST_SERVICES";
 export const POST_CATEGORIES = "POST_CATEGORY";
@@ -19,7 +20,8 @@ export const ORDER_BY_REVIEWS = "ORDER_BY_REVIEWS";
 export const FILTER_BY_PROVINCE = "FILTER_BY_PROVINCE";
 export const DELETE_SERVICE = "DELETE_SERVICE";
 export const DELETE_PROFILE = "DELETE_PROFILE";
-export const GET_PROFESSIONALS_BY_PROFESSION = "GET_PROFESSIONALS_BY_PROFESSION";
+export const GET_PROFESSIONALS_BY_PROFESSION =
+  "GET_PROFESSIONALS_BY_PROFESSION";
 export const REMOVE_ONE_FROM_CART = "REMOVE_ONE_FROM_CART";
 export const REMOVE_ALL_FROM_CART = "REMOVE_ALL_FROM_CART";
 export const CLEAR_CART = "CLEAR_CART";
@@ -30,9 +32,12 @@ export const DELETE_TO_CART = "DELETE_TO_CART";
 //URLS API
 
 export const urlCategory = "https://hiremyskillsbackend.onrender.com/category";
-export const urlProfession = "https://hiremyskillsbackend.onrender.com/profession";
-export const urlProfessionals = "https://hiremyskillsbackend.onrender.com/professionals";
+export const urlProfession =
+  "https://hiremyskillsbackend.onrender.com/profession";
+export const urlProfessionals =
+  "https://hiremyskillsbackend.onrender.com/professionals";
 export const urlUsers = "https://hiremyskillsbackend.onrender.com/users";
 export const urlProducts = "https://hiremyskillsbackend.onrender.com/products";
 export const urlReviews = "https://hiremyskillsbackend.onrender.com/reviews";
-export const urlShoppingcart = "https://hiremyskillsbackend.onrender.com/shoppingcart";
+export const urlShoppingcart =
+  "https://hiremyskillsbackend.onrender.com/shoppingcart";

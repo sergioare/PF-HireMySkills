@@ -74,6 +74,7 @@
   position: relative;
   width: 100vw;
   height: 80vh;
+  margin-bottom: 50px;
 }
 
 .catGeneral {
@@ -111,27 +112,11 @@
   color: black;
 }
 
-.cardLink {
-  text-decoration: none;
-}
-.cardName {
-  font-size: 18px;
-  margin: 0 auto;
-  padding-top: 50px;
-  padding-left: 50px;
-  font-weight: 700;
-}
-.cardName h3 {
-  text-align: center;
-}
-
 .divFooter_Home {
   margin-top: 40vw;
   position: relative;
 }
-.cardName {
-  color: black;
-}
+
 .profCard {
   background-color: rgba(180, 176, 176, 0.836);
   width: 20%;
