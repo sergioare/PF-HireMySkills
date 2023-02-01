@@ -8,7 +8,6 @@ const getNameUser = async (req, res, next) => {
             const newUser = await users.findAll();
             if (newUser) {
                 const filter = newUser.filter(us => us.name.toLowerCase() === name.toLowerCase());
-                // console.log(filter, 'Filter');
                 res.send(filter);
             } else {
                 res.send({ message: 'User not found' });
@@ -16,7 +15,9 @@ const getNameUser = async (req, res, next) => {
             // const newUser = await users.findAll({ where: { name: name } });
         } else {
             const newUser = await users.findAll();
-            res.send(newUser);
+            const filter = newUser.filter(us => us.deleted === false)
+            console.log(filter.deleted, 'Filter');
+            res.send(filter);
         };
     } catch (error) { 
         res.send(error);

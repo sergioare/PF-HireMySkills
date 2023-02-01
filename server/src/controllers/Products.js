@@ -11,7 +11,7 @@ const getProducto = async (req, res) => {
 };
 
 const postProducts = async (req, res) => {
-  let { name, quantity, description, img, price } = req.body;
+  let { name, quantity, description, img, price, professionalId } = req.body;
   try {
     await products.create({
       name,
@@ -19,8 +19,8 @@ const postProducts = async (req, res) => {
       description,
       img,
       price,
+      professionalId
     });
-
     res.json("create correct");
   } catch (error) {
     req.dend(error);
