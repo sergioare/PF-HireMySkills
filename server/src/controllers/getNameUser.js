@@ -8,7 +8,8 @@ const getNameUser = async (req, res, next) => {
             const newUser = await users.findAll();
             if (newUser) {
                 const filter = newUser.filter(us => us.name.toLowerCase() === name.toLowerCase());
-                res.send(filter);
+                if(filter.deleted === false) return res.send(filter);
+                else return res.send({ message: 'User is deleted' });
             } else {
                 res.send({ message: 'User not found' });
             };
