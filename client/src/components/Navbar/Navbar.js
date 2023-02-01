@@ -6,7 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
-  const { user, isAuthenticated } = useAuth0();
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
   return (
     <div className={styles.BigContainer_NavBar}>
@@ -29,7 +29,7 @@ const NavBar = () => {
 
         <Link to="/account" className={styles.navLink}>
           <i class="fa-solid fa-user px-1 fs-3"></i>
-          {isAuthenticated ? user.name : "Account"}
+          {isLoading ? "Loading..." : isAuthenticated ? user.name : "Account"}
         </Link>
 
         <Link to="/shopping" className={styles.navLink}>
