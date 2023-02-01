@@ -12,12 +12,10 @@ import FAQs from "./FAQs/FAQs";
 import SignIn from "./SignIn/Acc/SignIn";
 import Team from "./Team/Team";
 import AllProfessionals from "./AllProfessionals/AllProfessionals";
-
 import Form from "./Form/FormStaffOption";
-
 import Contact from "./Contact-Us/Contact";
 import ShoppingCart from "./Shopping/ShoppingCart";
-
+import Profile from "./ProfileProfessional/Profile";
 
 function App() {
   return (
@@ -46,6 +44,7 @@ function App() {
 
           <Route path="/form" element={<Form />} />
           <Route path="/shopping" element={<ShoppingCart />} />
+          <Route path="/profile_professional" element={<Profile />} />
           {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
         </Routes>
       </Fragment>

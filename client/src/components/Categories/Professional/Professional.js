@@ -5,18 +5,17 @@ import { Link } from "react-router-dom";
 import {
   getProfessionalById,
   clearProfessional,
-} from '../../../redux/actions/actions'
-import { useParams } from "react-router-dom";
+} from "../../../redux/actions/actions";
+import { useParams, useNavigate } from "react-router-dom";
 import styles from "../Professional/Professional.module.css";
 import NavBar from "../../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import imgDefault from "../../../assets/imgDefault.jpg";
 
-
-
 const Professional = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navegate = useNavigate();
   const detailProfessional = useSelector((state) => state.detail);
 
   useEffect(() => {
@@ -28,7 +27,7 @@ const Professional = () => {
     <div className={styles.divProfessional}>
       <NavBar />
       <div className={styles.profBtn}>
-        <Link to="/professionals">
+        <Link onClick={() => navegate(-1)}>
           <button>
             <i className="fa-solid fa-circle-chevron-left"></i>
           </button>
@@ -80,6 +79,9 @@ const Professional = () => {
                       {detailProfessional.portfolio}
                     </span>
                   </p>
+                  <div className={styles.divBtn}>
+                    <button className={styles.btn}>Contract!</button>
+                  </div>
                 </div>
               </div>
             </div>

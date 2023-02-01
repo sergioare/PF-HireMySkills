@@ -1,21 +1,20 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../../../redux/actions/actions";
-import styles from './Category.module.css'
+import styles from "./Category.module.css";
+
 const Category = () => {
-    const dispatch = useDispatch();
-    const categories = useSelector((state) => state.categories);
-    
-  
-    useEffect(() => {
-      dispatch(getCategories());
-    }, [dispatch]);
-  
-    return (
-        <div>
-           
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.categories);
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
+
+  return (
+    <div className={styles.divCategory}>
       {categories.length > 0 ? (
         <div className={styles.card}>
           {categories.map((cat) => {
@@ -41,8 +40,8 @@ const Category = () => {
           />
         </div>
       )}
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Category;
