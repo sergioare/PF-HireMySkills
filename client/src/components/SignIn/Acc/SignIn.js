@@ -4,7 +4,7 @@ import Login from "../Sub-Components/Login/Login";
 import Logout from "../Sub-Components/Logout/Logout";
 import styles from "./SignIn.module.css";
 import NavBar from "../../Navbar/Navbar";
-import { useEffect, useState } from "react";
+import Loader from "../Sub-Components/Loader/Loader";
 
 const SignIn = () => {
   const { isAuthenticated, isLoading } = useAuth0();
@@ -12,7 +12,7 @@ const SignIn = () => {
   return (
     <>
       {isLoading ? (
-        <div>loading...</div>
+        <Loader />
       ) : (
         <div>
           <NavBar />
