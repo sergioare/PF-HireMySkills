@@ -20,7 +20,6 @@ const About = () => {
         <div className={styles.About_About}>Hey! This is our story</div>
         <div className={styles.Div_Img_About}>
           <CarouselAbout />
-          {/* <img src={hms} alt="hms" className={styles.img_About} /> */}
         </div>
         <div className={styles.Text_About}>
           <p>

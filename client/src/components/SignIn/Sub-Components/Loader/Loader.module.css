@@ -1,0 +1,20 @@
+.container_loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20%;
+}
+
+.loader6 {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid;
+  border-color: #000 #0000;
+  animation: s1 1s infinite;
+}
+@keyframes s1 {
+  to {
+    transform: rotate(0.5turn);
+  }
+}

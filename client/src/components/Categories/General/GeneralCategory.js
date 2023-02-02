@@ -9,6 +9,7 @@ const GeneralCategory = () => {
   const navegate = useNavigate();
 
   return (
+    /*  */
     <div className={styles.general}>
       <NavBar />
       <div className={styles.profBtn}>
