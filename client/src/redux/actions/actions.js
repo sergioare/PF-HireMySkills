@@ -17,6 +17,7 @@ import {
   ORDER_BY_NAME,
   ORDER_BY_REVIEWS,
   GET_ID_PROFESSIONALS,
+  FILTER_BY_PROFESSION,
   FILTER_BY_PROVINCE,
   DELETE_SERVICE,
   DELETE_PROFILE,
@@ -35,7 +36,7 @@ import {
   urlReviews,
   urlShoppingcart,
 } from "../../utils";
-import api from "../../api.json";
+
 let url = "https://hiremyskillsbackend.onrender.com";
 
 export function getCategories() {
@@ -89,6 +90,29 @@ export function clearProfessional() {
   };
 }
 
+//--------------Filter by profession------------
+export function filterByProfession(payload) {
+  return {
+    type: FILTER_BY_PROFESSION,
+    payload,
+  };
+}
+
+//--------------Order by name------------
+export function orderByName(payload) {
+  return {
+    type: ORDER_BY_NAME,
+    payload,
+  };
+}
+//--------------Order by rating------------
+export function orderByRating(payload) {
+  return {
+    type: ORDER_BY_RATING,
+    payload,
+  };
+}
+
 export function postProfessional(data) {
   return async function (dispatch) {
     axios
@@ -104,19 +128,7 @@ export function deleteProfessional(id) {
       .then((res) => dispatch({ type: DELETE_PROFILE, payload: res.data }));
   };
 }
-export function orderByRating(payload) {
-  return {
-    type: ORDER_BY_RATING,
-    payload,
-  };
-}
 
-export function orderByName(payload) {
-  return {
-    type: ORDER_BY_NAME,
-    payload,
-  };
-}
 export function orderByReviews(payload) {
   return {
     type: ORDER_BY_REVIEWS,
@@ -169,13 +181,13 @@ export function getUserById(id) {
   };
 }
 
-/* export function postUser(data){
-    return async function(dispatch){
-        axios.post(urlUsers, data)
-        .then(res=>
-            dispatch({type:POST_USER, payload:res.data}))
-    }
-} */
+export function postUser(data) {
+  return async function (dispatch) {
+    axios
+      .post(urlUsers, data)
+      .then((res) => dispatch({ type: POST_USER, payload: res.data }));
+  };
+}
 export function deleteUser(id) {
   return async function (dispatch) {
     axios
@@ -201,12 +213,5 @@ export function getProfesionalsByProfession(profession) {
       // })
       console.log("ERROR ", error);
     }
-  };
-}
-
-export function postUserAuth0(payload) {
-  return async function (dispatch) {
-    const response = await axios.post(`${url}/users`, payload);
-    return response;
   };
 }

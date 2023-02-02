@@ -3,6 +3,7 @@ import {
   GET_SUB_CATEGORY,
   GET_PROFESSIONALS,
   GET_ID_PROFESSIONALS,
+  FILTER_BY_PROFESSION,
   GET_USER,
   GET_USER_BY_ID,
   SEARCH,
@@ -25,13 +26,10 @@ import {
   REMOVE_ONE_FROM_CART,
   REMOVE_ALL_FROM_CART,
   CLEAR_CART,
-  POST_USER_AUTH0,
-  UNMOUNT,
 } from "../../utils";
 
 export const initialState = {
   categories: [],
-  profession: [],
   allProfessionals: [],
   detail: [],
   subCategory: [],
@@ -137,16 +135,54 @@ export function rootReducer(state = initialState, action) {
         worker: action.payload,
       };
 
-    case POST_USER_AUTH0:
+    case FILTER_BY_PROFESSION:
+      const allProfessionals = state.allProfessionals;
+      const filterByProfession =
+        action.payload === "All"
+          ? allProfessionals
+          : allProfessionals.filter((sub) =>
+              sub.subCategory?.find((sub) => sub === action.payload)
+            );
       return {
         ...state,
+        professionals: filterByProfession,
       };
 
-    /*     case UNMOUNT:
+    case ORDER_BY_NAME:
+      let orderAsc = state.professionals.slice().sort((a, b) => {
+        let professionalsA = a.name.toLowerCase();
+        let professionalsB = b.name.toLowerCase();
+
+        if (professionalsA > professionalsB) return 1;
+
+        if (professionalsB > professionalsA) return -1;
+
+        return 0;
+      });
+
+      const allProfessionalsProf = state.allProfessionals;
+      const orderName =
+        action.payload === "asc" ? orderAsc : orderAsc.reverse();
+
       return {
         ...state,
-        detail: action.payload,
-      }; */
+        professionals: action.payload === "" ? allProfessionalsProf : orderName,
+      };
+
+    case ORDER_BY_RATING:
+      let orderRatingAsc = state.professionals.slice().sort((a, b) => {
+        if (Number(a.rating) > Number(b.rating)) return 1;
+
+        if (Number(b.rating) > Number(a.rating)) return -1;
+
+        return 0;
+      });
+
+      return {
+        ...state,
+        professionals:
+          action.payload === "asc" ? orderRatingAsc : orderRatingAsc.reverse(),
+      };
 
     default:
       return state;

@@ -1,14 +1,16 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import { getProfessionals } from "../../../redux/actions/actions";
 import styles from "./Professionals.module.css";
+import imgDefault from "../../../assets/imgDefault.jpg";
 
 function Professionals() {
   const { id } = useParams();
+  const navegate = useNavigate();
   const dispatch = useDispatch();
   const allProfessionals = useSelector((state) => state.allProfessionals);
 
@@ -26,7 +28,7 @@ function Professionals() {
     <div className={styles.divProf}>
       <Navbar />
       <div className={styles.profBtn}>
-        <Link to="/categories">
+        <Link onClick={() => navegate(-1)}>
           <button>
             <i className="fa-solid fa-circle-chevron-left"></i>
           </button>
@@ -42,7 +44,7 @@ function Professionals() {
                   <div className={styles.profImg}>
                     <img
                       className={styles.img}
-                      src={wr.photo ? wr.photo : "imgDefault"}
+                      src={wr.photo ? wr.photo : imgDefault}
                       alt="Img not found"
                     />
                   </div>
@@ -51,7 +53,7 @@ function Professionals() {
                 <span
                   className={styles.profRating}
                   style={
-                    wr.rating < 1
+                    wr.rating < 2
                       ? { backgroundColor: "rgb(255, 77, 91)" }
                       : wr.rating < 4
                       ? { backgroundColor: "rgb(253, 158, 81)" }

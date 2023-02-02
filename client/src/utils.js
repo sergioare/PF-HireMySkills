@@ -6,6 +6,7 @@ export const GET_ID_PROFESSIONALS = "GET_ID_PROFESSIONALS";
 export const GET_SERVICES = "GET_SERVICES";
 export const GET_USER = "GET_USER";
 export const GET_USER_BY_ID = "GET_USER_BY_ID";
+export const FILTER_BY_PROFESSION = "FILTER_BY_PROFESSION";
 export const SEARCH = "SEARCH";
 export const POST_SERVICES = "POST_SERVICES";
 export const POST_CATEGORIES = "POST_CATEGORY";
