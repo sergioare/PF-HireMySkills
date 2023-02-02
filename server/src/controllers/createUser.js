@@ -5,14 +5,13 @@ const createUser = async (req, res, next) => {
     const { name, photo, town, email, contact } = req.body;
     // console.log(req.body, 'BODY');
     const userFind = await users.findAll({ where: { email: email } });
-    const userName = await users.findAll({ where: { name: name } });
-    console.log(userName, "REPETIDO");
-    console.log(userFind, "REPETIDO");
+    // const userName = await users.findAll({ where: { name: name } });
+    // console.log(userName, "REPETIDO");
+    // console.log(userFind, "REPETIDO");
 
     if (!name || !contact || !email)
       return res.send({ message: "data required" });
-    if (userFind.length || userName.length)
-      return res.send({ message: "User already exists" });
+    if (userFind.length) return res.send({ message: "User already exists" });
     await users.create({ name, photo, email, town, contact });
     console.log(users, "USER");
     res.send({ message: "User created successfully" });

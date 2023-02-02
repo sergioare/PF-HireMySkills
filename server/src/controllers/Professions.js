@@ -13,7 +13,7 @@ const postProfessions = async (req, res) => {
 };
 
 const searchProfession = async (req, res) => {
-  const { profession } = req.query;
+  const { profession, filter } = req.query;
   if (!profession) {
     const Prof_list = await Profession.findAll();
     res.send(Prof_list);
@@ -21,15 +21,50 @@ const searchProfession = async (req, res) => {
     try {
       const findProfessionals = await professionals.findAll();
       // console.log(findProfessionals, 'PROFESIONAL');
-      const result = findProfessionals.filter((pf) =>
-        pf.skills.some((sk) => sk.toLowerCase() === profession.toLowerCase())
-      );
-      if (result.length) return res.send(result);
-      else return res.send({ message: "Profession not found" });
+      const result = findProfessionals.filter((pf) => pf.skills.some((sk) => sk.toLowerCase() === profession.toLowerCase()));
+      if(!filter) {
+        if (result.length) return res.send(result);
+        else return res.send({ message: "Profession not found" });
+      } else {
+        if (result.length) {
+          if(filter === 'az') {
+            const abc = result.sort((a, b) => {
+              if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+              else return -1;
+            });
+            // console.log(abc, 'A-Z');
+            res.send(abc);
+          };
+          if(filter === 'za') {
+            const abc = result.sort((a, b) => {
+              if(a.name.toLowerCase() > b.name.toLowerCase()) return -1;
+              else return 1;
+            });
+            // console.log(abc, 'Z-A');
+            res.send(abc);
+          };
+          if(filter === 'max') {
+            const filterRat1 = result.sort((a, b) => {
+                if(a.rating === b.rating) return 1;
+                else return -1;
+            });
+            // console.log(filterRat1, 'FILTER!');
+            return res.send(filterRat1);
+        };
+        if(filter === 'min') {
+            const filterRat = result.sort((a, b) => {
+                if(a.rating === b.rating) return -1;
+                else return 1;
+            });
+            // console.log(filterRat, 'FILTER!');
+            return res.send(filterRat);
+        };
+        } else return res.send({ message: "Profession not found" });
+      };
     } catch (error) {
       res.send({ message: error });
-    }
-  }
+    };
+  };
 };
 module.exports = {
   postProfessions,

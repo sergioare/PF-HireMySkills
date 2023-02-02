@@ -30,7 +30,7 @@ const users =
       town: {
         //lugar donde esta ubicado
         type: DataTypes.STRING,
-        allowNull: false,
+        // allowNull: false,
       },
       contact: {
         // numero del profesional
