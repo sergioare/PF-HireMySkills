@@ -91,18 +91,26 @@ export function clearProfessional() {
 }
 
 //--------------Filter by profession------------
-export function filterByProfession(payload) {
-  return {
-    type: FILTER_BY_PROFESSION,
-    payload,
+export function filterByProfession(name) {
+  return async function (dispatch) {
+    let aux = await axios.get(`${url}/profession?profession=${name}`);
+    console.log(aux);
+    return {
+      type: FILTER_BY_PROFESSION,
+      payload: aux.data,
+    };
   };
 }
 
 //--------------Order by name------------
 export function orderByName(payload) {
-  return {
-    type: ORDER_BY_NAME,
-    payload,
+  return function (dispatch) {
+    axios.get(`${url}/profession?profession=`).then((response) => {
+      return dispatch({
+        type: ORDER_BY_NAME,
+        payload: response.data,
+      });
+    });
   };
 }
 //--------------Order by rating------------

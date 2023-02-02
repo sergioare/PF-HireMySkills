@@ -136,16 +136,9 @@ export function rootReducer(state = initialState, action) {
       };
 
     case FILTER_BY_PROFESSION:
-      const allProfessionals = state.allProfessionals;
-      const filterByProfession =
-        action.payload === "All"
-          ? allProfessionals
-          : allProfessionals.filter((sub) =>
-              sub.subCategory?.find((sub) => sub === action.payload)
-            );
       return {
         ...state,
-        professionals: filterByProfession,
+        allProfessionals: action.payload,
       };
 
     case ORDER_BY_NAME:
