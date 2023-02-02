@@ -92,9 +92,6 @@ export function clearProfessional() {
 
 //--------------Filter by profession------------
 export function filterByProfession(name) {
-  // return async function (dispatch) {
-  //   let aux = await axios.get(`${url}/profession?profession=${name}`);
-  //   console.log(aux, "W");
   return {
     type: FILTER_BY_PROFESSION,
     payload: name,

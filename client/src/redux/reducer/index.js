@@ -135,13 +135,17 @@ export function rootReducer(state = initialState, action) {
         worker: action.payload,
       };
 
+    //--------------Filter by profession------------
     case FILTER_BY_PROFESSION:
       let array = [];
       state.professionals.map((pf) =>
-        pf.skills.forEach((e) => {
-          if (e === action.payload) array.push(pf);
+        pf.skills.forEach((el) => {
+          if (el === action.payload) array.push(pf);
         })
       );
+      if (action.payload === "All") {
+        array = state.professionals;
+      }
       return {
         ...state,
         allProfessionals: array,

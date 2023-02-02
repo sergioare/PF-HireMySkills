@@ -17,7 +17,19 @@
 .profBtn button i:hover {
   color: #076b72;
 }
+/* --------------filter------------  */
+.divAllFilter_order {
+  width: 100%;
+  background-color: blueviolet;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+.allFilter {
+  display: inline-block;
+}
 
+/* --------------------------------  */
 .containerCard {
   width: 100%;
   margin-top: 20px;

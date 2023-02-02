@@ -8,11 +8,11 @@ import {
   filterByProfession,
   getProfessionals,
   getSubCategory,
+  orderByName,
+  orderByRating,
 } from "../../redux/actions/actions";
 import styles from "../AllProfessionals/AllProfessionals.module.css";
 import imgDefault from "../../assets/imgDefault.jpg";
-
-import OrderBy from "../OrderBy/OrderBy";
 
 const AllProfessionals = () => {
   const dispatch = useDispatch();
@@ -26,6 +26,17 @@ const AllProfessionals = () => {
     e.preventDefault();
     console.log(e.target.value);
     dispatch(filterByProfession(e.target.value));
+  };
+
+  const handlerByName = (e) => {
+    e.preventDefault();
+    // console.log(e.target.value);
+    dispatch(orderByName(e.target.value));
+  };
+  const handlerByRating = (e) => {
+    e.preventDefault();
+    // console.log(e.target.value);
+    dispatch(orderByRating(e.target.value));
   };
 
   useEffect(() => {
@@ -44,25 +55,53 @@ const AllProfessionals = () => {
           </button>
         </Link>
       </div>
-      {/* <Filter /> */}
-      <div>
-        <p className={styles.titles}>PROFESSIONS</p>
+      {/* ----Filter--------*/}
+      <div className={styles.divAllFilter_order}>
+        <div className={styles.allFilter}>
+          <p className={styles.titles}>PROFESSIONS</p>
 
-        <select
-          onChange={(e) => handlerprofession(e)}
-          className={styles.select}
-          defaultValue="All"
-        >
-          <option value="All">All</option>
-          {profession &&
-            profession.map((sub) => (
-              <option value={sub.profession} key={sub.id}>
-                {sub.profession}
-              </option>
-            ))}
-        </select>
+          <select
+            onChange={(e) => handlerprofession(e)}
+            className={styles.select}
+            defaultValue="All"
+          >
+            <option value="All">All</option>
+            {profession &&
+              profession.map((sub) => (
+                <option value={sub.profession} key={sub.id}>
+                  {sub.profession}
+                </option>
+              ))}
+          </select>
+        </div>
+        <div>
+          <p className={styles.titles}>SORT BY</p>
+
+          <div className={styles.divName}>
+            <label className={styles.subTitles}>Name </label>
+            <select
+              onChange={(e) => handlerByName(e)}
+              className={styles.selects}
+            >
+              <option value="">--Select--</option>
+              <option value="asc">(A - Z)</option>
+              <option value="desc">(Z - A)</option>
+            </select>
+          </div>
+
+          <div className={styles.divRating}>
+            <label className={styles.subTitles}>Rating</label>
+            <select
+              onChange={(e) => handlerByRating(e)}
+              className={styles.selects}
+            >
+              <option value="">--Select--</option>
+              <option value="min">Min</option>
+              <option value="max">Max</option>
+            </select>
+          </div>
+        </div>
       </div>
-      <OrderBy />
 
       <div className={styles.divCardsBody}>
         <h1 className="col-12 text-center text-dark fs-1 ">Professionals</h1>

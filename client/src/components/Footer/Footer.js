@@ -28,7 +28,10 @@ const Footer = () => {
           </ul>
           <ul className="col-12 col-md-3 list-unstyled">
             <li className="font-weight-bold mb-2 text-center ">
-              <Link to="/contact" className="text-white text-decoration-none">
+              <Link
+                to="/contact-us"
+                className="text-white text-decoration-none"
+              >
                 <b>Contact Us</b>
               </Link>
             </li>
