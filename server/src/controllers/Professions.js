@@ -48,7 +48,7 @@ const searchProfession = async (req, res) => {
                 if(a.rating === b.rating) return 1;
                 else return -1;
             });
-            console.log(filterRat1, 'FILTER!');
+            // console.log(filterRat1, 'FILTER!');
             return res.send(filterRat1);
         };
         if(filter === 'min') {
@@ -56,7 +56,7 @@ const searchProfession = async (req, res) => {
                 if(a.rating === b.rating) return -1;
                 else return 1;
             });
-            console.log(filterRat, 'FILTER!');
+            // console.log(filterRat, 'FILTER!');
             return res.send(filterRat);
         };
         } else return res.send({ message: "Profession not found" });

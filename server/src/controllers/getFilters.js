@@ -1,4 +1,3 @@
-// const Profession = require("../models/profession.js");
 const professionals = require("../models/professionals.js");
 
 const getFilters = async (req, res) => {
@@ -17,7 +16,7 @@ const getFilters = async (req, res) => {
         };
         if(filters === 'za') {
             const filter = allProfessionals.sort((a, b) => {
-                if(a.name.toLowerCase() > b.name.toLowerCase()) return -1;
+                if(a.name.toLowerCase() > b.name.toLowerCase()) return -1; 
                 else return 1;
             });
             return res.send(filter);
