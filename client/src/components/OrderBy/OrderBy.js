@@ -13,7 +13,7 @@ const OrderBy = (handlerByName, namechange, handlerByRating, ratingchange) => {
           onChange={(e) => handlerByName(e)}
           className={styles.selects}
         >
-          {/* <option value="">--Select--</option> */}
+          <option value="">--Select--</option>
           <option value="asc">(A - Z)</option>
           <option value="desc">(Z - A)</option>
         </select>

@@ -16,9 +16,7 @@
 .divSidebar a {
   text-decoration: none;
 }
-.active {
-  background-color: coral;
-}
+
 /* .btnSider {
   width: 90%;
   display: flex;
