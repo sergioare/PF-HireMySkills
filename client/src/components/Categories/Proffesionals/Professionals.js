@@ -28,11 +28,9 @@ function Professionals() {
     <div className={styles.divProf}>
       <Navbar />
       <div className={styles.profBtn}>
-        <Link onClick={() => navegate(-1)}>
-          <button>
-            <i className="fa-solid fa-circle-chevron-left"></i>
-          </button>
-        </Link>
+        <button onClick={() => navegate(-1)}>
+          <i className="fa-solid fa-circle-chevron-left"></i>
+        </button>
       </div>
       <div className={styles.divCards}>
         {aux.length ? (

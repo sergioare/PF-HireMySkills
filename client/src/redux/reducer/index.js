@@ -136,9 +136,15 @@ export function rootReducer(state = initialState, action) {
       };
 
     case FILTER_BY_PROFESSION:
+      let array = [];
+      state.professionals.map((pf) =>
+        pf.skills.forEach((e) => {
+          if (e === action.payload) array.push(pf);
+        })
+      );
       return {
         ...state,
-        allProfessionals: action.payload,
+        allProfessionals: array,
       };
 
     case ORDER_BY_NAME:

@@ -16,13 +16,14 @@ import OrderBy from "../OrderBy/OrderBy";
 
 const AllProfessionals = () => {
   const dispatch = useDispatch();
-  const allProfessionals = useSelector((state) => state.professionals);
+  const allProfessionals = useSelector((state) => state.allProfessionals);
   const profession = useSelector((state) => state.subCategory);
-  const prueba = useSelector((state) => state.allProfessionals);
-  console.log(prueba, "A");
+  // const prueba = useSelector((state) => state.allProfessionals);
+  console.log(allProfessionals, "A");
   console.log(profession, "B");
 
   const handlerprofession = (e) => {
+    e.preventDefault();
     console.log(e.target.value);
     dispatch(filterByProfession(e.target.value));
   };
