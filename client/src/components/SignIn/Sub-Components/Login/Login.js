@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { postUserAuth0 } from "../../../../redux/actions/actions";
+import { postUser } from "../../../../redux/actions/actions";
 import { useAuth0 } from "@auth0/auth0-react";
 const Swal = require("sweetalert2");
 
@@ -24,7 +24,7 @@ const Login = () => {
 
   const submitUser = (e) => {
     e.preventDefault(input);
-    dispatch(postUserAuth0(input));
+    dispatch(postUser(input));
     setInput({
       name: user.name,
       email: user.email,

@@ -11,11 +11,11 @@ const Team = () => {
     <div className={styles.divTeam}>
       <Navbar />
       <div className={styles.profBtn}>
-        <Link onClick={() => navegate(-1)}>
+        {/* <Link onClick={() => navegate(-1)}>
           <button>
             <i className="fa-solid fa-circle-chevron-left"></i>
           </button>
-        </Link>
+        </Link> */}
         <h1 className="text-center">Team</h1>
       </div>
       <div className={styles.container}>
