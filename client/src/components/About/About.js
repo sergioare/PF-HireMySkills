@@ -12,17 +12,14 @@ const About = () => {
     <div style={{ display: "flex", flexDirection: "column" }}>
       {<NavBar />}
       <div className={styles.profBtn}>
-        <Link onClick={() => navegate(-1)}>
-          <button>
-            <i className="fa-solid fa-circle-chevron-left"></i>
-          </button>
-        </Link>
+        <button onClick={() => navegate(-1)}>
+          <i className="fa-solid fa-circle-chevron-left"></i>
+        </button>
       </div>
       <div className={styles.BigContainer_About}>
         <div className={styles.About_About}>Hey! This is our story</div>
         <div className={styles.Div_Img_About}>
           <CarouselAbout />
-          {/* <img src={hms} alt="hms" className={styles.img_About} /> */}
         </div>
         <div className={styles.Text_About}>
           <p>

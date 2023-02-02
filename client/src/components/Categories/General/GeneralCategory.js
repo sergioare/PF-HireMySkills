@@ -9,14 +9,13 @@ const GeneralCategory = () => {
   const navegate = useNavigate();
 
   return (
+    /*  */
     <div className={styles.general}>
       <NavBar />
       <div className={styles.profBtn}>
-        <Link onClick={() => navegate(-1)}>
-          <button>
-            <i className="fa-solid fa-circle-chevron-left"></i>
-          </button>
-        </Link>
+        <button onClick={() => navegate(-1)}>
+          <i className="fa-solid fa-circle-chevron-left"></i>
+        </button>
         <h1 className={styles.cardHeader}>Categories</h1>
       </div>
       <Category styles={styles} />
