@@ -1,6 +1,6 @@
 .divProfessional {
-  width: 100%;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
   color: black;
 }
 .profBtn button {
@@ -22,25 +22,35 @@
   justify-content: center;
   align-items: center;
 }
-.firstContainer {
+/* .firstContainer {
   width: 100%;
   display: grid;
+  
 }
 .containerDet {
   width: 100%;
-}
+  
+} */
 .profImg {
   width: 100%;
   display: flex;
   padding: 20px;
+  height: 50%;
+  
 }
 .img {
+  display: flex;
+  justify-content: center;
   width: 30%;
   border-radius: 20px;
+  height: 50%;
+
+
 }
 .twoContainer {
   width: 100%;
   margin-left: 40px;
+  height: 50%;
 }
 .detName {
   color: black;
@@ -62,3 +72,13 @@
   padding-left: 470px;
   padding-top: 100px;
 }
+.box{
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0 0 1rem #00000025 inset;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 1rem;
+ 
+}
+

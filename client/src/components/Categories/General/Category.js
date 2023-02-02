@@ -20,7 +20,7 @@ const Category = () => {
         <div className={styles.card}>
           {categories.map((cat) => {
             return (
-              <div className={styles.cardBody}>
+              <div className={styles.cardBody} key={cat.id}>
                 <Link
                   to={`/categories/profession/${cat.id}`}
                   className={styles.cardLink}

@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import { Formik,Field, Form } from 'formik';
 // import { validationSchema } from './validation';
 // import * as Yup from 'yup'
 import axios from 'axios'
 import styles from './FormStaff.module.css'
 import {useNavigate} from 'react-router-dom'
+import { GET_SUB_CATEGORY } from '../../utils';
+import {rootReducer, initialState} from '../../redux/reducer/index';
 
 
 const FormStaff = () => {
     const[responseServer, setResponseServer] = useState(null);
     const navigate = useNavigate();
     const [imageCloud, setImageCloud] = useState('');
+    const[state, dispatch]=useReducer(rootReducer, initialState);
+    const {subCategory}= state;
 
     const handleImage = async event=>{
         const file = event.target.files[0];
@@ -26,6 +30,10 @@ const FormStaff = () => {
         }catch(error){
             console.log(error)
         }
+    }
+
+    const getProfessions= (id, profession )=>{
+       dispatch({type:GET_SUB_CATEGORY, payload:id})
     }
 
   
@@ -178,41 +186,18 @@ const FormStaff = () => {
                 value={values.skills}
                 className={styles.field}
             >
-            {async ()=>{
-            await axios.get("https://hiremyskillsbackend.onrender.com/profession")
-            .then(res=>{
-              res.JSON.stringify()
-              console.log(res)
-              })
-            .then(res=>{
-                return res.map(profession=>(
-                    <option key={profession.id} value={profession.profession}>
-                    {profession.profession}
-                  </option>
-                ))
-            })
-          
-            }}
-            <option value=''>Select your profession</option>
-                <option value='General Doctor'>General Doctor</option>
-                <option value='Dentist'>Quito</option>
-                <option value='Psychology'>Psychology</option>
-                <option value='Nurse'>Nurse</option>
-                <option value='Secretary'>Secretary</option>
-                <option value='Accounting'>Accounting</option>
-                <option value='Bussiness Administrator'>Bussiness Administrator</option>
-                <option value='Electric Engieneer'>Electric Engieneer</option>
-                <option value='Mechanic Engieneer'>Mechanic Engieneer</option>
-                <option value='Civil Engieneer'>Mechanic Engieneer</option>
-                <option value='Other'>Other...</option>
-
-                 
-            </Field>
+              <option value={getProfessions} getProfessions={getProfessions} >
+                    {subCategory.map(service=>
+                    service.profession)}
+              </option>  
+            
+                      
+            </Field> */}
 
                 
             {errors.skills && touched.skills(
                     <p style={{color:'red'}}>{errors.skills}</p>
-                )} */}
+                )}
 
             <Field
                 as='textarea'

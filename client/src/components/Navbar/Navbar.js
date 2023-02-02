@@ -1,11 +1,16 @@
 import React from "react";
 import styles from "./NavBar.module.css";
 import Menu from "../Menu/Menu";
+import { useSelector } from 'react-redux'
 
 import { Link, Outlet } from "react-router-dom";
 
 const NavBar = () => {
-  return (
+ const shopping= useSelector((state) => state.shoppingCart);
+ const values = shopping.map(service=>service.quantity).reduce((acc, element)=> acc +element, 0)
+ const total = shopping.map(service=>service.quantity * service.price).reduce((acc, element)=> acc +element, 0)
+
+ return (
     <div className={styles.BigContainer_NavBar}>
 
       <div className={styles.nabvar}>
@@ -32,7 +37,10 @@ const NavBar = () => {
           </Link>
 
           <Link to="/shopping" className={styles.navLink}>
-          Shopping
+          <div id="cart-info" className="nav-info align-items-center cart-info d-flex justify-content-between mx-lg-5">
+            <span className="cart-info__icon mr-lg-3"><i className="fas fa-shopping-cart"></i></span>
+            <p className="mb-0 text-capitalize"><span id="item-count">{values} </span> Services - $<span className="item-total">{total}</span></p>
+          </div>
           </Link>
 
 

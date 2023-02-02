@@ -4,6 +4,7 @@ import Login from "../Sub-Components/Login/Login";
 import Logout from "../Sub-Components/Logout/Logout";
 import styles from "./SignIn.module.css";
 import NavBar from "../../Navbar/Navbar";
+import UserType from "../../UserType/UserType"
 
 const SignIn = () => {
   const { isAuthenticated } = useAuth0();
@@ -14,7 +15,7 @@ const SignIn = () => {
       <div className={styles.BigContainer_SignIn}>
         {isAuthenticated ? (
           <div /* className={styles.Container_ProfileLogout_SignIn} */>
-            <Profile />
+            <UserType/>
             <Logout />
           </div>
         ) : (

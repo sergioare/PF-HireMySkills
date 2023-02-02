@@ -21,7 +21,6 @@ import {
   DELETE_PROFILE,
   DELETE_USER,
   ADD_TO_CART,
-  DELETE_TO_CART,
   REMOVE_ONE_FROM_CART,
   REMOVE_ALL_FROM_CART,
   CLEAR_CART
@@ -36,13 +35,7 @@ export const initialState = {
   subCategory: [],
   user:[],
   professionals:[],
-  services:[
-    {id: 1, name: 'service 1', price: 100},
-    {id: 2, name: 'service 2', price: 200},
-    {id: 3, name: 'service 3', price: 300},
-    {id: 4, name: 'service 4', price: 400},
-    {id: 5, name: 'service 5', price: 500},
-  ],
+  services:[],
   reviews:[],
   shoppingCart:[],
   worker:[],
@@ -74,10 +67,11 @@ export function rootReducer(state = initialState, action) {
         detail: action.payload,
       };
 
-    
+     
     case ADD_TO_CART:
-        {
-          let newService= state.services.find(service=> service.id === action.payload);
+      // let newService= state.services.find(service=> service.id === action.payload);
+      {
+          let newService= state.detail.products.find(service=> service.id === action.payload);
           let serviceInCart = state.shoppingCart.find(service=>service.id === newService.id)
           
           return serviceInCart
@@ -106,10 +100,10 @@ export function rootReducer(state = initialState, action) {
           ?{...state,
             shoppingCart: state.shoppingCart.map(service=>
               service.id === action.payload
-                ?{...service, quantity: service.quantity -1}
-                : service)
+                ?{...service, quantity: service.quantity - 1}
+                : service),
           }
-          :{
+          : {
             ...state,
             shoppingCart:state.shoppingCart.filter(service=>
               service.id !== action.payload)
@@ -117,12 +111,16 @@ export function rootReducer(state = initialState, action) {
       }
 
     case REMOVE_ALL_FROM_CART:
-      return{}
+      return{
+        ...state,
+        shoppingCart: state.shoppingCart.filter(service=>
+          service.id !== action.payload)
+      }
 
     case CLEAR_CART:
       return{
-        ...state,
-        shoppingCart:[],
+        ...initialState,
+        
       }
 
       case GET_PROFESSIONALS_BY_PROFESSION:

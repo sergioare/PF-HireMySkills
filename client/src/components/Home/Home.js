@@ -15,6 +15,7 @@ const Home = () => {
   return (
     <div className={styles.wrapper}>
         <NavBar />
+        
       <div className={styles.containerOne}>
           <div className={styles.left}>
               <div className={styles.text}>
@@ -90,11 +91,12 @@ const Home = () => {
               </div>}
 
         </div>
-
       </div>
 
+      <div className={styles.containerThree}>
+          <Footer />
+      </div>
 
-      <Footer />
     </div>
   );
 };

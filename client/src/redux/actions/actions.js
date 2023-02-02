@@ -26,7 +26,6 @@ import{
     REMOVE_ONE_FROM_CART,
     REMOVE_ALL_FROM_CART,
     CLEAR_CART,
-    DELETE_TO_CART,
     GET_PROFESSIONALS_BY_PROFESSION,
     urlCategory,
     urlProfession,
@@ -37,11 +36,12 @@ import{
     urlShoppingcart
 } from '../../utils'
 import api from '../../api.json'
-let url = "https://hiremyskillsbackend.onrender.com";
+let url = "https://hiremyskillsbackend.onrender.com"; 
 
 export function getCategories() {
     return function (dispatch) {
-      axios.get(`${url}/category`).then((response) => {
+      axios.get(urlCategory)
+        .then((response) => {
         return dispatch({
           type: GET_CATEGORIES,
           payload: response.data,
@@ -49,10 +49,11 @@ export function getCategories() {
       });
     };
   }
-  
+
   export function getSubCategory() {
     return function (dispatch) {
-      axios.get(`${url}/profession`).then((response) => {
+      axios.get(urlProfession)
+        .then((response) => {
         return dispatch({
           type: GET_SUB_CATEGORY,
           payload: response.data,
@@ -63,7 +64,8 @@ export function getCategories() {
   
   export function getProfessionals() {
     return function (dispatch) {
-      axios.get(`${url}/professionals`).then((response) => {
+      axios.get(urlProfessionals)
+        .then((response) => {
         return dispatch({
           type: GET_PROFESSIONALS,
           payload: response.data,
@@ -73,7 +75,7 @@ export function getCategories() {
   }
   export function getProfessionalById(id) {
     return function (dispatch) {
-      axios.get(`${url}/professionals/${id}`).then((response) => {
+      axios.get(urlProfessionals + id).then((response) => {
         return dispatch({
           type: GET_ID_PROFESSIONALS,
           payload: response.data,
@@ -136,15 +138,28 @@ export function postReviews(message){
     }
 }
 
-export function addToCart(service){
-    return async function(dispatch){
-        axios.post(urlShoppingcart, service)
-        .then(res=>
-            dispatch({type:ADD_TO_CART, payload: res.data}))
-    }
-}
+// export function addToCart(service){
+//     return async function(dispatch){
+//         axios.post(urlShoppingcart, service)
+//         .then(res=>
+//             dispatch({type:ADD_TO_CART, payload: res.data}))
+//     }
+// }
+export const addToCart=(id)=>({
+ type:ADD_TO_CART, payload:id}
+ 
+ )
 
-// export function deleteToCart(service){
+export const deleteFromCart=(id, all=false)=>
+  all
+  ? {type:REMOVE_ALL_FROM_CART, payload:id}
+  : {type:REMOVE_ONE_FROM_CART, payload:id};
+
+export const clearCart = ()=>({
+  type:CLEAR_CART
+})
+
+// export function deleteFromCart(service){
 //     return async function(dispatch){
 //         axios.delete(`${urlShoppingcart}/${service}`)
 //         .then(res=>
@@ -206,5 +221,16 @@ export function getProfesionalsByProfession(profession){
           console.log("ERROR ", error)
       }
   }}
+  export function getServices() {
+    return function (dispatch) {
+      axios.get(urlProducts)
+        .then((response) => {
+        return dispatch({
+          type: GET_SERVICES,
+          payload: response.data,
+        });
+      });
+    };
+  }
 
 
