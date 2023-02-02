@@ -17,8 +17,8 @@ const getNameUser = async (req, res, next) => {
                     const map = filter.map(us => {
                         if(us.deleted === false) return us
                     })
-                    res.send(map)
-                }                
+                    res.send(map);
+                }
                 else return res.send({ message: 'User is deleted' });
             } else {
                 res.send({ message: 'There isn´t users' });
