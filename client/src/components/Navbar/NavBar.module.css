@@ -1,0 +1,49 @@
+.BigContainer_NavBar {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  background: #f4a261;
+  word-spacing: .6vw;
+  text-decoration: none;
+}
+
+.nabvar {
+  display: flex;
+ 
+  width: 100vw;
+  align-items: center;
+
+}
+
+.logo {
+  display: flex;
+  font-family: "Cinzel";
+  font-weight: 700;
+  justify-content: space-around;
+  font-size: 1.7vw;
+  color: #009949;
+  flex-grow: 4;
+  text-decoration: none;
+  
+}
+.navLink {
+  text-decoration: none;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size:  1.2vw;
+  color: #009949;
+  flex-grow: 5;
+}
+.navLink:nth-child(5) {
+  display: flex;
+  flex-grow: 8;
+  justify-content: end;
+  margin-right: 2%;
+
+
+}
+.menu{
+  margin-right: 2%;
+}
+
