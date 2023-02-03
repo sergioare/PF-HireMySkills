@@ -34,10 +34,8 @@ export const UNMOUNT = "UNMOUNT";
 //URLS API
 
 export const urlCategory = "https://hiremyskillsbackend.onrender.com/category";
-export const urlProfession =
-  "https://hiremyskillsbackend.onrender.com/profession";
-export const urlProfessionals =
-  "https://hiremyskillsbackend.onrender.com/professionals";
+export const urlProfession = "https://hiremyskillsbackend.onrender.com/profession";
+export const urlProfessionals = "https://hiremyskillsbackend.onrender.com/professionals/";
 export const urlUsers = "https://hiremyskillsbackend.onrender.com/users";
 export const urlProducts = "https://hiremyskillsbackend.onrender.com/products";
 export const urlReviews = "https://hiremyskillsbackend.onrender.com/reviews";

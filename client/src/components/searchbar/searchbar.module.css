@@ -2,7 +2,7 @@
   display: flex;
   position: relative;
   width:25vw;
- 
+   
 }
 .input {
     display: flex;
@@ -20,7 +20,7 @@
   width: 5vw;
   height: 3.2vh;
   text-align: center;
-  background: #009949;
+  background: #ff7069;
   color: black;
   border: solid black 2px;
   font-weight: bold;

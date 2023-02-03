@@ -1,10 +1,13 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getSubCategory } from "../../redux/actions/actions";
+import {
+  getSubCategory,
+  filterByProfession,
+} from "../../redux/actions/actions";
 import styles from "../Filter/Filter.module.css";
 
-const Filter = ({ professionchange, handlerprofession }) => {
+const Filter = () => {
   const dispatch = useDispatch();
   const profession = useSelector((state) => state.subCategory);
 
@@ -12,17 +15,20 @@ const Filter = ({ professionchange, handlerprofession }) => {
     dispatch(getSubCategory());
   }, [dispatch]);
 
+  const handlerprofession = (e) => {
+    console.log(e.target.value);
+    dispatch(filterByProfession(e.target.value));
+  };
   return (
     <div className={styles.divFilter}>
       <div>
         <p className={styles.titles}>PROFESSIONS</p>
 
         <select
-          value={professionchange}
           onChange={(e) => handlerprofession(e)}
           className={styles.select}
+          defaultValue="All"
         >
-          <option value="">--Select--</option>
           <option value="All">All</option>
           {profession &&
             profession.map((sub) => (

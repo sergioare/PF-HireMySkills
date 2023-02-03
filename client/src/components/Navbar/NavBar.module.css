@@ -2,7 +2,7 @@
   width: 100vw;
   height: 10vh;
   display: flex;
-  background: #f4a261;
+  background: #283C63;
   word-spacing: .6vw;
   text-decoration: none;
 }
@@ -21,7 +21,7 @@
   font-weight: 700;
   justify-content: space-around;
   font-size: 1.7vw;
-  color: #009949;
+  color: #ff7069;
   flex-grow: 4;
   text-decoration: none;
   
@@ -32,7 +32,7 @@
   font-style: normal;
   font-weight: 600;
   font-size:  1.2vw;
-  color: #009949;
+  color: #ff7069;
   flex-grow: 5;
 }
 .navLink:nth-child(5) {
@@ -45,5 +45,7 @@
 }
 .menu{
   margin-right: 2%;
+  background-color: #ff7069;
 }
+
 

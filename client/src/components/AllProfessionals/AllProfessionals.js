@@ -1,60 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import { getProfessionals } from "../../redux/actions/actions";
+import {
+  filterByProfession,
+  getProfessionals,
+  getSubCategory,
+} from "../../redux/actions/actions";
 import styles from "../AllProfessionals/AllProfessionals.module.css";
 import imgDefault from "../../assets/imgDefault.jpg";
-import Filter from "../Filter/Filter";
+
 import OrderBy from "../OrderBy/OrderBy";
-import { filterByProfession } from "../../redux/actions/actions";
-import { orderByName, orderByRating } from "../../redux/actions/actions";
 
 const AllProfessionals = () => {
   const dispatch = useDispatch();
   const allProfessionals = useSelector((state) => state.professionals);
+  const profession = useSelector((state) => state.subCategory);
+  const prueba = useSelector((state) => state.allProfessionals);
+  console.log(prueba, "A");
+  console.log(profession, "B");
 
-  const [source, setSource] = useState("All");
-  const [namechange, setNamechange] = useState("");
-  const [ratingchange, setRatingchange] = useState("");
-  const [professionchange, setProfessionchange] = useState("");
-  const [, setOrder] = useState();
+  const handlerprofession = (e) => {
+    console.log(e.target.value);
+    dispatch(filterByProfession(e.target.value));
+  };
 
   useEffect(() => {
     dispatch(getProfessionals());
-  }, [dispatch, handlerByName]);
-
-  function handleClick(e) {
-    e.preventDefault();
-    dispatch(getProfessionals());
-    setNamechange("");
-    setRatingchange("");
-    setProfessionchange("");
-    setSource("All");
-  }
-  function handlerprofession(e) {
-    e.preventDefault();
-    dispatch(filterByProfession(e.target.value));
-    setSource("All");
-    setProfessionchange(e.target.value);
-    setOrder("Order" + e.target.value);
-  }
-  function handlerByName(e) {
-    dispatch(orderByName(e.target.value));
-    setRatingchange("");
-    setNamechange(e.target.value);
-    setOrder("Order" + e.target.value);
-  }
-  console.log(handlerByName);
-
-  function handlerByRating(e) {
-    dispatch(orderByRating(e.target.value));
-    setNamechange("");
-    setRatingchange(e.target.value);
-    setOrder("Order" + e.target.value);
-  }
+    dispatch(getSubCategory());
+  }, [dispatch]);
+  // console.log(allProfessionals);
 
   return (
     <div className={styles.divAllProfessionals}>
@@ -66,25 +43,26 @@ const AllProfessionals = () => {
           </button>
         </Link>
       </div>
-      <Filter
-        professionchange={professionchange}
-        handlerprofession={handlerprofession}
-        source={source}
-      />
-      <OrderBy
-        handlerByName={handlerByName}
-        namechange={namechange}
-        handlerByRating={handlerByRating}
-        ratingchange={ratingchange}
-      />
-      <button
-        onClick={(e) => {
-          handleClick(e);
-        }}
-        className={styles.btnReset}
-      >
-        RESET
-      </button>
+      {/* <Filter /> */}
+      <div>
+        <p className={styles.titles}>PROFESSIONS</p>
+
+        <select
+          onChange={(e) => handlerprofession(e)}
+          className={styles.select}
+          defaultValue="All"
+        >
+          <option value="All">All</option>
+          {profession &&
+            profession.map((sub) => (
+              <option value={sub.profession} key={sub.id}>
+                {sub.profession}
+              </option>
+            ))}
+        </select>
+      </div>
+      <OrderBy />
+
       <div className={styles.divCardsBody}>
         <h1 className="col-12 text-center text-dark fs-1 ">Professionals</h1>
         <div className={styles.containerCard}>

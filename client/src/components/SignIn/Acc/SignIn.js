@@ -4,12 +4,17 @@ import Login from "../Sub-Components/Login/Login";
 import Logout from "../Sub-Components/Logout/Logout";
 import styles from "./SignIn.module.css";
 import NavBar from "../../Navbar/Navbar";
+
+import UserType from "../../UserType/UserType"
+
 import Loader from "../Sub-Components/Loader/Loader";
+
 
 const SignIn = () => {
   const { isAuthenticated, isLoading } = useAuth0();
 
   return (
+
     <>
       {isLoading ? (
         <Loader />
@@ -19,7 +24,7 @@ const SignIn = () => {
           <div className={styles.BigContainer_SignIn}>
             {isAuthenticated ? (
               <div /* className={styles.Container_ProfileLogout_SignIn} */>
-                <Profile />
+                <UserType/>
                 <Logout />
               </div>
             ) : (
@@ -27,6 +32,7 @@ const SignIn = () => {
                 <Login />
               </div>
             )}
+
           </div>
         </div>
       )}
