@@ -1,0 +1,13 @@
+
+.components{
+    display: flex;
+    align-items:flex-start;
+}
+.table{
+    display: contents;
+    align-items:flex-start;
+}
+
+.tableRow{
+    background-color: rgb(223, 223, 223);
+}

@@ -136,11 +136,29 @@ export function postService(data){
 }
 export function getUser(){
     return async function(dispatch){
-        axios.get(urlUsers)
-        .then(res=>
-            dispatch({type:GET_USER, payload:res.data}))
+        const aux = await axios.get(`${url}/users`)
+        return dispatch({
+            type:GET_USER,
+            payload: aux.data
+        })
     }
 }
+export function getProfesionalsByProfession(profession){
+  return async function (dispatch){
+      try {
+          const aux = await axios.get(`${url}/profession?profession=${profession}`)
+          return dispatch({
+              type: GET_PROFESSIONALS_BY_PROFESSION,
+              payload: aux.data
+          })
+      } catch (error) {
+          // return dispatch({
+          //     type: GET_COUNTRY_BY_NAME,
+          //     payload: error
+          // })
+          console.log("ERROR ", error)
+      }
+  }}
 export function getUserById(id){
     return async function(dispatch){
         axios.get(`${urlUsers}/${id}`)
@@ -164,24 +182,6 @@ export function deleteUser(id){
     }
 }
 
-export function getProfesionalsByProfession(profession){
-  return async function (dispatch){
-      try {
-          const aux = await axios.get(`${url}/profession?profession=${profession}`)
-          console.log(aux.data)
-
-          return dispatch({
-              type: GET_PROFESSIONALS_BY_PROFESSION,
-              payload: aux.data
-          })
-      } catch (error) {
-          // return dispatch({
-          //     type: GET_COUNTRY_BY_NAME,
-          //     payload: error
-          // })
-          console.log("ERROR ", error)
-      }
-  }}
 
   export function getProfessionalById(id) {
     return function (dispatch) {

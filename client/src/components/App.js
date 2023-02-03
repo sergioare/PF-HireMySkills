@@ -12,10 +12,15 @@ import FAQs from "./FAQs/FAQs";
 import SignIn from "./SignIn/Acc/SignIn";
 import Team from "./Team/Team";
 import AllProfessionals from "./AllProfessionals/AllProfessionals";
+import Homeadmin from "../Admin/pages/Homeadmin";
 
 import Form from "./Form/FormStaff";
 
 import Contact from "./Contact-Us/Contact";
+import PaymentCheckout from "./PaymentCheckout/PaymentCheckout";
+import Users from "../Admin/components/Users/Users";
+import Trabajadores from "../Admin/components/Professionals/Trabajadores";
+
 
 
 function App() {
@@ -41,8 +46,12 @@ function App() {
           <Route path="/professionals" element={<AllProfessionals />} />
           <Route path="/FAQs" element={<FAQs />} />
           <Route path="/account" element={<SignIn />} />
-          <Route path="/contact-us" element={<Contact />} />
+          <Route path="/admin" element={<Homeadmin/>}/>
+          <Route path="/admin/profesionals" element={<Trabajadores/>}/>
+          <Route path="/admin/users" element={<Users/>}/>
 
+          <Route path="/contact-us" element={<Contact />} />
+          <Route path="/checkout" element={<PaymentCheckout/>}/>
           <Route path="/form" element={<Form />} />
           {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
         </Routes>
