@@ -178,8 +178,8 @@
   font-weight: 700;
   font-size: 2.6vw;
   font-style: oblique;
-  background: linear-gradient(#283C63,#FF7069);
-  color: whitesmoke; 
+  background: linear-gradient(#283C63,#F7F5F5);
+  color: rgb(44, 41, 41); 
   align-items: center;
   justify-content: center;
 }

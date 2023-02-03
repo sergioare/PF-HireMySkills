@@ -13,7 +13,10 @@ const Home = () => {
 
   return (
     <div className={styles.wrapper}>
-      <NavBar />
+
+        <NavBar />
+        
+
       <div className={styles.containerOne}>
         <div className={styles.left}>
           <div className={styles.text}>
@@ -88,7 +91,11 @@ const Home = () => {
         </div>
       </div>
 
-      <Footer />
+
+      <div className={styles.containerThree}>
+          <Footer />
+      </div>
+
     </div>
   );
 };

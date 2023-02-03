@@ -1,0 +1,39 @@
+.container {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to left, #ff7069 0%, #283c63 100%);
+  
+      font-family: "Work Sans";
+      font-weight: 400;
+      font-size: 1.2vw;
+      color: #fbe8d3;
+  }
+  h1{
+      color: #c8e7ff;
+      font-family: "Cinzel";
+      font-weight: 700;
+      font-size: 2vw;
+  
+  }
+  
+  Form {
+      width: 50%;
+      height: 80%;
+  }
+  
+  .field{
+      width:100%;
+      /* padding-bottom: 2vh; */
+      margin-bottom: 1.5vh;
+       
+  }
+ 
+  textarea{
+      width: 100%;
+      height: 20vh;
+  }
+  
