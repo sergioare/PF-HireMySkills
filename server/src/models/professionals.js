@@ -34,7 +34,7 @@ const professionals =
       },
       town: {
         //lugar donde esta ubicado
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: false,
       },
       contact: {
