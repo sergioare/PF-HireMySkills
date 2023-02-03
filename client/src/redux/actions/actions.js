@@ -14,6 +14,7 @@ import {
   POST_USER,
   POST_REVIEWS,
   ORDER_BY_RATING,
+  FILTER_TOWN,
   ORDER_BY_NAME,
   ORDER_BY_REVIEWS,
   GET_ID_PROFESSIONALS,
@@ -97,22 +98,22 @@ export function filterByProfession(name) {
     payload: name,
   };
 }
+export function filterByProvince(town) {
+  return {
+    type: FILTER_BY_PROVINCE,
+    payload: town,
+  };
+}
+export function filterTown() {
+  return {
+    type: FILTER_TOWN,
+  };
+}
 
 //--------------Order by name------------
 export function orderByName(payload) {
-  return function (dispatch) {
-    axios.get(`${url}/profession?profession=`).then((response) => {
-      return dispatch({
-        type: ORDER_BY_NAME,
-        payload: response.data,
-      });
-    });
-  };
-}
-//--------------Order by rating------------
-export function orderByRating(payload) {
   return {
-    type: ORDER_BY_RATING,
+    type: ORDER_BY_NAME,
     payload,
   };
 }

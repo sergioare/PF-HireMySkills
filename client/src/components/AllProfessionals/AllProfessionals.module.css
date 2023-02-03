@@ -4,6 +4,9 @@
   width: 100%;
   min-height: 100vh;
 }
+.profBtn {
+  display: flex;
+}
 .profBtn button {
   margin-left: 60px;
   margin-top: 30px;
@@ -19,17 +22,30 @@
 }
 /* --------------filter------------  */
 .divAllFilter_order {
-  width: 100%;
-  background-color: blueviolet;
+  width: 90%;
+  padding-top: 20px;
   display: flex;
-  margin: auto;
-  justify-content: center;
+  padding: 30px 40px 40px 50px;
+  justify-content: space-between;
 }
-.allFilter {
+
+.orderNameRating {
   display: inline-block;
 }
 
+.divNameRating {
+  display: flex;
+}
+
+.divName {
+  display: flex;
+}
+.divRating {
+  display: flex;
+}
 /* --------------------------------  */
+.divCardsBody {
+}
 .containerCard {
   width: 100%;
   margin-top: 20px;
