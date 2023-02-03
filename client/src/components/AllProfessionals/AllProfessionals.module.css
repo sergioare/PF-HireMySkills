@@ -77,6 +77,8 @@
 }
 .profDescrip {
   margin-left: 20px;
+  width: 90%;
+  overflow: hidden;
 }
 .divBtn {
   display: flex;

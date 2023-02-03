@@ -13,7 +13,7 @@ const Menu = () => {
       <Dropdown.Item>Dark Mode</Dropdown.Item>
       <Dropdown.Item>¿Why choose us?</Dropdown.Item>
       <Dropdown.Item>TIPs to Home</Dropdown.Item>
-      <Dropdown.Item>Contact Us</Dropdown.Item>
+      <Dropdown.Item href="/contact-us">Contact Us</Dropdown.Item>
       <Dropdown.Divider />
       <Dropdown.Item href="/account">Account</Dropdown.Item>
       {/*       <Dropdown.Item>Sign Off</Dropdown.Item> */}

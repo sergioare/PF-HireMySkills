@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../Specific/SpecificCategory.module.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../../Navbar/Navbar";
@@ -10,6 +10,7 @@ import { getSubCategory } from "../../../redux/actions/actions";
 const SpecificCategory = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navegate = useNavigate();
   const subCategory = useSelector((state) => state.subCategory);
 
   useEffect(() => {
@@ -22,8 +23,13 @@ const SpecificCategory = () => {
   return (
     <div className={styles.specific}>
       <NavBar />
-      <div className={styles.cardSub}>
-        <h1>Profession</h1>
+      <div className={styles.profBtn}>
+        <button onClick={() => navegate(-1)}>
+          <i className="fa-solid fa-circle-chevron-left"></i>
+        </button>
+        <div className={styles.cardSub}>
+          <h1>Professions</h1>
+        </div>
       </div>
       <div className={styles.cardSubCat}>
         {aux.map((prof) => {
