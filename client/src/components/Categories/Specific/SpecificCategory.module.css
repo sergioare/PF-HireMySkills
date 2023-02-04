@@ -1,11 +1,28 @@
 .specific {
   width: 100%;
   min-height: 100vh;
-  display: flex;
+  display: inline-block;
   justify-content: center;
   align-items: center;
   gap: 4rem;
   flex-wrap: wrap;
+}
+.profBtn button {
+  margin-left: 60px;
+  margin-top: 30px;
+  background-color: transparent;
+  border: none;
+}
+.profBtn button i {
+  font-size: 3.5rem;
+  color: tomato;
+}
+.profBtn button i:hover {
+  color: #076b72;
+}
+.cardSub h1 {
+  color: black;
+  text-align: center;
 }
 .cardSubCat {
   width: 80%;
@@ -17,10 +34,7 @@
   grid-auto-rows: 12rem;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 }
-.cardSub h1 {
-  color: black;
-  text-align: left;
-}
+
 .divSpecific {
   display: inline;
   width: 75%;

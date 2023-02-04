@@ -1,19 +1,25 @@
 import React from "react";
-import hms from "../../assets/hms.png";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./About.module.css";
 import Footer from "../Footer/Footer";
 import CarouselAbout from "./CarouselAbout/CarouselAbout";
 import NavBar from "../Navbar/Navbar";
 
 const About = () => {
+  const navegate = useNavigate();
+
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       {<NavBar />}
+      <div className={styles.profBtn}>
+        <button onClick={() => navegate(-1)}>
+          <i className="fa-solid fa-circle-chevron-left"></i>
+        </button>
+      </div>
       <div className={styles.BigContainer_About}>
         <div className={styles.About_About}>Hey! This is our story</div>
         <div className={styles.Div_Img_About}>
           <CarouselAbout />
-          {/* <img src={hms} alt="hms" className={styles.img_About} /> */}
         </div>
         <div className={styles.Text_About}>
           <p>

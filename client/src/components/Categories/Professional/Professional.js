@@ -7,7 +7,9 @@ import {
   clearProfessional,
   addToCart,
 } from '../../../redux/actions/actions'
-import { useParams } from "react-router-dom";
+
+import { useParams, useNavigate } from "react-router-dom";
+
 import styles from "../Professional/Professional.module.css";
 import NavBar from "../../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
@@ -16,12 +18,10 @@ import Services from '../../Services/Services';
 
 
 
-
-
-
 const Professional = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navegate = useNavigate();
   const detailProfessional = useSelector((state) => state.detail);
 
   useEffect(() => {
@@ -33,11 +33,9 @@ const Professional = () => {
     <div className={styles.divProfessional}>
       <NavBar />
       <div className={styles.profBtn}>
-        <Link to="/professionals">
-          <button>
-            <i className="fa-solid fa-circle-chevron-left"></i>
-          </button>
-        </Link>
+        <button onClick={() => navegate(-1)}>
+          <i className="fa-solid fa-circle-chevron-left"></i>
+        </button>
       </div>
 
       <div className={styles.divDet}>
@@ -110,6 +108,44 @@ const Professional = () => {
                   alt="Img not found"
                   width="200px"
                 />
+
+                <div className={styles.twoContainer}>
+                  <h1 className={styles.detName}>{detailProfessional.name}</h1>
+                  <p className={styles.detText}>
+                    <b> Profile: </b>
+                    <span className={styles.detSpan}>
+                      {detailProfessional.description}
+                    </span>
+                  </p>
+                  <p className={styles.detText}>
+                    <b>Town: </b>
+                    <span className={styles.detSpan}>
+                      {detailProfessional.town}
+                    </span>
+                  </p>
+                  <p className={styles.detText}>
+                    <b>Score: </b>
+                    <span className={styles.detSpan}>
+                      {detailProfessional.rating}
+                    </span>
+                  </p>
+                  <p className={styles.detText}>
+                    <b>Professions: </b>
+                    <span className={styles.detSpan}>
+                      {detailProfessional.skills.join(", ")}
+                    </span>
+                  </p>
+                  <p className={styles.detText}>
+                    <b>Portfolio: </b>
+                    <span className={styles.detSpan}>
+                      {detailProfessional.portfolio}
+                    </span>
+                  </p>
+                  <div className={styles.divBtn}>
+                    <button className={styles.btn}>Contract!</button>
+                  </div>
+                </div>
+
               </div>
             )}
           </div>
