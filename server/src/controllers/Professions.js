@@ -71,11 +71,10 @@ const searchProfession = async (req, res) => {
 
 const searchProfessionId = async (req, res) => {
   const { id } = req.params;
-  let professions_list = [];
 
-  await Professions.findAll({
+  const professions_list = await Professions.findAll({
     where: { categoryId: id },
-  }).then((res) => (professions_list = res.data));
+  });
 
   res.json(professions_list);
 };
