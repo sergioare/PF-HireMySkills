@@ -1,14 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { Formik, Field, Form } from "formik";
+import { Formik, Field, Form, useFormik } from "formik";
 // import { validationSchema } from './validation';
-// import * as Yup from 'yup'
+import * as Yup from "yup";
 import axios from "axios";
 import styles from "./FormStaff.module.css";
 import { useNavigate } from "react-router-dom";
+import { PhoneInput } from "react-international-phone";
+import "react-international-phone/style.css";
+let category_list = [];
 let professions_list = [];
+let auth_token;
+let country_list = [];
+let state_list = [];
+let city_list = [];
 
 const FormStaff = () => {
+  const [phone, setPhone] = useState("");
   const [responseServer, setResponseServer] = useState(null);
+  const [countryselected, setCountryselected] = useState("");
+  const [stateselected, setStateselected] = useState("");
+  const [cat_selected, setCat_selected] = useState();
+  const [prof_selected, setProf_selected] = useState([]);
   const navigate = useNavigate();
   const [imageCloud, setImageCloud] = useState("");
 
@@ -32,20 +44,93 @@ const FormStaff = () => {
     }
   };
 
-  const getprofessions = async () => {
+  const get_categories = async () => {
     await axios
-      .get("https://hiremyskillsbackend.onrender.com/profession")
+      .get("https://hiremyskillsbackend.onrender.com/category")
+      .then((res) => (category_list = res.data))
+      .then(() => console.log(category_list));
+  };
+
+  const getprofessions = async (cat_id) => {
+    await axios
+      .get(`https://hiremyskillsbackend.onrender.com/profession/${cat_id}`)
       .then((res) => (professions_list = res.data))
       .then(() => console.log(professions_list));
   };
 
+  const get_country = async () => {
+    const conf = {
+      headers: {
+        Accept: "application/json",
+        "api-token":
+          "bKJUZhJX2JnQeO4gQquc152SiYa0EYp-_XpIdPMD8_N-dold4Trvzul0014HMzA4a7E",
+        "user-email": "leonardogar.ec@gmail.com",
+      },
+    };
+
+    await axios
+      .get("https://www.universal-tutorial.com/api/getaccesstoken", conf)
+      .then((res) => (auth_token = res.data.auth_token))
+      .then(() => console.log(auth_token));
+
+    await axios
+      .get("https://www.universal-tutorial.com/api/countries", {
+        headers: {
+          Authorization: `Bearer ${auth_token}`,
+          Accept: "application/json",
+        },
+      })
+      .then((res) => (country_list = res.data))
+      .then(() => console.log(country_list));
+  };
+
+  const get_state = async (country) => {
+    console.log(country, "seleccion de pais");
+    await axios
+      .get(`https://www.universal-tutorial.com/api/states/${country}`, {
+        headers: {
+          Authorization: `Bearer ${auth_token}`,
+          Accept: "application/json",
+        },
+      })
+      .then((res) => (state_list = res.data))
+      .then(() => console.log(state_list, "state_list"));
+  };
+
+  const get_city = async (state) => {
+    console.log(state, "seleccion de estado");
+    await axios
+      .get(`https://www.universal-tutorial.com/api/cities/${state}`, {
+        headers: {
+          Authorization: `Bearer ${auth_token}`,
+          Accept: "application/json",
+        },
+      })
+      .then((res) => (city_list = res.data))
+      .then(() => console.log(city_list, "city_list"));
+  };
+
   useEffect(() => {
     getprofessions();
+    get_country();
+    get_categories();
   }, []);
+
+  useEffect(() => {
+    get_state(countryselected);
+  }, [countryselected]);
+
+  useEffect(() => {
+    getprofessions(cat_selected);
+  }, [cat_selected]);
+
+  useEffect(() => {
+    get_city(stateselected);
+  }, [stateselected]);
 
   return (
     <div className={styles.container}>
-      <h1>Professional Profile Form</h1>
+      <h1>Professional Profile</h1>
 
       <Formik
         initialValues={{
@@ -53,27 +138,34 @@ const FormStaff = () => {
           description: "",
           photo: "",
           email: "",
-          town: "",
+          country: "",
+          state: "",
+          city: "",
+          town: [],
           contact: "",
           portfolio: "",
           skills: [],
+          cat: "",
+          profselect: "",
         }}
         onSubmit={(values) => {
-          values.skills.push(values.professionselect);
+          values.contact = phone;
+          values.skills.push(prof_selected);
+          values.town.push({
+            country: values.country,
+            state: values.state,
+            city: values.city,
+          });
+
           values.photo = imageCloud;
           console.log(values, "estos son los values");
           axios
-            //   ({
-            //     method: "POST",
-            //     url: "https://hiremyskillsbackend.onrender.com/professionals",
-            //     data: values,
-            //   })
             .post(
               "https://hiremyskillsbackend.onrender.com/professionals",
               values
             )
             .then((response) => {
-              console.log(response, "hola");
+              //console.log(response, "hola");
               setResponseServer(response.data);
               // setSubmitting(false);
               navigate("/home");
@@ -95,69 +187,98 @@ const FormStaff = () => {
           isSubmitting,
         }) => (
           <Form>
+            <h6>Your name</h6>
             <Field
               type="text"
               placeholder="Full name"
               name="name"
               id="name"
-              onChange={handleChange}
+              onChange={(e) => handleChange(e)}
               // error={errors.name}
               value={values.name}
               className={styles.field}
             />
             {errors.name &&
               touched.name(<p style={{ color: "red" }}>{errors.name}</p>)}
-
+            <h6>Your E-mail</h6>
             <Field
               type="text"
               placeholder="E-mail"
               name="email"
               id="email"
               onChange={handleChange}
-              // error={errors.email}
+              error={errors.email}
               value={values.email}
               className={styles.field}
             />
             {errors.email &&
               touched.email(<p style={{ color: "red" }}>{errors.email}</p>)}
-
+            <h6>Where are you?</h6>
             <Field
               as="select"
-              name="town"
-              onChange={handleChange}
+              name="country"
+              id="country"
+              onChange={(e) => {
+                setCountryselected(e.target.value);
+                handleChange(e);
+              }}
               // error={errors.town}
-              value={values.town}
+              value={values.country}
               className={styles.fieldTown}
             >
-              <option value="">Select your location</option>
-              <option value="Bogotá">Bogotá D.C.</option>
-              <option value="Buenos-Aires">Buenos Aires</option>
-              <option value="Quito">Quito</option>
-              <option value="Caracas">Caracas</option>
-              <option value="Other">Other...</option>
+              <option>Select your Country...</option>
+              {country_list.map((country) => {
+                return (
+                  <option
+                    key={country.country_short_name}
+                    value={country.country_name}
+                  >
+                    {country.country_name}
+                  </option>
+                );
+              })}
             </Field>
 
             <Field
-              type="text"
-              placeholder="¿Are you in another City?"
-              name="town"
-              id="town"
-              onChange={handleChange}
-              // error={errors.town}
-              value={values.town}
+              as="select"
+              name="state"
+              onChange={(e) => {
+                setStateselected(e.target.value);
+                handleChange(e);
+              }}
+              value={values.state}
               className={styles.fieldTown}
-            />
+            >
+              <option>Select your State, Province...</option>
+              {state_list.map((state) => {
+                return (
+                  <option value={state.state_name}>{state.state_name}</option>
+                );
+              })}
+            </Field>
 
             <Field
-              type="tel"
-              placeholder="Contact number"
-              name="contact"
-              id="contact"
-              onChange={handleChange}
-              // error={errors.contact}
-              value={values.contact}
-              className={styles.field}
-            />
+              as="select"
+              name="city"
+              onChange={(e) => handleChange(e)}
+              // error={errors.town}
+              value={values.city}
+              className={styles.fieldTown}
+            >
+              <option>Select your City...</option>
+              {city_list.map((city) => {
+                return <option value={city.city_name}>{city.city_name}</option>;
+              })}
+            </Field>
+            <h6>Enter your contact number</h6>
+            <div className={styles.divphone}>
+              <PhoneInput
+                initialCountry="ar"
+                value={phone}
+                onChange={(phone) => setPhone(phone)}
+              />
+            </div>
+
             {errors.contact &&
               touched.contact(<p style={{ color: "red" }}>{errors.contact}</p>)}
 
@@ -169,7 +290,7 @@ const FormStaff = () => {
                 accept='application/pdf,application/vnd.ms-excel, image/png, image/jpeg'
                 multiple
             /> */}
-
+            <h6>Insert your portfolio URL</h6>
             <Field
               type="text"
               placeholder="URL portfolio"
@@ -180,17 +301,42 @@ const FormStaff = () => {
               value={values.portfolio}
               className={styles.field}
             />
-            <label>Select your Profession...</label>
+            <h6>Select your profession</h6>
+            <Field
+              as="select"
+              name="categoryselect"
+              id="categoryselect"
+              onChange={(e) => {
+                console.log(e.target.value);
+                setCat_selected(e.target.value);
+                handleChange(e);
+              }}
+              // error={errors.skills}
+              value={values.categoryselect}
+              className={styles.fieldProf}
+            >
+              <option>Select a Professional Category...</option>
+              {category_list.map((cat) => {
+                return (
+                  <option key={cat.id} value={cat.id}>
+                    {cat.typecategory}
+                  </option>
+                );
+              })}
+            </Field>
             <Field
               as="select"
               name="professionselect"
               id="professionselect"
               placeholder="Select your Profession..."
-              onChange={handleChange}
-              // error={errors.skills}
+              onChange={(e) => {
+                handleChange(e);
+                setProf_selected(e.target.value);
+              }}
               value={values.professionselect}
-              className={styles.field}
+              className={styles.fieldProf}
             >
+              <option>Select your Profession...</option>
               {professions_list.map((prof) => {
                 return (
                   <option key={prof.id} value={prof.profession}>
@@ -203,7 +349,7 @@ const FormStaff = () => {
             {/* errors.skills && touched.skills(
                     <p style={{color:'red'}}>{errors.skills}</p>)
             } */}
-
+            <h6>Tell people about your work</h6>
             <Field
               as="textarea"
               name="description"
@@ -213,20 +359,20 @@ const FormStaff = () => {
               value={values.description}
             />
 
-            <label htmlFor="photo">Please, upload your Profile Image</label>
+            <h5>Upload your profile image</h5>
             <Field
               type="file"
               name="photo"
               id="photo"
               onChange={handleImage}
-              className={styles.field}
+              className={styles.fieldImg}
             />
             {errors.image &&
               touched.image(<p style={{ color: "red" }}>{errors.image}</p>)}
 
-            <button type="submit">
+            <button className={styles.Buttonsend} type="submit">
               {/* disabled={isSubmitting} */}
-              Submit
+              Send
             </button>
 
             {responseServer && <div>{responseServer}</div>}
