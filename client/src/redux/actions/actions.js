@@ -19,6 +19,7 @@ import{
     ORDER_BY_REVIEWS,
     GET_ID_PROFESSIONALS,
     FILTER_BY_PROVINCE,
+    FILTER_BY_PROFESSION,
     DELETE_SERVICE,
     DELETE_PROFILE,
     DELETE_USER,
@@ -35,7 +36,6 @@ import{
     urlReviews,
     urlShoppingcart
 } from '../../utils'
-import api from '../../api.json'
 let url = "https://hiremyskillsbackend.onrender.com"; 
 
 export function getCategories() {
@@ -87,16 +87,7 @@ export function getCategories() {
     };
   };
 
-export function getProfessionalById(id) {
-  return function (dispatch) {
-    axios.get(`${url}/professionals/${id}`).then((response) => {
-      return dispatch({
-        type: GET_ID_PROFESSIONALS,
-        payload: response.data,
-      });
-    });
-  };
-}
+
 export function clearProfessional() {
   return function (dispatch) {
     return dispatch({

@@ -10,9 +10,6 @@ const NavBar = () => {
  const shopping= useSelector((state) => state.shoppingCart);
  const values = shopping.map(service=>service.quantity).reduce((acc, element)=> acc +element, 0)
  const total = shopping.map(service=>service.quantity * service.price).reduce((acc, element)=> acc +element, 0)
-
- return (
-
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   return (
@@ -35,11 +32,7 @@ const NavBar = () => {
           <Link to="/about" className={styles.navLink}>
             About us
           </Link>
-        
-      
-          <Link to="/account" className={styles.navLink}>
-            Account
-          </Link>
+                     
 
           <Link to="/shopping" className={styles.navLink}>
           <div id="cart-info" className="nav-info align-items-center cart-info d-flex justify-content-between mx-lg-5">
@@ -48,23 +41,13 @@ const NavBar = () => {
           </div>
           </Link>
 
-
-        <Link to="/professionals" className={styles.navLink}>
-          Professionals
-        </Link>
-
-        <Link to="/about" className={styles.navLink}>
-          About us
-        </Link>
+       
 
         <Link to="/account" className={styles.navLink}>
           <i class="fa-solid fa-user px-1 fs-3"></i>
           {isLoading ? "Loading..." : isAuthenticated ? user.name : "Account"}
         </Link>
 
-        <Link to="/shopping" className={styles.navLink}>
-          Shopping
-        </Link>
 
         <div className={styles.menu}>
           <Menu />
