@@ -16,9 +16,9 @@ import Form from "./Form/FormStaffOption";
 import FormServices from "./Services/Form/FormServices";
 import Contact from "./Contact-Us/Contact";
 import ShoppingCart from "./Shopping/ShoppingCart";
-import UserType from './UserType/UserType'
+import UserType from "./UserType/UserType";
 import Profile from "./SignIn/Profile/Profile";
-
+import TeamCards from "./Team/TeamCards/TeamCards";
 
 function App() {
   return (
@@ -26,7 +26,8 @@ function App() {
       <Fragment>
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/creators" element={<Team />} />
+          {/* <Route path="/creators" element={<Team />} /> */}
+          <Route path="/creators" element={<TeamCards />} />
 
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
