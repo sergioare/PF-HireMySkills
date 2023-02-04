@@ -4,8 +4,9 @@ import NavBar from '../Navbar/Navbar';
 import { useDispatch, useSelector } from 'react-redux'
 import React, {  useEffect } from 'react';
 import { clearCart, deleteFromCart} from '../../redux/actions/actions';
+import PaymentCheckout from '../PaymentCheckout/PaymentCheckout';
 
-const cartFromLocalStorage =JSON.parse(localStorage.getItem('shopping') || '[]')
+// const cartFromLocalStorage =JSON.parse(localStorage.getItem('shopping') || '[]')
 
 function ShoppingCart() {
 //  const state = useSelector(state=>state)
@@ -15,9 +16,9 @@ function ShoppingCart() {
  const total = shopping.map(service=>service.quantity * service.price).reduce((acc, element)=> acc +element, 0)
  console.log(total)
  
-    useEffect(()=>{
-        localStorage.setItem('shopping', JSON.stringify(shopping))
-       },[shopping])
+    // useEffect(()=>{
+    //     localStorage.setItem('shopping', JSON.stringify(shopping))
+    //    },[shopping])
        
   return (
     <div>
@@ -49,6 +50,8 @@ function ShoppingCart() {
                   />)
             }
         </article>
+
+        <PaymentCheckout/>
    
     </div>
   );

@@ -42,6 +42,12 @@ export const initialState = {
 
 };
 
+if(localStorage.getItem('shoppingCart')){
+  initialState.shoppingCart = JSON.parse(localStorage.getItem('shoppingCart'))
+} else{
+  initialState.shoppingCart = [];
+}
+
 export function rootReducer(state = initialState, action) {
   switch (action.type) {
     case GET_CATEGORIES:
@@ -69,6 +75,9 @@ export function rootReducer(state = initialState, action) {
 
      
     case ADD_TO_CART:
+      // return{
+      //   shoppingCart:[...action.payload]
+      // }
       // let newService= state.services.find(service=> service.id === action.payload);
       {
           let newService= state.detail.products.find(service=> service.id === action.payload);

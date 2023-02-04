@@ -150,6 +150,41 @@ export const addToCart=(id)=>({
  
  )
 
+// export const addToCart = service=>
+//   async function (dispatch){
+//     //if cart already exist in local storage, use it, otherwise set to empty array
+//     const shoppingCart = localStorage.getItem('shoppingCart')
+//       ? JSON.parse(localStorage.getItem('shoppingCart'))
+//       : [];
+
+//     //check if duplicates
+//     const duplicates = shoppingCart.filter(cartService =>
+//       cartService._id === service._id)
+
+//     //if no duplicates, proceed
+//     if(duplicates.length === 0){
+//         //prep service data
+//         const serviceToAdd ={
+//           ...service,
+//           quantity: 1
+//         }
+
+//         //add service data to cart
+//         shoppingCart.push(serviceToAdd)
+
+//         //add cart to local storage
+//         localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))
+        
+//         //add cart to redux
+//         dispatch({
+//           type: ADD_TO_CART,
+//           payload: shoppingCart,
+//         })
+
+//     }
+
+//   }
+
 export const deleteFromCart=(id, all=false)=>
   all
   ? {type:REMOVE_ALL_FROM_CART, payload:id}
