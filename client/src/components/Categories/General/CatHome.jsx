@@ -9,7 +9,7 @@ import NavBar from "../../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import LoaderGeneral from "../../LoaderGeneral/LoaderGeneral";
 
-const Category = () => {
+const CatHome = () => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories);
 
@@ -19,10 +19,7 @@ const Category = () => {
 
   return (
     <div>
-      <NavBar />
-      <h2 className="text-center text-white" style={{ margin: "4%" }}>
-        Categories
-      </h2>
+      <h2 className="text-center text-white">Categories</h2>
       <div className="container  h-100">
         {categories.length > 0 ? (
           <div className="row">
@@ -41,38 +38,8 @@ const Category = () => {
           </div>
         )}
       </div>
-      <Footer />
     </div>
   );
 };
-{
-  /* <div className={styles.divCategory}>
-      {categories.length > 0 ? (
-        <div className={styles.card}>
-          {categories.map((cat) => {
-            return (
-              <div className={styles.cardBody} key={cat.id}>
-                <Link
-                  to={`/categories/profession/${cat.id}`}
-                  className={styles.cardLink}
-                >
-                  <h3 className={styles.cardName}>{cat.typecategory}</h3>
-                </Link>
-              </div>
-            );
-          })}
-        </div>
-      ) : (
-        <div className={styles.divLoading}>
-          <img
-            className={styles.loading}
-            src="https://img1.picmix.com/output/stamp/normal/8/5/2/9/509258_fb107.gif"
-            alt="Img not found"
-            width="150px"
-          />
-        </div>
-      )}
-    </div> */
-}
 
-export default Category;
+export default CatHome;

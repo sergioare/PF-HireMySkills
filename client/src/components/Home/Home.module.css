@@ -16,9 +16,9 @@
   align-items: center;
   border: 3px solid black;
 
-  background: #283c63; 
-   border-radius: 30px;
-  margin-top:30vh;
+  background: #283c63;
+  border-radius: 30px;
+  margin-top: 30vh;
 
   margin-left: 10vw;
 }
@@ -41,9 +41,8 @@
 .search {
   margin-top: -5vh;
 
-  position: relative; 
- margin-left: 4.5vw;
-
+  position: relative;
+  margin-left: 4.5vw;
 }
 
 .right {
@@ -54,7 +53,7 @@
 .right img {
   width: 20vw;
   height: 25vw;
-  border: solid  #283c63; 
+  border: solid #283c63;
   border-radius: 49px;
 }
 
@@ -65,24 +64,21 @@
   font-weight: 700;
   font-size: 1.2vw;
   line-height: 18px;
-  color: #283c63;
-
-
+  color: #ffffff;
 }
 
 .stars {
   display: flex;
-  margin-top: .5vh;
-  font-size: .8vw;
- }
+  margin-top: 0.5vh;
+  font-size: 0.8vw;
+}
 
 .containerTwo {
   position: relative;
   width: 100vw;
   height: 80vh;
-  background: #283c63; 
+  background: #283c63;
   margin-bottom: 50px;
-
 }
 
 .catGeneral {
