@@ -77,7 +77,7 @@ const searchProfessionId = async (req, res) => {
     where: { categoryId: id },
   }).then((res) => (professions_list = res.data));
 
-  return professions_list;
+  res.json(professions_list);
 };
 module.exports = {
   postProfessions,
