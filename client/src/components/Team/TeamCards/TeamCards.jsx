@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../Footer/Footer";
 import NavBar from "../../Navbar/Navbar";
 import TeamCard from "../TeamCard/TeamCard";
 
@@ -123,6 +124,7 @@ const TeamCards = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
