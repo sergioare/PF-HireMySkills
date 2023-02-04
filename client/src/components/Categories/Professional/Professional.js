@@ -1,16 +1,17 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import {
   getProfessionalById,
   clearProfessional,
+  addToCart,
 } from "../../../redux/actions/actions";
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "../Professional/Professional.module.css";
 import NavBar from "../../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import imgDefault from "../../../assets/imgDefault.jpg";
+import Services from "../../Services/Services";
 
 const Professional = () => {
   const { id } = useParams();
@@ -31,6 +32,7 @@ const Professional = () => {
           <i className="fa-solid fa-circle-chevron-left"></i>
         </button>
       </div>
+
       <div className={styles.divDet}>
         <div className={styles.firstContainer}>
           {detailProfessional.name ? (
@@ -77,9 +79,17 @@ const Professional = () => {
                       {detailProfessional.portfolio}
                     </span>
                   </p>
-                  <div className={styles.divBtn}>
-                    <button className={styles.btn}>Contract!</button>
-                  </div>
+
+                  <h3>Services</h3>
+                  <article className={styles.box}>
+                    {detailProfessional.products.map((service) => (
+                      <Services
+                        key={service.id}
+                        data={service}
+                        addToCart={() => dispatch(addToCart(service.id))}
+                      />
+                    ))}
+                  </article>
                 </div>
               </div>
             </div>
@@ -95,10 +105,10 @@ const Professional = () => {
           )}
         </div>
       </div>
-
       <Footer />
     </div>
   );
 };
 
 export default Professional;
+

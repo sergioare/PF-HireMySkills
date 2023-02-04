@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import styles from "./Team.module.css";
@@ -11,11 +11,10 @@ const Team = () => {
     <div className={styles.divTeam}>
       <Navbar />
       <div className={styles.profBtn}>
-        {/* <Link onClick={() => navegate(-1)}>
-          <button>
-            <i className="fa-solid fa-circle-chevron-left"></i>
-          </button>
-        </Link> */}
+        <button onClick={() => navegate(-1)}>
+          <i className="fa-solid fa-circle-chevron-left"></i>
+        </button>
+
         <h1 className="text-center">Team</h1>
       </div>
       <div className={styles.container}>
