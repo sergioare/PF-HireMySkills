@@ -4,6 +4,9 @@
   width: 100%;
   min-height: 100vh;
 }
+.profBtn {
+  display: flex;
+}
 .profBtn button {
   margin-left: 60px;
   margin-top: 30px;
@@ -17,6 +20,59 @@
 .profBtn button i:hover {
   color: #076b72;
 }
+/* --------------filter------------  */
+.divAllFilter_order {
+  width: 90%;
+  padding-top: 20px;
+  display: flex;
+  padding: 30px 40px 40px 50px;
+  justify-content: space-between;
+}
+.allFilterPro {
+  font-weight: 700;
+}
+.allFilterTown {
+  font-weight: 700;
+}
+
+.orderNameRating {
+  display: inline-block;
+}
+
+.divNameRating {
+  display: flex;
+}
+.divTitleOrder {
+  font-weight: 700;
+}
+
+.divName {
+  display: flex;
+  font-weight: 700;
+}
+.divRating {
+  display: flex;
+  font-weight: 700;
+}
+.select {
+  background-color: #283c63;
+  width: 200px;
+  height: 28px;
+  border: 1px solid white;
+  color: white;
+  font-size: 15px;
+  border-radius: 10px;
+}
+.selects {
+  background-color: #283c63;
+  width: 100px;
+  height: 28px;
+  color: white;
+  font-size: 15px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+/* --------------------------------  */
 
 .containerCard {
   width: 100%;
