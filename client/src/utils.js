@@ -7,6 +7,7 @@ export const GET_SERVICES = "GET_SERVICES";
 export const GET_USER = "GET_USER";
 export const GET_USER_BY_ID = "GET_USER_BY_ID";
 export const FILTER_BY_PROFESSION = "FILTER_BY_PROFESSION";
+export const FILTER_TOWN = "FILTER_TOWN";
 export const SEARCH = "SEARCH";
 export const POST_SERVICES = "POST_SERVICES";
 export const POST_CATEGORIES = "POST_CATEGORY";
@@ -34,8 +35,10 @@ export const UNMOUNT = "UNMOUNT";
 //URLS API
 
 export const urlCategory = "https://hiremyskillsbackend.onrender.com/category";
-export const urlProfession = "https://hiremyskillsbackend.onrender.com/profession";
-export const urlProfessionals = "https://hiremyskillsbackend.onrender.com/professionals/";
+export const urlProfession =
+  "https://hiremyskillsbackend.onrender.com/profession";
+export const urlProfessionals =
+  "https://hiremyskillsbackend.onrender.com/professionals/";
 export const urlUsers = "https://hiremyskillsbackend.onrender.com/users";
 export const urlProducts = "https://hiremyskillsbackend.onrender.com/products";
 export const urlReviews = "https://hiremyskillsbackend.onrender.com/reviews";

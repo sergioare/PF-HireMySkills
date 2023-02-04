@@ -17,6 +17,7 @@ import FormServices from "./Services/Form/FormServices";
 import Contact from "./Contact-Us/Contact";
 import ShoppingCart from "./Shopping/ShoppingCart";
 import UserType from './UserType/UserType'
+import Profile from "./SignIn/Profile/Profile";
 
 
 function App() {
@@ -50,7 +51,7 @@ function App() {
 
           <Route path="/usertype" element={<UserType />} />
 
-          {/* <Route path="/profile_professional" element={<Profile />} /> */}
+          <Route path="/profile_professional" element={<Profile />} />
 
           {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
         </Routes>

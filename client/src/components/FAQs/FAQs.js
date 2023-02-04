@@ -126,10 +126,9 @@ const FAQs = () => {
             <b>Payment methods</b>
             <br />
             <img
-              className="rounded mx-auto d-block pb-4"
-              src="https://woocommerce.com/wp-content/uploads/2021/05/fb-mercado-pago-v2@2x.png"
+              className={styles.imgFaqs}
+              src="https://convertsquad.com/wp-content/uploads/2022/06/stripe-featured-image.jpg"
               alt="Img not found"
-              width="450px"
             />
             HireMy Skills has a payment method available, payment market and
             everything depends on the type of device used, your country of

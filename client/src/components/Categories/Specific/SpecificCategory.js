@@ -27,6 +27,7 @@ const SpecificCategory = () => {
         <button onClick={() => navegate(-1)}>
           <i className="fa-solid fa-circle-chevron-left"></i>
         </button>
+
         <div className={styles.cardSub}>
           <h1>Professions</h1>
         </div>

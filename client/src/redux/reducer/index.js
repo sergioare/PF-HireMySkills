@@ -16,6 +16,7 @@ import {
   ORDER_BY_RATING,
   ORDER_BY_NAME,
   GET_PROFESSIONALS_BY_PROFESSION,
+  FILTER_TOWN,
   ORDER_BY_REVIEWS,
   FILTER_BY_PROVINCE,
   DELETE_SERVICE,
@@ -32,7 +33,7 @@ export const initialState = {
   allProfessionals: [],
   detail: [],
   subCategory: [],
-
+  town: [],
   user:[],
   professionals:[],
   services:[],
@@ -145,32 +146,107 @@ export function rootReducer(state = initialState, action) {
         worker: action.payload,
       };
 
-    case FILTER_BY_PROFESSION:
-      return {
-        ...state,
-        allProfessionals: action.payload,
-      };
+ //--------------Filter by profession------------
+ case FILTER_BY_PROFESSION:
+  let array = [];
+  state.professionals.map((pf) =>
+    pf.skills.forEach((el) => {
+      if (el === action.payload) array.push(pf);
+    })
+  );
+  if (action.payload === "All") {
+    array = state.professionals;
+  }
+  return {
+    ...state,
+    allProfessionals: array,
+  };
+
+case FILTER_TOWN:
+  let townf = [];
+  // let arra =[]
+  // console.log(action.payload[0].town, "PF");
+  for (let i = 0; i < action.payload.length; i++) {
+    action.payload.map((f) => {
+      const all = townf.includes(action.payload[i].town);
+      console.log(typeof all, all);
+      if (all === false) {
+        townf.push(action.payload[i].town);
+      }
+      // return townf;
+    });
+  }
+  console.log(townf, "Z");
+  return { ...state, town: townf };
+
+case FILTER_BY_PROVINCE:
+  let city = [];
+  console.log(state.professionals, "city");
+  if (action.payload === "All") {
+    city = state.professionals;
+  }
+  if (!city.length) {
+    city = state.professionals.filter(
+      (pf) => pf.town.toLowerCase() === action.payload.toLowerCase()
+    );
+  }
+
+  // for (let i = 0; i < state.professionals.length; i++) {
+  //   if (action.payload !== state.professionals[i].town)
+  //     city.push(action.payload);
+  // }
+
+  return { ...state, allProfessionals: city };
 
     case ORDER_BY_NAME:
-      let orderAsc = state.professionals.slice().sort((a, b) => {
-        let professionalsA = a.name.toLowerCase();
-        let professionalsB = b.name.toLowerCase();
-
-        if (professionalsA > professionalsB) return 1;
-
-        if (professionalsB > professionalsA) return -1;
-
-        return 0;
-      });
-
-      const allProfessionalsProf = state.allProfessionals;
-      const orderName =
-        action.payload === "asc" ? orderAsc : orderAsc.reverse();
-
+      let arra;
+      if (action.payload === "asc") {
+        arra = state.allProfessionals.sort((a, b) => {
+          if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+          else return -1;
+        });
+      }
+      if (action.payload === "desc") {
+        arra = state.allProfessionals.sort((a, b) => {
+          if (a.name.toLowerCase() > b.name.toLowerCase()) return -1;
+          else return 1;
+        });
+      }
+      if (action.payload === "max") {
+        arra = state.allProfessionals.sort((a, b) => {
+          if (parseFloat(a.rating) < parseFloat(b.rating)) return 1;
+          else return -1;
+        });
+      }
+      if (action.payload === "min") {
+        arra = state.allProfessionals.sort((a, b) => {
+          if (parseFloat(a.rating) > parseFloat(b.rating)) return 1;
+          else return -1;
+        });
+      }
       return {
         ...state,
-        professionals: action.payload === "" ? allProfessionalsProf : orderName,
+        allProfessionals: arra,
       };
+    // let orderAsc = state.professionals.slice().sort((a, b) => {
+    //   let professionalsA = a.name.toLowerCase();
+    //   let professionalsB = b.name.toLowerCase();
+
+    //   if (professionalsA > professionalsB) return 1;
+
+    //   if (professionalsB > professionalsA) return -1;
+
+    //   return 0;
+    // });
+
+    // const allProfessionalsProf = state.allProfessionals;
+    // const orderName =
+    //   action.payload === "asc" ? orderAsc : orderAsc.reverse();
+
+    // return {
+    //   ...state,
+    //   professionals: action.payload === "" ? allProfessionalsProf : orderName,
+    // };
 
     case ORDER_BY_RATING:
       let orderRatingAsc = state.professionals.slice().sort((a, b) => {

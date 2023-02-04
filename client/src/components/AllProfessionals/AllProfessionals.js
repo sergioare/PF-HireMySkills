@@ -1,37 +1,61 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import {
   filterByProfession,
+  filterByProvince,
   getProfessionals,
   getSubCategory,
+  orderByName,
+  filterTown,
 } from "../../redux/actions/actions";
 import styles from "../AllProfessionals/AllProfessionals.module.css";
 import imgDefault from "../../assets/imgDefault.jpg";
 
-import OrderBy from "../OrderBy/OrderBy";
-
 const AllProfessionals = () => {
+  const [act, setAct] = useState(false);
   const dispatch = useDispatch();
-  const allProfessionals = useSelector((state) => state.professionals);
+  const allProfessionals = useSelector((state) => state.allProfessionals);
   const profession = useSelector((state) => state.subCategory);
-  const prueba = useSelector((state) => state.allProfessionals);
-  console.log(prueba, "A");
-  console.log(profession, "B");
+  const town = useSelector((state) => state.town);
+  // const prueba = useSelector((state) => state.allProfessionals);
+  console.log(town, "A");
+  // console.log(profession, "B");
 
+  //  ----------- filter------------
   const handlerprofession = (e) => {
-    console.log(e.target.value);
+    e.preventDefault();
+    // console.log(e.target.value);
     dispatch(filterByProfession(e.target.value));
+  };
+  const handlerprovince = (e) => {
+    e.preventDefault();
+    // console.log(e.target.value, "W");
+    dispatch(filterByProvince(e.target.value));
+  };
+
+  const handlerByName = (e) => {
+    e.preventDefault();
+    // console.log(e.target.value);
+    dispatch(orderByName(e.target.value));
+    if (act === true) setAct(false);
+    else setAct(true);
   };
 
   useEffect(() => {
+    dispatch(filterTown());
     dispatch(getProfessionals());
     dispatch(getSubCategory());
   }, [dispatch]);
   // console.log(allProfessionals);
+  // let aux = []
+  // for (let i = 0; i < allProfessionals.length; i++) {
+  //  if()
+
+  // }
 
   return (
     <div className={styles.divAllProfessionals}>
@@ -42,26 +66,78 @@ const AllProfessionals = () => {
             <i className="fa-solid fa-circle-chevron-left"></i>
           </button>
         </Link>
-      </div>
-      {/* <Filter /> */}
-      <div>
-        <p className={styles.titles}>PROFESSIONS</p>
+        {/* ----Filter profession--------*/}
+        <div className={styles.divAllFilter_order}>
+          <div className={styles.allFilterPro}>
+            <p className="px-2 d-inline-block">PROFESSIONS</p>
 
-        <select
-          onChange={(e) => handlerprofession(e)}
-          className={styles.select}
-          defaultValue="All"
-        >
-          <option value="All">All</option>
-          {profession &&
-            profession.map((sub) => (
-              <option value={sub.profession} key={sub.id}>
-                {sub.profession}
-              </option>
-            ))}
-        </select>
+            <select
+              onChange={(e) => handlerprofession(e)}
+              className={styles.select}
+              defaultValue="All"
+            >
+              <option value="All">All</option>
+              {profession &&
+                profession.map((sub) => (
+                  <option value={sub.profession} key={sub.id}>
+                    {sub.profession}
+                  </option>
+                ))}
+            </select>
+          </div>
+          {/* ----Filter province--------*/}
+          <div className={styles.allFilterTown}>
+            <p className="px-2 d-inline-block">TOWN</p>
+
+            <select
+              onChange={(e) => handlerprovince(e)}
+              className={styles.select}
+              defaultValue="All"
+            >
+              <option value="All">All</option>
+              {town.length &&
+                town.map((city) => (
+                  <option value={city} key={city}>
+                    {city}
+                  </option>
+                ))}
+            </select>
+          </div>
+          {/* -----------Order name---------- */}
+
+          <div className={styles.orderNameRating}>
+            <div className={styles.divTitleOrder}>
+              <p className="text-center">SORT BY</p>
+            </div>
+
+            <div className={styles.divNameRating}>
+              <div className={styles.divName}>
+                <p className="px-2">Name </p>
+                <select
+                  onChange={(e) => handlerByName(e)}
+                  className={styles.selects}
+                >
+                  <option value="">--Select--</option>
+                  <option value="asc">(A - Z)</option>
+                  <option value="desc">(Z - A)</option>
+                </select>
+              </div>
+              {/* -----------Order rating---------- */}
+              <div className={styles.divRating}>
+                <p className="px-2">Rating</p>
+                <select
+                  onChange={(e) => handlerByName(e)}
+                  className={styles.selects}
+                >
+                  <option value="">--Select--</option>
+                  <option value="min">Min</option>
+                  <option value="max">Máx</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <OrderBy />
 
       <div className={styles.divCardsBody}>
         <h1 className="col-12 text-center text-dark fs-1 ">Professionals</h1>
