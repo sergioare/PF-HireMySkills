@@ -6,11 +6,14 @@ import { getUser, deleteUser } from '../../../redux/actions/actions';
 import {EditOutlined, DeleteForeverOutlined} from '@material-ui/icons'
 import Sidebar from '../Sidebar';
 import styles from './Users.module.css'
+import { RiDeleteBinLine } from "react-icons/ri";
+
+
 
 function Users() {
     const dispatch = useDispatch();
-    const users = useSelector((state)=>state?.user)
-    
+    const users = useSelector((state)=>state.user)
+    console.log(users)
 
     useEffect(()=>{
         dispatch(getUser())
@@ -19,10 +22,17 @@ function Users() {
 // const handleDeactivate = (id)=>{
 //     dispatch(deleteUser())
 // }
-const aux = users.filter((user)=> user.deleted === true )
-console.log(aux)
+// const aux = users.filter((user)=> user.deleted === true )
+// console.log(aux)
 
-  return (
+const handleDelete = (e, id)=>{
+    console.log(id , "AAAAA")
+    e.preventDefault()
+    dispatch(deleteUser(id))
+    
+}
+
+    return (
     <>
     <div className={styles.components}>
         
@@ -42,22 +52,32 @@ console.log(aux)
                    </TableRow>
                 </TableHead>
                 <TableBody>
-                    {aux.map((users)=>(
-                        <TableRow hover className={styles.tableRow} key={users.id}>
-                            <TableCell>{users.id}</TableCell>
-                            <TableCell>{users.name}</TableCell>
-                            <TableCell>{users.contact}</TableCell>
-                            <TableCell>{users.email}</TableCell>
-                            <TableCell><Avatar src={users.photo}/></TableCell>
+                    {users?.map((userIndex)=>(
+                        <TableRow hover className={styles.tableRow} key={userIndex.id}>
+                            <TableCell>{userIndex.id}</TableCell>
+                            <TableCell>{userIndex.name}</TableCell>
+                            <TableCell>{userIndex.contact}</TableCell>
+                            <TableCell>{userIndex.email}</TableCell>
+                            <TableCell><Avatar src={userIndex.photo}/></TableCell>
                             <TableCell>
                     
-                                <IconButton onClick={()=> alert(`Editar ${users.name}`)} color={'primary'} size='small'>
+                                <IconButton onClick={()=> alert(`Editar ${userIndex.name}`)} color={'primary'} size='small'>
                                     <EditOutlined/>
                                 </IconButton>
                     
-                                <IconButton onClick={()=> alert(`Usuario ${users.name} Eliminado`)} color={'secondary'} size='small'>
+                                <IconButton onClick={(e)=>handleDelete(e,userIndex.id)} value= {userIndex.id}  color={'secondary'} size='small'>
                                     <DeleteForeverOutlined/>
                                 </IconButton>
+                                {/* <button
+                                    className={
+                                        styles.detailBtnBack +
+                                        " " +
+                                        styles.space
+                                    }
+                                    onClick={handleDelete(userIndex.id)}
+                                >
+                                    <RiDeleteBinLine />
+                                </button> */}
                             </TableCell>
                         </TableRow>
                     ))}

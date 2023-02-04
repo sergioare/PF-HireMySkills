@@ -73,6 +73,7 @@ function rootReducer(state = initialState, action) {
 
       };
       case GET_USER:
+       
         return{
           ...state,
           user: action.payload

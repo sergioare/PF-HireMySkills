@@ -1,5 +1,6 @@
 const express = require('express');
 const Stripe = require('stripe');
+
 const stripe = new Stripe('sk_test_51MUXsPIUj9w23It91QrfLJPJ5f35bB7vIzqE7jFkXpnNBitVcLcWKFZmzMs9xRaBSh7gAnydGuK0E58HGY0H82oR00nvki5Fxh')
 
 

@@ -143,45 +143,55 @@ export function getUser(){
         })
     }
 }
-export function getProfesionalsByProfession(profession){
-  return async function (dispatch){
-      try {
-          const aux = await axios.get(`${url}/profession?profession=${profession}`)
-          return dispatch({
-              type: GET_PROFESSIONALS_BY_PROFESSION,
-              payload: aux.data
-          })
-      } catch (error) {
-          // return dispatch({
-          //     type: GET_COUNTRY_BY_NAME,
-          //     payload: error
-          // })
-          console.log("ERROR ", error)
-      }
-  }}
 export function getUserById(id){
-    return async function(dispatch){
-        axios.get(`${urlUsers}/${id}`)
-        .then(res=>
-            dispatch({type:GET_USER_BY_ID, payload:res.data}))
+  return async function(dispatch){
+    axios.get(`${urlUsers}/${id}`)
+    .then(res=>
+      dispatch({type:GET_USER_BY_ID, payload:res.data}))
     }
-}
-
-export function postUser(data){
+  }
+  
+  export function postUser(data){
     return async function(dispatch){
-        axios.post(urlUsers, data)
-        .then(res=>
-            dispatch({type:POST_USER, payload:res.data}))
+      axios.post(urlUsers, data)
+      .then(res=>
+        dispatch({type:POST_USER, payload:res.data}))
+      }
     }
-}
-export function deleteUser(id){
-    return async function(dispatch){
-        axios.delete(`${urlUsers}/${id}`)
-        .then(res=>
-            dispatch({type:DELETE_USER, payload: res.data}))
+    export function deleteUser(id){
+      return function(dispatch){
+        return axios
+              .delete(`${url}/users/${id}`)
+              .then(({data})=>{
+                console.log(data)
+                dispatch({type:DELETE_USER, payload:data})
+              })
+      }
     }
-}
-
+      // return async function(dispatch){
+      //   axios.delete(`${urlUsers}/${id}`)
+      //   .then(res=>
+      //     dispatch({type:DELETE_USER, payload: res.data}))
+      //   }
+      // }
+      
+      export function getProfesionalsByProfession(profession){
+        return async function (dispatch){
+            try {
+                const aux = await axios.get(`${url}/profession?profession=${profession}`)
+                return dispatch({
+                    type: GET_PROFESSIONALS_BY_PROFESSION,
+                    payload: aux.data
+                })
+            } catch (error) {
+                // return dispatch({
+                //     type: GET_COUNTRY_BY_NAME,
+                //     payload: error
+                // })
+                console.log("ERROR ", error)
+            }
+        }}
+      
 
   export function getProfessionalById(id) {
     return function (dispatch) {
