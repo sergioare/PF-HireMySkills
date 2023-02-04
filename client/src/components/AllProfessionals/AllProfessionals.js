@@ -33,7 +33,7 @@ const AllProfessionals = () => {
   };
   const handlerprovince = (e) => {
     e.preventDefault();
-    console.log(e.target.value, "W");
+    // console.log(e.target.value, "W");
     dispatch(filterByProvince(e.target.value));
   };
 
@@ -46,11 +46,11 @@ const AllProfessionals = () => {
   };
 
   useEffect(() => {
+    dispatch(filterTown());
     dispatch(getProfessionals());
     dispatch(getSubCategory());
-    dispatch(filterTown());
   }, [dispatch]);
-  console.log(allProfessionals);
+  // console.log(allProfessionals);
   // let aux = []
   // for (let i = 0; i < allProfessionals.length; i++) {
   //  if()
@@ -95,10 +95,10 @@ const AllProfessionals = () => {
               defaultValue="All"
             >
               <option value="All">All</option>
-              {allProfessionals.length &&
-                allProfessionals.map((city) => (
-                  <option value={city.town} key={city.id}>
-                    {city.town}
+              {town.length &&
+                town.map((city) => (
+                  <option value={city} key={city}>
+                    {city}
                   </option>
                 ))}
             </select>
@@ -131,7 +131,7 @@ const AllProfessionals = () => {
                 >
                   <option value="">--Select--</option>
                   <option value="min">Min</option>
-                  <option value="max">Max</option>
+                  <option value="max">Máx</option>
                 </select>
               </div>
             </div>

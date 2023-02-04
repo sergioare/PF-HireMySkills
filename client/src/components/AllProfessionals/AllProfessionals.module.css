@@ -28,6 +28,12 @@
   padding: 30px 40px 40px 50px;
   justify-content: space-between;
 }
+.allFilterPro {
+  font-weight: 700;
+}
+.allFilterTown {
+  font-weight: 700;
+}
 
 .orderNameRating {
   display: inline-block;
@@ -36,16 +42,38 @@
 .divNameRating {
   display: flex;
 }
+.divTitleOrder {
+  font-weight: 700;
+}
 
 .divName {
   display: flex;
+  font-weight: 700;
 }
 .divRating {
   display: flex;
+  font-weight: 700;
+}
+.select {
+  background-color: #283c63;
+  width: 200px;
+  height: 28px;
+  border: 1px solid white;
+  color: white;
+  font-size: 15px;
+  border-radius: 10px;
+}
+.selects {
+  background-color: #283c63;
+  width: 100px;
+  height: 28px;
+  color: white;
+  font-size: 15px;
+  border: 1px solid white;
+  border-radius: 10px;
 }
 /* --------------------------------  */
-.divCardsBody {
-}
+
 .containerCard {
   width: 100%;
   margin-top: 20px;

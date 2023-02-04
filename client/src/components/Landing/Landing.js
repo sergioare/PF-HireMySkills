@@ -48,7 +48,7 @@ const Landing = () => {
             </button>
 
             <button className={styles.border}>
-              <Link to='/form' className={styles.button}>
+              <Link to='/account' className={styles.button}>
                 Offer Services
               </Link>
             </button>

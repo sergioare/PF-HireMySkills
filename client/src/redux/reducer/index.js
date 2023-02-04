@@ -23,7 +23,6 @@ import {
   DELETE_PROFILE,
   DELETE_USER,
   ADD_TO_CART,
-  DELETE_TO_CART,
   REMOVE_ONE_FROM_CART,
   REMOVE_ALL_FROM_CART,
   CLEAR_CART,
@@ -75,7 +74,8 @@ export function rootReducer(state = initialState, action) {
       };
 
     case ADD_TO_CART: {
-      let newService = state.services.find(
+      // let newService= state.services.find(service=> service.id === action.payload);
+      let newService = state.detail.products.find(
         (service) => service.id === action.payload
       );
       let serviceInCart = state.shoppingCart.find(
@@ -123,12 +123,16 @@ export function rootReducer(state = initialState, action) {
     }
 
     case REMOVE_ALL_FROM_CART:
-      return {};
+      return {
+        ...state,
+        shoppingCart: state.shoppingCart.filter(
+          (service) => service.id !== action.payload
+        ),
+      };
 
     case CLEAR_CART:
       return {
-        ...state,
-        shoppingCart: [],
+        ...initialState,
       };
 
     case GET_PROFESSIONALS_BY_PROFESSION:
@@ -153,13 +157,30 @@ export function rootReducer(state = initialState, action) {
         allProfessionals: array,
       };
 
+    case FILTER_TOWN:
+      let townf = [];
+      // let arra =[]
+      // console.log(action.payload[0].town, "PF");
+      for (let i = 0; i < action.payload.length; i++) {
+        action.payload.map((f) => {
+          const all = townf.includes(action.payload[i].town);
+          console.log(typeof all, all);
+          if (all === false) {
+            townf.push(action.payload[i].town);
+          }
+          // return townf;
+        });
+      }
+      console.log(townf, "Z");
+      return { ...state, town: townf };
+
     case FILTER_BY_PROVINCE:
       let city = [];
-      console.log(action.payload);
+      console.log(state.professionals, "city");
       if (action.payload === "All") {
-        return (city = state.professionals);
+        city = state.professionals;
       }
-      if (!city) {
+      if (!city.length) {
         city = state.professionals.filter(
           (pf) => pf.town.toLowerCase() === action.payload.toLowerCase()
         );
@@ -171,26 +192,6 @@ export function rootReducer(state = initialState, action) {
       // }
 
       return { ...state, allProfessionals: city };
-
-    case FILTER_TOWN:
-      let townf = [];
-      // let arra =[]
-
-      for (let i = 0; i < state.professionals.length; i++) {
-        state.professionals.map((f) => {
-          if (f.town !== state.professionals[i].town) {
-            townf.push(f.town);
-          }
-          return townf;
-        });
-
-        // for (let j = 1; j < state.professionals.length; j++) {
-        //   if (state.professionals[i].town !== townf[j])
-        //     townf.push(state.professionals[i].town);
-        // }
-      }
-      console.log(townf, "Z");
-      return { ...state, town: townf };
 
     case ORDER_BY_NAME:
       let arra;
