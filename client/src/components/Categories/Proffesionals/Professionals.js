@@ -1,14 +1,18 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import { getProfessionals } from "../../../redux/actions/actions";
 import styles from "./Professionals.module.css";
+import imgDefault from "../../../assets/imgDefault.jpg";
+import ShowCard from "../../AllProfessionals/ShowCard";
+import LoaderGeneral from "../../LoaderGeneral/LoaderGeneral";
 
 function Professionals() {
   const { id } = useParams();
+  const navegate = useNavigate();
   const dispatch = useDispatch();
   const allProfessionals = useSelector((state) => state.allProfessionals);
 
@@ -26,51 +30,36 @@ function Professionals() {
     <div className={styles.divProf}>
       <Navbar />
       <div className={styles.profBtn}>
-        <Link to="/categories">
-          <button>
-            <i className="fa-solid fa-circle-chevron-left"></i>
-          </button>
-        </Link>
+        <button onClick={() => navegate(-1)}>
+          <i className="fa-solid fa-circle-chevron-left"></i>
+        </button>
       </div>
-      <div className={styles.divCards}>
-        {aux.length ? (
-          aux.map((wr) => {
-            return (
-              <div key={wr.id} className={styles.profCard}>
-                <Link className={styles.link} to={`/professionals/${wr.id}`}>
-                  <h1 className={styles.profName}>{wr.name}</h1>
-                  <div className={styles.profImg}>
-                    <img
-                      className={styles.img}
-                      src={wr.photo ? wr.photo : "imgDefault"}
-                      alt="Img not found"
-                    />
-                  </div>
-                </Link>
-
-                <span
-                  className={styles.profRating}
-                  style={
-                    wr.rating < 1
-                      ? { backgroundColor: "rgb(255, 77, 91)" }
-                      : wr.rating < 4
-                      ? { backgroundColor: "rgb(253, 158, 81)" }
-                      : { backgroundColor: "rgb(4, 201, 4)" }
-                  }
+      <div className="containerdelascards2">
+        <h1 className="text-center text-light fs-1 ">Professionals</h1>
+        <div className="container d-flex justify-content-center align items-center h-100">
+          {aux.length ? (
+            aux.map((prof) => {
+              return (
+                <div
+                  key={prof.id}
+                  className="col-md-4 d-flex justify-content-around"
                 >
-                  Rating: {wr.rating}
-                </span>
-                <h3 className={styles.description}>Profile:</h3>
-                <p className={styles.profDescrip}>{wr.description}</p>
-                <div className={styles.divBtn}>
-                  <button className={styles.btn}>Contract!</button>
+                  <ShowCard
+                    name={prof.name}
+                    photo={prof.photo}
+                    id={prof.id}
+                    rating={prof.rating}
+                    professions={prof.skills.join(", ")}
+                  />
                 </div>
-              </div>
-            );
-          })
-        ) : (
-          <h1 className={styles.notProf}>Not found professionals</h1>
-        )}
+              );
+            })
+          ) : (
+            <div className="d-flex">
+              <h1 className={styles.notProf}>Not found professionals</h1>
+            </div>
+          )}
+        </div>
       </div>
       <Footer />
     </div>

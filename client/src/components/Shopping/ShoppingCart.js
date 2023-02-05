@@ -1,67 +1,58 @@
-// import React from 'react';
-// import styles from './ShoppingCart.module.css'
-// import axios from 'axios'
+import styles from './ShoppingCart.module.css'
+import CartService from './CartService/CartService';
+import NavBar from '../Navbar/Navbar';
+import { useDispatch, useSelector } from 'react-redux'
+import React, {  useEffect } from 'react';
+import { clearCart, deleteFromCart} from '../../redux/actions/actions';
+import PaymentCheckout from '../PaymentCheckout/PaymentCheckout';
 
-// const ShoppingCart = () => {
-//     document.addEventListener('DOMContentLoaded', () => {
-//         apiData()
-//     })
- 
-//     const apiData = async()=>{
-//         try {
-//             // const response = await axios('http://localhost:4000/professionals')
-//             const response = await axios('../../api.json')
-//             const data = await response.json()
-//             console.log(data)
-//         } catch (error) {
-//             console.log(error)
-//         }
-//     }
-    
-//     return (
-//         <div className={styles.container}>
-//             <h1>Shopping Cart</h1>
-//             <hr/>
-//             {/* <div className={styles.labels}>
-
-//                 <label className={styles.serviceImage}>Image</label>
-//                 <label className={styles.serviceDetails}>service</label>
-//                 <label className={styles.servicePrice}>Price</label>
-//                 <label className={styles.serviceQuantity}>Quantity</label>
-//                 <label className={styles.serviceRemove}>Remove</label>
-//                 <label className={styles.serviceTotal}>Total</label>
-//             </div>     */}
-//         </div>
-//     );
-// };
-
-// export default ShoppingCart;
-
-import React, { useState } from 'react';
+// const cartFromLocalStorage =JSON.parse(localStorage.getItem('shopping') || '[]')
 
 function ShoppingCart() {
-  const [items, setItems] = useState([]);
-
-  function addItem(item) {
-    setItems([...items, item]);
-  }
-
-  function removeItem(item) {
-    setItems(items.filter(i => i !== item));
-  }
-
+//  const state = useSelector(state=>state)
+ const dispatch = useDispatch()
+ const shopping= useSelector((state) => state.shoppingCart);
+ const values = shopping.map(service=>service.quantity).reduce((acc, element)=> acc +element, 0)
+ const total = shopping.map(service=>service.quantity * service.price).reduce((acc, element)=> acc +element, 0)
+ console.log(total)
+ 
+    // useEffect(()=>{
+    //     localStorage.setItem('shopping', JSON.stringify(shopping))
+    //    },[shopping])
+       
   return (
     <div>
+      <NavBar/>
+      
+      
       <h2>Shopping Cart</h2>
-      <ul>
-        {items.map((item, index) => (
-          <li key={index}>
-            {item}
-            <button onClick={() => removeItem(item)}>Remove</button>
-          </li>
-        ))}
-      </ul>
-      <button onClick={() => addItem('New Item')}>Add Item</button>
+        {/* <h3>Services</h3>
+            <article className={styles.box}>
+                {services.map(service=>
+                <Services 
+                  key={service.id} 
+                  data={service} 
+                  addToCart={()=>dispatch(addToCart(service.id))}/>)
+                  }
+            
+            </article> */}
+        
+        <h3>Cart</h3>
+        <article className={styles.box}>
+            <button onClick={()=>dispatch(clearCart())}> Clear Cart </button>
+            {               
+                shopping.map((item, index)=> 
+                <CartService 
+                  key={index} 
+                  data={item} 
+                  deleteOneFromCart={()=>dispatch(deleteFromCart(item.id))}
+                  deleteAllFromCart={()=>dispatch(deleteFromCart(item.id, true))}
+                  />)
+            }
+        </article>
+
+        <PaymentCheckout/>
+   
     </div>
   );
 }

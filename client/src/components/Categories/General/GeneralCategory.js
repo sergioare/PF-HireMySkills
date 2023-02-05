@@ -1,53 +1,49 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import styles from "../General/GeneralCategory.module.css";
-import NavBar from "../../Navbar/Navbar";
-import Footer from "../../Footer/Footer";
-import { getCategories } from "../../../redux/actions/actions";
 
-const GeneralCategory = () => {
-  const dispatch = useDispatch();
-  const categories = useSelector((state) => state.categories);
-  
-
-  useEffect(() => {
-    dispatch(getCategories());
-  }, [dispatch]);
-
+const GeneralCategory = ({ name, id }) => {
   return (
-    <div className={styles.general}>
-      <NavBar />
-      <h1 className={styles.cardHeader}>Categories</h1>
-      {categories.length > 0 ? (
-        <div className={styles.card}>
-          {categories.map((cat) => {
-            return (
-              <div className={styles.cardBody}>
-                <Link
-                  to={`/categories/profession/${cat.id}`}
-                  className={styles.cardLink}
-                >
-                  <h3 className={styles.cardName}>{cat.typecategory}</h3>
-                </Link>
-              </div>
-            );
-          })}
-        </div>
-      ) : (
-        <div className={styles.divLoading}>
-          <img
-            className={styles.loading}
-            src="https://img1.picmix.com/output/stamp/normal/8/5/2/9/509258_fb107.gif"
-            alt="Img not found"
-            width="150px"
-          />
-        </div>
-      )}
-      <Footer />
+    <div
+      className="card text-center bg-dark"
+      style={{ width: "18rem", marginTop: "10%", marginBottom: "10%" }}
+    >
+      <div className="overflow">
+        <img
+          src="https://img.blogs.es/anexom/wp-content/uploads/2017/04/etiqueta-categoria.jpg"
+          alt="category imagen"
+          className="card-img-top object-fit-contain"
+          style={{
+            height: "200px",
+            margin: "0",
+            padding: "0",
+            borderRadius: "0",
+          }}
+        />
+      </div>
+      <div className="card-body text-light">
+        <h4 className="card-title">{name}</h4>
+        <a
+          href={`/categories/profession/${id}`}
+          className="btn btn-outline-secondary rounded-0"
+        >
+          See SubCategories
+        </a>
+      </div>
     </div>
   );
 };
+/*  */
+{
+  /* <div className={styles.general}>
+      <NavBar />
+      <div className={styles.profBtn}>
+        <button onClick={() => navegate(-1)}>
+          <i className="fa-solid fa-circle-chevron-left"></i>
+        </button>
 
+        <h1 className={styles.cardHeader}>Categories</h1>
+      </div>
+      <Category styles={styles} />
+      <Footer />
+    </div> */
+}
 export default GeneralCategory;

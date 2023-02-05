@@ -8,38 +8,41 @@ const FAQs = () => {
     <div className={styles.faqs}>
       <Navbar />
       <div className="container ">
-        <h2 className="text-center">
+        <h2
+          className="text-center text-white"
+          style={{ marginTop: "3%", marginBottom: "1%" }}
+        >
           <b>What do you need help with? </b>
         </h2>
         <div className="col-12">
-          <h4 className="col-12 pb-3">
+          <h4 className="col-12 pb-3 text-white">
             <b>Popular topics</b>
           </h4>
-          <div className="row gap-3 justify-content-center pb-2">
-            <div className="col-12 col-md-2 p-3 border border-secondary rounded border-2 shadow p-3 mb-5 rounded">
+          <div className="row gap-3 justify-content-center pb-2 ">
+            <div className="col-12 col-md-2 p-3 border border-light rounded border-2 shadow p-3 mb-5 rounded ">
               <a href="#contract" className="text-decoration-none">
-                <h5 className="text-black text-center link-info">
+                <h5 className="text-white text-center link-info">
                   <b>Contract management of a professional</b>
                 </h5>
               </a>
             </div>
-            <div className="col-12 col-md-2 p-3 border border-secondary rounded border-2 shadow p-3 mb-5 rounded">
+            <div className="col-12 col-md-2 p-3 border border-light rounded border-2 shadow p-3 mb-5 rounded">
               <a href="#payment" className="text-decoration-none">
-                <h5 className="text-black text-center pt-4 link-info">
+                <h5 className="text-white text-center pt-4 link-info">
                   <b>Payments</b>
                 </h5>
               </a>
             </div>
-            <div className="col-12 col-md-2 p-3 border border-secondary rounded border-2 shadow p-3 mb-5 rounded">
+            <div className="col-12 col-md-3 p-3 border border-light rounded border-2 shadow p-3 mb-5 rounded">
               <a href="#professional" className="text-decoration-none">
-                <h5 className="text-black text-center pt-4 link-info">
+                <h5 className="text-white text-center pt-4 link-info">
                   <b>Professionals</b>
                 </h5>
               </a>
             </div>
-            <div className="col-12 col-md-2 p-3 border border-secondary rounded border-2 shadow p-3 mb-5 rounded">
+            <div className="col-12 col-md-2 p-3 border border-light rounded border-2 shadow p-3 mb-5 rounded">
               <a href="#client" className="text-decoration-none">
-                <h5 className="text-black text-center pt-4 link-info">
+                <h5 className="text-white text-center pt-4 link-info">
                   <b>Clients</b>
                 </h5>
               </a>
@@ -126,10 +129,9 @@ const FAQs = () => {
             <b>Payment methods</b>
             <br />
             <img
-              className="rounded mx-auto d-block pb-4"
-              src="https://woocommerce.com/wp-content/uploads/2021/05/fb-mercado-pago-v2@2x.png"
+              className={styles.imgFaqs}
+              src="https://convertsquad.com/wp-content/uploads/2022/06/stripe-featured-image.jpg"
               alt="Img not found"
-              width="450px"
             />
             HireMy Skills has a payment method available, payment market and
             everything depends on the type of device used, your country of

@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
+
+import React, { useState, useReducer } from 'react';
 import { Formik,Field, Form } from 'formik';
 // import { validationSchema } from './validation';
 // import * as Yup from 'yup'
 import axios from 'axios'
 import styles from './FormStaff.module.css'
 import {useNavigate} from 'react-router-dom'
+import { GET_SUB_CATEGORY } from '../../utils';
+import {rootReducer, initialState} from '../../redux/reducer/index';
 
 
 const FormStaff = () => {
     const[responseServer, setResponseServer] = useState(null);
     const navigate = useNavigate();
     const [imageCloud, setImageCloud] = useState('');
+    const[state, dispatch]=useReducer(rootReducer, initialState);
+    const {subCategory}= state;
 
     const handleImage = async event=>{
         const file = event.target.files[0];
@@ -27,6 +32,12 @@ const FormStaff = () => {
             console.log(error)
         }
     }
+
+    const getProfessions= (id, profession )=>{
+       dispatch({type:GET_SUB_CATEGORY, payload:id})
+    }
+
+  
     return(
         <div className={styles.container}>
             <h1>Professional Profile Form</h1>
@@ -41,15 +52,15 @@ const FormStaff = () => {
                 contact: "",
                 rating:5.0,
                 portfolio: "",
-                skills:["New profession"]
+                skills:[""]
                 }}
-            
+
             onSubmit={(values)=>{
                 values.photo = imageCloud;
                 console.log(values)
                 axios({
                     method:'POST',
-                    url: 'http://localhost:4000/professionals',
+                    url: 'https://hiremyskillsbackend.onrender.com/professionals',
                     data: values
                 })
                 // .post("http://localhost:4000/professionals", values)
@@ -114,7 +125,7 @@ const FormStaff = () => {
                 <option value='Quito'>Quito</option>
                 <option value='Caracas'>Caracas</option>
                 <option value='Other'>Other...</option>
-                
+
            </Field>
 
            <Field
@@ -164,22 +175,31 @@ const FormStaff = () => {
                 className={styles.field}
 
             />
-
-            <Field
-                type='text'
-                placeholder='Put your Profession here!'
+               
+            {/* <Field
+                as='select'
+                // type='text'
+                // placeholder='Put your Profession here!'
                 name='skills'
                 id='skills'
                 onChange={handleChange}
                 // error={errors.skills}
                 value={values.skills}
                 className={styles.field}
+            >
+              <option value={getProfessions} getProfessions={getProfessions} >
+                    {subCategory.map(service=>
+                    service.profession)}
+              </option>  
+            
+                      
+            </Field> */}
 
-            />
+                
             {errors.skills && touched.skills(
                     <p style={{color:'red'}}>{errors.skills}</p>
                 )}
-            
+
             <Field
                 as='textarea'
                 name="description"
@@ -216,3 +236,4 @@ const FormStaff = () => {
     )
 }
 export default FormStaff;
+

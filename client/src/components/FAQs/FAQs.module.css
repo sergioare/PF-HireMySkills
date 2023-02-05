@@ -5,44 +5,12 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  color: #ffff;
 }
-
-/* 
-/* h2 {
-  padding-top: 6rem;
-  text-align: center;
-  color: #009949;
-  font-size: 40px;
-  font-weight: 700;
-  font-weight: 700;
-}
-
-h4 {
-  margin-left: 10rem;
-  font-size: 20px;
-}
-
-
-.faqMain {
+.imgFaqs {
+  margin: auto;
+  width: 400px;
+  height: 250px;
   display: flex;
-  margin: 0 auto;
   justify-content: center;
-  padding-bottom: 10px;
 }
-.faqMain p {
-  width: 9rem;
-  height: 11rem;
-  height: 11rem;
-  text-align: center;
-  padding-top: 2.5rem;
-  margin-left: 3.5rem;
-  font-size: 18px;
-  background-color: #435d92;
-  color: white;
-  border-radius: 10px;
-}
-.faqSeccion {
-  margin-left: 20px;
-  padding-bottom: 30px;
-  font-size: 18px;
-} */

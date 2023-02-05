@@ -1,25 +1,30 @@
-.input {
-    width: 400px;
-    height: 36px;
-    color: black;
-    align-items: center;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 0px 0px 0px 0px;
-    background-color: white;
-    border: solid black 2px;
+.container {
+  display: flex;
+  position: relative;
+  width: 25vw;
 }
-.but{
-    position: absolute;
-  width: 95px;
-  height: 36px;
-  left: 400px;
-  top: 0.4px;
-  align-items: center;
-text-align: center;
-  background: #009949;
-  text-transform: uppercase;
+.input {
+  display: flex;
+  width: 20vw;
+  height: 3.2vh;
+  color: black;
+  text-align: center;
+  font-size: 1.5vh;
+  font-weight: bold;
+  background-color: white;
+  border: solid black 2px;
+}
+.but {
+  width: 5vw;
+  height: 3.2vh;
+  text-align: center;
+  background: #ffffff;
   color: black;
   border: solid black 2px;
+  font-weight: bold;
+  font-size: 1.5vh;
+}
+
+.but:hover {
+  background: #fff5c3;
 }
