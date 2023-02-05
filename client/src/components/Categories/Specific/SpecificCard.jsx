@@ -1,6 +1,6 @@
 import React from "react";
 
-const GeneralCategory = ({ name, id }) => {
+const SpecificCard = ({ name, id }) => {
   return (
     <div
       className="card text-center bg-dark"
@@ -8,8 +8,8 @@ const GeneralCategory = ({ name, id }) => {
     >
       <div className="overflow">
         <img
-          src="https://img.blogs.es/anexom/wp-content/uploads/2017/04/etiqueta-categoria.jpg"
-          alt="category imagen"
+          src="https://i0.wp.com/www.silocreativo.com/wp-content/uploads/2014/01/descripcion-categorias-wordpress.png?fit=666%2C370&quality=100&strip=all&ssl=1"
+          alt="a wallpaper"
           className="card-img-top object-fit-contain"
           style={{
             height: "200px",
@@ -22,28 +22,14 @@ const GeneralCategory = ({ name, id }) => {
       <div className="card-body text-light">
         <h4 className="card-title">{name}</h4>
         <a
-          href={`/categories/profession/${id}`}
+          href={`/categories/profession/professionals/${id}`}
           className="btn btn-outline-secondary rounded-0"
         >
-          See SubCategories
+          See Professionals
         </a>
       </div>
     </div>
   );
 };
-/*  */
-{
-  /* <div className={styles.general}>
-      <NavBar />
-      <div className={styles.profBtn}>
-        <button onClick={() => navegate(-1)}>
-          <i className="fa-solid fa-circle-chevron-left"></i>
-        </button>
 
-        <h1 className={styles.cardHeader}>Categories</h1>
-      </div>
-      <Category styles={styles} />
-      <Footer />
-    </div> */
-}
-export default GeneralCategory;
+export default SpecificCard;
