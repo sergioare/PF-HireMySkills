@@ -2,5 +2,6 @@
 .footer {
   width: 100%;
   font-family: "Work Sans", sans-serif;
-  margin-top: auto;
+  /* margin-top: auto; */
+  align-self: flex-end;
 }

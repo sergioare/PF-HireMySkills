@@ -24,7 +24,7 @@ const AllProfessionals = () => {
   const town = useSelector((state) => state.town);
   const detailProfessional = useSelector((state) => state.detail);
   // const prueba = useSelector((state) => state.allProfessionals);
-  console.log(town, "A");
+  // console.log(town, "A");
   // console.log(profession, "B");
 
   //  ----------- filter------------

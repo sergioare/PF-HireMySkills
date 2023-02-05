@@ -50,7 +50,7 @@ const NavBar = () => {
         </Link>
 
         <Link to="/account" className={styles.navLink}>
-          <i class="fa-solid fa-user px-1 fs-3"></i>
+          <i className="fa-solid fa-user px-1 fs-3"></i>
           {isLoading ? "Loading..." : isAuthenticated ? user.name : "Account"}
         </Link>
 
