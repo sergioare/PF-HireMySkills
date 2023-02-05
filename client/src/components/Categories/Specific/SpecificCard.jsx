@@ -1,6 +1,6 @@
 import React from "react";
 
-const GeneralCategory = ({ name, id }) => {
+const SpecificCard = ({ name, id }) => {
   return (
     <div
       className="card text-center bg-dark"
@@ -17,28 +17,14 @@ const GeneralCategory = ({ name, id }) => {
       <div className="card-body text-light">
         <h4 className="card-title">{name}</h4>
         <a
-          href={`/categories/profession/${id}`}
+          href={`/categories/profession/professionals/${id}`}
           className="btn btn-outline-secondary rounded-0"
         >
-          See SubCategories
+          See Professionals
         </a>
       </div>
     </div>
   );
 };
-/*  */
-{
-  /* <div className={styles.general}>
-      <NavBar />
-      <div className={styles.profBtn}>
-        <button onClick={() => navegate(-1)}>
-          <i className="fa-solid fa-circle-chevron-left"></i>
-        </button>
 
-        <h1 className={styles.cardHeader}>Categories</h1>
-      </div>
-      <Category styles={styles} />
-      <Footer />
-    </div> */
-}
-export default GeneralCategory;
+export default SpecificCard;

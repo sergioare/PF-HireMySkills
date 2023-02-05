@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../../../redux/actions/actions";
@@ -17,9 +17,16 @@ const Category = () => {
     dispatch(getCategories());
   }, [dispatch]);
 
+  const navigate = useNavigate();
+
   return (
     <div>
       <NavBar />
+      <div className={styles.profBtn}>
+        <button onClick={() => navigate(-1)}>
+          <i className="fa-solid fa-circle-chevron-left"></i>
+        </button>
+      </div>
       <h2 className="text-center text-white" style={{ margin: "4%" }}>
         Categories
       </h2>
@@ -36,7 +43,7 @@ const Category = () => {
             ))}
           </div>
         ) : (
-          <div>
+          <div className="d-flex justify-content-center align-items-center">
             <LoaderGeneral />
           </div>
         )}

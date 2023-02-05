@@ -54,3 +54,16 @@
   padding-left: 470px;
   padding-top: 100px;
 } */
+.profBtn button {
+  margin-left: 60px;
+  margin-top: 30px;
+  background-color: transparent;
+  border: none;
+}
+.profBtn button i {
+  font-size: 3.5rem;
+  color: rgb(255, 255, 255);
+}
+.profBtn button i:hover {
+  color: #b02810;
+}
