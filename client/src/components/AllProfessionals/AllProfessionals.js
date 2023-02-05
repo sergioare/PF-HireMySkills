@@ -22,7 +22,7 @@ const AllProfessionals = () => {
   const profession = useSelector((state) => state.subCategory);
   const town = useSelector((state) => state.town);
   // const prueba = useSelector((state) => state.allProfessionals);
-  console.log(town, "A");
+  // console.log(town, "A");
   // console.log(profession, "B");
 
   //  ----------- filter------------

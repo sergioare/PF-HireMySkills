@@ -12,6 +12,7 @@ const Home = () => {
   const worker = useSelector((state) => state?.worker);
 
   return (
+    <>
     <div className={styles.wrapper}>
 
         <NavBar />
@@ -90,13 +91,11 @@ const Home = () => {
           )}
         </div>
       </div>
-
-
+    </div>
       <div className={styles.containerThree}>
           <Footer />
       </div>
-
-    </div>
+    </>
   );
 };
 

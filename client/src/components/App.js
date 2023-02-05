@@ -17,8 +17,8 @@ import FormServices from "./Services/Form/FormServices";
 import Contact from "./Contact-Us/Contact";
 import ShoppingCart from "./Shopping/ShoppingCart";
 import UserType from './UserType/UserType'
+// import Profile from "./ProfileProfessional/Profile";
 import Profile from "./SignIn/Profile/Profile";
-
 
 function App() {
   return (
