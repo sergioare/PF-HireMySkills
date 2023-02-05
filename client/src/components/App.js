@@ -16,9 +16,10 @@ import Form from "./Form/FormStaffOption";
 import FormServices from "./Services/Form/FormServices";
 import Contact from "./Contact-Us/Contact";
 import ShoppingCart from "./Shopping/ShoppingCart";
-import UserType from './UserType/UserType'
-// import Profile from "./ProfileProfessional/Profile";
+import UserType from "./UserType/UserType";
 import Profile from "./SignIn/Profile/Profile";
+import TeamCards from "./Team/TeamCards/TeamCards";
+import Category from "./Categories/General/Category";
 
 function App() {
   return (
@@ -26,11 +27,12 @@ function App() {
       <Fragment>
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/creators" element={<Team />} />
+          {/* <Route path="/creators" element={<Team />} /> */}
+          <Route path="/creators" element={<TeamCards />} />
 
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/categories" element={<GeneralCategory />} />
+          <Route path="/categories" element={<Category />} />
           <Route
             path="/categories/profession/:id"
             element={<SpecificCategory />}
