@@ -159,13 +159,13 @@ export function getUserById(id){
       }
     }
     export function deleteUser(id){
-      return function(dispatch){
-        return axios
-              .delete(`${url}/users/${id}`)
-              .then(({data})=>{
-                console.log(data)
-                dispatch({type:DELETE_USER, payload:data})
-              })
+      return async function(dispatch){
+        const aux = await axios.delete(`${url}/users/${id}`)
+          return dispatch({
+            type:DELETE_USER,
+            payload: aux.data
+          })      
+        
       }
     }
       // return async function(dispatch){

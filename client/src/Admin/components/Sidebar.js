@@ -38,8 +38,8 @@ const Sidebar = () => {
             </NavLink>
 
             
-            <NavLink  to="/profile" className="activeClicked">
-              <CDBSidebarMenuItem icon="user">Profile page</CDBSidebarMenuItem>
+            <NavLink  to="/admin/update" className="activeClicked">
+              <CDBSidebarMenuItem icon="user">Profile Professionals</CDBSidebarMenuItem>
             </NavLink>
             <NavLink  to="/analytics" className="activeClicked">
               <CDBSidebarMenuItem icon="chart-line">Analytics</CDBSidebarMenuItem>

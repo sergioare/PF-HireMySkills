@@ -18,7 +18,7 @@ import Form from "./Form/FormStaff";
 
 import Contact from "./Contact-Us/Contact";
 import PaymentCheckout from "./PaymentCheckout/PaymentCheckout";
-import Users from "../Admin/components/Users/Users";
+import Userss from "../Admin/components/Users/Userss";
 import Trabajadores from "../Admin/components/Professionals/Trabajadores";
 
 
@@ -48,7 +48,7 @@ function App() {
           <Route path="/account" element={<SignIn />} />
           <Route path="/admin" element={<Homeadmin/>}/>
           <Route path="/admin/profesionals" element={<Trabajadores/>}/>
-          <Route path="/admin/users" element={<Users/>}/>
+          <Route path="/admin/users" element={<Userss/>}/>
 
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/checkout" element={<PaymentCheckout/>}/>

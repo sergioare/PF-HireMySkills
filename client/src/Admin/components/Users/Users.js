@@ -7,12 +7,14 @@ import {EditOutlined, DeleteForeverOutlined} from '@material-ui/icons'
 import Sidebar from '../Sidebar';
 import styles from './Users.module.css'
 import { RiDeleteBinLine } from "react-icons/ri";
+import { useNavigate } from 'react-router-dom';
 
 
 
 function Users() {
     const dispatch = useDispatch();
-    const users = useSelector((state)=>state.user)
+    const history = useNavigate()
+    const users = useSelector((state)=>state?.user)
     console.log(users)
 
     useEffect(()=>{
@@ -25,10 +27,11 @@ function Users() {
 // const aux = users.filter((user)=> user.deleted === true )
 // console.log(aux)
 
-const handleDelete = (e, id)=>{
+const handleDelete = (id)=>{
     console.log(id , "AAAAA")
-    e.preventDefault()
+    // e.preventDefault()
     dispatch(deleteUser(id))
+    history('/admin/users')
     
 }
 
@@ -52,20 +55,20 @@ const handleDelete = (e, id)=>{
                    </TableRow>
                 </TableHead>
                 <TableBody>
-                    {users?.map((userIndex)=>(
-                        <TableRow hover className={styles.tableRow} key={userIndex.id}>
-                            <TableCell>{userIndex.id}</TableCell>
-                            <TableCell>{userIndex.name}</TableCell>
-                            <TableCell>{userIndex.contact}</TableCell>
-                            <TableCell>{userIndex.email}</TableCell>
-                            <TableCell><Avatar src={userIndex.photo}/></TableCell>
+                    {Array.isArray(users) ? users.map((user)=>(
+                        <TableRow hover className={styles.tableRow} key={user.id}>
+                            <TableCell>{user.id}</TableCell>
+                            <TableCell>{user.name}</TableCell>
+                            <TableCell>{user.contact}</TableCell>
+                            <TableCell>{user.email}</TableCell>
+                            <TableCell><Avatar src={user.photo}/></TableCell>
                             <TableCell>
                     
-                                <IconButton onClick={()=> alert(`Editar ${userIndex.name}`)} color={'primary'} size='small'>
+                                <IconButton onClick={()=> alert(`Editar ${user.name}`)} color={'primary'} size='small'>
                                     <EditOutlined/>
                                 </IconButton>
                     
-                                <IconButton onClick={(e)=>handleDelete(e,userIndex.id)} value= {userIndex.id}  color={'secondary'} size='small'>
+                                <IconButton onClick={(e)=>handleDelete(user.id)} value= {user.id}  color={'secondary'} size='small'>
                                     <DeleteForeverOutlined/>
                                 </IconButton>
                                 {/* <button
@@ -74,13 +77,13 @@ const handleDelete = (e, id)=>{
                                         " " +
                                         styles.space
                                     }
-                                    onClick={handleDelete(userIndex.id)}
+                                    onClick={handleDelete(user.id)}
                                 >
                                     <RiDeleteBinLine />
                                 </button> */}
                             </TableCell>
                         </TableRow>
-                    ))}
+                    )):null}
                 </TableBody>
             </Table>
         </TableContainer>

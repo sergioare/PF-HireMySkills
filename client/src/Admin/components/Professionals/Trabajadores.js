@@ -1,24 +1,33 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React,{useState} from 'react'
+
+import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import {Paper, Avatar, IconButton, Table, TableContainer, TableHead, TableRow,TableCell,TableBody} from '@material-ui/core';
-import { getProfessionals } from '../../../redux/actions/actions';
-import {EditOutlined, DeleteForeverOutlined} from '@material-ui/icons'
+import { getProfessionals, deleteProfessional } from '../../../redux/actions/actions';
+import {EditOutlined, DeleteForeverOutlined, PowerOffRounded} from '@material-ui/icons'
 import Sidebar from '../Sidebar';
 import styles from './Professionals.module.css'
+import axios from 'axios';
+
 
 function Trabajadores() {
     const dispatch = useDispatch();
-    const professionals = useSelector((state)=>state?.professionals)
-    
+    // const professionals = useSelector((state)=>state?.professionals)
+    const [professionals, setProfessional] = useState([])
 
     useEffect(()=>{
-        dispatch(getProfessionals())
-    },[dispatch])
+        const fetchData = async () => {
+            const result = await axios.get('https://hiremyskillsbackend.onrender.com/professionals');
+            setProfessional(result.data);
+          };
+          fetchData();
+        },[])
 
-// const handleDeactivate = (id)=>{
-//     dispatch(deleteUser())
-// }
+const handleDeactivate = (id)=>{
+    dispatch(deleteProfessional(id))
+    alert(`Usuario Eliminado`)
+    window.location.href = window.location.href
+}
     console.log(professionals)
     
 
@@ -51,11 +60,11 @@ function Trabajadores() {
                             <TableCell><Avatar src={professionals.photo}/></TableCell>
                             <TableCell>
                     
-                                <IconButton onClick={()=> alert(`Editar ${professionals.name}`)} color={'primary'} size='small'>
+                                <IconButton onClick={()=>  alert(`Editar ${professionals.name}`)} color={'primary'} size='small'>
                                     <EditOutlined/>
                                 </IconButton>
                     {/* {const borrados = users.filter((users))} */}
-                                <IconButton onClick={()=> alert(`Usuario ${professionals.name} Eliminado`)} color={'secondary'} size='small'>
+                                <IconButton onClick={()=>handleDeactivate(professionals.id)} color={'secondary'} size='small'>
                                     <DeleteForeverOutlined/>
                                 </IconButton>
                             </TableCell>
