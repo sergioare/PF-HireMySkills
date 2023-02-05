@@ -2,17 +2,16 @@
   width: 100vw;
   height: 10vh;
   display: flex;
-  background: #283C63;
-  word-spacing: .6vw;
+  background-image: linear-gradient(to top, #000000 0%, #330867 100%);
+  word-spacing: 0.6vw;
   text-decoration: none;
 }
 
 .nabvar {
   display: flex;
- 
+
   width: 100vw;
   align-items: center;
-
 }
 
 .logo {
@@ -20,32 +19,34 @@
   font-family: "Cinzel";
   font-weight: 700;
   justify-content: space-around;
-  font-size: 1.7vw;
-  color: #ff7069;
+  font-size: 2vw;
+  color: #ffffff;
   flex-grow: 4;
   text-decoration: none;
-  
+}
+
+.logo:hover {
+  color: #fff5c3;
 }
 .navLink {
   text-decoration: none;
   font-family: "Work Sans";
   font-style: normal;
   font-weight: 600;
-  font-size:  1.2vw;
-  color: #ff7069;
+  font-size: 1.2vw;
+  color: #ffffff;
   flex-grow: 5;
+}
+.navLink:hover {
+  color: #fff5c3;
 }
 .navLink:nth-child(5) {
   display: flex;
   flex-grow: 8;
   justify-content: end;
   margin-right: 2%;
-
-
 }
-.menu{
+.menu {
   margin-right: 2%;
   background-color: #ff7069;
 }
-
-

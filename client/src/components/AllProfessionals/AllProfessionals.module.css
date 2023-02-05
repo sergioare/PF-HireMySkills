@@ -15,10 +15,10 @@
 }
 .profBtn button i {
   font-size: 3.5rem;
-  color: tomato;
+  color: rgb(239, 239, 239);
 }
 .profBtn button i:hover {
-  color: #076b72;
+  color: #d91111;
 }
 /* --------------filter------------  */
 .divAllFilter_order {

@@ -65,12 +65,8 @@ const AllProfessionals = () => {
     <div className={styles.divAllProfessionals}>
       <NavBar />
       <div className={styles.profBtn}>
-        <button
-          className="btn btn-lg btn-outline-light"
-          style={{ marginTop: "5%", border: "solid 2px" }}
-          onClick={() => navigate(-1)}
-        >
-          Return
+        <button onClick={() => navigate(-1)}>
+          <i className="fa-solid fa-circle-chevron-left"></i>
         </button>
 
         {/* ----Filter profession--------*/}
