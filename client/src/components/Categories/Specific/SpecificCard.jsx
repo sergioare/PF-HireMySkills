@@ -8,10 +8,15 @@ const SpecificCard = ({ name, id }) => {
     >
       <div className="overflow">
         <img
-          src=""
+          src="https://i0.wp.com/www.silocreativo.com/wp-content/uploads/2014/01/descripcion-categorias-wordpress.png?fit=666%2C370&quality=100&strip=all&ssl=1"
           alt="a wallpaper"
           className="card-img-top object-fit-contain"
-          style={{ height: "200px" }}
+          style={{
+            height: "200px",
+            margin: "0",
+            padding: "0",
+            borderRadius: "0",
+          }}
         />
       </div>
       <div className="card-body text-light">

@@ -8,10 +8,15 @@ const GeneralCategory = ({ name, id }) => {
     >
       <div className="overflow">
         <img
-          src=""
-          alt="a wallpaper"
+          src="https://img.blogs.es/anexom/wp-content/uploads/2017/04/etiqueta-categoria.jpg"
+          alt="category imagen"
           className="card-img-top object-fit-contain"
-          style={{ height: "200px" }}
+          style={{
+            height: "200px",
+            margin: "0",
+            padding: "0",
+            borderRadius: "0",
+          }}
         />
       </div>
       <div className="card-body text-light">
