@@ -1,4 +1,4 @@
-.container {
+.containerform {
   text-align: center;
   display: flex;
   align-items: center;
@@ -13,12 +13,16 @@
     font-size: 1.5vw;
     color: #fbe8d3;
 }
-h1{
+.h1form{
     color: #c8e7ff;
     font-family: "Cinzel";
     font-weight: 400;
     font-size: 3vw;
 
+}
+
+.h6form{
+    color: white
 }
 
 Form {

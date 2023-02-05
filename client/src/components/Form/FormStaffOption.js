@@ -129,8 +129,8 @@ const FormStaff = () => {
   }, [stateselected]);
 
   return (
-    <div className={styles.container}>
-      <h1>Professional Profile</h1>
+    <div className={styles.containerform}>
+      <h1 className={styles.h1form}>Professional Profile</h1>
 
       <Formik
         initialValues={{
@@ -187,7 +187,7 @@ const FormStaff = () => {
           isSubmitting,
         }) => (
           <Form>
-            <h6>Your name</h6>
+            <h6 className={styles.h6form}>Your name</h6>
             <Field
               type="text"
               placeholder="Full name"
@@ -200,7 +200,7 @@ const FormStaff = () => {
             />
             {errors.name &&
               touched.name(<p style={{ color: "red" }}>{errors.name}</p>)}
-            <h6>Your E-mail</h6>
+            <h6 className={styles.h6form}>Your E-mail</h6>
             <Field
               type="text"
               placeholder="E-mail"
@@ -213,7 +213,7 @@ const FormStaff = () => {
             />
             {errors.email &&
               touched.email(<p style={{ color: "red" }}>{errors.email}</p>)}
-            <h6>Where are you?</h6>
+            <h6 className={styles.h6form}>Where are you?</h6>
             <Field
               as="select"
               name="country"
@@ -270,7 +270,7 @@ const FormStaff = () => {
                 return <option value={city.city_name}>{city.city_name}</option>;
               })}
             </Field>
-            <h6>Enter your contact number</h6>
+            <h6 className={styles.h6form}>Enter your contact number</h6>
             <div className={styles.divphone}>
               <PhoneInput
                 initialCountry="ar"
@@ -290,7 +290,7 @@ const FormStaff = () => {
                 accept='application/pdf,application/vnd.ms-excel, image/png, image/jpeg'
                 multiple
             /> */}
-            <h6>Insert your portfolio URL</h6>
+            <h6 className={styles.h6form}>Insert your portfolio URL</h6>
             <Field
               type="text"
               placeholder="URL portfolio"
@@ -301,7 +301,7 @@ const FormStaff = () => {
               value={values.portfolio}
               className={styles.field}
             />
-            <h6>Select your profession</h6>
+            <h6 className={styles.h6form}>Select your profession</h6>
             <Field
               as="select"
               name="categoryselect"
@@ -349,7 +349,7 @@ const FormStaff = () => {
             {/* errors.skills && touched.skills(
                     <p style={{color:'red'}}>{errors.skills}</p>)
             } */}
-            <h6>Tell people about your work</h6>
+            <h6 className={styles.h6form}>Tell people about your work</h6>
             <Field
               as="textarea"
               name="description"
@@ -359,7 +359,7 @@ const FormStaff = () => {
               value={values.description}
             />
 
-            <h5>Upload your profile image</h5>
+            <h6 className={styles.h6form}>Upload your profile image</h6>
             <Field
               type="file"
               name="photo"
