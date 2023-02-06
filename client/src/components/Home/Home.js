@@ -7,15 +7,15 @@ import Footer from "../Footer/Footer";
 import Category from "../Categories/General/Category";
 import imgDefault from "../../assets/imgDefault.jpg";
 import { Link } from "react-router-dom";
+import CatHome from "../Categories/General/CatHome";
 
 const Home = () => {
   const worker = useSelector((state) => state?.worker);
 
   return (
+    
     <div className={styles.wrapper}>
-
-        <NavBar />
-        
+      <NavBar />
 
       <div className={styles.containerOne}>
         <div className={styles.left}>
@@ -39,63 +39,12 @@ const Home = () => {
         </div>
       </div>
 
-      <div className={styles.containerTwo}>
-        <div className={styles.catGeneral}>
-          {worker.length > 0 ? (
-            worker.map((prof) => {
-              console.log(worker);
-              return (
-                <div key={prof.id} className={styles.profCard}>
-                  <Link
-                    className={styles.link}
-                    to={`/professionals/${prof.id}`}
-                  >
-                    <h1 className={styles.profName}>{prof.name}</h1>
-                    <div className={styles.profImg}>
-                      <img
-                        className={styles.img}
-                        src={prof.photo ? prof.photo : imgDefault}
-                        alt="Img not found"
-                      />
-                    </div>
-                  </Link>
-
-                  <span
-                    className={styles.profRating}
-                    style={
-                      prof.rating < 1
-                        ? { backgroundColor: "rgb(255, 77, 91)" }
-                        : prof.rating < 4
-                        ? { backgroundColor: "rgb(253, 158, 81)" }
-                        : { backgroundColor: "rgb(4, 201, 4)" }
-                    }
-                  >
-                    Rating: {prof.rating}
-                  </span>
-                  <h3 className={styles.description}>Profession:</h3>
-                  <p className={styles.profDescrip}>{prof.description}</p>
-                  <div className={styles.divBtn}>
-                    <button className={styles.btn}>Contract!</button>
-                  </div>
-                </div>
-              );
-            })
-          ) : (
-            <div>
-              <h1 className={styles.cardHeader}>Categories</h1>
-              <div className={styles.card}>
-                <Category />
-              </div>
-            </div>
-          )}
-        </div>
+      <div className="container">
+        <CatHome />
       </div>
-
-
       <div className={styles.containerThree}>
-          <Footer />
       </div>
-
+        <Footer />
     </div>
   );
 };

@@ -15,10 +15,10 @@
 }
 .profBtn button i {
   font-size: 3.5rem;
-  color: tomato;
+  color: rgb(239, 239, 239);
 }
 .profBtn button i:hover {
-  color: #076b72;
+  color: #d91111;
 }
 /* --------------filter------------  */
 .divAllFilter_order {
@@ -27,6 +27,7 @@
   display: flex;
   padding: 30px 40px 40px 50px;
   justify-content: space-between;
+  align-items: center;
 }
 .allFilterPro {
   font-weight: 700;

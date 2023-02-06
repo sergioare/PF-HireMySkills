@@ -169,14 +169,14 @@ case FILTER_TOWN:
   for (let i = 0; i < action.payload.length; i++) {
     action.payload.map((f) => {
       const all = townf.includes(action.payload[i].town);
-      console.log(typeof all, all);
+      // console.log(typeof all, all);
       if (all === false) {
         townf.push(action.payload[i].town);
       }
       // return townf;
     });
   }
-  console.log(townf, "Z");
+  // console.log(townf, "Z");
   return { ...state, town: townf };
 
 case FILTER_BY_PROVINCE:

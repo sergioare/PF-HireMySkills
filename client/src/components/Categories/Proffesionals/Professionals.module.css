@@ -13,10 +13,10 @@
 }
 .profBtn button i {
   font-size: 3.5rem;
-  color: tomato;
+  color: rgb(255, 255, 255);
 }
 .profBtn button i:hover {
-  color: #076b72;
+  color: #cd340d;
 }
 .divCards {
   width: 90%;
@@ -121,7 +121,7 @@
 }
 
 .notProf {
-  color: rgba(128, 126, 126, 0.671);
+  color: rgba(255, 255, 255, 0.671);
   font-family: "Work Sans", sans-serif;
   font-size: 30px;
   text-align: center;
