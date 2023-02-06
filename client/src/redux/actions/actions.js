@@ -147,17 +147,18 @@ export function orderByReviews(payload) {
   };
 }
 
-// export function addToCart(service){
-//     return async function(dispatch){
-//         axios.post(urlShoppingcart, service)
-//         .then(res=>
-//             dispatch({type:ADD_TO_CART, payload: res.data}))
-//     }
-// }
-export const addToCart = (id) => ({
-  type: ADD_TO_CART,
-  payload: id,
-});
+export function addToCart(services, userTokken){
+  const item = [services, userTokken]
+    return async function(dispatch){
+        axios.post(urlShoppingcart, item)
+        .then(res=>
+            dispatch({type:ADD_TO_CART, payload: services}))
+    }
+}
+// export const addToCart = (id) => ({
+//   type: ADD_TO_CART,
+//   payload: id,
+// });
 
 export function postReviews(message) {
   return async function (dispatch) {

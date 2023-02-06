@@ -23,12 +23,12 @@ const Login = () => {
   };
 
   const submitUser = (e) => {
-    e.preventDefault(input);
+    e.preventDefault();
     dispatch(postUser(input));
     setInput({
       name: user.name,
       email: user.email,
-      photo: user.picture,
+      photo: user.picture || "https://www.shutterstock.com/image-vector/man-icon-vector-600w-1040084344.jpg",
     });
   };
 

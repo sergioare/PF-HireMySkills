@@ -263,6 +263,13 @@ case FILTER_BY_PROVINCE:
           action.payload === "asc" ? orderRatingAsc : orderRatingAsc.reverse(),
       };
 
+      case POST_USER:
+            return{
+                ...state,
+                user: [...state.user, action.payload]
+            }
+
+
     default:
       return state;
   }

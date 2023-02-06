@@ -31,9 +31,9 @@ const CheckoutForm = ()=>{ //this a componente and is the payment formulary
         if(!error){
             const { id } = paymentMethod;
 
-            const {data} = await axios.post('http://localhost:4000/checkout',{
+            const {data} = await axios.post('https://hiremyskillsbackend.onrender.com/checkout',{
                 id,
-                amount: 10000
+                amount: {total}
             })
             
             console.log(paymentMethod)
@@ -41,6 +41,7 @@ const CheckoutForm = ()=>{ //this a componente and is the payment formulary
             console.log("ACA ESTA EL OTRO", data )
             elements.getElement(CardElement).clear();
         }
+        alert('Your pay was successfully')
     }
     return (
         <form  className="card card-body" onSubmit={handleSubmit}>

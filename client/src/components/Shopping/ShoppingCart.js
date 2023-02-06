@@ -9,7 +9,7 @@ import PaymentCheckout from '../PaymentCheckout/PaymentCheckout';
 // const cartFromLocalStorage =JSON.parse(localStorage.getItem('shopping') || '[]')
 
 function ShoppingCart() {
-//  const state = useSelector(state=>state)
+
  const dispatch = useDispatch()
  const shopping= useSelector((state) => state.shoppingCart);
  const values = shopping.map(service=>service.quantity).reduce((acc, element)=> acc +element, 0)
