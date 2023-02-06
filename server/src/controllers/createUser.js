@@ -2,7 +2,7 @@ const users = require("../models/users.js");
 
 const createUser = async (req, res, next) => {
   try {
-    const { name, photo, town, email, contact } = req.body;
+    const { name, photo, town, email, contact, sub, token } = req.body;
     // console.log(req.body, 'BODY');
     const userFind = await users.findAll({ where: { email: email } });
     // const userName = await users.findAll({ where: { name: name } });
@@ -12,7 +12,7 @@ const createUser = async (req, res, next) => {
     if (!name || !email)
       return res.send({ message: "data required" });
     if (userFind.length) return res.send({ message: "User already exists" });
-    await users.create({ name, photo, email, town, contact });
+    await users.create({ name, photo, email, town, contact, sub, token });
     console.log(users, "USER");
     res.send({ message: "User created successfully" });
   } catch (error) {
