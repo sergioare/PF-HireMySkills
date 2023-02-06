@@ -19,7 +19,7 @@ const Category = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div style={{ minHeight: "100vh" }}>
       <NavBar />
       <div className={styles.profBtn}>
         <button onClick={() => navigate(-1)}>
