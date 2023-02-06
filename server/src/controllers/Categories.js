@@ -6,9 +6,9 @@ const postCategory = async (req, res) => {
     await categories.create({
       typecategory,
     });
-    res.send("categori create");
+    res.send("category created");
   } catch (error) {
-    res.send("create");
+    res.send(error.message);
   }
 };
 

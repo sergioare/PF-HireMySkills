@@ -1,12 +1,13 @@
-const categories = require("../models/categories")
+const categories = require("../models/categories");
 
 const getCategory = async (req, res) => {
-    try {
-        const categoryes = await categories.findAll();
-        res.send(categoryes);
-    } catch (error) {
-        res.send({ message: error });
-    };
+let category_list;
+  try {
+    category_list = await categories.findAll();
+    res.json(category_list);
+  } catch (error) {
+    res.send({ message: error.message });
+  }
 };
 
 module.exports = { getCategory };
