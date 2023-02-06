@@ -30,12 +30,12 @@ const users =
       town: {
         //lugar donde esta ubicado
         type: DataTypes.STRING,
-        // allowNull: false,
+        // allowNull: true,
       },
       contact: {
         // numero del profesional
         type: DataTypes.STRING,
-        // allowNull: false,
+        // allowNull: true,
       },
       deleted: {
         //borrado logico
