@@ -108,6 +108,7 @@ export function filterByProvince(town) {
     payload: town,
   };
 }
+
 export function filterByState(state) {
   return {
     type: FILTER_BY_STATE,
@@ -120,6 +121,7 @@ export function filterByCountry(country) {
     payload: country,
   };
 }
+
 export function filterTown() {
   return async function (dispatch) {
     await axios.get(urlProfessionals).then((response) => {
@@ -167,7 +169,7 @@ export const addToCart = (id) => ({
   payload: id,
 });
 
-export function postReviews(id, message) {
+export function postReviews(message) {
   return async function (dispatch) {
     await axios
       .post(urlReviews, message)
@@ -239,10 +241,6 @@ export function getProfesionalsByProfession(profession) {
         payload: aux.data,
       });
     } catch (error) {
-      // return dispatch({
-      //     type: GET_COUNTRY_BY_NAME,
-      //     payload: error
-      // })
       console.log("ERROR ", error);
     }
   };
@@ -257,3 +255,45 @@ export function getServices() {
     });
   };
 }
+
+export function orderByRating(payload) {
+  return {
+    type: ORDER_BY_RATING,
+    payload,
+  };
+}
+
+// export const addToCart = service=>
+//   async function (dispatch){
+//     //if cart already exist in local storage, use it, otherwise set to empty array
+//     const shoppingCart = localStorage.getItem('shoppingCart')
+//       ? JSON.parse(localStorage.getItem('shoppingCart'))
+//       : [];
+
+//     //check if duplicates
+//     const duplicates = shoppingCart.filter(cartService =>
+//       cartService._id === service._id)
+
+//     //if no duplicates, proceed
+//     if(duplicates.length === 0){
+//         //prep service data
+//         const serviceToAdd ={
+//           ...service,
+//           quantity: 1
+//         }
+
+//         //add service data to cart
+//         shoppingCart.push(serviceToAdd)
+
+//         //add cart to local storage
+//         localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))
+
+//         //add cart to redux
+//         dispatch({
+//           type: ADD_TO_CART,
+//           payload: shoppingCart,
+//         })
+
+//     }
+
+//   }

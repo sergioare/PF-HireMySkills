@@ -3,6 +3,8 @@ import {loadStripe} from '@stripe/stripe-js' //come the stripe to connect platfo
 import NavBar from '../Navbar/Navbar'
 import {Elements, CardElement, useStripe, useElements} from '@stripe/react-stripe-js' // this element get the stripePromise to englobe another components like provider, here I bring the payment form for example, CardElemnt is the input that you put the number, date and postal code of the cardPayment
 import axios from 'axios'
+import { useSelector } from 'react-redux'
+
 import "bootswatch/dist/lux/bootstrap.min.css";
 
 
@@ -14,6 +16,10 @@ const stripePromise = loadStripe('pk_test_51MUXsPIUj9w23It9mYyk2OKN7wdkoqil8Uoq3
 const CheckoutForm = ()=>{ //this a componente and is the payment formulary
     const stripe = useStripe()//here we aregoing to call the methods of the checkout
     const elements = useElements()
+    const shopping= useSelector((state) => state.shoppingCart);
+    const total = shopping.map(service=>service.quantity * service.price).reduce((acc, element)=> acc +element, 0)
+
+
 
     const handleSubmit = async (e)=>{
         e.preventDefault()
@@ -44,13 +50,13 @@ const CheckoutForm = ()=>{ //this a componente and is the payment formulary
             className="img-fluid"
             />
 
-            <h3 className="text-center my-2">Price: $100</h3>
+            <h3 className="text-center my-2">Price: ${total}</h3>
             <div className="form-group">
 
             <CardElement/>
             </div>
             <button className="btn btn-success">
-                BUY
+                PAY SERVICES
             </button>
         </form>
     )
@@ -59,7 +65,6 @@ const CheckoutForm = ()=>{ //this a componente and is the payment formulary
 function PaymentCheckout() {
   return (
     <>
-        <NavBar/>
         <Elements stripe={stripePromise}>
         <div className="container p-4">
         <div className="row h-100">

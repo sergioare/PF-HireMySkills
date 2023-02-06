@@ -1,13 +1,13 @@
 import React from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import { getProfessionals } from "../../../redux/actions/actions";
 import styles from "./Professionals.module.css";
-import imgDefault from "../../../assets/imgDefault.jpg";
-import Stars from "../../Stars/Stars";
+import ShowCard from "../../AllProfessionals/ShowCard";
+import LoaderGeneral from "../../LoaderGeneral/LoaderGeneral";
 
 function Professionals() {
   const { id } = useParams();
@@ -33,35 +33,32 @@ function Professionals() {
           <i className="fa-solid fa-circle-chevron-left"></i>
         </button>
       </div>
-      <div className={styles.divCards}>
-        {aux.length ? (
-          aux.map((wr) => {
-            return (
-              <div key={wr.id} className={styles.profCard}>
-                <Link className={styles.link} to={`/professionals/${wr.id}`}>
-                  <h1 className={styles.profName}>{wr.name}</h1>
-                  <div className={styles.profImg}>
-                    <img
-                      className={styles.img}
-                      src={wr.photo ? wr.photo : imgDefault}
-                      alt="Img not found"
-                    />
-                  </div>
-                </Link>
-
-                <span className={styles.profRating}>Rating:</span>
-                <Stars value={wr.rating} />
-                <h3 className={styles.description}>Profile:</h3>
-                <p className={styles.profDescrip}>{wr.description}</p>
-                <div className={styles.divBtn}>
-                  <button className={styles.btn}>Contract!</button>
+      <div className="containerdelascards2">
+        <h1 className="text-center text-light fs-1 ">Professionals</h1>
+        <div className="container d-flex justify-content-center align items-center h-100">
+          {aux.length ? (
+            aux.map((prof) => {
+              return (
+                <div
+                  key={prof.id}
+                  className="col-md-4 d-flex justify-content-around"
+                >
+                  <ShowCard
+                    name={prof.name}
+                    photo={prof.photo}
+                    id={prof.id}
+                    rating={prof.rating}
+                    professions={prof.skills.join(", ")}
+                  />
                 </div>
-              </div>
-            );
-          })
-        ) : (
-          <h1 className={styles.notProf}>Not found professionals</h1>
-        )}
+              );
+            })
+          ) : (
+            <div className="d-flex">
+              <h1 className={styles.notProf}>Not found professionals</h1>
+            </div>
+          )}
+        </div>
       </div>
       <Footer />
     </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../Navbar/Navbar";
@@ -11,12 +11,10 @@ import {
   getSubCategory,
   orderByName,
   filterTown,
-  filterByState,
-  filterByCountry,
 } from "../../redux/actions/actions";
 import styles from "../AllProfessionals/AllProfessionals.module.css";
-import imgDefault from "../../assets/imgDefault.jpg";
-import Stars from "../Stars/Stars";
+import ShowCard from "./ShowCard";
+import LoaderGeneral from "../LoaderGeneral/LoaderGeneral";
 
 const AllProfessionals = () => {
   const [act, setAct] = useState(false);
@@ -24,53 +22,60 @@ const AllProfessionals = () => {
   const allProfessionals = useSelector((state) => state.allProfessionals);
   const profession = useSelector((state) => state.subCategory);
   const town = useSelector((state) => state.town);
-  const stat = useSelector((state) => state.allProfessionals);
-  const country = useSelector((state) => state.allProfessionals);
+  const detailProfessional = useSelector((state) => state.detail);
+  // const prueba = useSelector((state) => state.allProfessionals);
+  // console.log(town, "A");
+  // console.log(profession, "B");
 
   //  ----------- filter------------
   const handlerprofession = (e) => {
     e.preventDefault();
+    // console.log(e.target.value);
     dispatch(filterByProfession(e.target.value));
   };
   const handlerprovince = (e) => {
     e.preventDefault();
+    // console.log(e.target.value, "W");
     dispatch(filterByProvince(e.target.value));
-  };
-  const handlerstate = (e) => {
-    e.preventDefault();
-    dispatch(filterByState(e.target.value));
-  };
-  const handlercountry = (e) => {
-    e.preventDefault();
-    dispatch(filterByCountry(e.target.value));
   };
 
   const handlerByName = (e) => {
     e.preventDefault();
+    // console.log(e.target.value);
     dispatch(orderByName(e.target.value));
     if (act === true) setAct(false);
     else setAct(true);
   };
+
+  const navigate = useNavigate(-1);
 
   useEffect(() => {
     dispatch(filterTown());
     dispatch(getProfessionals());
     dispatch(getSubCategory());
   }, [dispatch]);
+  // console.log(allProfessionals);
+  // let aux = []
+  // for (let i = 0; i < allProfessionals.length; i++) {
+  //  if()
+
+  // }
 
   return (
     <div className={styles.divAllProfessionals}>
       <NavBar />
       <div className={styles.profBtn}>
-        <Link to="/home">
-          <button>
-            <i className="fa-solid fa-circle-chevron-left"></i>
-          </button>
-        </Link>
+        <button onClick={() => navigate(-1)}>
+          <i className="fa-solid fa-circle-chevron-left"></i>
+        </button>
+
         {/* ----Filter profession--------*/}
         <div className={styles.divAllFilter_order}>
           <div className={styles.allFilterPro}>
-            <p className="px-2 d-inline-block">PROFESSIONS</p>
+            <div className={styles.divTitleOrder}>
+              <p className="text-center text-white">SORT BY</p>
+            </div>
+            <p className="px-2 d-inline-block text-white">PROFESSIONS</p>
 
             <select
               onChange={(e) => handlerprofession(e)}
@@ -88,7 +93,10 @@ const AllProfessionals = () => {
           </div>
           {/* ----Filter province--------*/}
           <div className={styles.allFilterTown}>
-            <p className="px-2 d-inline-block">TOWN</p>
+            <div className={styles.divTitleOrder}>
+              <p className="text-center text-white">SORT BY</p>
+            </div>
+            <p className="px-2 d-inline-block text-white">TOWN</p>
 
             <select
               onChange={(e) => handlerprovince(e)}
@@ -104,52 +112,15 @@ const AllProfessionals = () => {
                 ))}
             </select>
           </div>
-          {/* ----Filter state--------*/}
-          <div className={styles.allFilterState}>
-            <p className="px-2 d-inline-block">STATE</p>
-
-            <select
-              onChange={(e) => handlerstate(e)}
-              className={styles.select}
-              defaultValue="All"
-            >
-              <option value="All">All</option>
-              {stat.length &&
-                stat.map((stat) => (
-                  <option value={stat} key={stat}>
-                    {stat.state}
-                  </option>
-                ))}
-            </select>
-          </div>
-          {/* ----Filter state--------*/}
-          <div className={styles.allFilterState}>
-            <p className="px-2 d-inline-block">COUNTRY</p>
-
-            <select
-              onChange={(e) => handlercountry(e)}
-              className={styles.select}
-              defaultValue="All"
-            >
-              <option value="All">All</option>
-              {country.length &&
-                country.map((count) => (
-                  <option value={count} key={count}>
-                    {count.country}
-                  </option>
-                ))}
-            </select>
-          </div>
           {/* -----------Order name---------- */}
-
           <div className={styles.orderNameRating}>
             <div className={styles.divTitleOrder}>
-              <p className="text-center">SORT BY</p>
+              <p className="text-center text-white">SORT BY</p>
             </div>
 
             <div className={styles.divNameRating}>
               <div className={styles.divName}>
-                <p className="px-2">Name </p>
+                <p className="px-2 text-white">Name </p>
                 <select
                   onChange={(e) => handlerByName(e)}
                   className={styles.selects}
@@ -161,7 +132,7 @@ const AllProfessionals = () => {
               </div>
               {/* -----------Order rating---------- */}
               <div className={styles.divRating}>
-                <p className="px-2">Rating</p>
+                <p className="px-2 text-white">Rating</p>
                 <select
                   onChange={(e) => handlerByName(e)}
                   className={styles.selects}
@@ -176,40 +147,32 @@ const AllProfessionals = () => {
         </div>
       </div>
 
-      <div className={styles.divCardsBody}>
-        <h1 className="col-12 text-center text-dark fs-1 ">Professionals</h1>
-        <div className={styles.containerCard}>
+      <div className="divconteinerdelascards ">
+        <h1 className="col-12 text-center text-light fs-1 ">Professionals</h1>
+        <div className="container d-flex justify-content-center align items-center h-100">
           {allProfessionals.length > 0 ? (
-            <div className={styles.profContainer}>
+            <div className="row">
               {allProfessionals.map((prof) => {
                 return (
-                  <div key={prof.id} className={styles.profCard}>
-                    <Link
-                      className={styles.link}
-                      to={`/professionals/${prof.id}`}
-                    >
-                      <h1 className={styles.profName}>{prof.name}</h1>
-                      <div className={styles.profImg}>
-                        <img
-                          className={styles.img}
-                          src={prof.photo ? prof.photo : imgDefault}
-                          alt="Img not found"
-                        />
-                      </div>
-                    </Link>
-                    <span className={styles.profRating}>Rating:</span>
-                    <Stars value={prof.rating} />
-                    <h3 className={styles.description}>Profile:</h3>
-                    <p className={styles.profDescrip}>{prof.description}</p>
-                    <div className={styles.divBtn}>
-                      <button className={styles.btn}>Contract!</button>
-                    </div>
+                  <div
+                    key={prof.id}
+                    className="col-md-4 d-flex justify-content-around"
+                  >
+                    <ShowCard
+                      name={prof.name}
+                      photo={prof.photo}
+                      id={prof.id}
+                      rating={prof.rating}
+                      professions={prof.skills.join(", ")}
+                    />
                   </div>
                 );
               })}
             </div>
           ) : (
-            <h1 className={styles.notProf}>Not found professionals</h1>
+            <div>
+              <LoaderGeneral />
+            </div>
           )}
         </div>
       </div>

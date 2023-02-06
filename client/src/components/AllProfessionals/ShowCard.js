@@ -1,40 +1,37 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import styles from "./AllProfessionals.module,css";
 import imgDefault from "../../assets/imgDefault.jpg";
 
-const ShowCard = ({ prof }) => {
+const ShowCard = ({ name, rating, id, photo, professions }) => {
   return (
-    <div>
-      <div key={prof.id} className={styles.profCard}>
-        <Link className={styles.link} to={`/professionals/${prof.id}`}>
-          <h1 className={styles.profName}>{prof.name}</h1>
-          <div className={styles.profImg}>
-            <img
-              className={styles.img}
-              src={prof.photo ? prof.photo : imgDefault}
-              alt="Img not found"
-            />
-          </div>
-        </Link>
-
-        <span
-          className={styles.profRating}
-          style={
-            prof.rating < 1
-              ? { backgroundColor: "rgb(255, 77, 91)" }
-              : prof.rating < 4
-              ? { backgroundColor: "rgb(253, 158, 81)" }
-              : { backgroundColor: "rgb(4, 201, 4)" }
-          }
+    <div
+      className="card text-center bg-dark"
+      style={{ width: "20rem", marginTop: "10%", marginBottom: "10%" }}
+    >
+      <div className="overflow">
+        <img
+          src={photo ? photo : imgDefault}
+          alt="professional photo"
+          className="card-img-top object-fit-contain"
+          style={{
+            height: "300px",
+            padding: "0",
+            margin: "0",
+            borderRadius: "0",
+          }}
+        />
+      </div>
+      <div className="card-body text-light">
+        <h4 className="card-title">{name}</h4>
+        <p className="card-text text-secondary text-white">
+          Professions: {professions}
+        </p>
+        <p className="card-text text-secondary">Rating: {rating}</p>
+        <a
+          href={`/professionals/${id}`}
+          className="btn btn-outline-secondary rounded-0"
         >
-          Rating: {prof.rating}
-        </span>
-        <h3 className={styles.description}>Profile:</h3>
-        <p className={styles.profDescrip}>{prof.description}</p>
-        <div className={styles.divBtn}>
-          <button className={styles.btn}>Contract!</button>
-        </div>
+          Professional Profile
+        </a>
       </div>
     </div>
   );

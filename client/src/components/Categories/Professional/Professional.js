@@ -12,6 +12,7 @@ import NavBar from "../../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import imgDefault from "../../../assets/imgDefault.jpg";
 import Services from "../../Services/Services";
+
 import Review from "../../Review/Review";
 import Stars from "../../Stars/Stars";
 
@@ -91,6 +92,7 @@ const Professional = () => {
                       />
                     ))}
                   </article>
+
                   {/* --------Review------... */}
                   <div className={styles.divReview}>
                     <hr />

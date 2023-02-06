@@ -18,9 +18,6 @@ import {
   ORDER_BY_NAME,
   GET_PROFESSIONALS_BY_PROFESSION,
   FILTER_TOWN,
-  FILTER_BY_STATE,
-  FILTER_BY_COUNTRY,
-  ORDER_BY_REVIEWS,
   FILTER_BY_PROVINCE,
   DELETE_SERVICE,
   DELETE_PROFILE,
@@ -39,17 +36,17 @@ export const initialState = {
   town: [],
   user: [],
   professionals: [],
-  services: [
-    { id: 1, name: "service 1", price: 100 },
-    { id: 2, name: "service 2", price: 200 },
-    { id: 3, name: "service 3", price: 300 },
-    { id: 4, name: "service 4", price: 400 },
-    { id: 5, name: "service 5", price: 500 },
-  ],
+  services: [],
   reviews: [],
   shoppingCart: [],
   worker: [],
 };
+
+if (localStorage.getItem("shoppingCart")) {
+  initialState.shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
+} else {
+  initialState.shoppingCart = [];
+}
 
 export function rootReducer(state = initialState, action) {
   switch (action.type) {
@@ -76,8 +73,8 @@ export function rootReducer(state = initialState, action) {
         detail: action.payload,
       };
 
-    case ADD_TO_CART: {
-      // let newService= state.services.find(service=> service.id === action.payload);
+    case ADD_TO_CART: // let newService= state.services.find(service=> service.id === action.payload); // } //   shoppingCart:[...action.payload] // return{
+    {
       let newService = state.detail.products.find(
         (service) => service.id === action.payload
       );
@@ -124,7 +121,6 @@ export function rootReducer(state = initialState, action) {
             ),
           };
     }
-
     case REMOVE_ALL_FROM_CART:
       return {
         ...state,
@@ -143,13 +139,13 @@ export function rootReducer(state = initialState, action) {
         ...state,
         worker: action.payload,
       };
-    case GET_REVIEWS:
+    case POST_REVIEWS:
       return {
         ...state,
         reviews: action.payload,
       };
 
-    case POST_REVIEWS:
+    case GET_REVIEWS:
       return {
         ...state,
         reviews: action.payload,
@@ -173,16 +169,19 @@ export function rootReducer(state = initialState, action) {
 
     case FILTER_TOWN:
       let townf = [];
+      // let arra =[]
+      // console.log(action.payload[0].town, "PF");
       for (let i = 0; i < action.payload.length; i++) {
         action.payload.map((f) => {
           const all = townf.includes(action.payload[i].town);
-          console.log(typeof all, all);
+          // console.log(typeof all, all);
           if (all === false) {
             townf.push(action.payload[i].town);
           }
+          // return townf;
         });
       }
-      console.log(townf, "Z");
+      // console.log(townf, "Z");
       return { ...state, town: townf };
 
     case FILTER_BY_PROVINCE:
@@ -196,36 +195,7 @@ export function rootReducer(state = initialState, action) {
           (pf) => pf.town.toLowerCase() === action.payload.toLowerCase()
         );
       }
-
       return { ...state, allProfessionals: city };
-
-    case FILTER_BY_STATE:
-      let stat = [];
-      console.log(state.professionals, "stat");
-      if (action.payload === "All") {
-        stat = state.professionals;
-      }
-      if (!stat.length) {
-        stat = state.professionals.filter(
-          (pf) => pf.town.toLowerCase() === action.payload.toLowerCase()
-        );
-      }
-
-      return { ...state, allProfessionals: stat };
-
-    case FILTER_BY_COUNTRY:
-      let count = [];
-      console.log(state.professionals, "count");
-      if (action.payload === "All") {
-        count = state.professionals;
-      }
-      if (!count.length) {
-        count = state.professionals.filter(
-          (pf) => pf.town.toLowerCase() === action.payload.toLowerCase()
-        );
-      }
-
-      return { ...state, allProfessionals: count };
 
     case ORDER_BY_NAME:
       let arra;
@@ -259,40 +229,6 @@ export function rootReducer(state = initialState, action) {
       return {
         ...state,
         allProfessionals: arra,
-      };
-    // let orderAsc = state.professionals.slice().sort((a, b) => {
-    //   let professionalsA = a.name.toLowerCase();
-    //   let professionalsB = b.name.toLowerCase();
-
-    //   if (professionalsA > professionalsB) return 1;
-
-    //   if (professionalsB > professionalsA) return -1;
-
-    //   return 0;
-    // });
-
-    // const allProfessionalsProf = state.allProfessionals;
-    // const orderName =
-    //   action.payload === "asc" ? orderAsc : orderAsc.reverse();
-
-    // return {
-    //   ...state,
-    //   professionals: action.payload === "" ? allProfessionalsProf : orderName,
-    // };
-
-    case ORDER_BY_RATING:
-      let orderRatingAsc = state.professionals.slice().sort((a, b) => {
-        if (Number(a.rating) > Number(b.rating)) return 1;
-
-        if (Number(b.rating) > Number(a.rating)) return -1;
-
-        return 0;
-      });
-
-      return {
-        ...state,
-        professionals:
-          action.payload === "asc" ? orderRatingAsc : orderRatingAsc.reverse(),
       };
 
     default:
