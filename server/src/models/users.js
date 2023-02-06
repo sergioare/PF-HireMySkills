@@ -42,6 +42,10 @@ const users =
         type: DataTypes.BOOLEAN,
         defaultValue: false,
       },
+      sub: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      }
     },
     {
       timestamps: false,
