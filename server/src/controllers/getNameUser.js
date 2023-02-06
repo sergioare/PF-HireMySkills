@@ -11,7 +11,7 @@ const getNameUser = async (req, res, next) => {
             // const conincidencia = newUser.filter(us => us.name.toLowerCase().match(name.toLowerCase()));
             if (newUser) {
                 const filter = newUser.filter(us => us.name.toLowerCase() === name.toLowerCase());
-                console.log(filter[0].deleted, 'DELETE');
+                // console.log(filter[0].deleted, 'DELETE');
                 // if(filter[0].deleted === false) return res.send(filter);
                 if(filter) {
                     const map = filter.map(us => {
