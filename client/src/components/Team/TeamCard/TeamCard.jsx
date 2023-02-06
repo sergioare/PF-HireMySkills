@@ -17,8 +17,8 @@ const TeamCard = (props) => {
                   <h3 className="font-weight-bold m5-4 text-white">
                     {props.name}
                   </h3>
-                  <p>FullStack Developer</p>
-                  <p>About: {props.about} </p>
+                  <p>{props.prof}</p>
+                  <p>{props.about} </p>
                   <i className="far fa-edit-tie fa-2x mt-5"></i>
                 </div>
               </div>
