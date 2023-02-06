@@ -6,7 +6,6 @@ import code from "../../assets/code.jpg";
 import admin from "../../assets/admin.jpg";
 import Footer from "../Footer/Footer";
 
-
 const Landing = () => {
   return (
     <div className={styles.wrapper}>
@@ -48,7 +47,7 @@ const Landing = () => {
             </button>
 
             <button className={styles.border}>
-              <Link to='/account' className={styles.button}>
+              <Link to="/account" className={styles.button}>
                 Offer Services
               </Link>
             </button>
@@ -71,8 +70,8 @@ const Landing = () => {
           <div className={styles.container_description}>
             <div className={styles.subtitle}>Safety And Security</div>
 
-            <div className={styles.icons}> 
-            <i className="fa-solid fa-money-check-dollar"></i>
+            <div className={styles.icons}>
+              <i className="fa-solid fa-money-check-dollar"></i>
             </div>
 
             <p>
@@ -86,7 +85,7 @@ const Landing = () => {
             <div className={styles.subtitle}>Professional Staff</div>
 
             <div className={styles.icons}>
-            <i className="fa-solid fa-users"></i>
+              <i className="fa-solid fa-users"></i>
             </div>
 
             <p>
@@ -98,9 +97,9 @@ const Landing = () => {
 
           <div className={styles.container_description}>
             <div className={styles.subtitle}>Make at Home / TIPS</div>
-            
+
             <div className={styles.icons}>
-            <i className="fa-solid fa-house"></i>
+              <i className="fa-solid fa-house"></i>
             </div>
 
             <p>
@@ -113,23 +112,22 @@ const Landing = () => {
           <div className={styles.container_description}>
             <div className={styles.subtitle}>Customized Projects</div>
 
-            <div className={styles.icons}> 
-            <i className="fa-solid fa-hand-holding-hand"></i>
+            <div className={styles.icons}>
+              <i className="fa-solid fa-hand-holding-hand"></i>
             </div>
 
             <p>
-              "Each person is different and has different needs. For this reason,
-              is essential that each service provided by our professionals could
-              be customized to cover those requirements".
+              "Each person is different and has different needs. For this
+              reason, is essential that each service provided by our
+              professionals could be customized to cover those requirements".
             </p>
           </div>
 
           <div className={styles.container_description}>
             <div className={styles.subtitle}>Closer To You</div>
 
-            <div className={styles.icons}> 
-            <i className="fa-sharp fa-solid fa-comments"></i>
-           
+            <div className={styles.icons}>
+              <i className="fa-sharp fa-solid fa-comments"></i>
             </div>
 
             <p>
@@ -140,7 +138,6 @@ const Landing = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

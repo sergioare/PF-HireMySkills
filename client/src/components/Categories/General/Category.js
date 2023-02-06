@@ -6,7 +6,6 @@ import { getCategories } from "../../../redux/actions/actions";
 import styles from "./Category.module.css";
 import GeneralCategory from "./GeneralCategory";
 import NavBar from "../../Navbar/Navbar";
-import Footer from "../../Footer/Footer";
 import LoaderGeneral from "../../LoaderGeneral/LoaderGeneral";
 
 const Category = () => {
@@ -48,7 +47,6 @@ const Category = () => {
           </div>
         )}
       </div>
-      <Footer />
     </div>
   );
 };
