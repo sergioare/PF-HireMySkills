@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Formik, Field, Form, useFormik } from "formik";
-// import { validationSchema } from './validation';
+import { validationSchema } from "./validation";
 import * as Yup from "yup";
 import axios from "axios";
 import styles from "./FormStaff.module.css";
@@ -140,8 +140,7 @@ const FormStaff = () => {
           email: "",
           country: "",
           state: "",
-          city: "",
-          town: [],
+          town: "",
           contact: "",
           portfolio: "",
           skills: [],
@@ -151,12 +150,6 @@ const FormStaff = () => {
         onSubmit={(values) => {
           values.contact = phone;
           values.skills.push(prof_selected);
-          values.town.push({
-            country: values.country,
-            state: values.state,
-            city: values.city,
-          });
-
           values.photo = imageCloud;
           console.log(values, "estos son los values");
           axios
@@ -186,7 +179,7 @@ const FormStaff = () => {
           values,
           isSubmitting,
         }) => (
-          <Form>
+          <Form className={styles.Formprofessional}>
             <h6 className={styles.h6form}>Your name</h6>
             <Field
               type="text"
@@ -259,10 +252,10 @@ const FormStaff = () => {
 
             <Field
               as="select"
-              name="city"
+              name="town"
               onChange={(e) => handleChange(e)}
               // error={errors.town}
-              value={values.city}
+              value={values.town}
               className={styles.fieldTown}
             >
               <option>Select your City...</option>
@@ -304,15 +297,15 @@ const FormStaff = () => {
             <h6 className={styles.h6form}>Select your profession</h6>
             <Field
               as="select"
-              name="categoryselect"
-              id="categoryselect"
+              name="cat"
+              id="cat"
               onChange={(e) => {
                 console.log(e.target.value);
                 setCat_selected(e.target.value);
                 handleChange(e);
               }}
               // error={errors.skills}
-              value={values.categoryselect}
+              value={values.cat}
               className={styles.fieldProf}
             >
               <option>Select a Professional Category...</option>
@@ -355,6 +348,7 @@ const FormStaff = () => {
               name="description"
               onChange={handleChange}
               placeholder="Write a brief description about your work..."
+              className={styles.textareaform}
               // error={errors.description}
               value={values.description}
             />
