@@ -14,6 +14,7 @@ import {
   POST_PROFESSIONALS,
   POST_USER,
   POST_REVIEWS,
+  GET_REVIEWS,
   ORDER_BY_RATING,
   ORDER_BY_NAME,
   ORDER_BY_REVIEWS,
@@ -21,6 +22,8 @@ import {
   FILTER_BY_PROFESSION,
   FILTER_BY_PROVINCE,
   FILTER_TOWN,
+  FILTER_BY_STATE,
+  FILTER_BY_COUNTRY,
   DELETE_SERVICE,
   DELETE_PROFILE,
   DELETE_USER,
@@ -105,6 +108,18 @@ export function filterByProvince(town) {
     payload: town,
   };
 }
+export function filterByState(state) {
+  return {
+    type: FILTER_BY_STATE,
+    payload: state,
+  };
+}
+export function filterByCountry(country) {
+  return {
+    type: FILTER_BY_COUNTRY,
+    payload: country,
+  };
+}
 export function filterTown() {
   return async function (dispatch) {
     await axios.get(urlProfessionals).then((response) => {
@@ -147,23 +162,23 @@ export function orderByReviews(payload) {
   };
 }
 
-// export function addToCart(service){
-//     return async function(dispatch){
-//         axios.post(urlShoppingcart, service)
-//         .then(res=>
-//             dispatch({type:ADD_TO_CART, payload: res.data}))
-//     }
-// }
 export const addToCart = (id) => ({
   type: ADD_TO_CART,
   payload: id,
 });
 
-export function postReviews(message) {
+export function postReviews(id, message) {
   return async function (dispatch) {
-    axios
+    await axios
       .post(urlReviews, message)
       .then((res) => dispatch({ type: POST_REVIEWS, payload: res.data }));
+  };
+}
+export function getReviews() {
+  return async function (dispatch) {
+    await axios
+      .get(urlReviews)
+      .then((res) => dispatch({ type: GET_REVIEWS, payload: res.data }));
   };
 }
 
@@ -176,13 +191,6 @@ export const clearCart = () => ({
   type: CLEAR_CART,
 });
 
-// export function deleteFromCart(service){
-//     return async function(dispatch){
-//         axios.delete(`${urlShoppingcart}/${service}`)
-//         .then(res=>
-//         dispatch({type:DELETE_TO_CART, payload:service}))
-//     }
-// }
 export function postService(data) {
   return async function (dispatch) {
     axios

@@ -12,6 +12,8 @@ import NavBar from "../../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import imgDefault from "../../../assets/imgDefault.jpg";
 import Services from "../../Services/Services";
+import Review from "../../Review/Review";
+import Stars from "../../Stars/Stars";
 
 const Professional = () => {
   const { id } = useParams();
@@ -58,15 +60,14 @@ const Professional = () => {
                   <p className={styles.detText}>
                     <b>Town: </b>
                     <span className={styles.detSpan}>
-                      {detailProfessional.town}
+                      {detailProfessional.town}-{detailProfessional.state}-
+                      {detailProfessional.country}
                     </span>
                   </p>
                   <p className={styles.detText}>
                     <b>Score: </b>
-                    <span className={styles.detSpan}>
-                      {detailProfessional.rating}
-                    </span>
                   </p>
+                  <Stars value={detailProfessional.rating} />
                   <p className={styles.detText}>
                     <b>Professions: </b>
                     <span className={styles.detSpan}>
@@ -90,6 +91,11 @@ const Professional = () => {
                       />
                     ))}
                   </article>
+                  {/* --------Review------... */}
+                  <div className={styles.divReview}>
+                    <hr />
+                    <Review />
+                  </div>
                 </div>
               </div>
             </div>

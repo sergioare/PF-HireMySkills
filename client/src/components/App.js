@@ -17,7 +17,7 @@ import FormServices from "./Services/Form/FormServices";
 import Contact from "./Contact-Us/Contact";
 import ShoppingCart from "./Shopping/ShoppingCart";
 import UserType from "./UserType/UserType";
-import Profile from "./SignIn/Profile/Profile";
+import ProfileProfessional from "./ProfileProfessional/ProfileProfessional";
 
 function App() {
   return (
@@ -50,12 +50,14 @@ function App() {
 
           <Route path="/usertype" element={<UserType />} />
 
-          <Route path="/profile_professional" element={<Profile />} />
+          <Route
+            path="/profile-professional"
+            element={<ProfileProfessional />}
+          />
 
           {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
         </Routes>
       </Fragment>
-      {/* <Footer/> */}
     </BrowserRouter>
   );
 }

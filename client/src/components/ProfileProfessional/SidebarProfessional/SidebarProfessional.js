@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import styles from "./Sidebar.module.css";
+import styles from "./SidebarProfessional.module.css";
 
-const Sidebar = () => {
+const SidebarProfessional = () => {
   return (
     <div className={styles.divSidebar}>
       <ul>
@@ -51,4 +51,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default SidebarProfessional;

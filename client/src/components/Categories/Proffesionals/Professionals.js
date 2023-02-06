@@ -7,6 +7,7 @@ import Footer from "../../Footer/Footer";
 import { getProfessionals } from "../../../redux/actions/actions";
 import styles from "./Professionals.module.css";
 import imgDefault from "../../../assets/imgDefault.jpg";
+import Stars from "../../Stars/Stars";
 
 function Professionals() {
   const { id } = useParams();
@@ -48,18 +49,8 @@ function Professionals() {
                   </div>
                 </Link>
 
-                <span
-                  className={styles.profRating}
-                  style={
-                    wr.rating < 2
-                      ? { backgroundColor: "rgb(255, 77, 91)" }
-                      : wr.rating < 4
-                      ? { backgroundColor: "rgb(253, 158, 81)" }
-                      : { backgroundColor: "rgb(4, 201, 4)" }
-                  }
-                >
-                  Rating: {wr.rating}
-                </span>
+                <span className={styles.profRating}>Rating:</span>
+                <Stars value={wr.rating} />
                 <h3 className={styles.description}>Profile:</h3>
                 <p className={styles.profDescrip}>{wr.description}</p>
                 <div className={styles.divBtn}>

@@ -13,10 +13,13 @@ import {
   POST_PROFESSIONALS,
   POST_USER,
   POST_REVIEWS,
+  GET_REVIEWS,
   ORDER_BY_RATING,
   ORDER_BY_NAME,
   GET_PROFESSIONALS_BY_PROFESSION,
   FILTER_TOWN,
+  FILTER_BY_STATE,
+  FILTER_BY_COUNTRY,
   ORDER_BY_REVIEWS,
   FILTER_BY_PROVINCE,
   DELETE_SERVICE,
@@ -140,6 +143,17 @@ export function rootReducer(state = initialState, action) {
         ...state,
         worker: action.payload,
       };
+    case GET_REVIEWS:
+      return {
+        ...state,
+        reviews: action.payload,
+      };
+
+    case POST_REVIEWS:
+      return {
+        ...state,
+        reviews: action.payload,
+      };
 
     //--------------Filter by profession------------
     case FILTER_BY_PROFESSION:
@@ -159,8 +173,6 @@ export function rootReducer(state = initialState, action) {
 
     case FILTER_TOWN:
       let townf = [];
-      // let arra =[]
-      // console.log(action.payload[0].town, "PF");
       for (let i = 0; i < action.payload.length; i++) {
         action.payload.map((f) => {
           const all = townf.includes(action.payload[i].town);
@@ -168,7 +180,6 @@ export function rootReducer(state = initialState, action) {
           if (all === false) {
             townf.push(action.payload[i].town);
           }
-          // return townf;
         });
       }
       console.log(townf, "Z");
@@ -186,15 +197,41 @@ export function rootReducer(state = initialState, action) {
         );
       }
 
-      // for (let i = 0; i < state.professionals.length; i++) {
-      //   if (action.payload !== state.professionals[i].town)
-      //     city.push(action.payload);
-      // }
-
       return { ...state, allProfessionals: city };
+
+    case FILTER_BY_STATE:
+      let stat = [];
+      console.log(state.professionals, "stat");
+      if (action.payload === "All") {
+        stat = state.professionals;
+      }
+      if (!stat.length) {
+        stat = state.professionals.filter(
+          (pf) => pf.town.toLowerCase() === action.payload.toLowerCase()
+        );
+      }
+
+      return { ...state, allProfessionals: stat };
+
+    case FILTER_BY_COUNTRY:
+      let count = [];
+      console.log(state.professionals, "count");
+      if (action.payload === "All") {
+        count = state.professionals;
+      }
+      if (!count.length) {
+        count = state.professionals.filter(
+          (pf) => pf.town.toLowerCase() === action.payload.toLowerCase()
+        );
+      }
+
+      return { ...state, allProfessionals: count };
 
     case ORDER_BY_NAME:
       let arra;
+      if (action.payload === "select") {
+        arra = state.professionals;
+      }
       if (action.payload === "asc") {
         arra = state.allProfessionals.sort((a, b) => {
           if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;

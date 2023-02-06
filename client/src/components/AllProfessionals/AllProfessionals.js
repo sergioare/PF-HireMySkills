@@ -11,9 +11,12 @@ import {
   getSubCategory,
   orderByName,
   filterTown,
+  filterByState,
+  filterByCountry,
 } from "../../redux/actions/actions";
 import styles from "../AllProfessionals/AllProfessionals.module.css";
 import imgDefault from "../../assets/imgDefault.jpg";
+import Stars from "../Stars/Stars";
 
 const AllProfessionals = () => {
   const [act, setAct] = useState(false);
@@ -21,25 +24,29 @@ const AllProfessionals = () => {
   const allProfessionals = useSelector((state) => state.allProfessionals);
   const profession = useSelector((state) => state.subCategory);
   const town = useSelector((state) => state.town);
-  // const prueba = useSelector((state) => state.allProfessionals);
-  console.log(town, "A");
-  // console.log(profession, "B");
+  const stat = useSelector((state) => state.allProfessionals);
+  const country = useSelector((state) => state.allProfessionals);
 
   //  ----------- filter------------
   const handlerprofession = (e) => {
     e.preventDefault();
-    // console.log(e.target.value);
     dispatch(filterByProfession(e.target.value));
   };
   const handlerprovince = (e) => {
     e.preventDefault();
-    // console.log(e.target.value, "W");
     dispatch(filterByProvince(e.target.value));
+  };
+  const handlerstate = (e) => {
+    e.preventDefault();
+    dispatch(filterByState(e.target.value));
+  };
+  const handlercountry = (e) => {
+    e.preventDefault();
+    dispatch(filterByCountry(e.target.value));
   };
 
   const handlerByName = (e) => {
     e.preventDefault();
-    // console.log(e.target.value);
     dispatch(orderByName(e.target.value));
     if (act === true) setAct(false);
     else setAct(true);
@@ -50,12 +57,6 @@ const AllProfessionals = () => {
     dispatch(getProfessionals());
     dispatch(getSubCategory());
   }, [dispatch]);
-  // console.log(allProfessionals);
-  // let aux = []
-  // for (let i = 0; i < allProfessionals.length; i++) {
-  //  if()
-
-  // }
 
   return (
     <div className={styles.divAllProfessionals}>
@@ -103,6 +104,42 @@ const AllProfessionals = () => {
                 ))}
             </select>
           </div>
+          {/* ----Filter state--------*/}
+          <div className={styles.allFilterState}>
+            <p className="px-2 d-inline-block">STATE</p>
+
+            <select
+              onChange={(e) => handlerstate(e)}
+              className={styles.select}
+              defaultValue="All"
+            >
+              <option value="All">All</option>
+              {stat.length &&
+                stat.map((stat) => (
+                  <option value={stat} key={stat}>
+                    {stat.state}
+                  </option>
+                ))}
+            </select>
+          </div>
+          {/* ----Filter state--------*/}
+          <div className={styles.allFilterState}>
+            <p className="px-2 d-inline-block">COUNTRY</p>
+
+            <select
+              onChange={(e) => handlercountry(e)}
+              className={styles.select}
+              defaultValue="All"
+            >
+              <option value="All">All</option>
+              {country.length &&
+                country.map((count) => (
+                  <option value={count} key={count}>
+                    {count.country}
+                  </option>
+                ))}
+            </select>
+          </div>
           {/* -----------Order name---------- */}
 
           <div className={styles.orderNameRating}>
@@ -117,7 +154,7 @@ const AllProfessionals = () => {
                   onChange={(e) => handlerByName(e)}
                   className={styles.selects}
                 >
-                  <option value="">--Select--</option>
+                  <option value="select">--Select--</option>
                   <option value="asc">(A - Z)</option>
                   <option value="desc">(Z - A)</option>
                 </select>
@@ -129,7 +166,7 @@ const AllProfessionals = () => {
                   onChange={(e) => handlerByName(e)}
                   className={styles.selects}
                 >
-                  <option value="">--Select--</option>
+                  <option value="select">--Select--</option>
                   <option value="min">Min</option>
                   <option value="max">Máx</option>
                 </select>
@@ -160,19 +197,8 @@ const AllProfessionals = () => {
                         />
                       </div>
                     </Link>
-
-                    <span
-                      className={styles.profRating}
-                      style={
-                        prof.rating < 2
-                          ? { backgroundColor: "rgb(255, 77, 91)" }
-                          : prof.rating < 4
-                          ? { backgroundColor: "rgb(253, 158, 81)" }
-                          : { backgroundColor: "rgb(4, 201, 4)" }
-                      }
-                    >
-                      Rating: {prof.rating}
-                    </span>
+                    <span className={styles.profRating}>Rating:</span>
+                    <Stars value={prof.rating} />
                     <h3 className={styles.description}>Profile:</h3>
                     <p className={styles.profDescrip}>{prof.description}</p>
                     <div className={styles.divBtn}>
@@ -183,14 +209,7 @@ const AllProfessionals = () => {
               })}
             </div>
           ) : (
-            <div className={styles.divLoading}>
-              <img
-                className={styles.loading}
-                src="https://img1.picmix.com/output/stamp/normal/8/5/2/9/509258_fb107.gif"
-                alt="Img not found"
-                width="150px"
-              />
-            </div>
+            <h1 className={styles.notProf}>Not found professionals</h1>
           )}
         </div>
       </div>
