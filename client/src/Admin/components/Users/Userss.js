@@ -1,8 +1,8 @@
 import React,{useState} from 'react'
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { useEffect } from 'react';
 // import {Paper, Avatar, IconButton, Table, TableContainer, TableHead, TableRow,TableCell,TableBody} from '@material-ui/core';
-import { deleteUser } from '../../../redux/actions/actions';
+import { deleteUser, getUser } from '../../../redux/actions/actions';
 
 import Sidebar from '../Sidebar';
 import styles from './Users.module.css'
@@ -14,23 +14,29 @@ import { Table, Button } from 'react-bootstrap';
 
 
 function Userss() {
-    const dispatch = useDispatch();
-    const history = useNavigate()
-    // const users = useSelector((state)=>state.user)
 
+    const dispatch = useDispatch();
+  
+    const history = useNavigate()
+    const users = useSelector((state)=>state.user)
+    
     // console.log(users)
     
     
 
-    const [users, setUsers] = useState([])
+    // const [users, setUsers] = useState([])
+    // useEffect(()=>{
+    //     const fetchData = async () => {
+    //         const result = await axios.get('https://hiremyskillsbackend.onrender.com/users');
+    //         setUsers(result.data);
+    //       };
+    //       fetchData();
+    //     },[])
     useEffect(()=>{
-        const fetchData = async () => {
-            const result = await axios.get('https://hiremyskillsbackend.onrender.com/users');
-            setUsers(result.data);
-          };
-          fetchData();
-        },[])
- console.log(users)
+      dispatch(getUser())
+    },[dispatch])
+
+//  console.log("ZZZZZZZZZZZZZZZZZZZZ",users[0].deleted)
 
 // const handleDeactivate = (id)=>{
 //     dispatch(deleteUser())
@@ -38,7 +44,7 @@ function Userss() {
 // const aux = users.filter((user)=> user.deleted === true )
 // console.log(aux)
 
-const handleDelete = (id)=>{
+const handleDelete = (e, id)=>{
     console.log(id , "AAAAA")
     // e.preventDefault()
     dispatch(deleteUser(id))
@@ -47,6 +53,8 @@ const handleDelete = (id)=>{
     
 }
 
+
+
     return (
     <>
     <div className={styles.components}>
@@ -54,7 +62,7 @@ const handleDelete = (id)=>{
         <div>
         <Sidebar/>
         </div>
-        <Table striped bordered hover>
+        <Table bordered hover>
       <thead>
         <tr>
           <th>ID</th>
@@ -66,7 +74,7 @@ const handleDelete = (id)=>{
         </tr>
       </thead>
       <tbody>
-        {users.map(user => (
+        {users.length>0 ? users.map(user => (
           <tr key={user.id}>
             <td>{user.id}</td>
             <td>{user.name}</td>
@@ -75,10 +83,15 @@ const handleDelete = (id)=>{
             <td>{user.town}</td>
             <td>
               <Button   variant="warning">Edit</Button>{' '}
-              <Button onClick={()=>handleDelete(user.id)}  value={user.id} variant="danger" size='small'>Delete</Button>
+
+
+              {user.deleted === false ? <Button onClick={(e)=>handleDelete(e, user.id)}  value={user.id} variant="danger" size='small'>Delete</Button>
+              
+              : <Button onClick={(e)=>handleDelete(e, user.id)}  value={user.id} variant="warning" size='small'>Active</Button>}
+              
             </td>
           </tr>
-        ))}
+        )): null}
       </tbody>
     </Table>
     </div>

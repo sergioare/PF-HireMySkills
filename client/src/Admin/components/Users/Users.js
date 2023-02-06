@@ -27,11 +27,11 @@ function Users() {
 // const aux = users.filter((user)=> user.deleted === true )
 // console.log(aux)
 
-const handleDelete = (id)=>{
+const handleDelete = (e,id)=>{
     console.log(id , "AAAAA")
-    // e.preventDefault()
-    dispatch(deleteUser(id))
-    history('/admin/users')
+    e.preventDefault()
+    dispatch(deleteUser(e,id))
+    // history('/admin/users')
     
 }
 
@@ -55,7 +55,7 @@ const handleDelete = (id)=>{
                    </TableRow>
                 </TableHead>
                 <TableBody>
-                    {Array.isArray(users) ? users.map((user)=>(
+                    {users.length>0 ? users.map((user)=>(
                         <TableRow hover className={styles.tableRow} key={user.id}>
                             <TableCell>{user.id}</TableCell>
                             <TableCell>{user.name}</TableCell>
@@ -68,7 +68,7 @@ const handleDelete = (id)=>{
                                     <EditOutlined/>
                                 </IconButton>
                     
-                                <IconButton onClick={(e)=>handleDelete(user.id)} value= {user.id}  color={'secondary'} size='small'>
+                                <IconButton onClick={(e)=>handleDelete(e,user.id)} value= {user.id}  color={'secondary'} size='small'>
                                     <DeleteForeverOutlined/>
                                 </IconButton>
                                 {/* <button

@@ -1,4 +1,7 @@
-
+/* 
+*{
+    color:aliceblue;
+} */
 .components{
     display: flex;
     align-items:flex-start;
@@ -6,6 +9,7 @@
 .table{
     display: contents;
     align-items:flex-start;
+    color:rgb(223, 223, 223)
 }
 
 .tableRow{

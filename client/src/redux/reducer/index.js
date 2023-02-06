@@ -35,6 +35,7 @@ export const initialState = {
   subCategory: [],
   town: [],
   user:[],
+  userDelete:[],
   professionals:[],
   services:[],
   reviews:[],
@@ -263,15 +264,15 @@ case FILTER_BY_PROVINCE:
           action.payload === "asc" ? orderRatingAsc : orderRatingAsc.reverse(),
       };
       case GET_USER:
-       
+       console.log("PAAYLOAD", action.payload)
         return{
           ...state,
-          user: action.payload
+          user: action.payload,
         }
       case DELETE_USER:
         return {
           ...state,
-          user:action.payload
+          userDelete:action.payload
         }
       
 
