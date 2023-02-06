@@ -9,7 +9,7 @@ const createUser = async (req, res, next) => {
     // console.log(userName, "REPETIDO");
     // console.log(userFind, "REPETIDO");
 
-    if (!name || !contact || !email)
+    if (!name || !email)
       return res.send({ message: "data required" });
     if (userFind.length) return res.send({ message: "User already exists" });
     await users.create({ name, photo, email, town, contact });
