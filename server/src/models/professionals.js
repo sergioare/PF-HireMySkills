@@ -37,6 +37,16 @@ const professionals =
         type: DataTypes.STRING,
         allowNull: false,
       },
+      state: {
+        //lugar donde esta ubicado
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      country: {
+        //lugar donde esta ubicado
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       contact: {
         // numero del profesional
         type: DataTypes.TEXT,
@@ -46,6 +56,7 @@ const professionals =
         type: DataTypes.DECIMAL(3, 2),
         defaultValue: 5.0,
       },
+
       count: {
         type: DataTypes.INTEGER,
         defaultValue: 1,

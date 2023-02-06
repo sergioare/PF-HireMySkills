@@ -16,33 +16,60 @@ const getDBInfo = async (req, res) => {
           },
         ],
       });
-      console.log(get, 'GET');
-      const filer = get.filter(pf => pf.deleted === false)
+      console.log(get, "GET");
+      const filer = get.filter((pf) => pf.deleted === false);
       res.send(filer);
     } else {
       const getname = await professionals.findAll();
-      const filter = getname.filter((e) => e.name.toLowerCase() === name.toLowerCase());
-      if(filter.deleted === false) return res.send(filter);
+      const filter = getname.filter(
+        (e) => e.name.toLowerCase() === name.toLowerCase()
+      );
+      if (filter.deleted === false) return res.send(filter);
       else return res.send({ message: error });
     }
   } catch (error) {
     res.send({ message: error });
-  };
+  }
 };
 // ruta crear professional
 const postcreateprofessional = async (req, res) => {
-  const { name, description, photo, email, town, contact, portfolio, skills } = req.body;
+  const {
+    name,
+    description,
+    photo,
+    email,
+    town,
+    state,
+    country,
+    contact,
+    portfolio,
+    skills,
+  } = req.body;
   // console.log(req.body, "::: es aqui");
   try {
     const repetido = await professionals.findOne({ where: { email: email } });
-    if (repetido) return res.send("Professional already exists");
+    if (repetido) return res.status(400).send("Professional already exists");
 
     // verificamos que se llene el formulario
 
-    if (!name || !skills || !email || !town || !contact) return res.status(400).send("insert information");
+    if (!name || !skills || !email || !town || !contact)
+      return res.status(400).send("insert information");
     // se crea nuevo presta servicios
-    const newProfes = await professionals.create({ name, description, photo, email, town, contact, portfolio, skills });
-    const newProfesion = await Profession.findAll({ where: { profession: skills } });
+    const newProfes = await professionals.create({
+      name,
+      description,
+      photo,
+      email,
+      town,
+      state,
+      country,
+      contact,
+      portfolio,
+      skills,
+    });
+    const newProfesion = await Profession.findAll({
+      where: { profession: skills },
+    });
     newProfes.addProfession(newProfesion);
 
     res.send("created successfully");
