@@ -13,33 +13,33 @@ const patchUser = async (req, res) => {
                 email: email,
                 contact: contact
             }, { where: { id: id } })
-            console.log(user, 'USER');
+            // console.log(user, 'USER');
             return user
         }
         if(name) {
             const user = await users.update({ name: name }, { where: { id: id }});
-            console.log(user, 'USER name');
+            // console.log(user, 'USER name');
         }
         if(photo) {
             const user = await users.update({ photo: photo }, { where: { id: id }});
-            console.log(user, 'USER photo');
+            // console.log(user, 'USER photo');
         }
         if(town) {
             const user = await users.update({ town: town }, { where: { id: id }});
-            console.log(user, 'USER town');
+            // console.log(user, 'USER town');
         }
         if(email) {
             const user = await users.update({ email: email }, { where: { id: id }});
-            console.log(user, 'USER email');
+            // console.log(user, 'USER email');
         }
         if(contact) {
             const user = await users.update({ contact: contact }, { where: { id: id }});
-            console.log(user, 'USER contact');
+            // console.log(user, 'USER contact');
         }
         // if(name) }
         // await user.save()
 
-        res.send(user);
+        res.send({ message: 'Modified user' });
     } catch (error) {
         res.send({ message: error.message });
     };

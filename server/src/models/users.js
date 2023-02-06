@@ -35,7 +35,7 @@ const users =
       contact: {
         // numero del profesional
         type: DataTypes.STRING,
-        allowNull: false,
+        // allowNull: false,
       },
       deleted: {
         //borrado logico
