@@ -5,6 +5,7 @@
   background-image: linear-gradient(to top, #000000 0%, #330867 100%);
   word-spacing: 0.6vw;
   text-decoration: none;
+  z-index: 100;
 }
 
 .nabvar {

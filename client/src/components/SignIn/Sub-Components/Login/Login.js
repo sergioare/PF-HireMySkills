@@ -38,7 +38,11 @@ const Login = () => {
     submitUser();
   };
 
-  return <button onClick={() => logg()}>Login</button>;
+  return (
+    <button onClick={() => logg()} className="btn btn-outline-light">
+      Login
+    </button>
+  );
 };
 
 export default Login;

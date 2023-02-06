@@ -18,7 +18,7 @@ const TeamCard = (props) => {
                     {props.name}
                   </h3>
                   <p>FullStack Developer</p>
-                  <p>About: {props.about} </p>
+                  <p>{props.about} </p>
                   <i className="far fa-edit-tie fa-2x mt-5"></i>
                 </div>
               </div>
