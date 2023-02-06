@@ -16,7 +16,7 @@ import { Table, Button } from 'react-bootstrap';
 function Userss() {
 
     const dispatch = useDispatch();
-  
+    const [input, setInput]=useState([""])
     const history = useNavigate()
     const users = useSelector((state)=>state.user)
     
