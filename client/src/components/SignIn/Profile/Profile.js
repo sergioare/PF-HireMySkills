@@ -1,9 +1,21 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import UserType from "../../UserType/UserType";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { postUser } from "../../../redux/actions/actions";
 
 const Profile = () => {
   const { user, isAuthenticated } = useAuth0();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const { name, email, picture, sub } = user;
+
+    const photo = picture;
+
+    dispatch(postUser({ name, email, photo, sub }));
+  }, [dispatch]);
 
   return (
     isAuthenticated && (
