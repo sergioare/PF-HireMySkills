@@ -45,6 +45,10 @@ const users =
       sub: {
         type: DataTypes.STRING,
         allowNull: true,
+      },
+      token: {
+        type: DataTypes.STRING,
+        allowNull: true,
       }
     },
     {
