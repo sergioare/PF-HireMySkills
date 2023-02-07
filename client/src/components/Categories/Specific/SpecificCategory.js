@@ -33,7 +33,7 @@ const SpecificCategory = () => {
       <h2 className="text-center text-white" style={{ margin: "4%" }}>
         Sub-Categories
       </h2>
-      <div className="container  h-100">
+      <div className="container  h-100" style={{ minHeight: "100vh" }}>
         {aux.length > 0 ? (
           <div className="row">
             {aux.map((cat) => (

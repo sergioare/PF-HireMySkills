@@ -1,6 +1,6 @@
 .divProfessional {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   color: black;
 }
 .profBtn button {
@@ -11,10 +11,10 @@
 }
 .profBtn button i {
   font-size: 3.5rem;
-  color: tomato;
+  color: rgb(255, 255, 255);
 }
 .profBtn button i:hover {
-  color: #076b72;
+  color: #721007;
 }
 .divDet {
   width: 80%;
