@@ -11,6 +11,7 @@ const pay = require("./pay.js");
 const email = require("./email.js");
 const contactus = require("./contactus.js");
 const filters = require('./filters')
+const checkout = require("./paymentCheckout")
 
 router.use("/category", category); //crear categorias y hacer put
 router.use("/profession", profession); // crear profession
@@ -23,5 +24,6 @@ router.use("/pay", pay);
 router.use("/email", email); // plantilla para envio de notificaciones por mail
 router.use("/contactus", contactus); // para el formulario Contact Us
 router.use('/filters', filters);
+router.use("/checkout", checkout);
 
 module.exports = router;

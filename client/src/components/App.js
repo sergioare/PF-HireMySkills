@@ -20,6 +20,7 @@ import UserType from "./UserType/UserType";
 import Profile from "./SignIn/Profile/Profile";
 import TeamCards from "./Team/TeamCards/TeamCards";
 import Category from "./Categories/General/Category";
+import DashboardProfessional from "./ProfileProfessional/DashboardProfessional";
 
 function App() {
   return (
@@ -53,7 +54,7 @@ function App() {
 
           <Route path="/usertype" element={<UserType />} />
 
-          <Route path="/profile_professional" element={<Profile />} />
+          <Route path="/professionalDashboard" element={<DashboardProfessional />} />
 
           {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
         </Routes>
