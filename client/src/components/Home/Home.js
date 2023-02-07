@@ -41,7 +41,6 @@ const Home = () => {
       <div className="container">
         <CatHome />
       </div>
-      <div className={styles.containerThree}></div>
     </div>
   );
 };

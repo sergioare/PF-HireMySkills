@@ -155,10 +155,7 @@ const AllProfessionals = () => {
             <div className="row">
               {allProfessionals.map((prof) => {
                 return (
-                  <div
-                    key={prof.id}
-                    className="col-md-12 d-flex justify-content-around"
-                  >
+                  <div key={prof.id} className="col-md-4">
                     <ShowCard
                       name={prof.name}
                       photo={prof.photo}

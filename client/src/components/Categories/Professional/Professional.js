@@ -9,7 +9,6 @@ import {
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "../Professional/Professional.module.css";
 import NavBar from "../../Navbar/Navbar";
-import Footer from "../../Footer/Footer";
 import imgDefault from "../../../assets/imgDefault.jpg";
 import Services from "../../Services/Services";
 
@@ -105,10 +104,8 @@ const Professional = () => {
           )}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
 
 export default Professional;
-
