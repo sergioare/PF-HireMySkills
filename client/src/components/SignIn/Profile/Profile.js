@@ -29,8 +29,8 @@ const Profile = () => {
               borderRadius: "50%",
             }}
           />
-          <h3 className="text-center text-white">{user.name}</h3>
-          <p className="text-center text-white">Email: {user.email}</p>
+          <h3 className="text-center text-white mt-5">{user.name}</h3>
+          <p className="text-center text-white mb-5">Email: {user.email}</p>
         </div>
         <div className="container">
           <div

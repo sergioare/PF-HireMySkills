@@ -1,0 +1,8 @@
+/* .divteamabout {
+  overflow: auto;
+  height: 250px;
+} */
+
+.divteamabout::-webkit-scrollbar {
+  display: none;
+}

@@ -51,7 +51,6 @@ const SpecificCategory = () => {
           </div>
         )}
       </div>
-      <Footer />
     </div>
   );
   {

@@ -29,11 +29,19 @@ const UserType = () => {
     <div className={styles.container}>
       <div className="row d-flex justify-content-evenly">
         {images.map((image, index) => (
-          <div key={index} className="col-md-6">
+          <div
+            key={index}
+            className="col-md-6 row d-flex justify-content-center align-items-center mb-5"
+          >
             <img
               src={image.src}
               alt={image.alt}
               className="object-fit-contain"
+              style={{
+                width: "13em",
+                height: "11em",
+                borderRadius: "50%",
+              }}
             />
             <h5 className="text-center text-white">{image.description}</h5>
             <Link to={image.link}>
@@ -41,7 +49,7 @@ const UserType = () => {
                 className="d-flex align-items-center justify-content-center"
                 style={{ textDecoration: "none" }}
               >
-                <button className="btn btn-light">Select</button>
+                <button className="btn btn-light mt-3">Select</button>
               </div>
             </Link>
           </div>
