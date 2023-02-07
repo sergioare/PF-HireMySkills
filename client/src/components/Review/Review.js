@@ -3,42 +3,30 @@ import styles from "./Review.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import pictureDefault from "../../assets/pictureDefault.png";
 import { useParams } from "react-router-dom";
-import { getReviews, postReviews } from "../../redux/actions/actions";
-// import { FaStar } from "react-icons/fa";
+import {
+  getReviews,
+  postReviews,
+  getProfessionalReview,
+} from "../../redux/actions/actions";
 import { Label, Textarea, Button } from "flowbite-react";
 import ReactStars from "react-rating-stars-component";
+import Stars from "../Stars/Stars";
 
 const Review = () => {
-  const [input, setInput] = useState({
-    comment: "",
-    // rating: 0,
-    userId: "e9deef10-c517-42da-858c-5e042dcfe9ce",
-    professionalId: "7092aff9-9536-4099-87c2-f9f1438cb246",
-  });
   const { id } = useParams();
   const dispatch = useDispatch();
-  const review = useSelector((state) => state.review);
+  const reviews = useSelector((state) => state.reviews);
+
+  console.log(id, "id");
+  const [input, setInput] = useState({
+    review_comment: "",
+    userId: "685427dc-0be7-4591-b82f-f2567355b4f4",
+    professionalId: id,
+  });
 
   useEffect(() => {
-    dispatch(getReviews(id));
+    dispatch(getProfessionalReview(id));
   }, [dispatch, id]);
-  //   const [currentValue, setcurrentValue] = useState({
-  //     rating: "",
-  //   });
-  //   const [hoverValue, sethoverValue] = useState(undefined);
-  //   const stars = Array(5).fill(0);
-
-  //   const handleMouse = (e, newValue) => {
-  //     console.log(e, "T");
-  //     sethoverValue(newValue);
-  //     // setInput({
-  //     //   ...input,
-  //     //   rating: newValue,
-  //     // });
-  //   };
-  //   const handleMouseLeave = () => {
-  //     sethoverValue(undefined);
-  //   };
 
   const handleChange = (ev) => {
     setInput({
@@ -47,42 +35,21 @@ const Review = () => {
     });
   };
 
-  //   const handleClick = (e) => {
-  //     console.log(e.target.value, "W");
-  //     setInput((state) => {
-  //       const newState = {
-  //         ...state,
-  //         [e.target.name]: e.target.value,
-  //       };
-  //       return newState;
-  //     });
-  //   };
-
   const handleSubmit = (ev) => {
+    // console.log(input);
     ev.preventDefault();
-    setInput({
-      comment: "",
-      rating: 0,
-      userId: "e9deef10-c517-42da-858c-5e042dcfe9ce",
-      professionalId: "7092aff9-9536-4099-87c2-f9f1438cb246",
-    });
-    dispatch(postReviews(input));
     dispatch(getReviews());
-    // setcurrentValue({
-    //   rating: "",
-    // });
+    return dispatch(postReviews(input));
   };
-  //   console.log(handleSubmit, "submit");
-  let btndisabled = !(input.rating === 0 && input.comment.length);
 
   const secondExample = {
-    size: 20,
+    size: 25,
     count: 5,
     color: "black",
     activeColor: "#ecea4c",
     value: input.rating,
     a11y: true,
-    isHalf: true,
+    isHalf: false,
     emptyIcon: <i className="far fa-star" />,
     halfIcon: <i className="fa fa-star-half-alt" />,
     filledIcon: <i className="fa fa-star" />,
@@ -90,7 +57,7 @@ const Review = () => {
       console.log(`new value is ${newValue}`);
       setInput({
         ...input,
-        rating: newValue,
+        review_rating: newValue,
       });
     },
   };
@@ -98,33 +65,11 @@ const Review = () => {
   return (
     <div className={styles.review}>
       <hr />
-      <div>
-        <div className={styles.review}>¡Write your review!</div>
+      <div className="w-100">
+        <div className={styles.reviewTitle}>¡Write your review!</div>
         <form onSubmit={handleSubmit}>
           <div className={styles.stars}>
             <ReactStars {...secondExample} />
-            {/* {stars.map((_, index) => {
-              return (
-                <div>
-                  <FaStar
-                    className={
-                      (hoverValue || input.rating) > index
-                        ? styles.yellow
-                        : styles.gray
-                    }
-                    key={index}
-                    // onMouseOver={(e) => handleChange(e)}
-                    onMouseOver={(e) => {
-                      handleMouse(e, index + 1);
-                      handleChange(index + 1);
-                    }}
-                    onMouseLeave={handleMouseLeave}
-                    name="rating"
-                    value={input.rating}
-                  />
-                </div>
-              );
-            })} */}
           </div>
           <div id="textarea">
             <div className="mb-2 block">
@@ -134,11 +79,10 @@ const Review = () => {
               id="comment"
               placeholder="Please leave your comments..."
               required={true}
-              rows={8}
               onChange={(e) => handleChange(e)}
-              name="comment"
-              value={input.comment}
-              className="fs-5"
+              name="review_comment"
+              value={input.review_comment}
+              className="fs-6 w-100"
             />
           </div>
           <Button
@@ -146,31 +90,51 @@ const Review = () => {
             type="submit"
             className={styles.Button}
           >
-            Comments
+            Comment
           </Button>
         </form>
       </div>
       {/* ---------review-------- */}
+      <br />
       <hr />
       <div className={styles.rewTitle}>
         <p>Comments</p>
       </div>
       <div className={styles.rewContainer}>
-        <div className={styles.rewProfile}>
-          <div className={styles.rewHeader}>
-            <div className={styles.rewImg}>
-              <img src={pictureDefault} alt="Img not found" />
-            </div>
-            <div className={styles.rewName}>
-              <strong>Name</strong>
-              {/* <span>nickName</span> */}
-            </div>
-          </div>
-          <div className={styles.rewStar}>estrellas</div>
-        </div>
-        <div className={styles.rewText}>
-          <p>comentario</p>
-        </div>
+        {reviews.length ? (
+          reviews.map((rev) => {
+            return (
+              <div className={styles.divComment} key={rev.id}>
+                <div className={styles.rewProfile}>
+                  <div className={styles.rewHeader}>
+                    <div className={styles.rewImg}>
+                      <img
+                        src={rev.user.photo ? rev.user.photo : pictureDefault}
+                        alt="Img not found"
+                      />
+                    </div>
+                    <div className={styles.rewName}>
+                      <strong>{rev.user.name}</strong>
+                      {/* <span>nickName</span> */}
+                    </div>
+                  </div>
+                  <div className={styles.rewStar}>
+                    <Stars
+                      rating={input.review_rating}
+                      value={rev.review_rating}
+                    />
+                  </div>
+                </div>
+                <div className={styles.rewText}>
+                  <p>{rev.review_comment}</p>
+                </div>
+              </div>
+            );
+          })
+        ) : (
+          <div>Not fount comments</div>
+        )}
+        <hr />
       </div>
     </div>
   );

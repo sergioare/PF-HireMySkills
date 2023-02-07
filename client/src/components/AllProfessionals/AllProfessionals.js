@@ -23,25 +23,19 @@ const AllProfessionals = () => {
   const profession = useSelector((state) => state.subCategory);
   const town = useSelector((state) => state.town);
   const detailProfessional = useSelector((state) => state.detail);
-  // const prueba = useSelector((state) => state.allProfessionals);
-  // console.log(town, "A");
-  // console.log(profession, "B");
 
   //  ----------- filter------------
   const handlerprofession = (e) => {
     e.preventDefault();
-    // console.log(e.target.value);
     dispatch(filterByProfession(e.target.value));
   };
   const handlerprovince = (e) => {
     e.preventDefault();
-    // console.log(e.target.value, "W");
     dispatch(filterByProvince(e.target.value));
   };
 
   const handlerByName = (e) => {
     e.preventDefault();
-    // console.log(e.target.value);
     dispatch(orderByName(e.target.value));
     if (act === true) setAct(false);
     else setAct(true);
@@ -54,12 +48,6 @@ const AllProfessionals = () => {
     dispatch(getProfessionals());
     dispatch(getSubCategory());
   }, [dispatch]);
-  // console.log(allProfessionals);
-  // let aux = []
-  // for (let i = 0; i < allProfessionals.length; i++) {
-  //  if()
-
-  // }
 
   return (
     <div className={styles.divAllProfessionals}>

@@ -17,10 +17,7 @@ import FormServices from "./Services/Form/FormServices";
 import Contact from "./Contact-Us/Contact";
 import ShoppingCart from "./Shopping/ShoppingCart";
 import UserType from "./UserType/UserType";
-
 import ProfileProfessional from "./ProfileProfessional/ProfileProfessional";
-
-import Profile from "./SignIn/Profile/Profile";
 import TeamCards from "./Team/TeamCards/TeamCards";
 import Category from "./Categories/General/Category";
 

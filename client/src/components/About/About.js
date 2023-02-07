@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./About.module.css";
 import Footer from "../Footer/Footer";
 import CarouselAbout from "./CarouselAbout/CarouselAbout";
@@ -76,8 +76,6 @@ const About = () => {
             penatibus et magnis dis parturient montes, nascetur ridiculus mus.
           </p>
         </div>
-        {/* <div className={styles.Footer_About}> */}
-        {/* </div> */}
       </div>
       <Footer />
     </div>

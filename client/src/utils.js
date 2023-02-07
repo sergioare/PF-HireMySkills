@@ -34,6 +34,8 @@ export const ADD_TO_CART = "ADD_TO_CART";
 export const DELETE_TO_CART = "DELETE_TO_CART";
 export const POST_USER_AUTH0 = "POST_USER_AUTH0";
 export const UNMOUNT = "UNMOUNT";
+export const GET_COULD_REVIEW = "GET_COULD_REVIEW";
+export const GET_PROFESSIONAL_REVIEW = "GET_PROFESSIONAL_REVIEW ";
 
 //URLS API
 

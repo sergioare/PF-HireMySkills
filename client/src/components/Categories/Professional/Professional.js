@@ -68,7 +68,8 @@ const Professional = () => {
                   <p className={styles.detText}>
                     <b>Score: </b>
                   </p>
-                  <Stars value={detailProfessional.rating} />
+                  <Stars value={detailProfessional.rating} />{" "}
+                  {/* {console.log(detailProfessional.rating, "detail")} */}
                   <p className={styles.detText}>
                     <b>Professions: </b>
                     <span className={styles.detSpan}>
@@ -81,7 +82,6 @@ const Professional = () => {
                       {detailProfessional.portfolio}
                     </span>
                   </p>
-
                   <h3>Services</h3>
                   <article className={styles.box}>
                     {detailProfessional.products.map((service) => (
@@ -92,7 +92,6 @@ const Professional = () => {
                       />
                     ))}
                   </article>
-
                   {/* --------Review------... */}
                   <div className={styles.divReview}>
                     <hr />

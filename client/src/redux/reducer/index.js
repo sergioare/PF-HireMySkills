@@ -26,6 +26,8 @@ import {
   REMOVE_ONE_FROM_CART,
   REMOVE_ALL_FROM_CART,
   CLEAR_CART,
+  GET_COULD_REVIEW,
+  GET_PROFESSIONAL_REVIEW,
 } from "../../utils";
 
 export const initialState = {
@@ -35,6 +37,7 @@ export const initialState = {
   subCategory: [],
   town: [],
   user: [],
+  userId: [],
   professionals: [],
   services: [],
   reviews: [],
@@ -73,8 +76,17 @@ export function rootReducer(state = initialState, action) {
         detail: action.payload,
       };
 
-    case ADD_TO_CART: // let newService= state.services.find(service=> service.id === action.payload); // } //   shoppingCart:[...action.payload] // return{
-    {
+    case GET_USER_BY_ID:
+      console.log(action.payload, "WW");
+      let arr = [];
+      let resultado = arr.push(action.payload);
+      return {
+        ...state,
+        userId: resultado,
+      };
+
+    case ADD_TO_CART: {
+      // let newService= state.services.find(service=> service.id === action.payload); // } //   shoppingCart:[...action.payload] // return{
       let newService = state.detail.products.find(
         (service) => service.id === action.payload
       );
@@ -139,13 +151,23 @@ export function rootReducer(state = initialState, action) {
         ...state,
         worker: action.payload,
       };
-    case POST_REVIEWS:
+
+    //--------------Review------------
+    // case POST_REVIEWS:
+    //   return {
+    //     ...state,
+    //     reviews: action.payload,
+    //   };
+
+    case GET_REVIEWS:
+      // console.log(action.payload, "WW");
       return {
         ...state,
         reviews: action.payload,
       };
 
-    case GET_REVIEWS:
+    case GET_PROFESSIONAL_REVIEW:
+      // console.log(action.payload, "WW");
       return {
         ...state,
         reviews: action.payload,
@@ -169,19 +191,14 @@ export function rootReducer(state = initialState, action) {
 
     case FILTER_TOWN:
       let townf = [];
-      // let arra =[]
-      // console.log(action.payload[0].town, "PF");
       for (let i = 0; i < action.payload.length; i++) {
         action.payload.map((f) => {
           const all = townf.includes(action.payload[i].town);
-          // console.log(typeof all, all);
           if (all === false) {
             townf.push(action.payload[i].town);
           }
-          // return townf;
         });
       }
-      // console.log(townf, "Z");
       return { ...state, town: townf };
 
     case FILTER_BY_PROVINCE:
