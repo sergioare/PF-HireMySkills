@@ -24,7 +24,7 @@ const Team = [
     id: 2,
     name: "Andrés",
     about:
-      "I am a dedicated, honest individual. Always willing to learn new skills. I am friendly, helpful and polite.",
+      "I am a dedicated, honest individual. Always willing to learn new skills. I am friendly, helpful and polite. I'm very hardworking",
     linkedin:
       "https://www.linkedin.com/in/andr%C3%A9s-alfredo-andrada-1a83261b5/",
     github: "https://github.com/AndresAndrada",
@@ -135,7 +135,6 @@ const TeamCards = () => {
           ))}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

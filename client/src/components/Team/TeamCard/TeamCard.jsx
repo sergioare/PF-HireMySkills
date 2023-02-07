@@ -1,24 +1,34 @@
 import React from "react";
+import styles from "./TeamCard.module.css";
 
 const TeamCard = (props) => {
   return (
-    <div /* className="bg-secondary" */>
-      <div className="container animate__animated animate__fadeInUp">
+    <div style={{ height: "700px" }}>
+      <div className="container">
         <div className="row d-flex justify-content-center">
           <div className="col-md-20 mt-5 pt-5 ">
             <div className="row z-depth-3 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
               <div className="col-sm-4 bg-info rounded-left bg-dark">
-                <div className="card-block text-center text-white d-flex row justify-content-center">
+                <div
+                  className="card-block text-center text-white d-flex row justify-content-center"
+                  style={{ height: "600px", margin: "0" }}
+                >
                   <img
                     className="rounded-circle img-fluid object-fit-sm-contain"
                     src={props.photo}
-                    style={{ width: "130px", marginTop: "10px" }}
+                    style={{
+                      width: "130px",
+                      marginTop: "10px",
+                      height: "130px",
+                    }}
                   ></img>
                   <h3 className="font-weight-bold m5-4 text-white">
                     {props.name}
                   </h3>
                   <p>{props.prof}</p>
-                  <p>{props.about} </p>
+                  <div className={styles.divteamabout}>
+                    <p>{props.about} </p>
+                  </div>
                   <i className="far fa-edit-tie fa-2x mt-5"></i>
                 </div>
               </div>

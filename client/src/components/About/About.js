@@ -79,7 +79,6 @@ const About = () => {
         {/* <div className={styles.Footer_About}> */}
         {/* </div> */}
       </div>
-      <Footer />
     </div>
   );
 };
