@@ -32,7 +32,10 @@ const SignIn = () => {
                 </div>
               </div>
             ) : (
-              <div className="d-flex justify-content-center align-items-center">
+              <div
+                className="d-flex justify-content-center align-items-center"
+                style={{ minHeight: "100vh" }}
+              >
                 <Login />
               </div>
             )}

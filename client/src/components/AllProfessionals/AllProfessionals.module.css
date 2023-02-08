@@ -15,10 +15,10 @@
 }
 .profBtn button i {
   font-size: 3.5rem;
-  color: rgb(239, 239, 239);
+  color: rgb(0, 0, 0);
 }
 .profBtn button i:hover {
-  color: #d91111;
+  color: #4a0876;
 }
 /* --------------filter------------  */
 .divAllFilter_order {
@@ -74,7 +74,7 @@
   border-radius: 10px;
 }
 /* --------------------------------  */
-
+/* 
 .containerCard {
   width: 100%;
   margin-top: 20px;
@@ -143,24 +143,4 @@
   justify-content: center;
   align-content: center;
   padding-bottom: 20px;
-}
-.btn {
-  border: 0;
-  padding: 10px;
-  font-size: 20px;
-  background-color: tomato;
-  width: 60%;
-}
-.btn:hover {
-  font-size: 25px;
-  color: rgb(240, 235, 245);
-  background-color: #076b72;
-  border-color: rgb(240, 235, 245);
-}
-.notProf {
-  color: rgba(128, 126, 126, 0.671);
-  font-family: "Work Sans", sans-serif;
-  font-size: 30px;
-  text-align: center;
-  min-height: 50vh;
-}
+} */

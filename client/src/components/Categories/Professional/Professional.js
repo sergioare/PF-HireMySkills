@@ -9,9 +9,9 @@ import {
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "../Professional/Professional.module.css";
 import NavBar from "../../Navbar/Navbar";
-import Footer from "../../Footer/Footer";
 import imgDefault from "../../../assets/imgDefault.jpg";
 import Services from "../../Services/Services";
+import LoaderGeneral from "../../LoaderGeneral/LoaderGeneral";
 
 import Review from "../../Review/Review";
 import Stars from "../../Stars/Stars";
@@ -66,9 +66,12 @@ const Professional = () => {
                     </span>
                   </p>
                   <p className={styles.detText}>
-                    <b>Score: </b>
+                    <p className="text d-flex">
+                      Score:
+                      <Stars value={detailProfessional.rating} />{" "}
+                    </p>
                   </p>
-                  <Stars value={detailProfessional.rating} />{" "}
+
                   {/* {console.log(detailProfessional.rating, "detail")} */}
                   <p className={styles.detText}>
                     <b>Professions: </b>
@@ -101,18 +104,12 @@ const Professional = () => {
               </div>
             </div>
           ) : (
-            <div className={styles.divLoading}>
-              <img
-                className={styles.loading}
-                src="https://img1.picmix.com/output/stamp/normal/8/5/2/9/509258_fb107.gif"
-                alt="Img not found"
-                width="200px"
-              />
+            <div className="d-flex justify-content-center align-items-center mt-5">
+              <LoaderGeneral />
             </div>
           )}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

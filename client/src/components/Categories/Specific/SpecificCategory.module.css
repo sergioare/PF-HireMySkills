@@ -15,10 +15,10 @@
 }
 .profBtn button i {
   font-size: 3.5rem;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 .profBtn button i:hover {
-  color: #b02810;
+  color: #4a0876;
 }
 .cardSub h1 {
   color: black;

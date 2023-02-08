@@ -8,9 +8,18 @@ import Category from "../Categories/General/Category";
 import imgDefault from "../../assets/imgDefault.jpg";
 import { Link } from "react-router-dom";
 import CatHome from "../Categories/General/CatHome";
+import ShowCard from "../AllProfessionals/ShowCard";
+const Swal = require("sweetalert2");
 
 const Home = () => {
   const worker = useSelector((state) => state?.worker);
+  console.log(worker, "worker");
+  const showAlert = () => {
+    Swal.fire({
+      title: "Professional not found",
+      icon: "error",
+    });
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -33,15 +42,37 @@ const Home = () => {
             alt="Profesional"
           />
 
-          <div className={styles.profesionalName}>Yuri Nallely</div>
-          <div className={styles.stars}>⭐⭐⭐⭐⭐</div>
+          {/* <div className={styles.profesionalName}>Yuri Nallely</div> */}
+          {/*           <div className={styles.stars}>⭐⭐⭐⭐⭐</div> */}
         </div>
       </div>
 
-      <div className="container">
-        <CatHome />
+      <div className="">
+        <div className="container h-100">
+          {worker.message && showAlert()}
+          {worker.length > 0 ? (
+            <div className="row col-md-12 d-flex align-items-center justify-content-around">
+              {worker.map((prof) => {
+                return (
+                  <div key={prof.id} className="col-md-4">
+                    <ShowCard
+                      name={prof.name}
+                      rating={prof.rating}
+                      id={prof.id}
+                      photo={prof.photo}
+                      professions={prof.professions}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="container">
+              <CatHome />
+            </div>
+          )}
+        </div>
       </div>
-      <div className={styles.containerThree}></div>
     </div>
   );
 };

@@ -26,7 +26,7 @@ const Category = () => {
           <i className="fa-solid fa-circle-chevron-left"></i>
         </button>
       </div>
-      <h2 className="text-center text-white" style={{ margin: "4%" }}>
+      <h2 className="text-center" style={{ margin: "1%", color: " #1F1F1F" }}>
         Categories
       </h2>
       <div className="container  h-100">

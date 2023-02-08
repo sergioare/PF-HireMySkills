@@ -15,7 +15,9 @@ const CatHome = () => {
 
   return (
     <div>
-      <h2 className="text-center text-white">Categories</h2>
+      <h2 className="text-center" style={{ color: " #1F1F1F" }}>
+        Categories
+      </h2>
       <div className="container  h-100">
         {categories.length > 0 ? (
           <div className="row">

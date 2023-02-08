@@ -60,9 +60,13 @@ const AllProfessionals = () => {
         <div className={styles.divAllFilter_order}>
           <div className={styles.allFilterPro}>
             <div className={styles.divTitleOrder}>
-              <p className="text-center text-white">SORT BY</p>
+              <p className="text-center" style={{ color: " #1F1F1F" }}>
+                FILTER BY
+              </p>
             </div>
-            <p className="px-2 d-inline-block text-white">PROFESSIONS</p>
+            <p className="px-2 d-inline-block" style={{ color: " #1F1F1F" }}>
+              PROFESSIONS
+            </p>
 
             <select
               onChange={(e) => handlerprofession(e)}
@@ -81,9 +85,13 @@ const AllProfessionals = () => {
           {/* ----Filter province--------*/}
           <div className={styles.allFilterTown}>
             <div className={styles.divTitleOrder}>
-              <p className="text-center text-white">SORT BY</p>
+              <p className="text-center" style={{ color: " #1F1F1F" }}>
+                FILTER BY
+              </p>
             </div>
-            <p className="px-2 d-inline-block text-white">TOWN</p>
+            <p className="px-2 d-inline-block" style={{ color: " #1F1F1F" }}>
+              TOWN
+            </p>
 
             <select
               onChange={(e) => handlerprovince(e)}
@@ -102,12 +110,16 @@ const AllProfessionals = () => {
           {/* -----------Order name---------- */}
           <div className={styles.orderNameRating}>
             <div className={styles.divTitleOrder}>
-              <p className="text-center text-white">SORT BY</p>
+              <p className="text-center" style={{ color: " #1F1F1F" }}>
+                SORT BY
+              </p>
             </div>
 
             <div className={styles.divNameRating}>
               <div className={styles.divName}>
-                <p className="px-2 text-white">Name </p>
+                <p className="px-2" style={{ color: " #1F1F1F" }}>
+                  Name{" "}
+                </p>
                 <select
                   onChange={(e) => handlerByName(e)}
                   className={styles.selects}
@@ -119,7 +131,9 @@ const AllProfessionals = () => {
               </div>
               {/* -----------Order rating---------- */}
               <div className={styles.divRating}>
-                <p className="px-2 text-white">Rating</p>
+                <p className="px-2" style={{ color: " #1F1F1F" }}>
+                  Rating
+                </p>
                 <select
                   onChange={(e) => handlerByName(e)}
                   className={styles.selects}
@@ -134,17 +148,19 @@ const AllProfessionals = () => {
         </div>
       </div>
 
-      <div className="divconteinerdelascards ">
-        <h1 className="col-12 text-center text-light fs-1 ">Professionals</h1>
-        <div className="container d-flex justify-content-center align items-center h-100">
+      <div className="">
+        <h1
+          className="col-12 text-center fs-1"
+          style={{ color: " #1F1F1F", height: "3vw" }}
+        >
+          Professionals
+        </h1>
+        <div className="container h-100 d-flex justify-content-center">
           {allProfessionals.length > 0 ? (
-            <div className="row">
+            <div className="row col-md-12 d-flex align-items-center justify-content-around">
               {allProfessionals.map((prof) => {
                 return (
-                  <div
-                    key={prof.id}
-                    className="col-md-12 d-flex justify-content-around"
-                  >
+                  <div key={prof.id} className="col-md-4">
                     <ShowCard
                       name={prof.name}
                       photo={prof.photo}
@@ -157,7 +173,7 @@ const AllProfessionals = () => {
               })}
             </div>
           ) : (
-            <div>
+            <div className="d-flex justify-content-center align-items-center mt-5">
               <LoaderGeneral />
             </div>
           )}
