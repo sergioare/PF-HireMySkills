@@ -223,7 +223,7 @@ export function getProfesionalsByProfession(profession) {
   return async function (dispatch) {
     try {
       const aux = await axios.get(`${url}/profession?profession=${profession}`);
-      console.log(aux.data);
+      /*       console.log(aux.data); */
 
       return dispatch({
         type: GET_PROFESSIONALS_BY_PROFESSION,
