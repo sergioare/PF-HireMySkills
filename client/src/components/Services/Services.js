@@ -23,8 +23,8 @@ const Services = ({ data, addToCart }) => {
       <img className={styles.serviceImg} src={img} alt={name} />
       <button onClick={() => addToCart(id, name)}>Add to Cart</button>
 
-      <img className={styles.img} src={img} alt={name} />
-      <button onClick={() => addToCart(id, name)}>Add to Cart</button>
+      {/* <img className={styles.img} src={img} alt={name} />
+      <button onClick={() => addToCart(id, name)}>Add to Cart</button> */}
       {/* <button  onClick={handleAddToCart}>Add to Cart</button> */}
     </div>
   );
