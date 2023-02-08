@@ -127,6 +127,7 @@
 .profRating {
   margin-top: 20px;
   margin-left: 20px;
+  display: flex;
 }
 .description {
   font-size: 20px;
@@ -156,12 +157,10 @@
   background-color: #076b72;
   border-color: rgb(240, 235, 245);
 }
-.divLoading {
-  width: 100%;
-}
-.loading {
-  justify-content: center;
+.notProf {
+  color: rgba(128, 126, 126, 0.671);
+  font-family: "Work Sans", sans-serif;
+  font-size: 30px;
   text-align: center;
-  padding-left: 470px;
-  padding-top: 100px;
+  min-height: 50vh;
 }

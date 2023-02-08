@@ -92,6 +92,7 @@
 }
 .profRating {
   margin-left: 20px;
+  display: flex;
 }
 .description {
   padding-left: 20px;

@@ -4,7 +4,6 @@ import styles from "./Landing.module.css";
 import carpenter from "../../assets/carpintero.jpg";
 import code from "../../assets/code.jpg";
 import admin from "../../assets/admin.jpg";
-import Footer from "../Footer/Footer";
 
 const Landing = () => {
   return (

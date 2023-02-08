@@ -1,0 +1,79 @@
+.review {
+  width: 80%;
+  margin: auto;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+.reviewTitle {
+  color: white;
+}
+.rewTitle {
+  font-size: 30px;
+  font-weight: 500;
+  padding-left: 20px;
+  color: white;
+}
+.rewContainer {
+  width: 95%;
+  cursor: pointer;
+  padding: 30px;
+}
+.rewProfile {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgb(157, 166, 243);
+  margin-top: 30px;
+}
+.rewHeader {
+  display: flex;
+  align-items: center;
+}
+.rewImg {
+  width: 70px;
+  height: 75px;
+  margin-right: 20px;
+}
+.rewImg img {
+  width: 100%;
+  height: 75px;
+  border-radius: 50%;
+}
+.rewName {
+  display: flex;
+  flex-direction: column;
+}
+.rewName strong {
+  color: bisque;
+  font-size: 1rem;
+}
+.rewStar {
+  /* color: #ecea4c; */
+  font-size: 20px;
+}
+
+.rewText {
+  width: 100%;
+  border: 1px solid rgb(157, 166, 243);
+  color: #4b4b4b;
+  padding: 10px;
+  color: white;
+  font-size: 12px;
+}
+
+.Button {
+  color: #283c63;
+  background-color: #283c63;
+  font-size: 22px;
+}
+.Button button {
+  color: #283c63;
+}
+
+.review {
+  font-size: 32px;
+  font-weight: 700;
+  color: #283c63;
+  margin-top: 2rem;
+}

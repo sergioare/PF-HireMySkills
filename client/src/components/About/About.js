@@ -1,7 +1,7 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./About.module.css";
-import Footer from "../Footer/Footer";
 import CarouselAbout from "./CarouselAbout/CarouselAbout";
 import NavBar from "../Navbar/Navbar";
 
@@ -23,61 +23,46 @@ const About = () => {
         </div>
         <div className={styles.Text_About}>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            sodales eros non urna gravida lobortis. Mauris justo nisi, maximus
-            vitae nibh vitae, vestibulum scelerisque orci. Nulla semper mauris
-            vitae lacus pulvinar, non posuere sem finibus. In molestie tortor at
-            auctor facilisis. Sed ut lobortis ligula. Suspendisse aliquam tellus
-            non mauris mollis rhoncus. Proin porta sit amet felis id elementum.
-            Duis et ultricies mi. Phasellus id augue ac velit laoreet auctor
-            quis ac ligula. Donec vehicula, enim eu ultrices dapibus, metus odio
-            posuere magna, ut blandit purus ex id dolor.
+            <b>HireMySkills</b>🥰 is a project designed by a group of young
+            people and students of SoyHenry group 11, 2️⃣0️⃣2️⃣3️⃣, from different
+            countries Argentina, Mexico, Colombia and Venezuela with the same
+            purpose, to provide a well thought out, readable and dynamic
+            environment so that you: the professional can search jobs in your
+            area of ​​expertise; the client can look for the solution to his
+            problem and find the professional who can best do it.
           </p>
           <p>
-            Aliquam elementum augue id nulla facilisis, ac porta elit lobortis.
-            Duis dapibus est vel tempus feugiat. Aliquam erat volutpat.
-            Suspendisse vel nisi urna. Integer in velit tincidunt, semper felis
-            a, viverra est. Integer nec nibh quis odio tempor laoreet. Vivamus
-            nec arcu quam. Sed libero orci, posuere eget hendrerit id, maximus
-            ac metus. Proin et faucibus nulla, et ornare diam. Nulla
-            pellentesque ante quis eros blandit sagittis. Sed lacus massa,
-            porttitor a rutrum eget, vulputate nec massa.
+            Do you want to know more about us?{" "}
+            <Link to="/creators">click here ➡️</Link>
+          </p>
+          <h5>Mission</h5>
+          <p>
+            Our main reason for carrying out this project was to be able to help
+            other people with needs to connect with people who have knowledge,
+            skills or professions that can help other people with difficulties
+            or problems to solve their needs. and aspirations
           </p>
           <p>
-            Curabitur at libero gravida, consequat diam ac, auctor massa.
-            Phasellus vel sagittis nisi. Nam malesuada, lorem vitae tristique
-            efficitur, velit risus congue mi, consequat consectetur nisl felis
-            non ex. Nunc non faucibus sem, quis sollicitudin felis. Nam porta
-            lorem luctus augue porttitor, ac viverra tellus ultricies.
-            Suspendisse eu commodo enim. Curabitur sollicitudin, erat ut feugiat
-            euismod, leo quam commodo nunc, malesuada mollis lectus dui a augue.
-            Suspendisse potenti. Donec id nisl mauris. Donec ultricies augue
-            pellentesque ante varius molestie.
+            Create a wide <em>#️⃣hiremyskills</em> community of users and
+            professionals, safe, responsible and accessible
           </p>
           <p>
-            Sed eu tincidunt neque, sed tempus massa. Nam et urna ante. Etiam
-            rhoncus efficitur ex, at mattis ipsum. Vivamus libero ligula,
-            fermentum quis sodales sed, vulputate vel est. Nullam sit amet
-            sapien lorem. In quis odio a est ultrices accumsan. Nulla fringilla
-            nibh sed ex tempus malesuada. Curabitur et sem orci.
+            We seek to be recognized, remembered for quality, variety, value for
+            our service and good work to all in general, providing opportunities
           </p>
+          <h5>Vision</h5>
           <p>
-            Etiam at nulla sed dolor aliquam ultrices. Morbi gravida magna quis
-            augue malesuada lobortis. Praesent ut dolor sed libero tincidunt
-            elementum quis ut nisl. Fusce et elit vel risus sodales porttitor eu
-            eget mi. In eleifend nec lectus ac rutrum. Donec porttitor est ac
-            leo semper molestie. Phasellus efficitur fermentum erat, sed
-            porttitor orci gravida sit amet. Vestibulum ante ipsum primis in
-            faucibus orci luctus et ultrices posuere cubilia curae; Donec ac
-            libero ac ex scelerisque posuere. Nullam tristique nunc eget orci
-            sodales, eget varius risus blandit. Donec interdum sit amet lectus
-            quis consectetur. Pellentesque habitant morbi tristique senectus et
-            netus et malesuada fames ac turpis egestas. Orci varius natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            We have a clear vision of providing solutions, growing globally,
+            expanding our community, offering the best experience to our
+            professions and clients, being the best intermediary for both in
+            this world of services.
+          </p>
+          <h5>Values</h5>
+          <p>
+            Honesty, responsibility, giving and receiving, empathy and drive,
+            service and quality
           </p>
         </div>
-        {/* <div className={styles.Footer_About}> */}
-        {/* </div> */}
       </div>
     </div>
   );
