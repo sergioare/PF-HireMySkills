@@ -9,6 +9,7 @@ const reviews = require("./reviews.js");
 const shoppingcart = require("./shoppingcart.js");
 const pay = require("./pay.js");
 const email =require("./email")
+const buscainc = require("./buscainc")
 
 router.use("/category", category); //crear categorias y hacer put 
 router.use("/profession", profession);// crear profession 
@@ -19,5 +20,6 @@ router.use("/reviews", reviews);
 router.use("/shoppingcart", shoppingcart);
 router.use("/pay", pay);
 router.use("/email", email) // plantilla para envio de notificaciones por mail
+router.use("/buscaincompleto",buscainc)
 
 module.exports = router;

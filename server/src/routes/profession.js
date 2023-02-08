@@ -10,4 +10,6 @@ router.get('/', searchProfession);
 // POST
 router.post("/", postProfessions);
 
+
+
 module.exports = router;

@@ -10,17 +10,20 @@ const getprofesinalsid = async (req, res) => {
   }
 };
 
-// const bynameprofessionals = async (req, res) => {
-//   const { name } = req.query;
-//   try {
-//     const getname = await professionals.findAll({
-//       where: {
-//         name: name,
-//       },
-//     });
-//     res.send(getname);
-//   } catch (error) {
-//     res.send(error);
-//   }
-// };
-module.exports = { getprofesinalsid };
+const nombreincompleto = async (req, res) => {
+  const { name } = req.query;
+  const substring = name.toLowerCase();
+  try {
+    
+    const getname = await professionals.findAll();
+    const result = getname.filter(
+      (person) => person.name.toLowerCase().indexOf(substring) == 0
+    );
+    res.send(result)
+  } catch (error) {
+    console.log(error);
+    res.send(error);
+  }
+};
+
+module.exports = { getprofesinalsid, nombreincompleto };

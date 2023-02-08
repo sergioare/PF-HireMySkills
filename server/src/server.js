@@ -16,7 +16,7 @@ server.use(routes);
 
 (async function seqSync() {
   try {
-    sequelize.sync({ force: false }).then(() => {
+    sequelize.sync({ force: false  }).then(() => {
       console.log("Postgres sync has been established successfully.");
     });
   } catch (error) {
@@ -34,9 +34,6 @@ const {
   shoppingcart,
   pay,
 } = sequelize.models;
-console.log(sequelize.models);
-
-console.log(sequelize.models, 'MODELOSS');
 
 professionals.belongsToMany(users, { through: "professionals_users" });
 users.belongsToMany(professionals, { through: "professionals_users" });

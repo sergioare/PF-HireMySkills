@@ -1,20 +1,23 @@
 const users  = require('../models/users.js')
+const jwt = require('jsonwebtoken');
 
 
-const createUser = async (req, res, next) => {
+const createUser = async (req, res,) => {
     try {
         const { name, photo, town, email, contact } = req.body;
         // console.log(req.body, 'BODY');
         const userFind = await users.findAll({ where: { email: email } });
         const userName = await users.findAll({ where: { name: name } });
-        console.log(userName, 'REPETIDO');
-        console.log(userFind, 'REPETIDO');
-
+        
         if(!name || !contact || !email) return res.send({ message: 'data required'});
         if(userFind.length || userName.length) return res.send({ message: 'Users repit'});
             await users.create({ name, photo, email, town, contact });
-            console.log(users, 'USER');
-        res.send({ message: 'User create'});
+            const user = {
+                email: email,
+                name: name
+            };
+            const token = jwt.sign({ user: user }, process.env.SECRET_KEY, { expiresIn: '5d' });
+        res.send({token , message: 'User create'});
     } catch (error) {
         res.send(error);
     };

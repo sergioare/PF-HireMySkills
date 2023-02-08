@@ -1,11 +1,10 @@
-const Products = require("../controllers/Products.js");
+const getproductprof = require("../controllers/Products.js");
+const postProducts = require("../controllers/Products.js");
 const Router = require("express");
 const router = Router();
 
-try {
-  router.post("/", Products);
-} catch (error) {
-  alert(error.message);
-}
+
+  router.post("/", postProducts);
+  router.get("/",getproductprof)
 
 module.exports = router;

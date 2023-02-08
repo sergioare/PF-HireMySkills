@@ -34,8 +34,8 @@ async function newUser(name, email) {
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
-      user: GMAIL_ADMIN, // generated ethereal user
-      pass: PASSWORD_ADMIN, // generated ethereal password
+      user: "HyreMySkills@gmail.com", // generated ethereal user
+      pass: "nrkvpgytjikzupqa", // generated ethereal password
     },
     tls: {
       rejectUnauthorized: false,

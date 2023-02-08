@@ -40,7 +40,11 @@ const users =
         //borrado logico
         type: DataTypes.BOOLEAN,
         defaultValue: false,
-      },
+      },role: {
+        type: DataTypes.ENUM,
+        values: ['admin', 'user', "professional"],
+        defaultValue: 'user',
+      }
     },
     {
       timestamps: false,
