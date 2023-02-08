@@ -1,35 +1,75 @@
 import React,{useState} from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import {Paper, Avatar, IconButton, Table, TableContainer, TableHead, TableRow,TableCell,TableBody} from '@material-ui/core';
-import { getProfessionals, deleteProfessional } from '../../../redux/actions/actions';
-import {EditOutlined, DeleteForeverOutlined, PowerOffRounded} from '@material-ui/icons'
+import { getProfessionals, deleteProfessional, patchProfessionals} from '../../../redux/actions/actions';
 import Sidebar from '../Sidebar';
 import styles from './Professionals.module.css'
+import { Table, Button } from 'react-bootstrap';
 import axios from 'axios';
 
 
 function Trabajadores() {
     const dispatch = useDispatch();
-    // const professionals = useSelector((state)=>state?.professionals)
-    const [professionals, setProfessional] = useState([])
+    const professionals = useSelector((state)=>state.professionals)
+    const [ed, setEd]=useState(false)
+    const [id, setId] = useState(false)
+
+    const [data, setData]=useState({
+        name:'',
+        photo:'',
+        email:'',
+        
+    })
+
+
+    // useEffect(()=>{
+    //     const fetchData = async () => {
+    //         const result = await axios.get('https://hiremyskillsbackend.onrender.com/professionals');
+    //         setProfessional(result.data);
+    //       };
+    //       fetchData();
+    //     },[])
 
     useEffect(()=>{
-        const fetchData = async () => {
-            const result = await axios.get('https://hiremyskillsbackend.onrender.com/professionals');
-            setProfessional(result.data);
-          };
-          fetchData();
-        },[])
+        dispatch(getProfessionals())
+    },[dispatch])
 
-const handleDeactivate = (id)=>{
+const handleDelete = (e,id)=>{
     dispatch(deleteProfessional(id))
     alert(`Usuario Eliminado`)
     window.location.href = window.location.href
 }
     console.log(professionals)
     
+const handleEd = ()=>{
+        setEd(true)
+    }  
 
+const handleChange= (e)=>{
+  console.log(e.target.value, "TAAARGET")
+
+    setData(state=>{
+        const newState = {
+            ...state,
+            [e.target.name]:e.target.value,
+        }
+        return newState
+    })
+}
+
+const handleChageId=(e)=>{
+  console.log("  IDDD ", e.target.value)
+
+    e.preventDefault()
+    setId(e.target.value)
+}
+const handleSubmit=(e)=>{
+  console.log("SUBBMIT   \n",data)
+
+    dispatch(patchProfessionals(data, id))
+    setEd(false)
+    // window.location.href = window.location.href 
+}
   return (
     <>
     <div className={styles.components}>
@@ -37,41 +77,40 @@ const handleDeactivate = (id)=>{
         <div>
         <Sidebar/>
         </div>
-        <TableContainer component={Paper} elevation={4}>
-            <Table>
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Id</TableCell>
-                        <TableCell>Name</TableCell>
-                        <TableCell>Contact</TableCell>
-                        <TableCell>Email</TableCell>
-                        <TableCell>Photo</TableCell>
-                        <TableCell>Actions</TableCell>
-                   </TableRow>
-                </TableHead>
-                <TableBody>
-                    {professionals.map((professionals)=>(
-                        <TableRow hover className={styles.tableRow} key={professionals.id}>
-                            <TableCell>{professionals.id}</TableCell>
-                            <TableCell>{professionals.name}</TableCell>
-                            <TableCell>{professionals.contact}</TableCell>
-                            <TableCell>{professionals.email}</TableCell>
-                            <TableCell><Avatar src={professionals.photo}/></TableCell>
-                            <TableCell>
+        <Table responsive striped bordered hover variant="dark" size='sm'>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Email</th>
+                    <th>Action</th>
                     
-                                <IconButton onClick={()=>  alert(`Editar ${professionals.name}`)} color={'primary'} size='small'>
-                                    <EditOutlined/>
-                                </IconButton>
-                    {/* {const borrados = users.filter((users))} */}
-                                <IconButton onClick={()=>handleDeactivate(professionals.id)} color={'secondary'} size='small'>
-                                    <DeleteForeverOutlined/>
-                                </IconButton>
-                            </TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    professionals.length > 0 ?professionals.map((professionals)=>(
+                        <tr key={professionals.id}>
+                            <td>{ed===true ? <input type="text" value={`${professionals.id}a`} name='id' onChange={handleChageId} placeholder={professionals.id}/>:professionals.id}</td>
+
+                            <td>{ed===true ? <input type="text" name='name' onChange={handleChange} placeholder={professionals.name} /> : professionals.name}</td>
+
+                            <td>{ed===true ? <input type="text"  name='email' onChange={handleChange} placeholder={professionals.email} />: professionals.email}</td>
+
+                            <td>{ed===true ? <input type="number"  name='contact' onChange={handleChange} placeholder={professionals.contact} />: professionals.contact}</td>
+                            <td>
+                            <Button  onClick={()=>handleEd()} variant="warning">Edit</Button>
+                            {ed===false && professionals.deleted === false && <Button onClick={(e)=>handleDelete(e, professionals.id)}  value={professionals.id} variant="danger" size='small'>Delete</Button>}
+              
+                            {ed===false && professionals.deleted===true && <Button onClick={(e)=>handleDelete(e, professionals.id)}  value={professionals.id} variant="warning" size='small'>Active</Button>}
+                            {ed===true && <Button onClick={(e)=> handleSubmit(e)} variant ="warning">Submit</Button>}
+                            </td>
+                        </tr>
+                    ))
+                :null}
+            </tbody>
+        </Table>
     </div>
     </>
   )

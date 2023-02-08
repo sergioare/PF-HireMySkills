@@ -36,6 +36,8 @@ import {
   urlProducts,
   urlReviews,
   urlShoppingcart,
+  PATCH_USERS,
+  PATCH_PROFESSIONALS,
 } from "../../utils";
 
 let url = "https://hiremyskillsbackend.onrender.com";
@@ -83,6 +85,8 @@ export function getProfessionalById(id) {
     });
   };
 }
+
+
 export function clearProfessional() {
   return function (dispatch) {
     return dispatch({
@@ -158,6 +162,27 @@ export const addToCart = (id) => ({
   type: ADD_TO_CART,
   payload: id,
 });
+
+export function patchUser (user, id){
+  console.log("USERPATCH   ", user  )
+  return async function (dispatch){
+    axios 
+      .patch(`${urlUsers}/${id}`, user)
+      .then((res)=>console.log("actionRES ", res.data))
+      .then((res)=> dispatch({type: PATCH_USERS, payload: res.data}))
+  }
+}
+
+export function patchProfessionals(profesional, id){
+  console.log("USERPATCH   ", profesional  )
+
+  return async function (dispatch){
+    axios
+      .patch(`${urlProfessionals}/${id}`,profesional)
+      .then((res)=>console.log("PROFESIONAL patch", res.data))
+      .then((res)=>dispatch({type:PATCH_PROFESSIONALS, payload:res.data}))
+  }
+}
 
 export function postReviews(message) {
   return async function (dispatch) {

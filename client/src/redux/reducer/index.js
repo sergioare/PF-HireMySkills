@@ -26,6 +26,8 @@ import {
   REMOVE_ONE_FROM_CART,
   REMOVE_ALL_FROM_CART,
   CLEAR_CART,
+  PATCH_USERS,
+  PATCH_PROFESSIONALS
 } from "../../utils";
 
 export const initialState = {
@@ -35,6 +37,7 @@ export const initialState = {
   subCategory: [],
   town: [],
   user:[],
+  userPatch:[],
   userDelete:[],
   professionals:[],
   services:[],
@@ -273,6 +276,16 @@ case FILTER_BY_PROVINCE:
         return {
           ...state,
           userDelete:action.payload
+        }
+      case PATCH_USERS:
+        return {
+          ...state,
+          userPatch: action.payload
+        }
+      case PATCH_PROFESSIONALS:
+        return {
+          ...state,
+          professionalPatch: action.payload
         }
       
 

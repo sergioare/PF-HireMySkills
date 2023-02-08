@@ -1,14 +1,9 @@
 import React,{useState} from 'react'
 import { useDispatch, useSelector} from 'react-redux';
 import { useEffect } from 'react';
-// import {Paper, Avatar, IconButton, Table, TableContainer, TableHead, TableRow,TableCell,TableBody} from '@material-ui/core';
-import { deleteUser, getUser } from '../../../redux/actions/actions';
-
+import { deleteUser, getUser, patchUser } from '../../../redux/actions/actions';
 import Sidebar from '../Sidebar';
 import styles from './Users.module.css'
-
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { Table, Button } from 'react-bootstrap';
 
 
@@ -16,44 +11,64 @@ import { Table, Button } from 'react-bootstrap';
 function Userss() {
 
     const dispatch = useDispatch();
-  
-    const history = useNavigate()
+    const [ed, setEd]= useState(false);
+    
     const users = useSelector((state)=>state.user)
+    const [id, setId] = useState('')
     
-    // console.log(users)
-    
-    
+    const [data,setData]=useState({
+      
+      name:'',
+      photo:'',
+      email:'',
+      town:'',
+      contact:'',
+    })
 
-    // const [users, setUsers] = useState([])
-    // useEffect(()=>{
-    //     const fetchData = async () => {
-    //         const result = await axios.get('https://hiremyskillsbackend.onrender.com/users');
-    //         setUsers(result.data);
-    //       };
-    //       fetchData();
-    //     },[])
     useEffect(()=>{
       dispatch(getUser())
     },[dispatch])
 
-//  console.log("ZZZZZZZZZZZZZZZZZZZZ",users[0].deleted)
-
-// const handleDeactivate = (id)=>{
-//     dispatch(deleteUser())
-// }
-// const aux = users.filter((user)=> user.deleted === true )
-// console.log(aux)
-
 const handleDelete = (e, id)=>{
-    console.log(id , "AAAAA")
-    // e.preventDefault()
     dispatch(deleteUser(id))
     alert(`Usuario  desactivado`)
     window.location.href = window.location.href
     
 }
 
+const handleEd = ()=>{
+  setEd(true)
+}
 
+const handleChange=(e)=>{
+  console.log(e.target.value, "TAAARGET")
+  setData(state=>{
+    const newState = {
+    ...state,
+      [e.target.name]: e.target.value,
+      
+      
+    }
+    return newState
+  }
+)
+ 
+}
+
+const handleChageId = (e)=>{
+  console.log(e.target.value, "  IDDD ")
+  e.preventDefault();
+  setId(e.target.value)
+}
+const handleSubmit=(e)=>{
+  // e.preventDefault();
+  console.log("SUBBMIT   \n",data)
+  dispatch(patchUser(data, id))
+
+  setEd(false)
+  window.location.href = window.location.href
+
+}
 
     return (
     <>
@@ -62,7 +77,7 @@ const handleDelete = (e, id)=>{
         <div>
         <Sidebar/>
         </div>
-        <Table bordered hover>
+        <Table responsive striped bordered hover variant="dark" size='sm' >
       <thead>
         <tr>
           <th>ID</th>
@@ -75,23 +90,30 @@ const handleDelete = (e, id)=>{
       </thead>
       <tbody>
         {users.length>0 ? users.map(user => (
-          <tr key={user.id}>
-            <td>{user.id}</td>
-            <td>{user.name}</td>
-            <td>{user.email}</td>
-            <td>{user.contact}</td>
-            <td>{user.town}</td>
+            <tr key={user.id}>
+            <td>{ed===true ? <input type="text" value = {`${user.id}a`} name='id' onChange={handleChageId} placeholder={user.id} /> :user.id}</td>
+            <td>{ed===true ? <input type="text" name='name' onChange={handleChange} placeholder={user.name} /> : user.name}</td>
+            <td>{ed===true ? <input type="text"  name='email' onChange={handleChange} placeholder={user.email} />: user.email}</td>
+            <td>{ed===true ? <input type="number"  name='contact' onChange={handleChange} placeholder={user.contact} />: user.contact}</td>
+            <td>{ed===true ? <input type="text" name='town' onChange={handleChange} placeholder={user.town} />: user.town}</td>
             <td>
-              <Button   variant="warning">Edit</Button>{' '}
-
-
-              {user.deleted === false ? <Button onClick={(e)=>handleDelete(e, user.id)}  value={user.id} variant="danger" size='small'>Delete</Button>
+              <Button  onClick={()=>handleEd()} variant="warning">Edit</Button>
+              {/* { ed === true ?  
+                <>
+                <td><input type="text" value='name' placeholder={user.name}/>{user.name}</td>
+                <td><input type="text" value='email' placeholder={user.email}/>{user.email}</td>
+                <td><input type="number" value='contact' placeholder={user.contact}/>{user.contact}</td>
+                <td><input type="text" value='town' placeholder={user.town}/>{user.town}</td>
+                </>
+              : null } */}
+              {ed===false && user.deleted === false && <Button onClick={(e)=>handleDelete(e, user.id)}  value={user.id} variant="danger" size='small'>Delete</Button>}
               
-              : <Button onClick={(e)=>handleDelete(e, user.id)}  value={user.id} variant="warning" size='small'>Active</Button>}
-              
+              {ed===false && user.deleted===true && <Button onClick={(e)=>handleDelete(e, user.id)}  value={user.id} variant="warning" size='small'>Active</Button>}
+              {ed===true && <Button onClick={(e)=> handleSubmit(e)} variant ="warning">Submit</Button>}
             </td>
           </tr>
         )): null}
+        
       </tbody>
     </Table>
     </div>
