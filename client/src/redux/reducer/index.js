@@ -52,6 +52,14 @@ if (localStorage.getItem("shoppingCart")) {
   initialState.shoppingCart = [];
 }
 
+if (localStorage.getItem("allProfessionals")) {
+  initialState.allProfessionals = JSON.parse(
+    localStorage.getItem("allProfessionals")
+  );
+} else {
+  initialState.allProfessionals = [];
+}
+
 export function rootReducer(state = initialState, action) {
   switch (action.type) {
     case GET_CATEGORIES:
@@ -78,7 +86,7 @@ export function rootReducer(state = initialState, action) {
       };
 
     case GET_USER_BY_ID:
-      console.log(action.payload, "WW");
+      // console.log(action.payload, "WW");
       let arr = [];
       let resultado = arr.push(action.payload);
       return {

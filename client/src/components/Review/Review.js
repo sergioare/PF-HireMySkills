@@ -12,17 +12,13 @@ import {
 import { Label, Textarea, Button } from "flowbite-react";
 import ReactStars from "react-rating-stars-component";
 import Stars from "../Stars/Stars";
-import { useAuth0 } from "@auth0/auth0-react";
 
 const Review = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const reviews = useSelector((state) => state.reviews);
   const relation = useSelector((state) => state.relation);
-  const { user, isAuthenticated } = useAuth0();
-  //   const { sub } = user;
-  //   const token = sub;
-  console.log(user, "user");
+  //   console.log(relation, "relation");
 
   console.log(id, "id");
   const [input, setInput] = useState({
@@ -72,95 +68,93 @@ const Review = () => {
   };
 
   return (
-    isAuthenticated && (
-      <div className={styles.review}>
-        <hr />
-        <div className="w-100">
-          <div className={styles.reviewTitle}>¡Write your review!</div>
-          <form onSubmit={handleSubmit}>
-            <div className={styles.stars}>
-              <ReactStars {...secondExample} />
+    <div className={styles.review}>
+      <hr />
+      <div className="w-100">
+        <div className={styles.reviewTitle}>¡Write your review!</div>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.stars}>
+            <ReactStars {...secondExample} />
+          </div>
+          <div id="textarea">
+            <div className="mb-2 block">
+              <Label htmlFor="comment" />
             </div>
-            <div id="textarea">
-              <div className="mb-2 block">
-                <Label htmlFor="comment" />
-              </div>
-              <Textarea
-                id="comment"
-                placeholder="Please leave your comments..."
-                required={true}
-                onChange={(e) => handleChange(e)}
-                name="review_comment"
-                value={input.review_comment}
-                className="fs-6 w-100"
-              />
-            </div>
-            {relation === false ? (
-              <Button
-                gradientDuoTone="purpleToBlue"
-                type="submit"
-                className={styles.Button}
-                // {relation === false && disabled}
-                disabled
-              >
-                Comment
-              </Button>
-            ) : (
-              <Button
-                gradientDuoTone="purpleToBlue"
-                type="submit"
-                className={styles.Button}
-                // {relation === false && disabled}
-              >
-                Comment
-              </Button>
-            )}
-          </form>
-        </div>
-        {/* ---------review-------- */}
-        <br />
-        <hr />
-        <div className={styles.rewTitle}>
-          <p>Comments</p>
-        </div>
-        <div className={styles.rewContainer}>
-          {reviews.length ? (
-            reviews.map((rev) => {
-              return (
-                <div className={styles.divComment} key={rev.id}>
-                  <div className={styles.rewProfile}>
-                    <div className={styles.rewHeader}>
-                      <div className={styles.rewImg}>
-                        <img
-                          src={rev.user.photo ? rev.user.photo : pictureDefault}
-                          alt="Img not found"
-                        />
-                      </div>
-                      <div className={styles.rewName}>
-                        <strong>{rev.user.name}</strong>
-                        {/* <span>nickName</span> */}
-                      </div>
-                    </div>
-                    <div className={styles.rewStar}>
-                      <Stars
-                        rating={input.review_rating}
-                        value={rev.review_rating}
+            <Textarea
+              id="comment"
+              placeholder="Please leave your comments..."
+              required={true}
+              onChange={(e) => handleChange(e)}
+              name="review_comment"
+              value={input.review_comment}
+              className="fs-6 w-100"
+            />
+          </div>
+          {relation === false ? (
+            <Button
+              gradientDuoTone="purpleToBlue"
+              type="submit"
+              className={styles.Button}
+              // {relation === false && disabled}
+              disabled
+            >
+              Comment
+            </Button>
+          ) : (
+            <Button
+              gradientDuoTone="purpleToBlue"
+              type="submit"
+              className={styles.Button}
+              // {relation === false && disabled}
+            >
+              Comment
+            </Button>
+          )}
+        </form>
+      </div>
+      {/* ---------review-------- */}
+      <br />
+      <hr />
+      <div className={styles.rewTitle}>
+        <p>Comments</p>
+      </div>
+      <div className={styles.rewContainer}>
+        {reviews.length ? (
+          reviews.map((rev) => {
+            return (
+              <div className={styles.divComment} key={rev.id}>
+                <div className={styles.rewProfile}>
+                  <div className={styles.rewHeader}>
+                    <div className={styles.rewImg}>
+                      <img
+                        src={rev.user.photo ? rev.user.photo : pictureDefault}
+                        alt="Img not found"
                       />
                     </div>
+                    <div className={styles.rewName}>
+                      <strong>{rev.user.name}</strong>
+                      {/* <span>nickName</span> */}
+                    </div>
                   </div>
-                  <div className={styles.rewText}>
-                    <p>{rev.review_comment}</p>
+                  <div className={styles.rewStar}>
+                    <Stars
+                      rating={input.review_rating}
+                      value={rev.review_rating}
+                    />
                   </div>
                 </div>
-              );
-            })
-          ) : (
-            <div>Not fount comments</div>
-          )}
-          <hr />
-        </div>
+                <div className={styles.rewText}>
+                  <p>{rev.review_comment}</p>
+                </div>
+              </div>
+            );
+          })
+        ) : (
+          <div>Not fount comments</div>
+        )}
+        <hr />
       </div>
-    )
+    </div>
   );
 };
 
