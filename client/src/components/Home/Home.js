@@ -9,10 +9,17 @@ import imgDefault from "../../assets/imgDefault.jpg";
 import { Link } from "react-router-dom";
 import CatHome from "../Categories/General/CatHome";
 import ShowCard from "../AllProfessionals/ShowCard";
+const Swal = require("sweetalert2");
 
 const Home = () => {
   const worker = useSelector((state) => state?.worker);
   console.log(worker, "worker");
+  const showAlert = () => {
+    Swal.fire({
+      title: "Professional not found",
+      icon: "error",
+    });
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -41,14 +48,8 @@ const Home = () => {
       </div>
 
       <div className="">
-        <h1
-          className="col-12 text-center fs-1"
-          style={{ color: " #1F1F1F", height: "3vw" }}
-        >
-          Professionals
-        </h1>
         <div className="container h-100">
-          {worker.message && <div>{worker.message}</div>}
+          {worker.message && showAlert()}
           {worker.length > 0 ? (
             <div className="row col-md-12 d-flex align-items-center justify-content-around">
               {worker.map((prof) => {

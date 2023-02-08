@@ -155,7 +155,7 @@ const AllProfessionals = () => {
         >
           Professionals
         </h1>
-        <div className="container h-100">
+        <div className="container h-100 d-flex justify-content-center">
           {allProfessionals.length > 0 ? (
             <div className="row col-md-12 d-flex align-items-center justify-content-around">
               {allProfessionals.map((prof) => {

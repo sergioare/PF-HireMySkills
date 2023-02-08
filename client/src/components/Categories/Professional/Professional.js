@@ -66,9 +66,12 @@ const Professional = () => {
                     </span>
                   </p>
                   <p className={styles.detText}>
-                    <b>Score: </b>
+                    <p className="text d-flex">
+                      Score:
+                      <Stars value={detailProfessional.rating} />{" "}
+                    </p>
                   </p>
-                  <Stars value={detailProfessional.rating} />{" "}
+
                   {/* {console.log(detailProfessional.rating, "detail")} */}
                   <p className={styles.detText}>
                     <b>Professions: </b>
