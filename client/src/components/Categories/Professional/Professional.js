@@ -66,7 +66,7 @@ const Professional = () => {
                     </span>
                   </p>
                   <p className={styles.detText}>
-                    <p className="text d-flex">
+                    <p className="text d-flex" style={{ fontWeight: "bold" }}>
                       Score:
                       <Stars value={detailProfessional.rating} />{" "}
                     </p>
