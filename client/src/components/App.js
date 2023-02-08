@@ -4,13 +4,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./Landing/Landing";
 import Home from "./Home/Home";
 import About from "./About/About";
-import GeneralCategory from "./Categories/General/GeneralCategory";
 import SpecificCategory from "./Categories/Specific/SpecificCategory";
 import Professionals from "./Categories/Proffesionals/Professionals";
 import Professional from "./Categories/Professional/Professional";
 import FAQs from "./FAQs/FAQs";
 import SignIn from "./SignIn/Acc/SignIn";
-import Team from "./Team/Team";
 import AllProfessionals from "./AllProfessionals/AllProfessionals";
 import Form from "./Form/FormStaffOption";
 import FormServices from "./Services/Form/FormServices";
@@ -27,9 +25,7 @@ function App() {
       <Fragment>
         <Routes>
           <Route path="/" element={<Landing />} />
-          {/* <Route path="/creators" element={<Team />} /> */}
           <Route path="/creators" element={<TeamCards />} />
-
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/categories" element={<Category />} />
@@ -46,19 +42,14 @@ function App() {
           <Route path="/FAQs" element={<FAQs />} />
           <Route path="/account" element={<SignIn />} />
           <Route path="/contact-us" element={<Contact />} />
-
           <Route path="/form" element={<Form />} />
           <Route path="/form-services" element={<FormServices />} />
           <Route path="/shopping" element={<ShoppingCart />} />
-
           <Route path="/usertype" element={<UserType />} />
-
           <Route
             path="/professionalDashboard"
             element={<DashboardProfessional />}
           />
-
-          {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
         </Routes>
       </Fragment>
     </BrowserRouter>

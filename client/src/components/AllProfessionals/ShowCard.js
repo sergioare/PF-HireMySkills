@@ -27,7 +27,7 @@ const ShowCard = ({ name, rating, id, photo, professions }) => {
           Professions: {professions}
         </p>
         <p className="card-text text-secondary">Rating:</p>
-        <Stars value={rating} />
+        <Stars value={rating} className="justify-content-center" />
         <a
           href={`/professionals/${id}`}
           className="btn btn-outline-secondary rounded-0"
