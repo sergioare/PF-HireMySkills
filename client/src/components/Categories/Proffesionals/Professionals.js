@@ -1,14 +1,11 @@
 import React from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../../Navbar/Navbar";
-import Footer from "../../Footer/Footer";
 import { getProfessionals } from "../../../redux/actions/actions";
 import styles from "./Professionals.module.css";
-import imgDefault from "../../../assets/imgDefault.jpg";
 import ShowCard from "../../AllProfessionals/ShowCard";
-import LoaderGeneral from "../../LoaderGeneral/LoaderGeneral";
 
 function Professionals() {
   const { id } = useParams();

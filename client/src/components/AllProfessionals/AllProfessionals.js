@@ -1,9 +1,8 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
 import {
   filterByProfession,
   filterByProvince,
@@ -23,25 +22,19 @@ const AllProfessionals = () => {
   const profession = useSelector((state) => state.subCategory);
   const town = useSelector((state) => state.town);
   const detailProfessional = useSelector((state) => state.detail);
-  // const prueba = useSelector((state) => state.allProfessionals);
-  // console.log(town, "A");
-  // console.log(profession, "B");
 
   //  ----------- filter------------
   const handlerprofession = (e) => {
     e.preventDefault();
-    // console.log(e.target.value);
     dispatch(filterByProfession(e.target.value));
   };
   const handlerprovince = (e) => {
     e.preventDefault();
-    // console.log(e.target.value, "W");
     dispatch(filterByProvince(e.target.value));
   };
 
   const handlerByName = (e) => {
     e.preventDefault();
-    // console.log(e.target.value);
     dispatch(orderByName(e.target.value));
     if (act === true) setAct(false);
     else setAct(true);
@@ -54,12 +47,6 @@ const AllProfessionals = () => {
     dispatch(getProfessionals());
     dispatch(getSubCategory());
   }, [dispatch]);
-  // console.log(allProfessionals);
-  // let aux = []
-  // for (let i = 0; i < allProfessionals.length; i++) {
-  //  if()
-
-  // }
 
   return (
     <div className={styles.divAllProfessionals}>
@@ -121,7 +108,6 @@ const AllProfessionals = () => {
             </select>
           </div>
           {/* -----------Order name---------- */}
-
           <div className={styles.orderNameRating}>
             <div className={styles.divTitleOrder}>
               <p className="text-center" style={{ color: " #1F1F1F" }}>
@@ -138,7 +124,7 @@ const AllProfessionals = () => {
                   onChange={(e) => handlerByName(e)}
                   className={styles.selects}
                 >
-                  <option value="">--Select--</option>
+                  <option value="select">--Select--</option>
                   <option value="asc">(A - Z)</option>
                   <option value="desc">(Z - A)</option>
                 </select>
@@ -152,7 +138,7 @@ const AllProfessionals = () => {
                   onChange={(e) => handlerByName(e)}
                   className={styles.selects}
                 >
-                  <option value="">--Select--</option>
+                  <option value="select">--Select--</option>
                   <option value="min">Min</option>
                   <option value="max">Máx</option>
                 </select>

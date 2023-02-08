@@ -13,6 +13,9 @@ import imgDefault from "../../../assets/imgDefault.jpg";
 import Services from "../../Services/Services";
 import LoaderGeneral from "../../LoaderGeneral/LoaderGeneral";
 
+import Review from "../../Review/Review";
+import Stars from "../../Stars/Stars";
+
 const Professional = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -58,15 +61,15 @@ const Professional = () => {
                   <p className={styles.detText}>
                     <b>Town: </b>
                     <span className={styles.detSpan}>
-                      {detailProfessional.town}
+                      {detailProfessional.town}-{detailProfessional.state}-
+                      {detailProfessional.country}
                     </span>
                   </p>
                   <p className={styles.detText}>
                     <b>Score: </b>
-                    <span className={styles.detSpan}>
-                      {detailProfessional.rating}
-                    </span>
                   </p>
+                  <Stars value={detailProfessional.rating} />{" "}
+                  {/* {console.log(detailProfessional.rating, "detail")} */}
                   <p className={styles.detText}>
                     <b>Professions: </b>
                     <span className={styles.detSpan}>
@@ -79,7 +82,6 @@ const Professional = () => {
                       {detailProfessional.portfolio}
                     </span>
                   </p>
-
                   <h3>Services</h3>
                   <article className={styles.box}>
                     {detailProfessional.products.map((service) => (
@@ -90,6 +92,11 @@ const Professional = () => {
                       />
                     ))}
                   </article>
+                  {/* --------Review------... */}
+                  <div className={styles.divReview}>
+                    <hr />
+                    <Review />
+                  </div>
                 </div>
               </div>
             </div>
