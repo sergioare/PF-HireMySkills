@@ -9,9 +9,12 @@ import {
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "../Professional/Professional.module.css";
 import NavBar from "../../Navbar/Navbar";
-import Footer from "../../Footer/Footer";
 import imgDefault from "../../../assets/imgDefault.jpg";
 import Services from "../../Services/Services";
+import LoaderGeneral from "../../LoaderGeneral/LoaderGeneral";
+
+import Review from "../../Review/Review";
+import Stars from "../../Stars/Stars";
 
 const Professional = () => {
   const { id } = useParams();
@@ -58,15 +61,18 @@ const Professional = () => {
                   <p className={styles.detText}>
                     <b>Town: </b>
                     <span className={styles.detSpan}>
-                      {detailProfessional.town}
+                      {detailProfessional.town}-{detailProfessional.state}-
+                      {detailProfessional.country}
                     </span>
                   </p>
                   <p className={styles.detText}>
-                    <b>Score: </b>
-                    <span className={styles.detSpan}>
-                      {detailProfessional.rating}
-                    </span>
+                    <p className="text d-flex" style={{ fontWeight: "bold" }}>
+                      Score:
+                      <Stars value={detailProfessional.rating} />{" "}
+                    </p>
                   </p>
+
+                  {/* {console.log(detailProfessional.rating, "detail")} */}
                   <p className={styles.detText}>
                     <b>Professions: </b>
                     <span className={styles.detSpan}>
@@ -79,7 +85,6 @@ const Professional = () => {
                       {detailProfessional.portfolio}
                     </span>
                   </p>
-
                   <h3>Services</h3>
                   <article className={styles.box}>
                     {detailProfessional.products.map((service) => (
@@ -90,25 +95,23 @@ const Professional = () => {
                       />
                     ))}
                   </article>
+                  {/* --------Review------... */}
+                  <div className={styles.divReview}>
+                    <hr />
+                    <Review />
+                  </div>
                 </div>
               </div>
             </div>
           ) : (
-            <div className={styles.divLoading}>
-              <img
-                className={styles.loading}
-                src="https://img1.picmix.com/output/stamp/normal/8/5/2/9/509258_fb107.gif"
-                alt="Img not found"
-                width="200px"
-              />
+            <div className="d-flex justify-content-center align-items-center mt-5">
+              <LoaderGeneral />
             </div>
           )}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
 
 export default Professional;
-

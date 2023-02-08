@@ -1,11 +1,28 @@
 .container {
   display: flex;
-  position: relative;
-  width: 25vw;
+  /* position: relative; */
+  width: 49vw;
+  justify-content: center;
 }
 .input {
   display: flex;
-  width: 20vw;
+  width: 35vw;
+  height: 4vh;
+  color: #1f1f1f;
+  font-size: 1.5vh;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5%;
+  border: #1f1f1f solid;
+}
+.but {
+  width: 5vw;
+  height: 2vw;
+  border: #1f1f1f solid;
+}
+/* .input {
+  display: flex;
+  width: 25vw;
   height: 3.2vh;
   color: black;
   text-align: center;
@@ -27,4 +44,4 @@
 
 .but:hover {
   background: #fff5c3;
-}
+} */

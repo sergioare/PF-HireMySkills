@@ -1,9 +1,8 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
 import {
   filterByProfession,
   filterByProvince,
@@ -23,25 +22,19 @@ const AllProfessionals = () => {
   const profession = useSelector((state) => state.subCategory);
   const town = useSelector((state) => state.town);
   const detailProfessional = useSelector((state) => state.detail);
-  // const prueba = useSelector((state) => state.allProfessionals);
-  // console.log(town, "A");
-  // console.log(profession, "B");
 
   //  ----------- filter------------
   const handlerprofession = (e) => {
     e.preventDefault();
-    // console.log(e.target.value);
     dispatch(filterByProfession(e.target.value));
   };
   const handlerprovince = (e) => {
     e.preventDefault();
-    // console.log(e.target.value, "W");
     dispatch(filterByProvince(e.target.value));
   };
 
   const handlerByName = (e) => {
     e.preventDefault();
-    // console.log(e.target.value);
     dispatch(orderByName(e.target.value));
     if (act === true) setAct(false);
     else setAct(true);
@@ -54,12 +47,6 @@ const AllProfessionals = () => {
     dispatch(getProfessionals());
     dispatch(getSubCategory());
   }, [dispatch]);
-  // console.log(allProfessionals);
-  // let aux = []
-  // for (let i = 0; i < allProfessionals.length; i++) {
-  //  if()
-
-  // }
 
   return (
     <div className={styles.divAllProfessionals}>
@@ -73,9 +60,13 @@ const AllProfessionals = () => {
         <div className={styles.divAllFilter_order}>
           <div className={styles.allFilterPro}>
             <div className={styles.divTitleOrder}>
-              <p className="text-center text-white">SORT BY</p>
+              <p className="text-center" style={{ color: " #1F1F1F" }}>
+                FILTER BY
+              </p>
             </div>
-            <p className="px-2 d-inline-block text-white">PROFESSIONS</p>
+            <p className="px-2 d-inline-block" style={{ color: " #1F1F1F" }}>
+              PROFESSIONS
+            </p>
 
             <select
               onChange={(e) => handlerprofession(e)}
@@ -94,9 +85,13 @@ const AllProfessionals = () => {
           {/* ----Filter province--------*/}
           <div className={styles.allFilterTown}>
             <div className={styles.divTitleOrder}>
-              <p className="text-center text-white">SORT BY</p>
+              <p className="text-center" style={{ color: " #1F1F1F" }}>
+                FILTER BY
+              </p>
             </div>
-            <p className="px-2 d-inline-block text-white">TOWN</p>
+            <p className="px-2 d-inline-block" style={{ color: " #1F1F1F" }}>
+              TOWN
+            </p>
 
             <select
               onChange={(e) => handlerprovince(e)}
@@ -113,32 +108,37 @@ const AllProfessionals = () => {
             </select>
           </div>
           {/* -----------Order name---------- */}
-
           <div className={styles.orderNameRating}>
             <div className={styles.divTitleOrder}>
-              <p className="text-center text-white">SORT BY</p>
+              <p className="text-center" style={{ color: " #1F1F1F" }}>
+                SORT BY
+              </p>
             </div>
 
             <div className={styles.divNameRating}>
               <div className={styles.divName}>
-                <p className="px-2 text-white">Name </p>
+                <p className="px-2" style={{ color: " #1F1F1F" }}>
+                  Name{" "}
+                </p>
                 <select
                   onChange={(e) => handlerByName(e)}
                   className={styles.selects}
                 >
-                  <option value="">--Select--</option>
+                  <option value="select">--Select--</option>
                   <option value="asc">(A - Z)</option>
                   <option value="desc">(Z - A)</option>
                 </select>
               </div>
               {/* -----------Order rating---------- */}
               <div className={styles.divRating}>
-                <p className="px-2 text-white">Rating</p>
+                <p className="px-2" style={{ color: " #1F1F1F" }}>
+                  Rating
+                </p>
                 <select
                   onChange={(e) => handlerByName(e)}
                   className={styles.selects}
                 >
-                  <option value="">--Select--</option>
+                  <option value="select">--Select--</option>
                   <option value="min">Min</option>
                   <option value="max">Máx</option>
                 </select>
@@ -148,17 +148,19 @@ const AllProfessionals = () => {
         </div>
       </div>
 
-      <div className="divconteinerdelascards ">
-        <h1 className="col-12 text-center text-light fs-1 ">Professionals</h1>
-        <div className="container d-flex justify-content-center align items-center h-100">
+      <div className="">
+        <h1
+          className="col-12 text-center fs-1"
+          style={{ color: " #1F1F1F", height: "3vw" }}
+        >
+          Professionals
+        </h1>
+        <div className="container h-100 d-flex justify-content-center">
           {allProfessionals.length > 0 ? (
-            <div className="row">
+            <div className="row col-md-12 d-flex align-items-center justify-content-around">
               {allProfessionals.map((prof) => {
                 return (
-                  <div
-                    key={prof.id}
-                    className="col-md-12 d-flex justify-content-around"
-                  >
+                  <div key={prof.id} className="col-md-4">
                     <ShowCard
                       name={prof.name}
                       photo={prof.photo}
@@ -171,7 +173,7 @@ const AllProfessionals = () => {
               })}
             </div>
           ) : (
-            <div>
+            <div className="d-flex justify-content-center align-items-center mt-5">
               <LoaderGeneral />
             </div>
           )}

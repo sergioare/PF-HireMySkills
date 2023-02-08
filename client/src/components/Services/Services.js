@@ -19,6 +19,10 @@ const Services = ({ data, addToCart }) => {
     <div className={styles.container}>
       <h4>{name}</h4>
       <h5>${price}</h5>
+
+      <img className={styles.serviceImg} src={img} alt={name} />
+      <button onClick={() => addToCart(id, name)}>Add to Cart</button>
+
       <img className={styles.img} src={img} alt={name} />
       <button onClick={() => addToCart(id, name)}>Add to Cart</button>
       {/* <button  onClick={handleAddToCart}>Add to Cart</button> */}
