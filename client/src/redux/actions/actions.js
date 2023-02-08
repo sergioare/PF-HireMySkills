@@ -229,9 +229,7 @@ export function getUserById(id) {
 
 export function postUser(data) {
   return async function (dispatch) {
-    console.log(data, "esto data");
     const res = await axios.post(urlUsers, data);
-    console.log(res, "res");
     return res;
   };
 }

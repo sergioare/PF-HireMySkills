@@ -18,7 +18,7 @@ const Login = () => {
   };
 
   return (
-    <button onClick={() => logg()} className="btn btn-outline-light">
+    <button onClick={() => logg()} className="btn btn-outline-dark">
       Login
     </button>
   );

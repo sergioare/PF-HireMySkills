@@ -5,6 +5,8 @@ import NavBar from "../../Navbar/Navbar";
 import TeamCard from "../TeamCard/TeamCard";
 import andres from "./TeamImgs/andres.jpg";
 import sergio from "./TeamImgs/sergio.jpg";
+import yuri from "./TeamImgs/yuri.jpg";
+import maxi from "./TeamImgs/maxi.jpg";
 
 const Team = [
   {
@@ -63,15 +65,15 @@ const Team = [
   {
     id: 5,
     name: "Yuri",
-    about: "Hola soy Yuri",
-    linkedin: "",
-    github: "",
-    gmail: "",
-    phone: "",
-    lastProject: "",
-    photo:
-      "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-    prof: "",
+    about:
+      "I like learning new technologies, teamwork, proactive and with good humor and I am a student of telecommunications",
+    linkedin: "https://www.linkedin.com/in/yurigomezv/",
+    github: "https://github.com/Yuri-gomez12",
+    gmail: "yurigomezvanegas@gmail.com",
+    phone: "+57 3186226237",
+    lastProject: "Videogames - HireMySkills",
+    photo: yuri,
+    prof: "Full Stack Developer",
   },
   {
     id: 6,
@@ -89,14 +91,14 @@ const Team = [
   {
     id: 7,
     name: "Maxi",
-    about: "",
+    about:
+      "I consider myself an active, responsible person, with good communication. I always seek to develop myself in the best way.",
     linkedin: "https://www.linkedin.com/in/maximilianofailla/",
     github: "https://github.com/MFaii",
     gmail: "faillamaximiliano@gmail.com",
     phone: "+54 9 11 5837-7643",
     lastProject: "PokeApi - HireMySkills",
-    photo:
-      "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    photo: maxi,
     prof: "Full Stack Developer",
   },
 ];

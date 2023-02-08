@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { getProfesionalsByProfession } from "../../redux/actions/actions";
 import { getProfessionals } from "../../redux/actions/actions";
 import styles from "./searchbar.module.css";
+import { useSelector } from "react-redux";
+const Swal = require("sweetalert2");
 
 function Searchbar() {
   // const dispatch = useDispatch();
@@ -17,6 +19,7 @@ function Searchbar() {
   // console.log(getProfessionals);
   const dispatch = useDispatch();
   const [name, setName] = useState("");
+  const worker = useSelector((state) => state?.worker);
 
   function handleInputChange(e) {
     e.preventDefault();
@@ -28,6 +31,12 @@ function Searchbar() {
     dispatch(getProfesionalsByProfession(name));
     setName("");
   }
+  const showAlert = () => {
+    Swal.fire({
+      title: "Please enter a profession",
+      icon: "error",
+    });
+  };
 
   return (
     <>
@@ -40,14 +49,23 @@ function Searchbar() {
           id="search"
           onChange={(e) => handleInputChange(e)}
         />
-
-        <button
-          className={styles.but}
-          type="submit"
-          onClick={(e) => handleSubmit(e)}
-        >
-          SEARCH
-        </button>
+        {name === "" ? (
+          <button
+            className={styles.but}
+            type="submit"
+            onClick={() => showAlert()}
+          >
+            SEARCH
+          </button>
+        ) : (
+          <button
+            className={styles.but}
+            type="submit"
+            onClick={(e) => handleSubmit(e)}
+          >
+            SEARCH
+          </button>
+        )}
       </div>
     </>
   );
