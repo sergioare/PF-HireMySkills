@@ -157,7 +157,7 @@ const AllProfessionals = () => {
                 return (
                   <div
                     key={prof.id}
-                    className="col-md-4 d-flex justify-content-around"
+                    className="col-md-12 d-flex justify-content-around"
                   >
                     <ShowCard
                       name={prof.name}
@@ -177,7 +177,6 @@ const AllProfessionals = () => {
           )}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

@@ -33,7 +33,7 @@ const CatHome = () => {
             ))}
           </div>
         ) : (
-          <div>
+          <div className="d-flex justify-content-center align-items-center mt-5">
             <LoaderGeneral />
           </div>
         )}

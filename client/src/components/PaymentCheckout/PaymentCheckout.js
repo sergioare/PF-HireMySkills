@@ -18,7 +18,7 @@ const CheckoutForm = ()=>{ //this a componente and is the payment formulary
     const elements = useElements()
     const shopping= useSelector((state) => state.shoppingCart);
     const total = shopping.map(service=>service.quantity * service.price).reduce((acc, element)=> acc +element, 0)
-
+       
 
 
     const handleSubmit = async (e)=>{
@@ -37,7 +37,7 @@ const CheckoutForm = ()=>{ //this a componente and is the payment formulary
             })
             
             console.log(paymentMethod)
-
+            alert('Your pay was successfully')
             console.log("ACA ESTA EL OTRO", data )
             elements.getElement(CardElement).clear();
         }

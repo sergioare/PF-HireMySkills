@@ -208,9 +208,10 @@ export function getUserById(id) {
 
 export function postUser(data) {
   return async function (dispatch) {
-    axios
-      .post(urlUsers, data)
-      .then((res) => dispatch({ type: POST_USER, payload: res.data }));
+    console.log(data, "esto data");
+    const res = await axios.post(urlUsers, data);
+    console.log(res, "res");
+    return res;
   };
 }
 export function deleteUser(id) {
@@ -251,13 +252,12 @@ export function getServices() {
   };
 }
 
-  export function orderByRating(payload) {
+export function orderByRating(payload) {
   return {
     type: ORDER_BY_RATING,
     payload,
   };
 }
-
 
 // export const addToCart = service=>
 //   async function (dispatch){
@@ -283,7 +283,7 @@ export function getServices() {
 
 //         //add cart to local storage
 //         localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))
-        
+
 //         //add cart to redux
 //         dispatch({
 //           type: ADD_TO_CART,

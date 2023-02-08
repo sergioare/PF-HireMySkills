@@ -6,7 +6,6 @@ import { getCategories } from "../../../redux/actions/actions";
 import styles from "./Category.module.css";
 import GeneralCategory from "./GeneralCategory";
 import NavBar from "../../Navbar/Navbar";
-import Footer from "../../Footer/Footer";
 import LoaderGeneral from "../../LoaderGeneral/LoaderGeneral";
 
 const Category = () => {
@@ -20,7 +19,7 @@ const Category = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div style={{ minHeight: "100vh" }}>
       <NavBar />
       <div className={styles.profBtn}>
         <button onClick={() => navigate(-1)}>
@@ -48,7 +47,6 @@ const Category = () => {
           </div>
         )}
       </div>
-      <Footer />
     </div>
   );
 };

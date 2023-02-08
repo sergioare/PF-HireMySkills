@@ -2,12 +2,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Profile from "../Profile/Profile";
 import Login from "../Sub-Components/Login/Login";
 import Logout from "../Sub-Components/Logout/Logout";
-import styles from "./SignIn.module.css";
+import "./SignIn.css";
 import NavBar from "../../Navbar/Navbar";
 
-import UserType from "../../UserType/UserType";
-
 import Loader from "../Sub-Components/Loader/Loader";
+import Footer from "../../Footer/Footer";
 
 const SignIn = () => {
   const { isAuthenticated, isLoading } = useAuth0();
@@ -19,15 +18,21 @@ const SignIn = () => {
       ) : (
         <div>
           <NavBar />
-          <div className={styles.BigContainer_SignIn}>
+          <div
+            className="container"
+            style={{ marginTop: "2%", marginBottom: "2%" }}
+          >
             {isAuthenticated ? (
-              <div /* className={styles.Container_ProfileLogout_SignIn} */>
-                {/* <UserType/> */}
-                <Profile />
-                <Logout />
+              <div className="row d-flex justify-content-center align-items-center">
+                <div className="col-md-6">
+                  <div className="card row d-flex justify-content-center align-items-center divprofile">
+                    <Profile />
+                    <Logout />
+                  </div>
+                </div>
               </div>
             ) : (
-              <div /* className={styles.Container_Login_SignIn} */>
+              <div className="d-flex justify-content-center align-items-center">
                 <Login />
               </div>
             )}
