@@ -35,7 +35,9 @@ function Professionals() {
         </button>
       </div>
       <div className="containerdelascards2">
-        <h1 className="text-center text-light fs-1 ">Professionals</h1>
+        <h1 className="text-center fs-1" style={{ color: " #1F1F1F" }}>
+          Professionals
+        </h1>
         <div className="container d-flex justify-content-center align items-center h-100">
           {aux.length ? (
             aux.map((prof) => {

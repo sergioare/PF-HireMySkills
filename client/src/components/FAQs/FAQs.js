@@ -9,41 +9,55 @@ const FAQs = () => {
       <Navbar />
       <div className="container ">
         <h2
-          className="text-center text-white"
-          style={{ marginTop: "3%", marginBottom: "1%" }}
+          className="text-center"
+          style={{ marginTop: "3%", marginBottom: "1%", color: " #1F1F1F" }}
         >
           <b>What do you need help with? </b>
         </h2>
         <div className="col-12">
-          <h4 className="col-12 pb-3 text-white">
+          <h4 className="col-12 pb-3" style={{ color: " #1F1F1F" }}>
             <b>Popular topics</b>
           </h4>
           <div className="row gap-3 justify-content-center pb-2 ">
             <div className="col-12 col-md-2 p-3 border border-light rounded border-2 shadow p-3 mb-5 rounded ">
               <a href="#contract" className="text-decoration-none">
-                <h5 className="text-white text-center link-info">
-                  <b>Contract management of a professional</b>
+                <h5
+                  className="text-center link-info"
+                  style={{ color: " #1F1F1F" }}
+                >
+                  <b style={{ color: " #1F1F1F" }}>
+                    Contract management of a professional
+                  </b>
                 </h5>
               </a>
             </div>
             <div className="col-12 col-md-2 p-3 border border-light rounded border-2 shadow p-3 mb-5 rounded">
               <a href="#payment" className="text-decoration-none">
-                <h5 className="text-white text-center pt-4 link-info">
-                  <b>Payments</b>
+                <h5
+                  className="text-center pt-4 link-info"
+                  style={{ color: " #1F1F1F" }}
+                >
+                  <b style={{ color: " #1F1F1F" }}>Payments</b>
                 </h5>
               </a>
             </div>
             <div className="col-12 col-md-3 p-3 border border-light rounded border-2 shadow p-3 mb-5 rounded">
               <a href="#professional" className="text-decoration-none">
-                <h5 className="text-white text-center pt-4 link-info">
-                  <b>Professionals</b>
+                <h5
+                  className="text-center pt-4 link-info"
+                  style={{ color: " #1F1F1F" }}
+                >
+                  <b style={{ color: " #1F1F1F" }}>Professionals</b>
                 </h5>
               </a>
             </div>
             <div className="col-12 col-md-2 p-3 border border-light rounded border-2 shadow p-3 mb-5 rounded">
               <a href="#client" className="text-decoration-none">
-                <h5 className="text-white text-center pt-4 link-info">
-                  <b>Clients</b>
+                <h5
+                  className="text-center pt-4 link-info"
+                  style={{ color: " #1F1F1F" }}
+                >
+                  <b style={{ color: " #1F1F1F" }}>Clients</b>
                 </h5>
               </a>
             </div>

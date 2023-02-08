@@ -8,7 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
+  background-color: #f6f6f6;
   background-attachment: fixed;
 }
 

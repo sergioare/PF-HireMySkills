@@ -11,6 +11,7 @@ import styles from "../Professional/Professional.module.css";
 import NavBar from "../../Navbar/Navbar";
 import imgDefault from "../../../assets/imgDefault.jpg";
 import Services from "../../Services/Services";
+import LoaderGeneral from "../../LoaderGeneral/LoaderGeneral";
 
 const Professional = () => {
   const { id } = useParams();
@@ -93,13 +94,8 @@ const Professional = () => {
               </div>
             </div>
           ) : (
-            <div className={styles.divLoading}>
-              <img
-                className={styles.loading}
-                src="https://img1.picmix.com/output/stamp/normal/8/5/2/9/509258_fb107.gif"
-                alt="Img not found"
-                width="200px"
-              />
+            <div className="d-flex justify-content-center align-items-center mt-5">
+              <LoaderGeneral />
             </div>
           )}
         </div>

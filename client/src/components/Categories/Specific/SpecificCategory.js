@@ -30,7 +30,7 @@ const SpecificCategory = () => {
           <i className="fa-solid fa-circle-chevron-left"></i>
         </button>
       </div>
-      <h2 className="text-center text-white" style={{ margin: "4%" }}>
+      <h2 className="text-center" style={{ margin: "4%", color: " #1F1F1F" }}>
         Sub-Categories
       </h2>
       <div className="container  h-100" style={{ minHeight: "100vh" }}>

@@ -33,8 +33,8 @@ const Home = () => {
             alt="Profesional"
           />
 
-          <div className={styles.profesionalName}>Yuri Nallely</div>
-          <div className={styles.stars}>⭐⭐⭐⭐⭐</div>
+          {/* <div className={styles.profesionalName}>Yuri Nallely</div> */}
+          {/*           <div className={styles.stars}>⭐⭐⭐⭐⭐</div> */}
         </div>
       </div>
 
