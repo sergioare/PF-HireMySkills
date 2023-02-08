@@ -43,6 +43,7 @@ export const initialState = {
   reviews: [],
   shoppingCart: [],
   worker: [],
+  relation: "",
 };
 
 if (localStorage.getItem("shoppingCart")) {
@@ -173,6 +174,12 @@ export function rootReducer(state = initialState, action) {
         reviews: action.payload,
       };
 
+    case GET_COULD_REVIEW:
+      // console.log(action.payload, "WW");
+      return {
+        ...state,
+        relation: action.payload,
+      };
     //--------------Filter by profession------------
     case FILTER_BY_PROFESSION:
       let array = [];

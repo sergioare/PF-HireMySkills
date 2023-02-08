@@ -6,4 +6,3 @@ const router = Router();
 router.post("/", Checkout)
 
 module.exports = router;
-

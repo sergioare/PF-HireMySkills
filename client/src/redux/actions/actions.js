@@ -169,13 +169,17 @@ export function getReviews() {
 }
 
 export function getCouldReview(professionalId, userId) {
+  // console.log(professionalId, userId, "idData");
   return async function (dispatch) {
-    await axios.get(`${url}/${professionalId}/${userId}`).then((res) =>
-      dispatch({
-        type: GET_COULD_REVIEW,
-        payload: res.data,
-      })
-    );
+    await axios
+      .get(`${urlReviews}/${professionalId}/${userId}`)
+      // .then((res) => console.log(res.data, "data"))
+      .then((res) =>
+        dispatch({
+          type: GET_COULD_REVIEW,
+          payload: res.data,
+        })
+      );
   };
 }
 
@@ -225,9 +229,10 @@ export function getUserById(id) {
 
 export function postUser(data) {
   return async function (dispatch) {
-    axios
-      .post(urlUsers, data)
-      .then((res) => dispatch({ type: POST_USER, payload: res.data }));
+    console.log(data, "esto data");
+    const res = await axios.post(urlUsers, data);
+    console.log(res, "res");
+    return res;
   };
 }
 export function deleteUser(id) {
@@ -270,3 +275,38 @@ export function orderByRating(payload) {
     payload,
   };
 }
+
+// export const addToCart = service=>
+//   async function (dispatch){
+//     //if cart already exist in local storage, use it, otherwise set to empty array
+//     const shoppingCart = localStorage.getItem('shoppingCart')
+//       ? JSON.parse(localStorage.getItem('shoppingCart'))
+//       : [];
+
+//     //check if duplicates
+//     const duplicates = shoppingCart.filter(cartService =>
+//       cartService._id === service._id)
+
+//     //if no duplicates, proceed
+//     if(duplicates.length === 0){
+//         //prep service data
+//         const serviceToAdd ={
+//           ...service,
+//           quantity: 1
+//         }
+
+//         //add service data to cart
+//         shoppingCart.push(serviceToAdd)
+
+//         //add cart to local storage
+//         localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))
+
+//         //add cart to redux
+//         dispatch({
+//           type: ADD_TO_CART,
+//           payload: shoppingCart,
+//         })
+
+//     }
+
+//   }

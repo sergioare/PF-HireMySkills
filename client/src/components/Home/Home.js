@@ -13,7 +13,6 @@ const Home = () => {
   const worker = useSelector((state) => state?.worker);
 
   return (
-    
     <div className={styles.wrapper}>
       <NavBar />
 
@@ -42,9 +41,7 @@ const Home = () => {
       <div className="container">
         <CatHome />
       </div>
-      <div className={styles.containerThree}>
-      </div>
-        <Footer />
+      <div className={styles.containerThree}></div>
     </div>
   );
 };

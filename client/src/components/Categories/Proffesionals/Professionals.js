@@ -60,7 +60,6 @@ function Professionals() {
           )}
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

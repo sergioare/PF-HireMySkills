@@ -154,7 +154,6 @@ const FAQs = () => {
           <br />
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

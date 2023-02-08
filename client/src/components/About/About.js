@@ -77,7 +77,6 @@ const About = () => {
           </p>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

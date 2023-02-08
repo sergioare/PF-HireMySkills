@@ -7,6 +7,7 @@ import {
   getReviews,
   postReviews,
   getProfessionalReview,
+  getCouldReview,
 } from "../../redux/actions/actions";
 import { Label, Textarea, Button } from "flowbite-react";
 import ReactStars from "react-rating-stars-component";
@@ -16,6 +17,8 @@ const Review = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const reviews = useSelector((state) => state.reviews);
+  const relation = useSelector((state) => state.relation);
+  //   console.log(relation, "relation");
 
   console.log(id, "id");
   const [input, setInput] = useState({
@@ -25,8 +28,10 @@ const Review = () => {
   });
 
   useEffect(() => {
+    console.log(input.userId, "AA");
     dispatch(getProfessionalReview(id));
-  }, [dispatch, id]);
+    dispatch(getCouldReview(id, input.userId));
+  }, [dispatch, id, input.userId]);
 
   const handleChange = (ev) => {
     setInput({
@@ -85,13 +90,26 @@ const Review = () => {
               className="fs-6 w-100"
             />
           </div>
-          <Button
-            gradientDuoTone="purpleToBlue"
-            type="submit"
-            className={styles.Button}
-          >
-            Comment
-          </Button>
+          {relation === false ? (
+            <Button
+              gradientDuoTone="purpleToBlue"
+              type="submit"
+              className={styles.Button}
+              // {relation === false && disabled}
+              disabled
+            >
+              Comment
+            </Button>
+          ) : (
+            <Button
+              gradientDuoTone="purpleToBlue"
+              type="submit"
+              className={styles.Button}
+              // {relation === false && disabled}
+            >
+              Comment
+            </Button>
+          )}
         </form>
       </div>
       {/* ---------review-------- */}
