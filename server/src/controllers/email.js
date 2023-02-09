@@ -46,7 +46,7 @@ async function newUser(name, email) {
   let informacion = await transporter.sendMail({
     from: `"HIREMYSKILLS 👾⚒️" <${GMAIL_ADMIN}>`, // sender address
     to: email, // list of receivers
-    subject: " BIENVENID@ A HIREMYSKILLS ", // Subject line
+    subject: " WELCOME TO HIREMYSKILLS ", // Subject line
     html: `Hello ${name} . Thank you very much for joining HIREMYSKILLS 👏. <br></br>We invite you to browse our page and find the ideal service.  
          .<br></br> Remember that professionals are one click away from you ✍️📉 <br></br>
          <a href=''> Enter here to return to the site</a> - <br></br>
@@ -55,7 +55,9 @@ async function newUser(name, email) {
   return informacion;
 }
 
+
+
 module.exports = {
   pago,
   newUser,
-};
+  };

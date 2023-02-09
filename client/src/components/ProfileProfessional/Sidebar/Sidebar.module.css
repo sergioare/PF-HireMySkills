@@ -1,10 +1,12 @@
 .divSidebar {
-  width: 14rem;
+  width: 12rem;
   height: calc(100vh);
   border-right: 1px solid gray;
   background-color: #283c63;
   padding-top: 20px;
   display: flex;
+ 
+  
 }
 .divSidebar ul {
   list-style: none;

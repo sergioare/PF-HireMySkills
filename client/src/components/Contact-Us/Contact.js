@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Field, Formik,Form } from 'formik';
 import * as Yup from 'yup'
 import axios from 'axios'
 import styles from './Contact.module.css'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 
 const Contact = () => {
@@ -19,12 +20,22 @@ const Contact = () => {
         'Security & Compliance',
         'Other'
     ]
-    
+
+   
+    const showAlert = ()=>{
+        Swal.fire({
+        title: "Your inquire was sent successfuly",
+        icon: "success",
+        html: "<p>Our team will contact you to <b>resolve</b> all your inquires</p>",
+        footer: "<b>Please, check your email</b>"
+    })
+    }
+
     return (
         <div className={styles.contact}>
-        <h1>General Inquiries</h1>
+        <h1 className={styles.h1form}>General Inquiries</h1>
         <br/>
-        <h2>¿Have a question for us?</h2>
+        <h2 className={styles.h1form}>¿Have a question for us?</h2>
         <Formik        
             initialValues={{
               name: "",
@@ -66,8 +77,8 @@ const Contact = () => {
                     console.log(response.data, "hola")
                     setResponseServer(response.data);
                     // setSubmitting(false);
+                    showAlert()
                     navigate('/home')
-                    alert('Your inquire was sent successfuly')
               })
                 .catch(error=>{
                     setResponseServer(error.message);
@@ -149,7 +160,7 @@ const Contact = () => {
                                 <span className={styles.error}>{errors.message}</span>
                                 )}
                     </div>
-                    <button type="submit">Submit</button>
+                    <button className={styles.Buttonsend} type="submit">Submit</button>
             {responseServer && <div>{responseServer}</div>}
 
                 </Form>

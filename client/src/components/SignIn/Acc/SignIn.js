@@ -6,7 +6,6 @@ import "./SignIn.css";
 import NavBar from "../../Navbar/Navbar";
 
 import Loader from "../Sub-Components/Loader/Loader";
-import Footer from "../../Footer/Footer";
 
 const SignIn = () => {
   const { isAuthenticated, isLoading } = useAuth0();

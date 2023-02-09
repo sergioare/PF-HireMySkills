@@ -12,6 +12,16 @@ const Login = () => {
     });
   };
 
+  // const submitUser = (e) => {
+  //   e.preventDefault();
+  //   dispatch(postUser(input));
+  //   setInput({
+  //     name: user.name,
+  //     email: user.email,
+  //     photo: user.picture || "https://www.shutterstock.com/image-vector/man-icon-vector-600w-1040084344.jpg",
+  //   });
+  // };
+
   const logg = async () => {
     await loginWithPopup();
     showAlert();

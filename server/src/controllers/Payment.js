@@ -24,7 +24,11 @@ const Checkout= async (req, res) => {
         email:email,
         payment_method: id,
         confirm: true,
-      });
+      })
+      .then(res=>{
+        console.log(res, "RESPUESTA STRIPE")
+      })
+
   
       console.log("PAAYYYMENT ",payment);
   
