@@ -1,4 +1,6 @@
 const Profession = require("../models/profession.js");
+const nodemailer = require("nodemailer");
+const { GMAIL_ADMIN, PASSWORD_ADMIN } = process.env;
 
 const professionals = require("../models/professionals.js");
 // ruta traer toda la data
@@ -45,6 +47,29 @@ const postcreateprofessional = async (req, res) => {
     portfolio,
     skills,
   } = req.body;
+  let transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true, // true for 465, false for other ports
+    auth: {
+      user: GMAIL_ADMIN, // generated ethereal user
+      pass: PASSWORD_ADMIN, // generated ethereal password
+    },
+    tls: {
+      rejectUnauthorized: false,
+    },
+  });
+
+  //mensaje que se envia al mail
+  let informacion = await transporter.sendMail({
+    from: `"HIREMYSKILLS 👾⚒️" <${GMAIL_ADMIN}>`, // sender address
+    to: email, // list of receivers
+    subject: " CONTINUE TO ENJOY HIREMYSKILLS ", // Subject line
+    html: `Hello ${name} . Thank you very much for joining like a professional in HIREMYSKILLS 👏. <br></br>We invite you to add some services to pull up your profile and create more views.  
+         .<br></br> Remember that services you provide are one click away from our clients ✍️📉 <br></br>
+         <a href=''> Enter here to return to the site</a> - <br></br>
+        `, // html body
+  });
   // console.log(req.body, "::: es aqui");
   try {
     const repetido = await professionals.findOne({ where: { email: email } });
@@ -67,12 +92,13 @@ const postcreateprofessional = async (req, res) => {
       portfolio,
       skills,
     });
+    
     const newProfesion = await Profession.findAll({
       where: { profession: skills },
     });
     newProfes.addProfession(newProfesion);
-
-    res.send("created successfully");
+    
+    res.send(informacion, "created successfully");
   } catch (error) {
     res.send(error.message);
   }
