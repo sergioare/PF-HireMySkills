@@ -263,6 +263,13 @@ export function rootReducer(state = initialState, action) {
         allProfessionals: arra,
       };
 
+      case POST_USER:
+            return{
+                ...state,
+                user: [...state.user, action.payload]
+            }
+
+
     default:
       return state;
   }

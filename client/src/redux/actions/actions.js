@@ -146,10 +146,27 @@ export function deleteProfessional(id) {
   };
 }
 
-export const addToCart = (id) => ({
-  type: ADD_TO_CART,
-  payload: id,
-});
+
+export function orderByReviews(payload) {
+  return {
+    type: ORDER_BY_REVIEWS,
+    payload,
+  };
+}
+
+export function addToCart(services, userTokken){
+  const item = [services, userTokken]
+    return async function(dispatch){
+        axios.post(urlShoppingcart, item)
+        .then(res=>
+            dispatch({type:ADD_TO_CART, payload: services}))
+    }
+}
+// export const addToCart = (id) => ({
+//   type: ADD_TO_CART,
+//   payload: id,
+// });
+
 
 //--------------Review ------------
 export function postReviews(input) {

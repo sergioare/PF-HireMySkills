@@ -5,18 +5,18 @@
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-    background: linear-gradient(to left, #ff7069 0%, #283c63 100%);
+    background: linear-gradient(to left, #1b1b6e 0%, #232f49 50%);
   
       font-family: "Work Sans";
       font-weight: 400;
-      font-size: 1.2vw;
+      font-size: 1.5vw;
       color: #fbe8d3;
   }
-  h1{
+  .h1form{
       color: #c8e7ff;
       font-family: "Cinzel";
-      font-weight: 700;
-      font-size: 2vw;
+      font-weight: 400;
+      font-size: 3vw;
   
   }
   
@@ -37,3 +37,20 @@
       height: 20vh;
   }
   
+  .error{
+    color: red;
+  }
+
+  .Buttonsend {
+    background-color: #faf8f8;
+    border-color: #fff;
+    border-radius: 7px;
+    color: rgb(2, 2, 2);
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}

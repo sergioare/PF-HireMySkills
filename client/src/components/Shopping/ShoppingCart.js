@@ -9,6 +9,8 @@ import PaymentCheckout from "../PaymentCheckout/PaymentCheckout";
 // const cartFromLocalStorage =JSON.parse(localStorage.getItem('shopping') || '[]')
 
 function ShoppingCart() {
+
+
   //  const state = useSelector(state=>state)
   const dispatch = useDispatch();
   const shopping = useSelector((state) => state.shoppingCart);
@@ -23,6 +25,7 @@ function ShoppingCart() {
   // useEffect(()=>{
   //     localStorage.setItem('shopping', JSON.stringify(shopping))
   //    },[shopping])
+
 
   return (
     <div>

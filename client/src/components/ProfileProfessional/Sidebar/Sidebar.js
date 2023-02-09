@@ -56,8 +56,7 @@ const Sidebar = () => {
           <NavLink
             to="/delete"
             className="btn btn-outline-primary rounded py-2 w-100 d-inline-block px-3 text-white"
-            activeClassName="active"
-          >
+            >
             <i className="fa-solid fa-user-xmark px-2 fs-4 w-100"></i>
             Deactivate
           </NavLink>
