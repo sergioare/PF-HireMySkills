@@ -6,11 +6,12 @@
 }
 
 .containerOne {
-  flex-basis: 100vw;
-  height: 93%;
+  /* flex-basis: 100vw; */
+  height: 93vh;
   background: #283c63;
   display: flex;
   flex-wrap: wrap;
+
   /* align-content:stretch; */
 }
 
@@ -21,6 +22,7 @@
   align-items: center;
   flex-basis: 100%;
   height: 12%;
+  text-decoration: none;
 }
 
 .logo {
@@ -32,6 +34,8 @@
   color: #fbe8d3;
   flex-grow: 4;
   justify-content: center;
+  text-decoration: none;
+
 }
 
 .linkNav {
@@ -41,6 +45,8 @@
   font-size: 1.2vw;
   color: #fbe8d3;
   flex-grow: 4;
+  text-decoration: none;
+
 }
 .linkNav:nth-child(4) {
   display: flex;

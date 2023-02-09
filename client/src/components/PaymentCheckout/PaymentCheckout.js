@@ -4,7 +4,7 @@ import NavBar from '../Navbar/Navbar'
 import {Elements, CardElement, useStripe, useElements} from '@stripe/react-stripe-js' // this element get the stripePromise to englobe another components like provider, here I bring the payment form for example, CardElemnt is the input that you put the number, date and postal code of the cardPayment
 import axios from 'axios'
 import { useSelector } from 'react-redux'
-
+import Swal from 'sweetalert2'
 import "bootswatch/dist/lux/bootstrap.min.css";
 
 
@@ -18,9 +18,15 @@ const CheckoutForm = ()=>{ //this a componente and is the payment formulary
     const elements = useElements()
     const shopping= useSelector((state) => state.shoppingCart);
     const total = shopping.map(service=>service.quantity * service.price).reduce((acc, element)=> acc +element, 0)
-       
+    const parse = parseInt(total)
 
-
+    const showAlert = ()=>{
+    Swal.fire({
+    title: "Payment was processed successfully ",
+    icon: "success",
+    footer: "<b>Continue enjoy our services</b>"
+})
+}
     const handleSubmit = async (e)=>{
         e.preventDefault()
 
@@ -30,14 +36,16 @@ const CheckoutForm = ()=>{ //this a componente and is the payment formulary
         })//this return two things... one error or the paymentMehtod
         if(!error){
             const { id } = paymentMethod;
-
-            const {data} = await axios.post('http://localhost:4000/checkout',{
+          console.log(id, "id payment method")
+            const {data} = await axios.post('https://hiremyskillsbackend.onrender.com/checkout',{
                 id,
-                amount: {total}
+                amount: total * 100
             })
             
+            
             console.log(paymentMethod)
-            alert('Your pay was successfully')
+            showAlert()
+            
             console.log("ACA ESTA EL OTRO", data )
             elements.getElement(CardElement).clear();
         }

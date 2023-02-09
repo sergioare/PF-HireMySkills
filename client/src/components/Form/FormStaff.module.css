@@ -1,3 +1,4 @@
+
 .containerform {
   text-align: center;
   display: flex;
@@ -12,6 +13,7 @@
     font-weight: 400;
     font-size: 1.5vw;
     color: #fbe8d3;
+  
 }
 .h1form{
     color: #c8e7ff;

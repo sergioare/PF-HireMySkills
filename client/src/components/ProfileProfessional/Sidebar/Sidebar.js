@@ -34,7 +34,7 @@ const Sidebar = () => {
           </NavLink>
         </li>
 
-        <li>
+        {/* <li>
           <NavLink
             to="/home"
             className="btn btn-outline-primary rounded py-2 w-100 d-inline-block px-3 text-white"
@@ -42,8 +42,8 @@ const Sidebar = () => {
             <i className="fa-regular fa-circle-xmark px-2 fs-4 w-100"></i>
             Remove services
           </NavLink>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <NavLink
             to="promotion"
             className="btn btn-outline-primary rounded py-2 w-100 d-inline-block px-3 text-white"
@@ -51,17 +51,16 @@ const Sidebar = () => {
             <i className="fa-solid fa-rocket px-2 fs-4 w-100"></i>
             Increase visibility
           </NavLink>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <NavLink
             to="/delete"
             className="btn btn-outline-primary rounded py-2 w-100 d-inline-block px-3 text-white"
-            activeClassName="active"
-          >
+            >
             <i className="fa-solid fa-user-xmark px-2 fs-4 w-100"></i>
             Deactivate
           </NavLink>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

@@ -69,7 +69,7 @@ const Review = () => {
   return (
     <div className={styles.review}>
       <hr />
-      <div className="w-100">
+      <div className="w-100 divcomment">
         <div className={styles.reviewTitle}>¡Write your review!</div>
         <form onSubmit={handleSubmit}>
           <div className={styles.stars}>
@@ -113,7 +113,7 @@ const Review = () => {
       <br />
       <hr />
       <div className={styles.rewTitle}>
-        <p>Comments</p>
+        <p style={{ color: " #1F1F1F" }}>Comments</p>
       </div>
       <div className={styles.rewContainer}>
         {reviews.length ? (
@@ -141,13 +141,13 @@ const Review = () => {
                   </div>
                 </div>
                 <div className={styles.rewText}>
-                  <p>{rev.review_comment}</p>
+                  <p style={{ color: " #1F1F1F" }}>{rev.review_comment}</p>
                 </div>
               </div>
             );
           })
         ) : (
-          <div>Not fount comments</div>
+          <div style={{ color: " #1F1F1F" }}>Not fount comments</div>
         )}
         <hr />
       </div>
