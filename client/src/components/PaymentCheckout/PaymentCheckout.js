@@ -18,7 +18,7 @@ const CheckoutForm = ()=>{ //this a componente and is the payment formulary
     const elements = useElements()
     const shopping= useSelector((state) => state.shoppingCart);
     const total = shopping.map(service=>service.quantity * service.price).reduce((acc, element)=> acc +element, 0)
-       
+    const parse = parseInt(total)
 
 
     const handleSubmit = async (e)=>{
@@ -30,11 +30,12 @@ const CheckoutForm = ()=>{ //this a componente and is the payment formulary
         })//this return two things... one error or the paymentMehtod
         if(!error){
             const { id } = paymentMethod;
-
+          console.log(id, "id payment method")
             const {data} = await axios.post('https://hiremyskillsbackend.onrender.com/checkout',{
                 id,
-                amount: {total}
+                amount: total * 100
             })
+            
             
             console.log(paymentMethod)
             alert('Your pay was successfully')
