@@ -26,7 +26,7 @@ const Category = () => {
           <i className="fa-solid fa-circle-chevron-left"></i>
         </button>
       </div>
-      <h2 className="text-center text-white" style={{ margin: "4%" }}>
+      <h2 className="text-center" style={{ margin: "1%", color: " #1F1F1F" }}>
         Categories
       </h2>
       <div className="container  h-100">
@@ -50,34 +50,5 @@ const Category = () => {
     </div>
   );
 };
-{
-  /* <div className={styles.divCategory}>
-      {categories.length > 0 ? (
-        <div className={styles.card}>
-          {categories.map((cat) => {
-            return (
-              <div className={styles.cardBody} key={cat.id}>
-                <Link
-                  to={`/categories/profession/${cat.id}`}
-                  className={styles.cardLink}
-                >
-                  <h3 className={styles.cardName}>{cat.typecategory}</h3>
-                </Link>
-              </div>
-            );
-          })}
-        </div>
-      ) : (
-        <div className={styles.divLoading}>
-          <img
-            className={styles.loading}
-            src="https://img1.picmix.com/output/stamp/normal/8/5/2/9/509258_fb107.gif"
-            alt="Img not found"
-            width="150px"
-          />
-        </div>
-      )}
-    </div> */
-}
 
 export default Category;

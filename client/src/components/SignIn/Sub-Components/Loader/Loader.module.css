@@ -18,3 +18,7 @@
     transform: rotate(0.5turn);
   }
 }
+
+.contLoader {
+  min-height: 100vh;
+}

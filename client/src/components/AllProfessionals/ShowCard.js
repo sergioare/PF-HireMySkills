@@ -1,5 +1,6 @@
 import React from "react";
 import imgDefault from "../../assets/imgDefault.jpg";
+import Stars from "../Stars/Stars";
 
 const ShowCard = ({ name, rating, id, photo, professions }) => {
   return (
@@ -25,7 +26,11 @@ const ShowCard = ({ name, rating, id, photo, professions }) => {
         <p className="card-text text-secondary text-white">
           Professions: {professions}
         </p>
-        <p className="card-text text-secondary">Rating: {rating}</p>
+        <p className="card-text text-secondary d-flex justify-content-center">
+          Rating:
+          <Stars value={rating} className="" />
+        </p>
+
         <a
           href={`/professionals/${id}`}
           className="btn btn-outline-secondary rounded-0"

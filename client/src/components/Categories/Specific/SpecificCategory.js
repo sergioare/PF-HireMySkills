@@ -30,10 +30,10 @@ const SpecificCategory = () => {
           <i className="fa-solid fa-circle-chevron-left"></i>
         </button>
       </div>
-      <h2 className="text-center text-white" style={{ margin: "4%" }}>
+      <h2 className="text-center" style={{ margin: "4%", color: " #1F1F1F" }}>
         Sub-Categories
       </h2>
-      <div className="container  h-100">
+      <div className="container  h-100" style={{ minHeight: "100vh" }}>
         {aux.length > 0 ? (
           <div className="row">
             {aux.map((cat) => (
@@ -53,32 +53,6 @@ const SpecificCategory = () => {
       </div>
     </div>
   );
-  {
-    /* <div className={styles.specific}>
-      <NavBar />
-      <div className={styles.profBtn}>
-        <button onClick={() => navegate(-1)}>
-          <i className="fa-solid fa-circle-chevron-left"></i>
-        </button>
-
-        <div className={styles.cardSub}>
-          <h1>Professions</h1>
-        </div>
-      </div>
-      <div className={styles.cardSubCat}>
-        {aux.map((prof) => {
-          return (
-            <div key={prof.id} className={styles.divSpecific}>
-              <Link to={`/categories/profession/professionals/${prof.id}`}>
-                <h3>{prof.profession} </h3>
-              </Link>
-            </div>
-          );
-        })}
-      </div>
-      <Footer />
-    </div> */
-  }
 };
 
 export default SpecificCategory;

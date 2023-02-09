@@ -6,7 +6,6 @@ import "./SignIn.css";
 import NavBar from "../../Navbar/Navbar";
 
 import Loader from "../Sub-Components/Loader/Loader";
-import Footer from "../../Footer/Footer";
 
 const SignIn = () => {
   const { isAuthenticated, isLoading } = useAuth0();
@@ -32,7 +31,10 @@ const SignIn = () => {
                 </div>
               </div>
             ) : (
-              <div className="d-flex justify-content-center align-items-center">
+              <div
+                className="d-flex justify-content-center align-items-center"
+                style={{ minHeight: "100vh" }}
+              >
                 <Login />
               </div>
             )}

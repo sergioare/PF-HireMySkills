@@ -1,12 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../../../redux/actions/actions";
-import styles from "./Category.module.css";
 import GeneralCategory from "./GeneralCategory";
-import NavBar from "../../Navbar/Navbar";
-import Footer from "../../Footer/Footer";
 import LoaderGeneral from "../../LoaderGeneral/LoaderGeneral";
 
 const CatHome = () => {
@@ -19,7 +15,9 @@ const CatHome = () => {
 
   return (
     <div>
-      <h2 className="text-center text-white">Categories</h2>
+      <h2 className="text-center" style={{ color: " #1F1F1F" }}>
+        Categories
+      </h2>
       <div className="container  h-100">
         {categories.length > 0 ? (
           <div className="row">

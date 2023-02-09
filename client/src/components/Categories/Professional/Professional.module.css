@@ -1,6 +1,6 @@
 .divProfessional {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   color: black;
 }
 .profBtn button {
@@ -11,10 +11,10 @@
 }
 .profBtn button i {
   font-size: 3.5rem;
-  color: tomato;
+  color: rgb(0, 0, 0);
 }
 .profBtn button i:hover {
-  color: #076b72;
+  color: #4a0876;
 }
 .divDet {
   width: 80%;
@@ -22,28 +22,16 @@
   justify-content: center;
   align-items: center;
 }
-/* .firstContainer {
-  width: 100%;
-  display: grid;
-  
-}
-.containerDet {
-  width: 100%;
-  
-} */
+
 .profImg {
-  width: 100%;
   display: flex;
-  padding: 20px;
-  height: 50%;
 }
 .img {
   display: flex;
   justify-content: center;
-  width: 30%;
-  height: 400px;
+  width: 500px;
+  height: 600px;
   border-radius: 20px;
-  height: 50%;
 }
 .twoContainer {
   width: 100%;
@@ -51,7 +39,7 @@
   height: 50%;
 }
 .detName {
-  color: black;
+  color: #1f1f1f;
   margin-left: 30px;
   margin-bottom: 20px;
 }
@@ -72,15 +60,15 @@
   border: 0;
   padding: 10px;
   font-size: 20px;
-  background-color: tomato;
+  background-color: rgb(0, 0, 0);
   width: 35%;
   border-radius: 10px;
 }
 .btn:hover {
   font-size: 25px;
-  color: rgb(240, 235, 245);
-  background-color: #076b72;
-  border-color: rgb(240, 235, 245);
+  color: #4a0876;
+  background-color: #1f1f1f;
+  border-color: #4a0876;
 }
 .divLoading {
   width: 100%;
@@ -91,6 +79,14 @@
   padding-left: 470px;
   padding-top: 100px;
 }
+
+.divReview {
+  margin-top: 30px;
+  padding-bottom: 20px;
+  background-color: #adb9d3;
+  border: 2px solid #1f1f1f;
+}
+
 .box {
   padding: 1rem;
   margin: 1rem;
