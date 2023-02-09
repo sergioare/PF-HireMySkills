@@ -23,7 +23,11 @@ const Checkout= async (req, res) => {
         description: "Profession Service",
         payment_method: id,
         confirm: true,
-      });
+      })
+      .then(res=>{
+        console.log(res, "RESPUESTA STRIPE")
+      })
+
   
       console.log(payment);
   

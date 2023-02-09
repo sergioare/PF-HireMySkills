@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import Swal from 'sweetalert2'
 import {
   GET_CATEGORIES,
   GET_SUB_CATEGORY,
@@ -155,11 +155,19 @@ export function orderByReviews(payload) {
 }
 
 export function addToCart(services, userTokken){
+  const showAlert = ()=>{
+    Swal.fire({
+    title: "Your service was added to cart successfuly",
+    icon: "success",
+    footer: "<b>Continue enjoy our services</b>"
+})
+}
   const item = [services, userTokken]
     return async function(dispatch){
         axios.post(urlShoppingcart, item)
         .then(res=>
             dispatch({type:ADD_TO_CART, payload: services}))
+            showAlert()
     }
 }
 // export const addToCart = (id) => ({
