@@ -14,7 +14,13 @@ function Userss() {
     const [ed, setEd]= useState(false);
     
     const users = useSelector((state)=>state.user)
+
+    // console.log("acáaa usuarios", users)
+
+    // console.log("los usuarios",users)
     const [id, setId] = useState('')
+
+
     
     const [data,setData]=useState({
       
@@ -55,18 +61,18 @@ const handleChange=(e)=>{
  
 }
 
-const handleChageId = (e)=>{
-  console.log(e.target.value, "  IDDD ")
-  e.preventDefault();
-  setId(e.target.value)
-}
-const handleSubmit=(e)=>{
+// const handleChageId = (e)=>{
+//   console.log(e.target.value, "  IDDD ")
+//   e.preventDefault();
+//   setId(e.target.value)
+// }
+const handleSubmit=(e, userid)=>{
   // e.preventDefault();
   console.log("SUBBMIT   \n",data)
-  dispatch(patchUser(data, id))
+  dispatch(patchUser(data, userid))
 
   setEd(false)
-  window.location.href = window.location.href
+  // window.location.href = window.location.href
 
 }
 
@@ -91,7 +97,7 @@ const handleSubmit=(e)=>{
       <tbody>
         {users.length>0 ? users.map(user => (
             <tr key={user.id}>
-            <td>{ed===true ? <input type="text" value = {`${user.id}a`} name='id' onChange={handleChageId} placeholder={user.id} /> :user.id}</td>
+            <td>{user.id}</td>
             <td>{ed===true ? <input type="text" name='name' onChange={handleChange} placeholder={user.name} /> : user.name}</td>
             <td>{ed===true ? <input type="text"  name='email' onChange={handleChange} placeholder={user.email} />: user.email}</td>
             <td>{ed===true ? <input type="number"  name='contact' onChange={handleChange} placeholder={user.contact} />: user.contact}</td>
@@ -109,7 +115,7 @@ const handleSubmit=(e)=>{
               {ed===false && user.deleted === false && <Button onClick={(e)=>handleDelete(e, user.id)}  value={user.id} variant="danger" size='small'>Delete</Button>}
               
               {ed===false && user.deleted===true && <Button onClick={(e)=>handleDelete(e, user.id)}  value={user.id} variant="warning" size='small'>Active</Button>}
-              {ed===true && <Button onClick={(e)=> handleSubmit(e)} variant ="warning">Submit</Button>}
+              {ed===true && <Button onClick={(e)=> handleSubmit(e, user.id)} variant ="warning">Submit</Button>}
             </td>
           </tr>
         )): null}

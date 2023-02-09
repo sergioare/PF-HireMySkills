@@ -13,15 +13,15 @@
 }
 .profBtn button i {
   font-size: 3.5rem;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 .profBtn button i:hover {
-  color: #a52410;
+  color: #4a0876;
 }
 
 .About_About {
   font-size: 50px;
-  color: #ffffff;
+  color: #000000;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   padding-bottom: 30px;
 }
@@ -37,5 +37,5 @@
 
 .Text_About {
   margin-top: 30px;
-  color: white;
+  color: rgb(0, 0, 0);
 }

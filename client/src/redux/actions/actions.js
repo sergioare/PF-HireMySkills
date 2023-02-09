@@ -14,6 +14,7 @@ import {
   POST_PROFESSIONALS,
   POST_USER,
   POST_REVIEWS,
+  GET_REVIEWS,
   ORDER_BY_RATING,
   ORDER_BY_NAME,
   ORDER_BY_REVIEWS,
@@ -21,6 +22,8 @@ import {
   FILTER_BY_PROFESSION,
   FILTER_BY_PROVINCE,
   FILTER_TOWN,
+  FILTER_BY_STATE,
+  FILTER_BY_COUNTRY,
   DELETE_SERVICE,
   DELETE_PROFILE,
   DELETE_USER,
@@ -29,6 +32,8 @@ import {
   REMOVE_ALL_FROM_CART,
   CLEAR_CART,
   GET_PROFESSIONALS_BY_PROFESSION,
+  GET_COULD_REVIEW,
+  GET_PROFESSIONAL_REVIEW,
   urlCategory,
   urlProfession,
   urlProfessionals,
@@ -109,6 +114,7 @@ export function filterByProvince(town) {
     payload: town,
   };
 }
+
 export function filterTown() {
   return async function (dispatch) {
     await axios.get(urlProfessionals).then((response) => {
@@ -137,6 +143,7 @@ export function postProfessional(data) {
 }
 
 export function deleteProfessional(id) {
+  console.log("DELTED ACTION", id)
   return async function (dispatch) {
     axios
       .delete(`${urlProfessionals}/${id}`)
@@ -144,20 +151,6 @@ export function deleteProfessional(id) {
   };
 }
 
-export function orderByReviews(payload) {
-  return {
-    type: ORDER_BY_REVIEWS,
-    payload,
-  };
-}
-
-// export function addToCart(service){
-//     return async function(dispatch){
-//         axios.post(urlShoppingcart, service)
-//         .then(res=>
-//             dispatch({type:ADD_TO_CART, payload: res.data}))
-//     }
-// }
 export const addToCart = (id) => ({
   type: ADD_TO_CART,
   payload: id,
@@ -184,11 +177,46 @@ export function patchProfessionals(profesional, id){
   }
 }
 
-export function postReviews(message) {
+
+export function postReviews(input) {
   return async function (dispatch) {
-    axios
-      .post(urlReviews, message)
+    await axios
+      .post(urlReviews, input)
+      .then((res) => console.log(res.data, "res"))
       .then((res) => dispatch({ type: POST_REVIEWS, payload: res.data }));
+  };
+}
+export function getReviews() {
+  return async function (dispatch) {
+    await axios
+      .get(urlReviews)
+      .then((res) => dispatch({ type: GET_REVIEWS, payload: res.data }));
+  };
+}
+
+export function getCouldReview(professionalId, userId) {
+  // console.log(professionalId, userId, "idData");
+  return async function (dispatch) {
+    await axios
+      .get(`${urlReviews}/${professionalId}/${userId}`)
+      // .then((res) => console.log(res.data, "data"))
+      .then((res) =>
+        dispatch({
+          type: GET_COULD_REVIEW,
+          payload: res.data,
+        })
+      );
+  };
+}
+
+export function getProfessionalReview(professionalId) {
+  return async function (dispatch) {
+    await axios.get(`${urlReviews}/${professionalId}`).then((res) =>
+      dispatch({
+        type: GET_PROFESSIONAL_REVIEW,
+        payload: res.data,
+      })
+    );
   };
 }
 
@@ -201,13 +229,6 @@ export const clearCart = () => ({
   type: CLEAR_CART,
 });
 
-// export function deleteFromCart(service){
-//     return async function(dispatch){
-//         axios.delete(`${urlShoppingcart}/${service}`)
-//         .then(res=>
-//         dispatch({type:DELETE_TO_CART, payload:service}))
-//     }
-// }
 export function postService(data) {
   return async function (dispatch) {
     axios
@@ -223,18 +244,19 @@ export function getUser() {
   };
 }
 export function getUserById(id) {
+  // console.log(id);
   return async function (dispatch) {
     axios
       .get(`${urlUsers}/${id}`)
+      .then((res) => console.log(res.data, "data"))
       .then((res) => dispatch({ type: GET_USER_BY_ID, payload: res.data }));
   };
 }
 
 export function postUser(data) {
   return async function (dispatch) {
-    axios
-      .post(urlUsers, data)
-      .then((res) => dispatch({ type: POST_USER, payload: res.data }));
+    const res = await axios.post(urlUsers, data);
+    return res;
   };
 }
 export function deleteUser(id) {
@@ -249,17 +271,13 @@ export function getProfesionalsByProfession(profession) {
   return async function (dispatch) {
     try {
       const aux = await axios.get(`${url}/profession?profession=${profession}`);
-      console.log(aux.data);
+      // console.log(aux.data);
 
       return dispatch({
         type: GET_PROFESSIONALS_BY_PROFESSION,
         payload: aux.data,
       });
     } catch (error) {
-      // return dispatch({
-      //     type: GET_COUNTRY_BY_NAME,
-      //     payload: error
-      // })
       console.log("ERROR ", error);
     }
   };
@@ -275,13 +293,12 @@ export function getServices() {
   };
 }
 
-  export function orderByRating(payload) {
+export function orderByRating(payload) {
   return {
     type: ORDER_BY_RATING,
     payload,
   };
 }
-
 
 // export const addToCart = service=>
 //   async function (dispatch){
@@ -307,7 +324,7 @@ export function getServices() {
 
 //         //add cart to local storage
 //         localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))
-        
+
 //         //add cart to redux
 //         dispatch({
 //           type: ADD_TO_CART,

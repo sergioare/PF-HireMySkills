@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "./Sidebar/Sidebar";
 
-const Profile = () => {
+const DashboardProfessional = () => {
   return (
     <div>
       <div className="containerSiderbar">
@@ -12,4 +12,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default DashboardProfessional;

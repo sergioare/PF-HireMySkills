@@ -13,6 +13,7 @@ const NavBar = () => {
   const total = shopping
     .map((service) => service.quantity * service.price)
     .reduce((acc, element) => acc + element, 0);
+
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   return (
@@ -50,13 +51,9 @@ const NavBar = () => {
         </Link>
 
         <Link to="/account" className={styles.navLink}>
-          <i class="fa-solid fa-user px-1 fs-3"></i>
+          <i className="fa-solid fa-user px-1 fs-3"></i>
           {isLoading ? "Loading..." : isAuthenticated ? user.name : "Account"}
         </Link>
-
-        {/* <div className={styles.menu}>
-          <Menu />
-        </div> */}
       </div>
     </div>
   );

@@ -13,10 +13,10 @@
 }
 .profBtn button i {
   font-size: 3.5rem;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 .profBtn button i:hover {
-  color: #cd340d;
+  color: #4a0876;
 }
 .divCards {
   width: 90%;
@@ -92,6 +92,7 @@
 }
 .profRating {
   margin-left: 20px;
+  display: flex;
 }
 .description {
   padding-left: 20px;
