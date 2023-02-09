@@ -4,7 +4,7 @@ import axios from 'axios'
 import styles from './FormServices.module.css'
 import {useNavigate, useParams} from 'react-router-dom'
 import * as Yup from "yup";
-
+import Swal from 'sweetalert2'
 
 
 const FormServices = () => {
@@ -14,6 +14,13 @@ const FormServices = () => {
     const[responseServer, setResponseServer] = useState(null);
     const [imageCloud, setImageCloud] = useState('');
 
+    const showAlert = ()=>{
+        Swal.fire({
+        title: "Your service was created successfuly",
+        icon: "success",
+        footer: "<b>Continue enjoy our services</b>"
+    })
+    }
     const handleImage = async event=>{
         const file = event.target.files[0];
         const formData = new FormData()
@@ -65,7 +72,7 @@ const FormServices = () => {
                     setResponseServer(response.data);
                     navigate("/professionalDashboard");
                 // setSubmitting(false);                    // navigate('/home')
-                    alert('Your service was created successfuly')
+                   showAlert();
               })
                 .catch(error=>{
                     setResponseServer(error.message);
@@ -145,7 +152,7 @@ const FormServices = () => {
                                 <span className={styles.error}>{errors.price}</span>
                             )}
 
-                        <button type='submit'> 
+                        <button className={styles.Buttonsend} type='submit'> 
                         {/* disabled={isSubmitting} */}
                                 Submit
                         </button>

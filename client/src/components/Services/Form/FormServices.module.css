@@ -40,3 +40,17 @@
   .error{
     color: red;
   }
+
+  .Buttonsend {
+    background-color: #faf8f8;
+    border-color: #fff;
+    border-radius: 7px;
+    color: rgb(2, 2, 2);
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}

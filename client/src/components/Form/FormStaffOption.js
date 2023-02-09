@@ -7,6 +7,7 @@ import styles from "./FormStaff.module.css";
 import { useNavigate } from "react-router-dom";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
+import Swal from 'sweetalert2'
 let category_list = [];
 let professions_list = [];
 let auth_token;
@@ -24,6 +25,13 @@ const FormStaff = () => {
   const navigate = useNavigate();
   const [imageCloud, setImageCloud] = useState("");
 
+  const showAlert = ()=>{
+    Swal.fire({
+    title: "Your profile was created successfuly",
+    icon: "success",
+    footer: "<b>Continue enjoy our services</b>"
+})
+}
   const handleImage = async (event) => {
     const file = event.target.files[0];
     const formData = new FormData();
@@ -164,7 +172,7 @@ const FormStaff = () => {
                 setResponseServer(response.data);
                 // setSubmitting(false);
                 navigate("/professionalDashboard");
-                alert("Your profile was created successfuly");
+               showAlert();
               })
               .catch((error) => {
                 setResponseServer(error.message);
@@ -176,10 +184,9 @@ const FormStaff = () => {
           {({
             errors,
             touched,
-            handleSubmit,
             handleChange,
             values,
-            isSubmitting,
+           
           }) => (
             <Form className={styles.Formprofessional}>
               <h6 className={styles.h6form}>Your name</h6>
