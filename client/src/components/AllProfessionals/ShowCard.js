@@ -24,7 +24,7 @@ const ShowCard = ({ name, rating, id, photo, professions }) => {
       <div className="card-body text-light">
         <h4 className="card-title">{name}</h4>
         <p className="card-text text-secondary text-white">
-          Professions: {professions}
+          Professions: {professions.join(", ")}
         </p>
         <p className="card-text text-secondary d-flex justify-content-center">
           Rating:

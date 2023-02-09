@@ -18,17 +18,16 @@ const Review = () => {
   const dispatch = useDispatch();
   const reviews = useSelector((state) => state.reviews);
   const relation = useSelector((state) => state.relation);
-  //   console.log(relation, "relation");
+  console.log(relation, "relation");
 
-  console.log(id, "id");
   const [input, setInput] = useState({
     review_comment: "",
     userId: "685427dc-0be7-4591-b82f-f2567355b4f4",
     professionalId: id,
   });
-
+  // console.log(id, "id");
   useEffect(() => {
-    console.log(input.userId, "AA");
+    // console.log(input.userId, "AA");
     dispatch(getProfessionalReview(id));
     dispatch(getCouldReview(id, input.userId));
   }, [dispatch, id, input.userId]);
@@ -44,7 +43,7 @@ const Review = () => {
     // console.log(input);
     ev.preventDefault();
     dispatch(getReviews());
-    return dispatch(postReviews(input));
+    dispatch(postReviews(input));
   };
 
   const secondExample = {
@@ -52,7 +51,7 @@ const Review = () => {
     count: 5,
     color: "black",
     activeColor: "#ecea4c",
-    value: input.rating,
+    value: parseFloat(input.rating),
     a11y: true,
     isHalf: false,
     emptyIcon: <i className="far fa-star" />,
@@ -95,7 +94,6 @@ const Review = () => {
               gradientDuoTone="purpleToBlue"
               type="submit"
               className={styles.Button}
-              // {relation === false && disabled}
               disabled
             >
               Comment
@@ -105,7 +103,6 @@ const Review = () => {
               gradientDuoTone="purpleToBlue"
               type="submit"
               className={styles.Button}
-              // {relation === false && disabled}
             >
               Comment
             </Button>
@@ -122,7 +119,7 @@ const Review = () => {
         {reviews.length ? (
           reviews.map((rev) => {
             return (
-              <div className={styles.divComment} key={rev.id}>
+              <div className={styles.divComment}>
                 <div className={styles.rewProfile}>
                   <div className={styles.rewHeader}>
                     <div className={styles.rewImg}>

@@ -209,6 +209,7 @@ export function getCouldReview(professionalId, userId) {
 }
 
 export function getProfessionalReview(professionalId) {
+  console.log(professionalId, "idprof");
   return async function (dispatch) {
     await axios.get(`${urlReviews}/${professionalId}`).then((res) =>
       dispatch({

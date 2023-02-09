@@ -6,7 +6,7 @@ const Stars = (props) => {
   const starCount = parseInt(props.value);
   const secondExample = {
     // count: 5,
-    value: props.value,
+    value: starCount,
     edit: false,
     color: "black",
     activeColor: "#ecea4c",

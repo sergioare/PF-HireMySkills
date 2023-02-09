@@ -21,8 +21,9 @@ const AllProfessionals = () => {
   const allProfessionals = useSelector((state) => state.allProfessionals);
   const profession = useSelector((state) => state.subCategory);
   const town = useSelector((state) => state.town);
-  const detailProfessional = useSelector((state) => state.detail);
+  // const [filtros, setFiltros] = useState("");
 
+  // console.log(allProfessionals[0].skills, "all");
   //  ----------- filter------------
   const handlerprofession = (e) => {
     e.preventDefault();
@@ -47,6 +48,18 @@ const AllProfessionals = () => {
     dispatch(getProfessionals());
     dispatch(getSubCategory());
   }, [dispatch]);
+
+  // useEffect(() => {
+  //   localStorage.setItem("filter", JSON.stringify(filtros));
+  // }, [filtros]);
+
+  // if (localStorage.getItem("filter")) {
+  //   setFiltros(JSON.parse(localStorage.getItem("filter")));
+  // } else {
+  //   setFiltros();
+  // }
+
+  let prof = allProfessionals.filter((pf) => pf.deleted === false);
 
   return (
     <div className={styles.divAllProfessionals}>
@@ -156,9 +169,9 @@ const AllProfessionals = () => {
           Professionals
         </h1>
         <div className="container h-100 d-flex justify-content-center">
-          {allProfessionals.length > 0 ? (
+          {prof.length > 0 ? (
             <div className="row col-md-12 d-flex align-items-center justify-content-around">
-              {allProfessionals.map((prof) => {
+              {prof.map((prof) => {
                 return (
                   <div key={prof.id} className="col-md-4">
                     <ShowCard
@@ -166,7 +179,7 @@ const AllProfessionals = () => {
                       photo={prof.photo}
                       id={prof.id}
                       rating={prof.rating}
-                      professions={prof.skills.join(", ")}
+                      professions={prof.skills}
                     />
                   </div>
                 );

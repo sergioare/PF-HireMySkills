@@ -120,6 +120,50 @@
   background-color: #4444d1e7;
   border-color: rgb(240, 235, 245);
 }
+.orderNameRating {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+}
+.divTitleOrder {
+  display: inline-block;
+}
+
+.divNameRating {
+  display: flex;
+}
+.divTitleOrder {
+  font-weight: 700;
+}
+
+.divName {
+  display: flex;
+  font-weight: 700;
+}
+.divRating {
+  display: flex;
+  font-weight: 700;
+}
+.select {
+  background-color: #283c63;
+  width: 200px;
+  height: 28px;
+  border: 1px solid white;
+  color: white;
+  font-size: 15px;
+  border-radius: 10px;
+}
+.selects {
+  background-color: #283c63;
+  width: 100px;
+  height: 28px;
+  color: white;
+  font-size: 15px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
 
 .notProf {
   color: rgba(255, 255, 255, 0.671);

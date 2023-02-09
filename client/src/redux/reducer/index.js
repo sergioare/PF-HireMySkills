@@ -52,13 +52,13 @@ if (localStorage.getItem("shoppingCart")) {
   initialState.shoppingCart = [];
 }
 
-if (localStorage.getItem("allProfessionals")) {
-  initialState.allProfessionals = JSON.parse(
-    localStorage.getItem("allProfessionals")
-  );
-} else {
-  initialState.allProfessionals = [];
-}
+// if (localStorage.getItem("allProfessionals")) {
+//   initialState.allProfessionals = JSON.parse(
+//     localStorage.getItem("allProfessionals")
+//   );
+// } else {
+//   initialState.allProfessionals = [];
+// }
 
 export function rootReducer(state = initialState, action) {
   switch (action.type) {
@@ -69,6 +69,7 @@ export function rootReducer(state = initialState, action) {
       };
 
     case GET_SUB_CATEGORY:
+      console.log(action.payload, "category");
       return {
         ...state,
         subCategory: action.payload,
@@ -169,7 +170,7 @@ export function rootReducer(state = initialState, action) {
     //   };
 
     case GET_REVIEWS:
-      // console.log(action.payload, "WW");
+      console.log(action.payload, "WW");
       return {
         ...state,
         reviews: action.payload,

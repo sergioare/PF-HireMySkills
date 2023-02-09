@@ -22,6 +22,7 @@ const Professional = () => {
   const navegate = useNavigate();
   const detailProfessional = useSelector((state) => state.detail);
 
+  console.log(detailProfessional, "detail");
   useEffect(() => {
     dispatch(clearProfessional());
     dispatch(getProfessionalById(id));
