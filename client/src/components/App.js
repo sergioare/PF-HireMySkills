@@ -11,6 +11,11 @@ import FAQs from "./FAQs/FAQs";
 import SignIn from "./SignIn/Acc/SignIn";
 import AllProfessionals from "./AllProfessionals/AllProfessionals";
 import Form from "./Form/FormStaffOption";
+import Homeadmin from "../Admin/pages/Homeadmin";
+import PaymentCheckout from "./PaymentCheckout/PaymentCheckout";
+import Userss from "../Admin/components/Users/Userss";
+import Trabajadores from "../Admin/components/Professionals/Trabajadores";
+
 import FormServices from "./Services/Form/FormServices";
 import Contact from "./Contact-Us/Contact";
 import ShoppingCart from "./Shopping/ShoppingCart";
@@ -41,6 +46,10 @@ function App() {
           <Route path="/professionals" element={<AllProfessionals />} />
           <Route path="/FAQs" element={<FAQs />} />
           <Route path="/account" element={<SignIn />} />
+          <Route path="/admin" element={<Homeadmin/>}/>
+          <Route path="/admin/profesionals" element={<Trabajadores/>}/>
+          <Route path="/admin/users" element={<Userss/>}/>
+          <Route path="/checkout" element={<PaymentCheckout/>}/>
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/form" element={<Form />} />
           <Route path="/form-services" element={<FormServices />} />

@@ -14,13 +14,14 @@ app.use(express.json());
 
 const Checkout= async (req, res) => {
     // you can get more data to find in a database, and so on
-    const { id, amount } = req.body;
+    const { id, amount,email } = req.body;
   
     try {
       const payment = await stripe.paymentIntents.create({
         amount,
         currency: "USD",
         description: "Profession Service",
+        email:email,
         payment_method: id,
         confirm: true,
       })
@@ -29,7 +30,7 @@ const Checkout= async (req, res) => {
       })
 
   
-      console.log(payment);
+      console.log("PAAYYYMENT ",payment);
   
       return res.status(200).json({ message: "Successful Payment" });
     } catch (error) {

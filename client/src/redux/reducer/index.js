@@ -26,8 +26,11 @@ import {
   REMOVE_ONE_FROM_CART,
   REMOVE_ALL_FROM_CART,
   CLEAR_CART,
+  
   GET_COULD_REVIEW,
   GET_PROFESSIONAL_REVIEW,
+  PATCH_USERS,
+  PATCH_PROFESSIONALS
 } from "../../utils";
 
 export const initialState = {
@@ -36,8 +39,11 @@ export const initialState = {
   detail: [],
   subCategory: [],
   town: [],
-  user: [],
+  user:[],
+  userPatch:[],
+  userDelete:[],
   userId: [],
+  profDeleted:[],
   professionals: [],
   services: [],
   reviews: [],
@@ -204,6 +210,28 @@ export function rootReducer(state = initialState, action) {
         ...state,
         allProfessionals: array,
       };
+    
+      case GET_USER:
+        console.log("PAAYLOAD", action.payload)
+         return{
+           ...state,
+           user: action.payload,
+         }
+         case PATCH_USERS:
+          return {
+            ...state,
+            userPatch: action.payload
+          }
+        case PATCH_PROFESSIONALS:
+          return {
+            ...state,
+            professionalPatch: action.payload
+          }
+          case DELETE_USER:
+            return {
+              ...state,
+              userDelete:action.payload
+            }  
 
     case FILTER_TOWN:
       let townf = [];
@@ -216,6 +244,12 @@ export function rootReducer(state = initialState, action) {
         });
       }
       return { ...state, town: townf };
+
+    case DELETE_PROFILE:
+      return{
+        ...state,
+        profDeleted: action.payload
+      }
 
     case FILTER_BY_PROVINCE:
       let city = [];
