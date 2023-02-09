@@ -1,0 +1,34 @@
+/* .BigContainer_SignIn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  border-radius: 20px;
+  background-color: rgb(129, 86, 86);
+  height: 50vh;
+  width: 70vh;
+  border: solid white 2px;
+  margin: 5%;
+} */
+
+/* .BigContainer_SignIn button {
+  margin-left: 1px;
+  margin-top: 20px;
+} */
+/* .Container_ProfileLogout_SignIn {
+  position: absolute;
+  width: 940px;
+  height: 420px;
+  top: 180px;
+  left: 169px;
+  border: solid black 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+} */
+
+.divprofile {
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+}

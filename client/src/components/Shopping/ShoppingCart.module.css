@@ -1,0 +1,40 @@
+.container{
+    border: 2px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    width: 100vw;
+}
+.container h1{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    color: rebeccapurple;
+    border: 2px solid red;
+    height: 12%;
+    font-weight: bolder;
+
+}
+.labels{
+    display: table-column;
+    width: 100vw;
+    border: 2px solid blue;
+    align-content: space-around;
+      
+}
+label{
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid 
+}
+
+.box{
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: 0 0 1rem #00000025 inset;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 1rem;
+   
+  }
+  

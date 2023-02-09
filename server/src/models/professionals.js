@@ -1,5 +1,4 @@
 const { DataTypes } = require("sequelize");
-
 const sequelize = require("../db/db.js");
 
 const professionals =
@@ -26,13 +25,24 @@ const professionals =
       photo: {
         // la foto del rostro del profesional
         type: DataTypes.TEXT,
-        allowNull: true,
+        defaultValue:
+          "https://www.supercoloring.com/sites/default/files/styles/coloring_medium/public/cif/2022/02/521-bust-in-silhouette-coloring-page.png",
       },
       email: {
         type: DataTypes.STRING, //  contacto del professional
         allowNull: false,
       },
       town: {
+        //lugar donde esta ubicado
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      state: {
+        //lugar donde esta ubicado
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      country: {
         //lugar donde esta ubicado
         type: DataTypes.STRING,
         allowNull: false,
@@ -45,6 +55,11 @@ const professionals =
       rating: {
         type: DataTypes.DECIMAL(3, 2),
         defaultValue: 5.0,
+      },
+
+      count: {
+        type: DataTypes.INTEGER,
+        defaultValue: 1,
       },
       portfolio: {
         type: DataTypes.TEXT,

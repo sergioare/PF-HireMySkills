@@ -1,26 +1,33 @@
 const products = require("../models/products.js");
 
-const postProducts = async (req, res) => {
-  let { name, quantity, description, img, price } = req.body;
+const getProducto = async (req, res) => {
+  try {
+    const product = await products.findAll();
+    console.log(product);
+    res.json(product);
+  } catch (error) {
+    res.send({ message: error.message });
+  }
+};
 
-  await products
-    .create({
+const postProducts = async (req, res) => {
+  let { name, quantity, description, img, price, professionalId } = req.body;
+  try {
+    await products.create({
       name,
       quantity,
       description,
       img,
       price,
-    })
-    .then(() =>
-      res.json({
-        name,
-        quantity,
-        description,
-        img,
-        price,
-      })
-    )
-    .catch((err) => res.status(400).json({ message: err.message }));
+      professionalId,
+    });
+    res.json("product created successfully");
+  } catch (error) {
+    res.send({ message: error.message });
+  }
 };
 
-module.exports = postProducts;
+module.exports = {
+  postProducts,
+  getProducto,
+};

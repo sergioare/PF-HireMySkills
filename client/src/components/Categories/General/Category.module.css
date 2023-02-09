@@ -1,0 +1,69 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap");
+
+.divCategory {
+  width: 100%;
+  min-height: 100vh;
+}
+.card {
+  width: 80%;
+  padding-top: 50px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  display: grid;
+  gap: 3rem;
+  grid-auto-rows: 12rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+.cardTitle {
+  color: black;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+.cardBody {
+  width: 75%;
+  background-color: rgb(177, 178, 180);
+  height: 150px;
+  border-radius: 10px;
+}
+.cardHeader {
+  margin: auto;
+  width: 100%;
+  padding-top: 30px;
+  padding-left: 60px;
+  color: black;
+}
+
+.cardLink {
+  text-decoration: none;
+}
+.cardName {
+  color: black;
+  margin: auto;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  padding-top: 25%;
+}
+.divLoading {
+  width: 100%;
+}
+.loading {
+  justify-content: center;
+  text-align: center;
+  padding-left: 470px;
+  padding-top: 100px;
+} */
+.profBtn button {
+  margin-left: 60px;
+  margin-top: 30px;
+  background-color: transparent;
+  border: none;
+}
+.profBtn button i {
+  font-size: 3.5rem;
+  color: rgb(255, 255, 255);
+}
+.profBtn button i:hover {
+  color: #b02810;
+}

@@ -1,36 +1,62 @@
 import React from "react";
 import styles from "./NavBar.module.css";
 import Menu from "../Menu/Menu";
-import { Link, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
+  const shopping = useSelector((state) => state.shoppingCart);
+  const values = shopping
+    .map((service) => service.quantity)
+    .reduce((acc, element) => acc + element, 0);
+  const total = shopping
+    .map((service) => service.quantity * service.price)
+    .reduce((acc, element) => acc + element, 0);
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
   return (
     <div className={styles.BigContainer_NavBar}>
-      <div className={styles.Container_NavBar}>
-        <Link to="/">
-          <div className={styles.HMS_NavBar}>HireMySkills</div>
+      <div className={styles.nabvar}>
+        <Link to="/" className={styles.logo}>
+          HireMySkills
         </Link>
-        <Link to="/categories">
-          <div className={styles.Categories_NavBar}>Categories</div>
+
+        <Link to="/categories" className={styles.navLink}>
+          Categories
         </Link>
-        <Link to="/about">
-          <div className={styles.AboutUs_NavBar}>About us</div>
+
+        <Link to="/professionals" className={styles.navLink}>
+          Professionals
         </Link>
-        <Link to="/FAQs">
-          <div className={styles.FAQs_NavBar}>FAQs</div>
+
+        <Link to="/about" className={styles.navLink}>
+          About us
         </Link>
-        <Link to="/account">
-          <div className={styles.SignIn_NavBar}>Account</div>
+
+        <Link to="/shopping" className={styles.navLink}>
+          <div
+            id="cart-info"
+            className="nav-info align-items-center cart-info d-flex justify-content-between mx-lg-5"
+          >
+            <span className="cart-info__icon mr-lg-3">
+              <i className="fas fa-shopping-cart"></i>
+            </span>
+            <p className="mb-0 text-capitalize">
+              <span id="item-count">{values} </span> Services - $
+              <span className="item-total">{total}</span>
+            </p>
+          </div>
         </Link>
-        {/*         <Link to="/Join">
-          <div className="Join_NavBar">Join</div>
-        </Link> */}
-        <div className={styles.Menu_NavBar}>
+
+        <Link to="/account" className={styles.navLink}>
+          <i className="fa-solid fa-user px-1 fs-3"></i>
+          {isLoading ? "Loading..." : isAuthenticated ? user.name : "Account"}
+        </Link>
+
+        {/* <div className={styles.menu}>
           <Menu />
-        </div>
-        <section>
-          <Outlet />
-        </section>
+        </div> */}
       </div>
     </div>
   );

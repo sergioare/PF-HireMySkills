@@ -1,0 +1,101 @@
+.divProfessional {
+  width: 100vw;
+  height: 100vh;
+  color: black;
+}
+.profBtn button {
+  margin-left: 60px;
+  margin-top: 30px;
+  background-color: transparent;
+  border: none;
+}
+.profBtn button i {
+  font-size: 3.5rem;
+  color: tomato;
+}
+.profBtn button i:hover {
+  color: #076b72;
+}
+.divDet {
+  width: 80%;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+/* .firstContainer {
+  width: 100%;
+  display: grid;
+  
+}
+.containerDet {
+  width: 100%;
+  
+} */
+.profImg {
+  width: 100%;
+  display: flex;
+  padding: 20px;
+  height: 50%;
+}
+.img {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  height: 400px;
+  border-radius: 20px;
+  height: 50%;
+}
+.twoContainer {
+  width: 100%;
+  margin-left: 40px;
+  height: 50%;
+}
+.detName {
+  color: black;
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+.detText {
+  font-size: 20px;
+}
+.detSpan {
+  font-size: 15px;
+}
+.divBtn {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-bottom: 20px;
+  margin-top: 30px;
+}
+.btn {
+  border: 0;
+  padding: 10px;
+  font-size: 20px;
+  background-color: tomato;
+  width: 35%;
+  border-radius: 10px;
+}
+.btn:hover {
+  font-size: 25px;
+  color: rgb(240, 235, 245);
+  background-color: #076b72;
+  border-color: rgb(240, 235, 245);
+}
+.divLoading {
+  width: 100%;
+}
+.loading {
+  justify-content: center;
+  text-align: center;
+  padding-left: 470px;
+  padding-top: 100px;
+}
+.box {
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0 0 1rem #00000025 inset;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}

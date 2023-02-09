@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  position: relative;
+  width: 25vw;
+}
+.input {
+  display: flex;
+  width: 20vw;
+  height: 3.2vh;
+  color: black;
+  text-align: center;
+  font-size: 1.5vh;
+  font-weight: bold;
+  background-color: white;
+  border: solid black 2px;
+}
+.but {
+  width: 5vw;
+  height: 3.2vh;
+  text-align: center;
+  background: #ffffff;
+  color: black;
+  border: solid black 2px;
+  font-weight: bold;
+  font-size: 1.5vh;
+}
+
+.but:hover {
+  background: #fff5c3;
+}

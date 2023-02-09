@@ -1,0 +1,12 @@
+.container{
+    border: thin solid gray;
+    padding: 1rem;
+}
+
+.img{
+    width: 12vw;
+    height: 15vh;
+    border-radius: 1.5vw;
+    padding: 1rem;
+    margin: 1rem;
+   }

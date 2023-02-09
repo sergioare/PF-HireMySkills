@@ -1,128 +1,53 @@
 .BigContainer_NavBar {
-  position: absolute;
-  height: 84px;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-
-  background: #f4a261;
-  /* opacity: 0.6; */
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  background-image: linear-gradient(to top, #000000 0%, #330867 100%);
+  word-spacing: 0.6vw;
+  text-decoration: none;
+  z-index: 100;
 }
 
-.Container_NavBar {
-  position: absolute;
-  width: 1440px;
-  height: 84px;
-  left: 0px;
-  top: 0px;
+.nabvar {
+  display: flex;
+
+  width: 100vw;
+  align-items: center;
 }
 
-.Menu_NavBar {
-  position: absolute;
-  width: 35px;
-  height: 34px;
-  left: 1800px;
-  top: 25px;
+.logo {
+  display: flex;
+  font-family: "Cinzel";
+  font-weight: 700;
+  justify-content: space-around;
+  font-size: 2vw;
+  color: #ffffff;
+  flex-grow: 4;
+  text-decoration: none;
 }
 
-.Join_NavBar {
-  position: absolute;
-  width: 37px;
-  height: 21px;
-  top: 33px;
-  left: 1720px;
-
+.logo:hover {
+  color: #fff5c3;
+}
+.navLink {
+  text-decoration: none;
   font-family: "Work Sans";
   font-style: normal;
   font-weight: 600;
-  font-size: 18px;
-  line-height: 21px;
-
-  color: #009949;
-
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 1.2vw;
+  color: #ffffff;
+  flex-grow: 5;
 }
-
-.SignIn_NavBar {
-  position: absolute;
-  width: 60px;
-  height: 21px;
-  top: 33px;
-  left: 1620px;
-
-  font-family: "Work Sans";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 21px;
-
-  color: #009949;
-
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.navLink:hover {
+  color: #fff5c3;
 }
-
-.HMS_NavBar {
-  position: absolute;
-  width: 151px;
-  height: 28px;
-  top: 29px;
-  left: 105px;
-
-  font-family: "Work Sans";
-  font-style: normal;
-  font-weight: 800;
-  font-size: 30px;
-  line-height: 28px;
-
-  color: #009949;
-
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.navLink:nth-child(5) {
+  display: flex;
+  flex-grow: 8;
+  justify-content: end;
+  margin-right: 2%;
 }
-
-.Categories_NavBar {
-  position: absolute;
-  left: 320px;
-  top: 33px;
-  width: 93px;
-  height: 21px;
-
-  font-family: "Work Sans";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 21px;
-
-  color: #009949;
-}
-
-.AboutUs_NavBar {
-  position: absolute;
-  width: 80px;
-  height: 21px;
-  top: 33px;
-  left: 457px;
-
-  font-family: "Work Sans";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 21px;
-
-  color: #009949;
-}
-
-.FAQs_NavBar {
-  position: absolute;
-  width: 45px;
-  height: 21px;
-  top: 33px;
-  left: 581px;
-
-  font-family: "Work Sans";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 21px;
-
-  color: #009949;
+.menu {
+  margin-right: 2%;
+  background-color: #ff7069;
 }

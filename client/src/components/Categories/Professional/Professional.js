@@ -1,0 +1,114 @@
+import React from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getProfessionalById,
+  clearProfessional,
+  addToCart,
+} from "../../../redux/actions/actions";
+import { useParams, useNavigate } from "react-router-dom";
+import styles from "../Professional/Professional.module.css";
+import NavBar from "../../Navbar/Navbar";
+import Footer from "../../Footer/Footer";
+import imgDefault from "../../../assets/imgDefault.jpg";
+import Services from "../../Services/Services";
+
+const Professional = () => {
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const navegate = useNavigate();
+  const detailProfessional = useSelector((state) => state.detail);
+
+  useEffect(() => {
+    dispatch(clearProfessional());
+    dispatch(getProfessionalById(id));
+  }, [dispatch, id]);
+
+  return (
+    <div className={styles.divProfessional}>
+      <NavBar />
+      <div className={styles.profBtn}>
+        <button onClick={() => navegate(-1)}>
+          <i className="fa-solid fa-circle-chevron-left"></i>
+        </button>
+      </div>
+
+      <div className={styles.divDet}>
+        <div className={styles.firstContainer}>
+          {detailProfessional.name ? (
+            <div className={styles.containerDet}>
+              <div className={styles.profImg}>
+                <img
+                  className={styles.img}
+                  src={
+                    detailProfessional.photo
+                      ? detailProfessional.photo
+                      : imgDefault
+                  }
+                  alt="Img not found"
+                />
+                <div className={styles.twoContainer}>
+                  <h1 className={styles.detName}>{detailProfessional.name}</h1>
+                  <p className={styles.detText}>
+                    <b> Profile: </b>
+                    <span className={styles.detSpan}>
+                      {detailProfessional.description}
+                    </span>
+                  </p>
+                  <p className={styles.detText}>
+                    <b>Town: </b>
+                    <span className={styles.detSpan}>
+                      {detailProfessional.town}
+                    </span>
+                  </p>
+                  <p className={styles.detText}>
+                    <b>Score: </b>
+                    <span className={styles.detSpan}>
+                      {detailProfessional.rating}
+                    </span>
+                  </p>
+                  <p className={styles.detText}>
+                    <b>Professions: </b>
+                    <span className={styles.detSpan}>
+                      {detailProfessional.skills.join(", ")}
+                    </span>
+                  </p>
+                  <p className={styles.detText}>
+                    <b>Portfolio: </b>
+                    <span className={styles.detSpan}>
+                      {detailProfessional.portfolio}
+                    </span>
+                  </p>
+
+                  <h3>Services</h3>
+                  <article className={styles.box}>
+                    {detailProfessional.products.map((service) => (
+                      <Services
+                        key={service.id}
+                        data={service}
+                        addToCart={() => dispatch(addToCart(service.id))}
+                      />
+                    ))}
+                  </article>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className={styles.divLoading}>
+              <img
+                className={styles.loading}
+                src="https://img1.picmix.com/output/stamp/normal/8/5/2/9/509258_fb107.gif"
+                alt="Img not found"
+                width="200px"
+              />
+            </div>
+          )}
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
+};
+
+export default Professional;
+
