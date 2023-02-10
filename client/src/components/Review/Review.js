@@ -29,8 +29,8 @@ const Review = () => {
   useEffect(() => {
     // console.log(input.userId, "AA");
     dispatch(getProfessionalReview(id));
-    dispatch(getCouldReview(id, input.userId));
-  }, [dispatch, id, input.userId]);
+    // dispatch(getCouldReview(id, input.userId));
+  }, [dispatch, id]);
 
   const handleChange = (ev) => {
     setInput({
@@ -89,24 +89,13 @@ const Review = () => {
               className="fs-6 w-100"
             />
           </div>
-          {relation === false ? (
-            <Button
-              gradientDuoTone="purpleToBlue"
-              type="submit"
-              className={styles.Button}
-              disabled
-            >
-              Comment
-            </Button>
-          ) : (
-            <Button
-              gradientDuoTone="purpleToBlue"
-              type="submit"
-              className={styles.Button}
-            >
-              Comment
-            </Button>
-          )}
+          <Button
+            gradientDuoTone="purpleToBlue"
+            type="submit"
+            className={styles.Button}
+          >
+            Comment
+          </Button>
         </form>
       </div>
       {/* ---------review-------- */}
